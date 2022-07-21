@@ -54,11 +54,11 @@
             - Therefore, ``\forall \mathbf{x}' \in \otimes_{i=1}^{d} [l_i, r_i], f(\mathbf{x}') \leq \sum_{i=1}^{2^d} \lambda_i' f(\mathbf{x}_i) \leq \max_{i} f(\mathbf{x}_i)``, ``\mathbf{x}_i`` is corner.
         - If we do shrinkage over the cube by factor ``\alpha_t``, then each corner ``\mathbf{x}_i`` becomes ``(1-\alpha_t)\mathbf{x} + \alpha_t \mathbf{x}_i``
             - then ``f((1-\alpha_t)\mathbf{x} + \alpha_t \mathbf{x}_i) \leq (1-\alpha_t) f(\mathbf{x} ) + \alpha_t f(\mathbf{x}_i) \to f(\mathbf{x} )`` when ``\alpha_t\to 0``
-            - Therefore, we upper bound the value in the cube. ``\forall \epsilon``, ``\exists \alpha_t`` s.t. ``\max_{i} f(\mathbf{x}_{\alpha_t, i}) -f(\mathbf{x}) \leq \epsilon``
-        - Now need to lower bound it, if we already have ``\forall \mathbf{x}' \in \otimes_{i=1}^{d} [l_{i, \alpha_t}, r_{i, \alpha_t}]``, ``f(\mathbf{x}')-f(\mathbf{x}) \leq \epsilon``.
-            - If lower not bounded, e.g. ``\exists \mathbf{y} \in \otimes_{i=1}^{d} [l_{i, \alpha_t}, r_{i, \alpha_t}]`` s.t. ``f(\mathbf{y}) < f(\mathbf{x}) - \epsilon``,
-            - by convexity ``f(\mathbf{x}) \leq (f(\mathbf{y}) + f(2\mathbf{y} - \mathbf{x}))/2``, then ``f(2\mathbf{y} - \mathbf{x}) \geq 2f(\mathbf{x}) - f(\mathbf{y}) > f(\mathbf{x}) + \epsilon``.
-            - contradictory, then in the cude, value also lower bounded by ``\epsilon``
+            - Therefore, we upper bound the value in the cube. ``\forall \varepsilon``, ``\exists \alpha_t`` s.t. ``\max_{i} f(\mathbf{x}_{\alpha_t, i}) -f(\mathbf{x}) \leq \varepsilon``
+        - Now need to lower bound it, if we already have ``\forall \mathbf{x}' \in \otimes_{i=1}^{d} [l_{i, \alpha_t}, r_{i, \alpha_t}]``, ``f(\mathbf{x}')-f(\mathbf{x}) \leq \varepsilon``.
+            - If lower not bounded, e.g. ``\exists \mathbf{y} \in \otimes_{i=1}^{d} [l_{i, \alpha_t}, r_{i, \alpha_t}]`` s.t. ``f(\mathbf{y}) < f(\mathbf{x}) - \varepsilon``,
+            - by convexity ``f(\mathbf{x}) \leq (f(\mathbf{y}) + f(2\mathbf{y} - \mathbf{x}))/2``, then ``f(2\mathbf{y} - \mathbf{x}) \geq 2f(\mathbf{x}) - f(\mathbf{y}) > f(\mathbf{x}) + \varepsilon``.
+            - contradictory, then in the cude, value also lower bounded by ``\varepsilon``
         - We can also find a ball inside a cude, therefore ``f`` continuous.
 - **Lemma 2.14 (Counter Example in Infinite Dimension)** ``\exists`` vector space ``V`` and linear function ``f`` s.t. ``\forall \mathbf{v}\in V``, ``f`` is discontinuous.
     - **Example** ``V`` be the polynomial function in ``x\in[-1,1]``, distance measured by *supreme norm* ``\|h\|_{\infty}:=\sup _{x \in[-1,1]}|h(x)|``
@@ -109,7 +109,7 @@
 
 
 ## Minimizer Condition
-- **Definition 2.19** A *local minimum* of ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}`` is a point ``x`` s.t. ``\exists \epsilon > 0``, ``\forall \mathbf{y} \in \operatorname{dom}(f)`` s.t. ``\|\mathbf{y}-\mathbf{x}\|<\varepsilon``, we have ``f(\mathbf{x}) \leq f(\mathbf{y})``
+- **Definition 2.19** A *local minimum* of ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}`` is a point ``x`` s.t. ``\exists \varepsilon > 0``, ``\forall \mathbf{y} \in \operatorname{dom}(f)`` s.t. ``\|\mathbf{y}-\mathbf{x}\|<\varvarepsilon``, we have ``f(\mathbf{x}) \leq f(\mathbf{y})``
 - **Lemma 2.20 (Global minimum)** Let ``\mathbf{x}^{\star}`` be a local minimum of a convex function ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}``. Then ``\mathbf{x}^{\star}`` is a global minimum, if ``\forall \mathbf{y} \in \operatorname{dom}(f), f\left(\mathbf{x}^{\star}\right) \leq f(\mathbf{y})``.
     - not all convex function have global minimum.
 - **Lemma 2.21 (Zero grad -> Global minimum)** Suppose that ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}`` is convex and differentiable over an open domain ``\operatorname{dom}(f) \subseteq \mathbb{R}^{d}``. Let ``\mathbf{x} \in \mathbf{d o m}(f)``. If ``\nabla f(\mathbf{x})=\mathbf{0}``, then ``\mathbf{x}`` is a global minimum.
@@ -127,7 +127,7 @@
     - If ``\mathbf{x}^{\star} \neq \mathbf{y}^{\star}`` both global minimum, then by strict convexity ``\mathbf{z}=\frac{1}{2} \mathbf{x}^{\star}+\frac{1}{2} \mathbf{y}^{\star}`` have ``f(\mathbf{z})<\frac{1}{2} f_{\min }+\frac{1}{2} f_{\min }=f_{\min }``.
 
 ### Constrained Minimization
-- **Deﬁnition 2.26 (minimizer on subset)** Let ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}`` be convex and let ``X \subseteq \mathbf{dom}(f)`` be a convex set. A point ``\mathbf{x} \in X`` is a minimizer of ``f`` over ``X`` if ``\forall \mathbf{y}\in X, f(\mathbf{x}) \leq f(\mathbf{y})``.
+- **Deﬁnition 2.26 (minimizer on subset)** Let ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}`` be convex and let ``X \subseteq \mathbf{dom}(f)`` be a convex set. A point ``\mathbf{x} \in X`` is a *minimizer* of ``f`` over ``X`` if ``\forall \mathbf{y}\in X, f(\mathbf{x}) \leq f(\mathbf{y})``.
     - Subset can be lower dimension embedded to ``\operatorname{dom}(f)``.
 - **Lemma 2.27 (First order condition, variational inequality)** Suppose that ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}`` is convex and differentiable over an open domain ``\operatorname{dom}(f) \subset \mathbb{R}^{d}``, and let ``X \subseteq \operatorname{dom}(f)`` be a convex set. ``\mathbf{x}^{\star} \in X`` is a minimizer of ``f`` over ``X`` iff ``\forall \mathbf{x} \in X, \nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}-\mathbf{x}^{\star}\right) \geq 0 ``.
     - **Proof**
@@ -137,4 +137,72 @@
         - (``\leftarrow``) Suppose ``\forall \mathbf{x} \in X, \nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}-\mathbf{x}^{\star}\right) \geq 0``,
             - by convexity in ``\operatorname{dom}(f)`` we have, ``\forall \mathbf{x}\in X``, ``f(\mathbf{x}) \geq f(\mathbf{x}^{\star} + t \left(\mathbf{x}-\mathbf{x}^{\star}\right)) \geq f(\mathbf{x}^{\star}``
 
-# Existence of minimizer
+## Existence of minimizer
+### Sublevel sets, Weierstrass Theorem
+- **Definition 2.28** Let ``f: \mathbb{R}^{d} \rightarrow \mathbb{R}, \alpha \in \mathbb{R}``. Set ``f^{\leq \alpha}:=\left\{\mathbf{x} \in \mathbb{R}^{d}: f(\mathbf{x}) \leq \alpha\right\}`` is the ``\alpha``-*sublevel set* of ``f``.
+    - If ``f`` convex, ``f^{\leq \alpha}`` is convex set.
+    - If ``f`` continuous (implied by convexity and finit dim),  ``f^{\leq \alpha}`` is closed.
+- **Theorem 2.29 (Weierstrass)** Let ``f: \mathbb{R}^{d} \rightarrow \mathbb{R}, \alpha \in \mathbb{R}`` be a continuous function, and suppose there is a nonempty and bounded sublevel set ``f^{\leq \alpha}``. Then ``f`` has a global minimum.
+    - **Proof**
+        - since ``(-\infty, \alpha]`` is closed, by continuity of ``f``, its pre-image ``f^{\leq \alpha}`` is closed.
+        - From the fact that continuous function attains minimum over closed and bounded (=compact) set. We know ``f`` have minimum ``\mathbf{x}^{\star}\in f^{\leq \alpha}``.
+        - This is global minimum. Otherwise, if ``\exists \mathbf{x}' \notin f^{\leq \alpha}``, then ``f(\mathbf{x}' ) > \alpha \geq f(\mathbf{x}^{\star})``.
+
+### Recession cone and lineality space
+Examples like ``f(x) = e^x`` is convex but does not have a global minimum.
+- **Definition 2.30 (unbounded in direction)** Let ``C\subseteq \mathbb{R}^{d}`` be a convex set. Then ``\mathbf{y}\in\mathbf{R}^d`` is a *direction of recession* of ``C`` if ``\exists \mathbf{x} \in C`` and ``\forall \lambda \geq 0`` ``\mathbf{x} + \lambda \mathbf{y} \in C``.
+- **Lemma 2.31 (Equivalance for existance and arbitry)** Let ``C\subseteq \mathbf{R}^d`` be a nonempty closed convex set, and let ``\mathbf{y}\in\mathbb{R}^d``. ``\forall \lambda \geq 0, \exists \mathbf{x} \in C: \mathbf{x}+\lambda \mathbf{y} \in C \Leftrightarrow \forall \lambda \geq 0 \forall \mathbf{x} \in C: \mathbf{x}+\lambda \mathbf{y} \in C``
+    - **Proof** 
+        - (``\rightarrow``) is obvious. (``\leftarrow``): We already have ``\mathbf{x}_0`` s.t. ``\forall \lambda \geq 0, \mathbf{x}_0+\lambda \mathbf{y} \in C``. 
+            - For arbitary ``\mathbf{x}\in C``, let ``\mathbf{z}=\lambda \mathbf{y}``, define ``\mathbf{w}_{k}:=\mathbf{x}_0+k \mathbf{z} \in C`` by our assumption, 
+            - Define ``\mathbf{z}_k := \frac{1}{k}\left(\mathbf{w}_{k}-\mathbf{x}\right) = \lambda \mathbf{y}+\frac{1}{k}\left(\mathbf{x}_0-\mathbf{x}\right)``, 
+            - and ``\mathbf{x} + \mathbf{z}_k = \lambda\mathbf{y} = \frac{1}{k} \mathbf{W}_{k} + \left(1-\frac{1}{k}\right) \mathbf{x}^{\prime} \in C`` by convex set.
+            - By closeness of ``C``, ``\lim_{k\to \infty} \mathbf{x} + \mathbf{z}_k = \mathbf{x} + \mathbf{z} \in C``
+- **Definition (recession cone)** The *recession cone* ``R(C)`` of ``C`` is the set of directions of recession of ``C``
+    - This set is closed under non-negative linear combinations, see next lemma.
+- **Lemma 2.32 (non-negative linear combination of recession cone)** Let ``C\subseteq \mathbb{R}^d`` be closed convex set, and let ``\mathbf{y_1, y_2}`` be directions of recession of ``C``. Then ``\forall \lambda_1, \lambda_2 \in \mathbb{R}^+``, ``\mathbf{y} = \lambda_1\mathbf{y}_1 + \lambda_2\mathbf{y}_2`` is also direction of recession of C.
+    - **Proof**: ``\mathbf{x}+\lambda \mathbf{y}=\mathbf{x}+\lambda_{1} \lambda \mathbf{y}_{1}+\lambda_{2} \lambda \mathbf{y}_{2}=\lambda_{1}\left(\mathbf{x}+\lambda \mathbf{y}_{1}\right)+\lambda_{2}\left(\mathbf{x}+\lambda \mathbf{y}_{2}\right) \in C``
+- **Definition 2.33 (direction of constancy)** Let ``C\subseteq \mathbb{R}^{d}`` be a convex set. Then ``\mathbf{y}\in\mathbf{R}^d`` is a *direction of constancy* of ``C`` if both ``\mathbf{y}`` and ``-\mathbf{y}`` are directions of recession of ``C``.
+- **Lemma 2.34 (also non-negative linear combination)**. Let ``C\subseteq \mathbb{R}^d`` be closed convex set, and let ``\mathbf{y_1, y_2}`` be directions of constancy of C. Then ``\forall \lambda_1, \lambda_2 \in \mathbb{R}^+``, ``\mathbf{y} = \lambda_1\mathbf{y}_1 + \lambda_2\mathbf{y}_2`` is also direction of constancy of C.
+
+### Recession Cone in Sub-level set
+- **Lemma (non-deceasing along direction)** Suppose ``\mathbf{y}`` is a direction of recession of ``f^{\leq \alpha}``, then ``\forall \mathbf{x}\in f^{\leq \alpha},\forall \lambda \geq 0, f(\mathbf{x}+\lambda \mathbf{y}) \leq f(\mathbf{x})``
+    - **Proof** 
+        - Fix ``\lambda`` and let ``\mathbf{z}=\lambda \mathbf{y}``, define ``\mathbf{w}_{k}:=\mathbf{x}+k \mathbf{z}``, then ``\mathbf{x}+\mathbf{z}=\left(1-\frac{1}{k}\right) \mathbf{x}+\frac{1}{k} \mathbf{w}_{k}``.
+        - We know ``f(\mathbf{w}_{k}) \leq \alpha``, then ``f(\mathbf{x}+\mathbf{z}) \leq \left(1-\frac{1}{k}\right) f(\mathbf{x})+\frac{1}{k}\alpha \to f(\mathbf{x})``.
+- **Lemma 2.35 (level invariance of Recession cone)** Let ``f: \mathbb{R}^d \to \mathbb{R}`` be a convex function. Any two sublevel sets ``f \leq \alpha, f \leq \alpha^{\prime}`` have the same recession cones.
+    - **Proof** Since two sets non-empty, ``\exists \mathbf{x}^{\prime} \in f^{\leq \alpha} \cap f^{\leq \alpha^{\prime}}``, then ``f\left(\mathbf{x}^{\prime}+\lambda \mathbf{y}\right) \leq f\left(\mathbf{x}^{\prime}\right) \leq \min \{\alpha^{\prime}, \alpha\}``. Every direction of recession ``\mathbf{y}`` of one set is also that of the other,
+    - This Lemma gives the definition of cone of a function ``R(f)``
+- **Definition 2.36 (recession cone / lineality space)** Let ``f: \mathbb{R}^d \to \mathbb{R}`` be a convex function. 
+    - Then ``\mathbf{y} \in \mathbb{R}^d`` is a direction of recession (of constancy, respectively) of ``f`` if ``\mathbf{y}`` is a direction of recession (of constancy, respectively) for some (equivalently, for every) nonempty sublevel set.
+    - The set of directions of recession of ``f`` is called the *recession cone* ``R(f)`` of ``f``. 
+    - The set of directions of constancy of ``f`` is called the *lineality space* ``L(f)`` of ``f``.
+- **Lemma 2.37 & 2.38 (Relation to Epigraph)** Let ``f: \mathbb{R}^d \to \mathbb{R}`` be a convex function. The following statements are equivalent.
+    - (i) ``\mathbf{y} \in \mathbb{R}^{d}`` is a direction of (recession / constancy) of f.
+    - (ii) ``\forall \mathbf{x} \in \mathbb{R}^d, \lambda > 0``, (``f(\mathbf{x}+\lambda \mathbf{y}) \leq f(\mathbf{x})`` / ``f(\mathbf{x}+\lambda \mathbf{y}) = f(\mathbf{x})``)
+    - (iii) ``(\mathbf{y}, 0)`` is a direction of (recession / constancy) of (the closed convex set) ``\mathbf{epi}(f)``.
+    - **Proof**
+        - (i)<->(ii) obvious
+        - (ii)<->(iii) ``(\mathbf{x}, f(\mathbf{x})) + \lambda (\mathbf{y}, 0) = (\mathbf{x} + \lambda \mathbf{y}, f(\mathbf{x}) )``. ``f(\mathbf{x} + \lambda \mathbf{y}) \leq f(\mathbf{x}) \Leftrightarrow (\mathbf{x} + \lambda \mathbf{y}, f(\mathbf{x}) )\in \mathbf{epi}(f)``.
+
+### Coercive convex functions (Boundedness of sublevel)
+- **Definition 2.39 (coerciveness)** A convex function ``f`` is coercive if its recession cone is trivial, meaning that ``\mathbf{0}`` is its only direction of recession.
+    - Coercivity means that along any direction, ``f(\mathbf{x})`` goes to inﬁnity.
+    - Coercive example: ``x_1^2 + x_2^2``; non-coercive example: ``f(x) = x, e^x``.
+- **Lemma 2.40 (Boundedness of coercive sublevel)** Let ``f: \mathbb{R}^d \to \mathbb{R}`` be a coercive convex function. Then every nonempty sublevel set ``f^{\leq \alpha}`` is bounded.
+    - **Proof**
+        - Given sublevel set ``f^{\leq \alpha}``, for an ``\mathbf{x}\in f^{\leq \alpha}``, define mapping from ``S^{d-1}=\left\{\mathbf{y} \in \mathbb{R}^{d}:\|y\|=1\right\}`` to ``\mathbb{R}``: ``g(\mathbf{y})=\max \{\lambda \geq 0: f(\mathbf{x} + \lambda \mathbf{y}) \leq \alpha\}``. 
+            - Since ``f`` coercive, ``g`` is well defined.
+        - We claim ``g`` is continuous, by showing every sequence to ``\mathbf{y}`` have function value converge to ``g(\mathbf{y})``
+            - For arbitary ``\varepsilon > 0``, define ``\{\underline{\lambda}, \overline{\lambda}\} := \{g(\mathbf{y}) - \varepsilon, g(\mathbf{y}) + \varepsilon\}``.  so ``f(\mathbf{x} + \underline{\lambda}\mathbf{y}) \leq \alpha`` and ``f(\mathbf{x} + \overline{\lambda}\mathbf{y}) > \alpha``
+            - For every sequence ``\{\mathbf{y}_k\}`` s.t. ``\lim_{k\to\infty}\mathbf{y}_k =\mathbf{y}``, by the continuity of ``f``, we have ``\lim_{k\to\infty}f(\mathbf{x} + \underline{\lambda}\mathbf{y}_k) = f(\mathbf{x} + \underline{\lambda}\mathbf{y}) \leq \alpha`` and ``\lim_{k\to\infty}f(\mathbf{x} + \overline{\lambda}\mathbf{y}_k) = f(\mathbf{x} + \overline{\lambda}\mathbf{y}) > \alpha``
+            - Therefore, since ``\lim_{k\to\infty} f(\mathbf{x} + g(\mathbf{y}_k) \mathbf{y}_k) = \alpha``, for sufficiently large ``k``, we have ``\underline{\lambda} \leq g(\mathbf{y}_k)\leq \overline{\lambda}``.
+            - This means continuity.
+        - Since ``g`` continuous and ``S^{d-1}`` compact, ``g`` attains maximum of ``\lambda^*``. For arbitary ``\mathbf{x}' \in f^{\leq \alpha}``, ``\|\mathbf{x}' - \mathbf{x}\| \leq g( \frac{\mathbf{x}' - \mathbf{x}}{\|\mathbf{x}' - \mathbf{x}\| }) \leq \lambda^*``, Bounded.
+- **Theorem 2.41 (Global minimum)**. Let ``f: \mathbb{R}^d \to \mathbb{R}`` be a coercive convex function. Then ``f`` has a global minimum.
+            
+### Weakly coercive convex function
+- **Deﬁnition 2.42** Let ``f: \mathbb{R}^d \to \mathbb{R}``  be a convex function. Function ``f`` is called *weakly coercive* if its recession cone equals its lineality space.
+    - example ``f\left(x_{1}, x_{2}\right)=x_{1}^{2}``
+- **Theorem 2.43**. Let ``f: \mathbb{R}^d \to \mathbb{R}`` be a weakly coercive convex function. Then ``f`` has a global minimum.
+    - **Proof** Lineality space ``L`` is a linear subspace of ``\mathbb{R}^d``, therefore, its orthogonal complement ``L^{\perp}`` is coercive, and can obtain global minimum in ``L^{\perp}``, which can be shown is also global minimum over all space by orthogonal decomposition.

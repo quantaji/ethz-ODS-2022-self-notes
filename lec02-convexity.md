@@ -212,7 +212,7 @@ Examples like ``f(x) = e^x`` is convex but does not have a global minimum.
     - Domain ``\mathcal{D}=\left(\cap_{i=0}^{m} \operatorname{dom}\left(f_{i}\right)\right) \cap\left(\cap_{i=1}^{p} \operatorname{dom}\left(h_{i}\right)\right)`` is also convex.
     - ``X=\left\{\mathbf{x} \in \mathbb{R}^{d}: f_{i}(\mathbf{x}) \leq 0, i=1, \ldots, m ; h_{i}(\mathbf{x})=0, i=1, \ldots, p\right\}`` is the *feasible region* of the program. ``x\in X`` is called the *feasible solution*.
 
-### Lagrange duality (Weak duality)
+### Lagrange duality (Weak duality) 
 - Idea: Then hard constrains of primal into soft constrains into objective function.
 - **Definition (Lagrangian)** givem convex program ``\{f_{i}, h_{i}\}``, its *Lagrangian* ``L: \mathcal{D} \times \mathbb{R}^{m} \times \mathbb{R}^{p} \rightarrow \mathbb{R}`` is ``L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu})=f_{0}(\mathbf{x})+\sum_{i=1}^{m} \lambda_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \nu_{i} h_{i}(\mathbf{x})``.
 - **Definition (Lagrange dual function)** The Lagrange dual function is the function ``g: \mathbb{R}^{m} \times \mathbb{R}^{p} \rightarrow \mathbb{R} \cup\{-\infty\}`` defined by ``g(\boldsymbol{\lambda}, \boldsymbol{\nu})=\inf _{\mathbf{x} \in \mathcal{D}} L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu})``.
@@ -241,7 +241,7 @@ Examples like ``f(x) = e^x`` is convex but does not have a global minimum.
 - *Key Idea*
     - If optimization program is differentiable, KKT condition is necessary
     - Futher if program is convex, then KKT condition is sufficient.
-- **Deﬁnition 2.48 (Zero duality gap)** Let ``\tilde{\mathbf{x}}`` be feasible for the primal and ``(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})`` feasible for the Lagrange dual. The primal and dual solutions ``\tilde{\mathbf{x}}`` and ``(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})`` are said to have *zero duality gap* if ``f_0(\tilde{\mathbf{x}}) = g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})``.
+- **Deﬁnition 2.48 (Zero duality gap)** Let ``\tilde{\mathbf{x}}`` be feasible for the primal and ``(\tilde{\boldsymbol{\lambda}}, \tilde{22.07.2022\boldsymbol{\nu}})`` feasible for the Lagrange dual. The primal and dual solutions ``\tilde{\mathbf{x}}`` and ``(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})`` are said to have *zero duality gap* if ``f_0(\tilde{\mathbf{x}}) = g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})``.
 - **Lemma 2.49 (Complementary slackness)** If ``\tilde{\mathbf{x}}`` and ``(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})`` have zero duality gap, then ``\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})=0, i=1, \ldots, m``.
     - **Proof** 
         - ``f_{0}(\tilde{\mathbf{x}})=g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}}) =\inf _{\mathbf{x} \in \mathcal{D}}\left(f_{0}(\mathbf{x})+\sum_{i=1}^{m} \tilde{\lambda}_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \tilde{\nu}_{i} h_{i}(\mathbf{x})\right) \leq f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \underbrace{\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})}_{\leq 0}+\sum_{i=1}^{p} \underbrace{\tilde{\nu}_{i} h_{i}(\tilde{\mathbf{x}})}_{0} \leq f_{0}(\tilde{\mathbf{x}})``
@@ -257,3 +257,5 @@ Examples like ``f(x) = e^x`` is convex but does not have a global minimum.
         - By KKT(ii) ``\nabla f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \tilde{\lambda}_{i} \nabla f_{i}(\tilde{\mathbf{x}})+\sum_{i=1}^{p} \tilde{\nu}_{i} \nabla h_{i}(\tilde{\mathbf{x}})=\mathbf{0}``, ``\tilde{\mathbf{x}}`` is solution for unconstraint convex optimization problem ``\min _{\mathbf{x} \in \mathcal{D}}\left(f_{0}(\mathbf{x})+\sum_{i=1}^{m} \tilde{\lambda}_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \tilde{\nu}_{i} h_{i}(\mathbf{x})\right) `` (Lemma 2.21), therefore ``g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}}) = L(\tilde{\mathbf{x}}, \tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})``.
         - By KKT(i) ``\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})=0, \quad i=1, \ldots, m`` and because ``\tilde{\mathbf{x}}`` feasible, ``L(\tilde{\mathbf{x}}, \tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}}) = f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})+\sum_{i=1}^{p} \tilde{\nu}_{i} h_{i}(\tilde{\mathbf{x}}) = f_{0}(\tilde{\mathbf{x}})``
         - We get duality gap.
+
+

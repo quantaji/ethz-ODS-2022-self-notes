@@ -105,7 +105,7 @@
 - **Lemma 2.18**
     - (i) Let ``f_{1}, f_{2}, \ldots, f_{m}`` be convex functions and ``\lambda_{1}, \lambda_{2}, \ldots, \lambda_{m} \in \mathbb{R}_{+}``. Then (1) ``\max _{i=1}^{m} f_{i}`` (2) ``f:=\sum_{i=1}^{m} \lambda_{i} f_{i}`` convex on ``\mathbf{dom}(f):=\bigcap_{i=1}^{m} \mathbf{dom}\left(f_{i}\right)``.
     - (ii) Let ``f`` convex on ``\mathbf{dom}(f) \subseteq \mathbb{R}^{d}``, ``g: \mathbb{R}^{m} \rightarrow \mathbb{R}^{d}, \mathbf{x} \to A \mathbf{x}+\mathbf{b}`` be an affine function. Then ``f \circ g`` convex on ``\mathbf{dom}(f \circ g):=\left\{\mathbf{x} \in \mathbb{R}^{m}: g(\mathbf{x}) \in \mathbf{dom}(f)\right\}``.
-
+- Given ``f, g`` convex, ``f \circ g`` may be non-convex, example: ``f(x)=x^2 ``, ``g(x) = x^2- 1``, ``(f \circ g)(x) = x^4 - 2x^2 + 1``, ``(f \circ g)(-1)=(f \circ g)(1)=0 `` and ``(f \circ g)(0)=1``.
 
 
 ## Minimizer Condition

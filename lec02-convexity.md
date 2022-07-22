@@ -109,7 +109,7 @@
 
 
 ## Minimizer Condition
-- **Definition 2.19** A *local minimum* of ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}`` is a point ``x`` s.t. ``\exists \varepsilon > 0``, ``\forall \mathbf{y} \in \operatorname{dom}(f)`` s.t. ``\|\mathbf{y}-\mathbf{x}\|<\varvarepsilon``, we have ``f(\mathbf{x}) \leq f(\mathbf{y})``
+- **Definition 2.19** A *local minimum* of ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}`` is a point ``x`` s.t. ``\exists \varepsilon > 0``, ``\forall \mathbf{y} \in \operatorname{dom}(f)`` s.t. ``\|\mathbf{y}-\mathbf{x}\|<\varepsilon``, we have ``f(\mathbf{x}) \leq f(\mathbf{y})``
 - **Lemma 2.20 (Global minimum)** Let ``\mathbf{x}^{\star}`` be a local minimum of a convex function ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}``. Then ``\mathbf{x}^{\star}`` is a global minimum, if ``\forall \mathbf{y} \in \operatorname{dom}(f), f\left(\mathbf{x}^{\star}\right) \leq f(\mathbf{y})``.
     - not all convex function have global minimum.
 - **Lemma 2.21 (Zero grad -> Global minimum)** Suppose that ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}`` is convex and differentiable over an open domain ``\operatorname{dom}(f) \subseteq \mathbb{R}^{d}``. Let ``\mathbf{x} \in \mathbf{d o m}(f)``. If ``\nabla f(\mathbf{x})=\mathbf{0}``, then ``\mathbf{x}`` is a global minimum.
@@ -206,3 +206,54 @@ Examples like ``f(x) = e^x`` is convex but does not have a global minimum.
     - example ``f\left(x_{1}, x_{2}\right)=x_{1}^{2}``
 - **Theorem 2.43**. Let ``f: \mathbb{R}^d \to \mathbb{R}`` be a weakly coercive convex function. Then ``f`` has a global minimum.
     - **Proof** Lineality space ``L`` is a linear subspace of ``\mathbb{R}^d``, therefore, its orthogonal complement ``L^{\perp}`` is coercive, and can obtain global minimum in ``L^{\perp}``, which can be shown is also global minimum over all space by orthogonal decomposition.
+
+## Convex Programming
+- **Definition (Convex Program)** minimize ``f_{0}(\mathbf{x})``, subject to ``f_{i}(\mathbf{x}) \leq 0``, `` i=1, \ldots, m`` and ``h_{i}(\mathbf{x})=0``, ``i=1, \ldots, p``, where ``f_i`` convex and ``h_i`` affine functions with domain ``\mathbb{R}^d``.
+    - Domain ``\mathcal{D}=\left(\cap_{i=0}^{m} \operatorname{dom}\left(f_{i}\right)\right) \cap\left(\cap_{i=1}^{p} \operatorname{dom}\left(h_{i}\right)\right)`` is also convex.
+    - ``X=\left\{\mathbf{x} \in \mathbb{R}^{d}: f_{i}(\mathbf{x}) \leq 0, i=1, \ldots, m ; h_{i}(\mathbf{x})=0, i=1, \ldots, p\right\}`` is the *feasible region* of the program. ``x\in X`` is called the *feasible solution*.
+
+### Lagrange duality (Weak duality)
+- Idea: Then hard constrains of primal into soft constrains into objective function.
+- **Definition (Lagrangian)** givem convex program ``\{f_{i}, h_{i}\}``, its *Lagrangian* ``L: \mathcal{D} \times \mathbb{R}^{m} \times \mathbb{R}^{p} \rightarrow \mathbb{R}`` is ``L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu})=f_{0}(\mathbf{x})+\sum_{i=1}^{m} \lambda_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \nu_{i} h_{i}(\mathbf{x})``.
+- **Definition (Lagrange dual function)** The Lagrange dual function is the function ``g: \mathbb{R}^{m} \times \mathbb{R}^{p} \rightarrow \mathbb{R} \cup\{-\infty\}`` defined by ``g(\boldsymbol{\lambda}, \boldsymbol{\nu})=\inf _{\mathbf{x} \in \mathcal{D}} L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu})``.
+    - ``g`` assume value ``-\infty`` is typical. The interesting ``(\boldsymbol{\lambda}, \boldsymbol{\nu})`` are those ``g(\boldsymbol{\lambda}, \boldsymbol{\nu})>-\infty``.
+- **Lemma 2.45 (Weak Lagrange duality, lower bound of minimum)** ``\forall x\in X, \forall \boldsymbol{\lambda} \in \mathbb{R}^{m}, \boldsymbol{\nu} \in \mathbb{R}^{p}`` s.t. ``\lambda \geq 0``, we have ``g(\boldsymbol{\lambda}, \boldsymbol{\nu}) \leq f_{0}(\mathbf{x})``
+    - **Proof** ``g(\boldsymbol{\lambda}, \boldsymbol{\nu}) = \inf _{\mathbf{x} \in \mathcal{D}} L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu}) \leq L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu})=f_{0}(\mathbf{x})+\underbrace{\sum_{i=1}^{m} \lambda_{i} f_{i}(\mathbf{x})}_{\leq 0}+\underbrace{\sum_{i=1}^{p} \nu_{i} h_{i}(\mathbf{x})}_{=0} \leq f_{0}(\mathbf{x})``
+    - Finding the maximum ``g`` makes it the lower bound.
+- **Deﬁnition 2.46 (dual problem of original problem)** Maximize ``g(\boldsymbol{\lambda}, \boldsymbol{\nu})`` subject to ``\lambda \geq 0``.
+- **Lemma (convexity of dual)** Given definition of function ``f: \mathbf{dom}(f) \rightarrow \mathbb{R} \cup\{\infty\}`` being convex if ``\mathbf{dom}(f)`` and any finite ``f(x), f(y)<\infty`` follow convex inequality. Then ``-g(\boldsymbol{\lambda}, \boldsymbol{\nu})`` is convex.
+    - **Proof** 
+        - Denote ``f(\mathbf{x}, \mathbf{z}):= -L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu}), f(\mathbf{z}):= - g(\boldsymbol{\lambda},\boldsymbol{\nu}) = \sup_{x\in X}f(\mathbf{x}, \mathbf{z})``. 
+        - For ``f(\mathbf{y}), f(\mathbf{z}) < \infty``, we have ``f(\lambda \mathbf{y}+(1-\lambda) \mathbf{z}) = \sup_{\mathbf{x}\in X} f(\mathbf{x}, \lambda \mathbf{y}+(1-\lambda) \mathbf{z}) \leq \sup_{\mathbf{x}\in X} \left[ \lambda f(\mathbf{x},  \mathbf{y}) + (1-\lambda)f(\mathbf{x},  \mathbf{z}) \right]`` last by convexity
+        - Since ``f(\mathbf{y}), f(\mathbf{z}) < \infty``, ``\sup_{x\in X}f(\mathbf{x}, \mathbf{z})`` and ``\sup_{x\in X}f(\mathbf{x}, \mathbf{y})`` exists, So ``\mathsf{RHS} \leq \lambda \sup_{x\in X}f(\mathbf{x}, \mathbf{y}) + (1-\lambda)\sup_{x\in X}f(\mathbf{x}, \mathbf{z}) = \lambda f(\mathbf{y}) + (1-\lambda)f( \mathbf{z}) ``
+
+### Strong duality
+- **Theorem 2.47 (Strong duality for convex program)** Suppose a convex program has a feasible solution ``\tilde{\mathbf{x}}`` that <u>in addition</u> satisfies ``f_{i}(\tilde{\mathbf{x}})<0, i=1, \ldots, m`` (*Slater point*). Then
+    - (i) ``\inf_{\mathbf{x} \in X} f_0(\mathbf{x}) = \sup_{\boldsymbol{\lambda}>0, \boldsymbol{\nu}} g(\boldsymbol{\lambda}, \boldsymbol{\nu}) := f^{\star}``, infimum of primal = supremum of dual.
+    - (ii) if ``|f^{\star}| < \infty``, then exists feasible solution of dual ``\exists \boldsymbol{\lambda}^{\star} > 0, \boldsymbol{\nu}^{\star}`` s.t. ``g(\boldsymbol{\lambda}^{\star}, \boldsymbol{\nu}^{\star})= f^{\star}``
+    - ***no proof***
+- In practice, we minimize ``f_{0}(\mathbf{x})+\sum_{i=1}^{m} \lambda_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \nu_{i} h_{i}(\mathbf{x})`` without constraint.
+    - If Strong duality holds,  ``\exists \boldsymbol{\lambda}^{\star} > 0, \boldsymbol{\nu}^{\star}`` that have same infimum as unconstrained one.
+    - Even if not, the infimum of unconstrained problem is a lower bound of primal.
+- Strong duality may also hold when there is no Slater point, or even when not a convex program. **Theorem 2.47** is only a sufficient condition.
+
+### Karush-Kuhn-Tucker (KKT) conditions
+- *Key Idea*
+    - If optimization program is differentiable, KKT condition is necessary
+    - Futher if program is convex, then KKT condition is sufficient.
+- **Deﬁnition 2.48 (Zero duality gap)** Let ``\tilde{\mathbf{x}}`` be feasible for the primal and ``(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})`` feasible for the Lagrange dual. The primal and dual solutions ``\tilde{\mathbf{x}}`` and ``(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})`` are said to have *zero duality gap* if ``f_0(\tilde{\mathbf{x}}) = g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})``.
+- **Lemma 2.49 (Complementary slackness)** If ``\tilde{\mathbf{x}}`` and ``(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})`` have zero duality gap, then ``\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})=0, i=1, \ldots, m``.
+    - **Proof** 
+        - ``f_{0}(\tilde{\mathbf{x}})=g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}}) =\inf _{\mathbf{x} \in \mathcal{D}}\left(f_{0}(\mathbf{x})+\sum_{i=1}^{m} \tilde{\lambda}_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \tilde{\nu}_{i} h_{i}(\mathbf{x})\right) \leq f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \underbrace{\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})}_{\leq 0}+\sum_{i=1}^{p} \underbrace{\tilde{\nu}_{i} h_{i}(\tilde{\mathbf{x}})}_{0} \leq f_{0}(\tilde{\mathbf{x}})``
+        - equation holds only when ``\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})=0, i=1, \ldots, m``.
+- **Lemma 2.50 (Vanishing Lagrangian gradient)** If ``\tilde{\mathbf{x}}`` and ``(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})`` have zero duality gap, and if all ``f_i`` and ``h_i`` are differentiable, then ``\nabla f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \tilde{\lambda}_{i} \nabla f_{i}(\tilde{\mathbf{x}})+\sum_{i=1}^{p} \tilde{\nu}_{i} \nabla h_{i}(\tilde{\mathbf{x}})=\mathbf{0}``
+        - **Proof** Since ``f_{0}(\tilde{\mathbf{x}})=g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}}) =\inf _{\mathbf{x} \in \mathcal{D}}\left(f_{0}(\mathbf{x})+\sum_{i=1}^{m} \tilde{\lambda}_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \tilde{\nu}_{i} h_{i}(\mathbf{x})\right)``, ``\tilde{\mathbf{x}}`` is the minimizer of ``L(\mathbf{x}, \tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}} )``
+- **Theorem 2.51 (=2.49 + 2.50, KKT necessary condition, zero gap -> KKT)** Let ``\tilde{\mathbf{x}}`` and ``(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})`` are feasible solution for primal and dual, and have zero duality gap, and if all ``f_i`` and ``h_i`` are differentiable, then
+    - (i) ``\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})=0, \quad i=1, \ldots, m``
+    - (ii)  ``\nabla f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \tilde{\lambda}_{i} \nabla f_{i}(\tilde{\mathbf{x}})+\sum_{i=1}^{p} \tilde{\nu}_{i} \nabla h_{i}(\tilde{\mathbf{x}})=\mathbf{0}``
+    - PS: no need to assume convexity
+- **Theorem 2.52 (KKT sufficient condition, convxe + KKT -> zero gap)**  Let ``\tilde{\mathbf{x}}`` and ``(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})`` are feasible solution for primal and dual, and all ``f_i`` and ``h_i`` are differentiable, all ``f_i`` are convex and all ``h_i`` affine. If KKT condition ((i) and (ii) in Theorem 2.51)holds, then ``f_0(\tilde{\mathbf{x}}) = g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})`` (zero duality gap).
+    - **Proof** 
+        - By KKT(ii) ``\nabla f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \tilde{\lambda}_{i} \nabla f_{i}(\tilde{\mathbf{x}})+\sum_{i=1}^{p} \tilde{\nu}_{i} \nabla h_{i}(\tilde{\mathbf{x}})=\mathbf{0}``, ``\tilde{\mathbf{x}}`` is solution for unconstraint convex optimization problem ``\min _{\mathbf{x} \in \mathcal{D}}\left(f_{0}(\mathbf{x})+\sum_{i=1}^{m} \tilde{\lambda}_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \tilde{\nu}_{i} h_{i}(\mathbf{x})\right) `` (Lemma 2.21), therefore ``g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}}) = L(\tilde{\mathbf{x}}, \tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})``.
+        - By KKT(i) ``\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})=0, \quad i=1, \ldots, m`` and because ``\tilde{\mathbf{x}}`` feasible, ``L(\tilde{\mathbf{x}}, \tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}}) = f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})+\sum_{i=1}^{p} \tilde{\nu}_{i} h_{i}(\tilde{\mathbf{x}}) = f_{0}(\tilde{\mathbf{x}})``
+        - We get duality gap.

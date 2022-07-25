@@ -114,3 +114,70 @@
 - **Lemma F (Extension of co-coercivity)** Suppose ``f`` is ``\mu``-strongly convex and ``L``-smooth for 2-norm, and ``\mathbf{dom}(f) = \mathbb{R}^n``
     - then function ``h(x)=f(x)-\frac{\mu}{2}\|x\|_{2}^{2}`` is ``L-\mu``-smooth
     - co-coercivity of ``\nabla h`` gives ``\forall x,y, (\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{\mu L}{\mu+L}\|x-y\|_{2}^{2}+\frac{1}{\mu+L}\|\nabla f(x)-\nabla f(y)\|_{2}^{2}``
+
+## Speed metric
+- ``\lim _{k \rightarrow \infty} \frac{f\left(w^{k+1}\right)-f\left(w^{*}\right)}{f\left(w^{k}\right)-f\left(w^{*}\right)}=\rho``
+    - ``\rho=1`` sublinear rate
+    - ``\rho\in(0,1)`` linear rate
+    - ``\rho = 0``super linear reate
+
+## Vanilla GD
+- Update: ``\mathbf{x}_{t+1}:=\mathbf{x}_{t}-\gamma \mathbf{g}_{t}``, `` \mathbf{g}_{t}:=\nabla f\left(\mathbf{x}_{t}\right)``
+- Consider quantity ``\mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)=\frac{1}{\gamma}\left(\mathbf{x}_{t}-\mathbf{x}_{t+1}\right)^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right) = \frac{1}{2 \gamma}\left(\left\|\mathbf{x}_{t}-\mathbf{x}_{t+1}\right\|^{2}+\left\|\mathbf{x}_{t}-\mathbf{x}^{\star}\right\|^{2}-\left\|\mathbf{x}_{t+1}-\mathbf{x}^{\star}\right\|^{2}\right) = \frac{\gamma}{2}\left\|\mathbf{g}_{t}\right\|^{2}+\frac{1}{2 \gamma}\left(\left\|\mathbf{x}_{t}-\mathbf{x}^{\star}\right\|^{2}-\left\|\mathbf{x}_{t+1}-\mathbf{x}^{\star}\right\|^{2}\right)``
+- sum over ``t=0,\ldots,T-1``, we have ``\sum_{t=0}^{T-1} \mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)=\frac{\gamma}{2} \sum_{t=0}^{T-1}\left\|\mathbf{g}_{t}\right\|^{2}+\frac{1}{2 \gamma}\left(\left\|\mathbf{x}_{0}-\mathbf{x}^{\star}\right\|^{2}-\left\|\mathbf{x}_{T}-\mathbf{x}^{\star}\right\|^{2}\right) \leq =\frac{\gamma}{2} \sum_{t=0}^{T-1}\left\|\mathbf{g}_{t}\right\|^{2}+\frac{1}{2 \gamma}\left\|\mathbf{x}_{0}-\mathbf{x}^{\star}\right\|^{2}``
+- By convexity ``f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right) \leq \mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)``, we have ``\sum_{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \frac{\gamma}{2} \sum_{t=0}^{T-1}\left\|\mathbf{g}_{t}\right\|^{2}+\frac{1}{2 \gamma}\left\|\mathbf{x}_{0}-\mathbf{x}^{\star}\right\|^{2}``
+    - This gives upper bound on average error ``\mathbb{E}_{t} [f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)]``
+    - note that last iterate is not necessarily the best one. Some algorithms guarantee last iterate convergence.
+    - Bad result since we cannot control ``\|\mathbf{g}_t\|``
+
+## Improvement Case 1: Lipschitz ``f``: ``\mathcal{O}\left(1 / \varepsilon^{2}\right)`` Steps
+- By Theorem 2.9, if we assume convex function ``f`` is ``B``-Lipschitz, then ``\|D f(x)\| \leq B``, the spectual norm in Thm 2.9 is Euclidian norm when ``D f \in \mathbb{R}^{1\times d}``
+    - then ``\mathbf{g}_t \leq B`` -> Theorem 3.1
+- **Theorem 3.1** Suppose ``f \in C^1(x)`` convex, with global minimum ``\mathbf{x}^{\star}``. If (1) ``\left\|\mathbf{x}_{0}-\mathbf{x}^{\star}\right\| \leq R`` (2) ``\forall \mathbf{x}, \|\nabla f(\mathbf{x})\| \leq B``, when with step size ``\gamma:=\frac{R}{B \sqrt{T}}``, we have average error bounded by ``\frac{1}{T} \sum_{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \frac{R B}{\sqrt{T}}``
+    - **Proof** Straighforward from vanilla case, ``\sum_{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \frac{\gamma}{2} B^{2} T+\frac{1}{2 \gamma} R^{2}``
+    - **Time Complexity** To achieve ``\min _{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \varepsilon``, we need ``T \geq \frac{R^{2} B^{2}}{\varepsilon^{2}}`` iterations, ``\mathcal{O}\left(1 / \varepsilon^{2}\right)``.
+    - but no dependence on dimension ``d``.
+
+## Improvement Case 2: Smooth Convex ``f``: ``\mathcal{O}\left(1 / \varepsilon\right)`` Steps
+- **Lemma 3.7 (Sufficient Descent)** Suppose ``f: \mathbb{R}^{d} \rightarrow \mathbb{R} \in C^{1}`` is ``L``-smooth. Setting ``\gamma := L^{-1}``, then gradient descent gives ``f\left(\mathbf{x}_{t+1}\right) \leq f\left(\mathbf{x}_{t}\right)-\frac{1}{2 L}\left\|\nabla f\left(\mathbf{x}_{t}\right)\right\|^{2}``. (**Proof** Straightforward)
+- **Lemma 3.8 (Last Iteration Bound for smooth convex funciton)** Suppose ``f: \mathbb{R}^{d} \rightarrow \mathbb{R} \in C^{1}`` is ``L``-smooth with global minimum ``\mathbf{x}^{\star}``. With step size ``\gamma := L^{-1}`` gradient descent gives ``f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq \frac{L}{2 T}\left\|\mathbf{x}_{0}-\mathbf{x}^{\star}\right\|^{2}``.
+    - **Proof** 
+        - Sum *sufficient descent* over ``t=0:T-1``, we get ``\frac{1}{2 L} \sum_{t=0}^{T-1}\left\|\nabla f\left(\mathbf{x}_{t}\right)\right\|^{2} \leq \sum_{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}_{t+1}\right)\right)=f\left(\mathbf{x}_{0}\right)-f\left(\mathbf{x}_{T}\right)``
+        - Take this into vanilla GD bound, we get ``\sum_{t=1}^{T}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \frac{L}{2}\left\|\mathbf{x}_{0}-\mathbf{x}^{\star}\right\|^{2}``.
+        - By sufficient descent, monotocity of ``f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)`` is guaranteed, so ``f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq \frac{1}{T} \sum_{t=1}^{T}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \frac{L}{2 T}\left\|\mathbf{x}_{0}-\mathbf{x}^{\star}\right\|^{2}``
+    - **Time Complexity** ``T \geq \frac{R^{2} L}{2 \varepsilon} = \mathcal{O}\left(1 / \varepsilon\right)``
+
+## Improvement Case 3: Acceleration for smooth ``f``: ``\mathcal{O}(1 / \sqrt{\varepsilon})`` Steps
+- **Algorithm** 
+    - ``\mathbf{y}_{t+1}:=\mathbf{x}_{t}-\frac{1}{L} \nabla f\left(\mathbf{x}_{t}\right)``
+    - ``\mathbf{z}_{t+1}:=\mathbf{z}_{t}-\frac{t+1}{2 L} \nabla f\left(\mathbf{x}_{t}\right)``
+    - ``\mathbf{x}_{t+1}:=\frac{t+1}{t+3} \mathbf{y}_{t+1}+\frac{2}{t+3} \mathbf{z}_{t+1}``
+- **Theorem (Nesterov Acceleration)** Suppose ``f\in C^{1}(\mathbb{R}^{d} \rightarrow \mathbb{R})`` is convex  and ``L``-smooth with global minimum ``\mathbf{x}^{\star}``. Then Nesterov's Accelerated gradient descent algorithm gives ``f\left(\mathbf{y}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq \frac{2 L\left\|\mathbf{z}_{0}-\mathbf{x}^{\star}\right\|^{2}_{2}}{T(T+1)}``.
+    - **Proof** (*potential function argument*)
+        - Define potential function ``\Phi(t):=t(t+1)\left(f\left(\mathbf{y}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right)+2 L\left\|\mathbf{z}_{t}-\mathbf{x}^{\star}\right\|_{2}^{2}``, we aim to show that ``\Phi(T) \leq \Phi(0)``, then we can prove this theorem.
+        - Define ``\Delta:=\frac{\Phi(t+1)-\Phi(t)}{t+1}``, and we need to show that it's less than zero
+            - ``\Delta  =  \frac{1}{t+1}\left[(t+2)(t+1)\left(f\left(\mathbf{y}_{t+1}\right)-f\left(\mathbf{x}^{\star}\right)\right) - t(t+1)\left(f\left(\mathbf{y}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right)  + 2 L(\left\|\mathbf{z}_{t+1}-\mathbf{x}^{\star}\right\|^{2}_{2} - \left\|\mathbf{z}_{t}-\mathbf{x}^{\star}\right\|^{2}_{2})\right]``
+            - ``=t\left(f\left(\mathbf{y}_{t+1}\right)-f\left(\mathbf{y}_{t}\right)\right)+2\left(f\left(\mathbf{y}_{t+1}\right)-f\left(\mathbf{x}^{\star}\right)\right)+\frac{2 L}{t+1}\left(\left\|\mathbf{z}_{t+1}-\mathbf{x}^{\star}\right\|_{2}^{2}-\left\|\mathbf{z}_{t}-\mathbf{x}^{\star}\right\|_{2}^{2}\right)``
+            - Since ``\mathbf{g}_{t}=\frac{2L}{t+1}(\mathbf{z}_{t} - \mathbf{z}_{t+1})``, we consider ``\mathbf{g}_{t}^{\top}\left(\mathbf{z}_{t}-\mathbf{x}^{\star}\right) = \frac{2L}{t+1}(\mathbf{z}_{t} - \mathbf{z}_{t+1})^{\top}(\mathbf{z}_{t}-\mathbf{x}^{\star})``
+            - by ``v^{\top}w = \frac{\|v\|_{2}^2 + \|w\|_{2}^2 - \|v-w\|_{2}^2}{2}``, we have ``\mathbf{g}_{t}^{\top}\left(\mathbf{z}_{t}-\mathbf{x}^{\star}\right) = \frac{t+1}{4L} \|\mathbf{g}_t\|_{2}^2  +    \frac{L}{t+1}\left( \|\mathbf{z}_{t}-\mathbf{x}^{\star}\|_{2}^2 - \|\mathbf{z}_{t+1}-\mathbf{x}^{\star}\|_{2}^2 \right)``
+            - plug this into ``\Delta`` we get ``\Delta = t\left(f\left(\mathbf{y}_{t+1}\right)-f\left(\mathbf{y}_{t}\right)\right)+2\left(f\left(\mathbf{y}_{t+1}\right)-f\left(\mathbf{x}^{\star}\right)\right) - 2\mathbf{g}_{t}^{\top}\left(\mathbf{z}_{t}-\mathbf{x}^{\star}\right)  + \frac{t+1}{2L} \|\mathbf{g}_t\|^2_{2}``
+            - By sufficient descent of ``y_{t+1}``, ``f(y_{t+1})\leq f(x_{t})- \frac{1}{2L}\|\mathbf{g}_t\|^2_{2}``, we replace ``f(y_{t+1})`` w.r.t ``f(x_{t})`` and ommit term ``- \frac{1}{2L} \|\mathbf{g}_t\|^2_{2}``
+                - ``\Delta \leq t\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{y}_{t}\right)\right)+2\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) - 2\mathbf{g}_{t}^{\top}\left(\mathbf{z}_{t}-\mathbf{x}^{\star}\right)``
+                - 
+            - By convexity, ``\Delta \leq t\mathbf{g}_{t}^{\top}(\mathbf{x}_{t} - \mathbf{y}_t) + 2\mathbf{g}_{t}^{\top}(\mathbf{x}_{t} - \mathbf{x}^{\star}) - 2\mathbf{g}_{t}^{\top}\left(\mathbf{z}_{t}-\mathbf{x}^{\star}\right) = \mathbf{g}_{t}^{\top}\left[ (t+2)\mathbf{x}_{t} - t \mathbf{y}_t  - 2\mathbf{z}_{t} \right] = 0`` by definition of ``\mathbf{x}_{t}`` .
+       
+## Improvement Case 4: Smooth and Strongly convex ``f``: ``\mathcal{O}(\log (1 / \varepsilon))`` Steps, linear rate
+- **Theorem 3.14 (Linear rate for smooth and strongly convex function)** Suppose ``f\in C^{1}(\mathbb{R}^{d} \rightarrow \mathbb{R})`` is ``L``-smooth and ``\mu``-strongly convex with global minimum ``\mathbf{x}^{\star}``. Choosing step size of ``\gamma := L^{-1}``, then gradient descent with arbitrary ``\mathbf{x}_0``,
+    - (i) Geometric decrease for ``\left\|\mathbf{x}_{t}-\mathbf{x}^{\star}\right\|^{2}, ````\left\|\mathbf{x}_{t+1}-\mathbf{x}^{\star}\right\|^{2} \leq\left(1-\frac{\mu}{L}\right)\left\|\mathbf{x}_{t}-\mathbf{x}^{\star}\right\|^{2}``
+    - (ii) Exponential decrease for absoulute error ``f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq \frac{L}{2}\left(1-\frac{\mu}{L}\right)^{T}\left\|\mathbf{x}_{0}-\mathbf{x}^{\star}\right\|^{2}``
+    - **Proof**
+        - By storng convexity, ``\mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)=\nabla f\left(\mathbf{x}_{t}\right)^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right) \geq f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)+\frac{\mu}{2}\left\|\mathbf{x}_{t}-\mathbf{x}^{\star}\right\|^{2}``
+            - again by the fact ``\mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right) = \frac{1}{\gamma}(\mathbf{x}_{t} - \mathbf{x}_{t+1})^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right) = \frac{1}{2\gamma}(\gamma^2\|\mathbf{g}_{t}\|^2 + \|\mathbf{x}_{t}-\mathbf{x}^{\star}\|^2 - \|\mathbf{x}_{t+1}-\mathbf{x}^{\star}\|^2)``
+            - so that ``f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right) \leq \frac{1}{2\gamma}(\gamma^2\|\mathbf{g}_{t}\|^2 + \|\mathbf{x}_{t}-\mathbf{x}^{\star}\|^2 - \|\mathbf{x}_{t+1}-\mathbf{x}^{\star}\|^2) - \frac{\mu}{2}\left\|\mathbf{x}_{t}-\mathbf{x}^{\star}\right\|^{2}``
+            - Equivalently, ``\|\mathbf{x}_{t+1}-\mathbf{x}^{\star}\|^2 \leq (1-\mu\gamma)\|\mathbf{x}_{t}-\mathbf{x}^{\star}\|^2 + \gamma^2\|\mathbf{g}_{t}\|^2 - 2\gamma (f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right))``
+        - By sufficient decrease, ``f\left(\mathbf{x}^{\star}\right)-f\left(\mathbf{x}_{t}\right) \leq f\left(\mathbf{x}_{t+1}\right)-f\left(\mathbf{x}_{t}\right) \leq-\frac{1}{2 L}\left\|\nabla f\left(\mathbf{x}_{t}\right)\right\|^{2}``
+            - so that ``\gamma^2\|\mathbf{g}_{t}\|^2 - 2\gamma (f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)) \leq 0``
+        - Therefore, ``\|\mathbf{x}_{t+1}-\mathbf{x}^{\star}\|^2 \leq (1-\mu\gamma)\|\mathbf{x}_{t}-\mathbf{x}^{\star}\|^2 = (1-\frac{\mu}{L})\|\mathbf{x}_{t}-\mathbf{x}^{\star}\|^2``
+        - Iteratively, ``\left\|\mathbf{x}_{T}-\mathbf{x}^{\star}\right\|^{2} \leq\left(1-\frac{\mu}{L}\right)^{T}\left\|\mathbf{x}_{0}-\mathbf{x}^{\star}\right\|^{2}``
+        - By Strong convexity, ``f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq \nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}_{T}-\mathbf{x}^{\star}\right)+\frac{L}{2}\left\|\mathbf{x}_{T}-\mathbf{x}^{\star}\right\|^{2}=\frac{L}{2}\left\|\mathbf{x}_{T}-\mathbf{x}^{\star}\right\|^{2}``.
+    - **Time Complexiy** ``T \geq \frac{L}{\mu} \ln \left(\frac{R^{2} L}{2 \varepsilon}\right) = \mathcal{O}(\log (1 / \varepsilon))``

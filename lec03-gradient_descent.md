@@ -1,4 +1,4 @@
-# Gradient descent
+# lecture 03 Gradient descent
 - We assume existance of minimizer ``\mathbf{x}^{\star}``.
 - The goal is to find approximation ``\mathbf{x}``, s.t. ``f(\mathbf{x})-f\left(\mathbf{x}^{\star}\right)<\varepsilon``.
     - no need for ``\|\mathbf{x} - \mathbf{x}^{\star}\|`` to be close
@@ -32,6 +32,15 @@
         - Left-hand ineuqality, by smoothness ``\inf _{y} f(y) \leq \inf _{y}\left(f(z)+\nabla f(z)^{T}(y-z)+\frac{L}{2}\|y-z\|^{2}\right)``
             - by seperation of direction and magnitude ``\mathsf{LHS }\leq =\inf _{\|v\|=1} \inf _{t}\left(f(z)+t \nabla f(z)^{T} v+\frac{L t^{2}}{2}\right) = \inf _{\|v\|=1}\left(f(z)-\frac{1}{2 L}\left(\nabla f(z)^{T} v\right)^{2}\right)`` by maximum of quadratic function.
             - By the definition of dual norm, we have ``\inf _{y} f(y) = f(z^{\star}) \leq f(z)-\frac{1}{2 L}\|\nabla f(z)\|_{*}^{2}``
+
+- **Lemma 3.4 (quadratic function)** quadratic form ``f(\mathbf{x})=\mathbf{x}^{\top} Q \mathbf{x}+\mathbf{b}^{\top} \mathbf{x}+c`` is ``2\|Q\|_{\mathrm{spec}}``-smooth over 2-norm.
+- Example of Non-Smooth func: ``f(x) = x^4`` since ``\forall L, y^{4} \leq \frac{L}{2} y^{2}`` does not hold for all ``y`` near ``x=0``.
+
+- **Lemma 3.6 (Operation that preserves smoothness)** 
+    - (i) *Linear combination* ``f:=\sum_{i=1}^{m} \lambda_{i} f_{i}``, where ``\lambda_i > 0``.
+    - (ii) *Affine Transform* ``f(A \mathbf{x}+\mathbf{b}))``.
+    - **Proof** Straightforward
+
 ### Equivalence of Smoothness and Lipschitz under Convexity
 - **Definition (co-coercivity)** The property of *co-coercivity* of ``\nabla f`` with parameter ``L`` over norm ``a`` is ``\forall x,y``, ``(\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{1}{L}\|\nabla f(x)-\nabla f(y)\|_{*}^{2}``
 - **Lemma 3.5 (Equivalence of Smoothness and Lipschitz under convexity)** If (i) ``\mathbf{dom}(f) = \mathbb{R}^{d}`` (ii) ``f`` convex and differentiable. Then ``f`` is smooth with parameter ``L`` under norm ``a`` ``\Leftrightarrow`` ``\nabla f`` is Lipschitz continuous with parameter ``L`` under norm ``a``.
@@ -100,3 +109,8 @@
     - **Proof** similar to smoothness case.
     -  If ``f`` twice differentiable, Hessian of ``h`` is ``\nabla^2 f - \mu I \succeq 0``, this means ``\forall x, \lambda_{\min }\left(\nabla^{2} f(x)\right) \geq \mu``.
         -  Strictly Convex.
+
+### Smooth and Strong convexity
+- **Lemma F (Extension of co-coercivity)** Suppose ``f`` is ``\mu``-strongly convex and ``L``-smooth for 2-norm, and ``\mathbf{dom}(f) = \mathbb{R}^n``
+    - then function ``h(x)=f(x)-\frac{\mu}{2}\|x\|_{2}^{2}`` is ``L-\mu``-smooth
+    - co-coercivity of ``\nabla h`` gives ``\forall x,y, (\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{\mu L}{\mu+L}\|x-y\|_{2}^{2}+\frac{1}{\mu+L}\|\nabla f(x)-\nabla f(y)\|_{2}^{2}``

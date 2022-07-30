@@ -1,0 +1,65 @@
+body {
+	font-family: "Helvetica Neue";
+	/* font-family: "Menlo", "Monaco", "Courier New", "monospace", "MesloLGM Nerd Font"; */
+	font-size: 14px;
+	padding-left: 12px;
+	line-height: 22px;
+}
+
+
+.vscode-dark a {
+	color: #61AFEF;
+}
+
+.vscode-dark h1,
+.vscode-dark h2,
+.vscode-dark h3,
+.vscode-dark h4,
+.vscode-dark h5,
+.vscode-dark h6 {
+	font-weight: 600;
+	color: #fed765;
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #fafedd;
+}
+
+.vscode-dark code {
+	color: #90C378;
+}
+
+.vscode-dark strong {
+	color: #fe6188;
+}
+
+.vscode-dark em {
+	color: #77dbe8;
+}
+
+.vscode-dark ins {
+	color: #77dbe8;
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code>div {
+	background-color: #2C323C;
+}
+
+.vscode-dark table>thead>tr>th {
+	border-color: #2C323C;
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table>tbody>tr+tr>td {
+	border-color: #2C323C;
+}
+
+.vscode-dark blockquote {
+	color: #5C6370;
+	font-style: italic;
+	background: transparent;
+	border-color: #2C323C;
+}

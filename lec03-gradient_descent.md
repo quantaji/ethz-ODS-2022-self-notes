@@ -96,8 +96,8 @@
 - **Lemma D (boundedness and global minimum)** If $f$ is differentiable and $\mu$-strongly convex, then $f$ have bounded sublevel.
     - **Proof** 
         - Since $f$ $\mu$-strongly convex, given any $x,y$, value along this line will go to $+\infty$ by quadratic function.
-        - suppose $f^{\leq \alpha}$ non-empty, since $f$convex -> continuous, then $\exists y$ s.t. $f(y) = \alpha$.
-        - Then  $\forall x, f(x) \geq f(y) + \nabla f(y)^{\top} (y-x) + \frac{\mu}{2}\|y-x\|^2_{a} \geq f(y) - \|\nabla f(y)\|_{a*}\|y-x\| + \frac{\mu}{2}\|y-x\|^2_{a} \geq $,
+        - suppose $f^{\leq \alpha}$ non-empty, since $f$ convex -> continuous, then $\exists y$ s.t. $f(y) = \alpha$.
+        - Then  $\forall x, f(x) \geq f(y) + \nabla f(y)^{\top} (y-x) + \frac{\mu}{2}\|y-x\|^2_{a} \geq f(y) - \|\nabla f(y)\|_{a*}\|y-x\| + \frac{\mu}{2}\|y-x\|^2_{a}$,
         - If $\|y-x\|_{a} \geq 2 \|\nabla f(y)\|_{a*} / \mu$, then $f(x) \geq f(y) = \alpha$, then $f^{\leq \alpha}$  bounded.
     - This means $\inf_{x\in\mathbf{dom}(f)} f > -\infty$, if further one of $f^{\leq \alpha}$ is closed, then $f$ have a global minimum.
     - The global minimum is also unique (trivial).
@@ -122,7 +122,7 @@
     - $\rho = 0$super linear reate
 
 ## Vanilla GD
-- Update: $\mathbf{x}_{t+1}:=\mathbf{x}_{t}-\gamma \mathbf{g}_{t}$, $ \mathbf{g}_{t}:=\nabla f\left(\mathbf{x}_{t}\right)$
+- Update: $\mathbf{x}_{t+1}:=\mathbf{x}_{t}-\gamma \mathbf{g}_{t}$, $\mathbf{g}_{t}:=\nabla f\left(\mathbf{x}_{t}\right)$
 - Consider quantity $\mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)=\frac{1}{\gamma}\left(\mathbf{x}_{t}-\mathbf{x}_{t+1}\right)^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right) = \frac{1}{2 \gamma}\left(\left\|\mathbf{x}_{t}-\mathbf{x}_{t+1}\right\|^{2}+\left\|\mathbf{x}_{t}-\mathbf{x}^{\star}\right\|^{2}-\left\|\mathbf{x}_{t+1}-\mathbf{x}^{\star}\right\|^{2}\right) = \frac{\gamma}{2}\left\|\mathbf{g}_{t}\right\|^{2}+\frac{1}{2 \gamma}\left(\left\|\mathbf{x}_{t}-\mathbf{x}^{\star}\right\|^{2}-\left\|\mathbf{x}_{t+1}-\mathbf{x}^{\star}\right\|^{2}\right)$
 - sum over $t=0,\ldots,T-1$, we have $\sum_{t=0}^{T-1} \mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)=\frac{\gamma}{2} \sum_{t=0}^{T-1}\left\|\mathbf{g}_{t}\right\|^{2}+\frac{1}{2 \gamma}\left(\left\|\mathbf{x}_{0}-\mathbf{x}^{\star}\right\|^{2}-\left\|\mathbf{x}_{T}-\mathbf{x}^{\star}\right\|^{2}\right) \leq =\frac{\gamma}{2} \sum_{t=0}^{T-1}\left\|\mathbf{g}_{t}\right\|^{2}+\frac{1}{2 \gamma}\left\|\mathbf{x}_{0}-\mathbf{x}^{\star}\right\|^{2}$
 - By convexity $f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right) \leq \mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)$, we have $\sum_{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \frac{\gamma}{2} \sum_{t=0}^{T-1}\left\|\mathbf{g}_{t}\right\|^{2}+\frac{1}{2 \gamma}\left\|\mathbf{x}_{0}-\mathbf{x}^{\star}\right\|^{2}$

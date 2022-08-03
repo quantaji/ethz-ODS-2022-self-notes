@@ -755,20 +755,20 @@ body{ box-sizing: border-box;
 <li>We assume existance of minimizer \(\mathbf{x}^{\star}\).</li>
 <li>The goal is to find approximation \(\mathbf{x}\), s.t. \(f(\mathbf{x})-f\left(\mathbf{x}^{\star}\right)&lt;\varepsilon\).
 <ul>
-<li>no need for \(\Vert \mathbf{x} - \mathbf{x}^{\star}\Vert \) to be close</li>
+<li>no need for \(\Vert \mathbf{x} - \mathbf{x}^{\star}\Vert\) to be close</li>
 </ul>
 </li>
 </ul>
 <h3><a id="notation-on-norm" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notation on Norm</h3>
 <ul>
 <li>
-<p>\(\Vert \cdot\Vert _{a*}\) is the dual norm, \(\Vert u\Vert _{a*}=\sup _{v \neq 0} \frac{u^{T} v}{\Vert v\Vert _a}=\sup _{\Vert v\Vert _a=1} u^{T} v\)</p>
+<p>\(\Vert \cdot\Vert _{a\ast}\) is the dual norm, \(\Vert u\Vert _{a\ast}=\sup _{v \neq 0} \frac{u^{T} v}{\Vert v\Vert _a}=\sup _{\Vert v\Vert _a=1} u^{T} v\)</p>
 </li>
 <li>
-<p>This implies generalized Cauchy-Schwarz inequality \(\lvert u^{T} v\rvert \leq\Vert u\Vert _{a*}\Vert v\Vert _a, \forall u,v\).</p>
+<p>This implies generalized Cauchy-Schwarz inequality \(\lvert u^{T} v\rvert \leq\Vert u\Vert _{a\ast}\Vert v\Vert _a, \forall u,v\).</p>
 </li>
 <li>
-<p>For Eculidiean norm \(\Vert \cdot\Vert =\Vert \cdot\Vert _{*}=\Vert \cdot\Vert _{2}\)</p>
+<p>For Eculidiean norm \(\Vert \cdot\Vert =\Vert \cdot\Vert _{\ast}=\Vert \cdot\Vert _{2}\)</p>
 </li>
 <li>
 <p>the parameter \(L\) depends on choice of norm</p>
@@ -780,12 +780,12 @@ body{ box-sizing: border-box;
 <h2><a id="smoothness-and-lipschitz" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Smoothness and Lipschitz</h2>
 <h3><a id="lipschitz" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lipschitz</h3>
 <ul>
-<li><strong>Definition (Lipschitz)</strong> The gradient of \(f\) is <em>Lipschitz continuous</em> with parameter \(L &gt; 0\) w.r.t. norm \(\Vert \cdot\Vert _a\), if \(\Vert \nabla f(x)-\nabla f(y)\Vert _{a*} \leq L\Vert x-y\Vert _a\).</li>
+<li><strong>Definition (Lipschitz)</strong> The gradient of \(f\) is <em>Lipschitz continuous</em> with parameter \(L &gt; 0\) w.r.t. norm \(\Vert \cdot\Vert _a\), if \(\Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast} \leq L\Vert x-y\Vert _a\).</li>
 <li><strong>Lemma A (generalized Cauchy–Schwarz inequality)</strong> \(\nabla f\) is \(L\)-Lipschitz \(\Rightarrow\) \(\forall \mathbf{x,y}\in\mathbf{dom}(f)\), \((\nabla f(x)-\nabla f(y))^{T}(x-y) \leq L\Vert x-y\Vert ^{2}_{a}\)
 <ul>
 <li><strong>Proof</strong>
 <ul>
-<li>\((\nabla f(x)-\nabla f(y))^{T}(x-y) \leq \Vert \nabla f(x)-\nabla f(y)\Vert _{a*}\Vert x-y\Vert _{a} \leq L\Vert x-y\Vert _a^2\)</li>
+<li>\((\nabla f(x)-\nabla f(y))^{T}(x-y) \leq \Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast}\Vert x-y\Vert _{a} \leq L\Vert x-y\Vert _a^2\)</li>
 </ul>
 </li>
 </ul>
@@ -812,7 +812,7 @@ body{ box-sizing: border-box;
 </ul>
 </li>
 <li>
-<p><strong>Lemma B (quadratic upper bound)</strong> If \(\operatorname{dom} f=\mathbf{R}^{n}\) and \(f\) is \(L\)-smooth over norm \(a\), and has minimizer \(\mathbf{x}^{\star}\), then \(\forall z\), \(\frac{1}{2 L}\Vert \nabla f(z)\Vert _{a*}^{2} \leq f(z)-f\left(x^{\star}\right) \leq \frac{L}{2}\lVert z-x^{\star}\rVert_{a}^{2}\)</p>
+<p><strong>Lemma B (quadratic upper bound)</strong> If \(\operatorname{dom} f=\mathbf{R}^{n}\) and \(f\) is \(L\)-smooth over norm \(a\), and has minimizer \(\mathbf{x}^{\star}\), then \(\forall z\), \(\frac{1}{2 L}\Vert \nabla f(z)\Vert _{a\ast}^{2} \leq f(z)-f\left(x^{\star}\right) \leq \frac{L}{2}\lVert z-x^{\star}\rVert_{a}^{2}\)</p>
 <ul>
 <li><strong>Proof</strong>
 <ul>
@@ -820,7 +820,7 @@ body{ box-sizing: border-box;
 <li>Left-hand ineuqality, by smoothness \(\inf _{y} f(y) \leq \inf _{y}\left(f(z)+\nabla f(z)^{T}(y-z)+\frac{L}{2}\Vert y-z\Vert ^{2}\right)\)
 <ul>
 <li>by seperation of direction and magnitude \(\mathsf{LHS }\leq =\inf _{\Vert v\Vert =1} \inf _{t}\left(f(z)+t \nabla f(z)^{T} v+\frac{L t^{2}}{2}\right) = \inf _{\Vert v\Vert =1}\left(f(z)-\frac{1}{2 L}\left(\nabla f(z)^{T} v\right)^{2}\right)\) by maximum of quadratic function.</li>
-<li>By the definition of dual norm, we have \(\inf _{y} f(y) = f(z^{\star}) \leq f(z)-\frac{1}{2 L}\Vert \nabla f(z)\Vert _{*}^{2}\)</li>
+<li>By the definition of dual norm, we have \(\inf _{y} f(y) = f(z^{\star}) \leq f(z)-\frac{1}{2 L}\Vert \nabla f(z)\Vert _{\ast}^{2}\)</li>
 </ul>
 </li>
 </ul>
@@ -844,7 +844,7 @@ body{ box-sizing: border-box;
 </ul>
 <h3><a id="equivalence-of-smoothness-and-lipschitz-under-convexity" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Equivalence of Smoothness and Lipschitz under Convexity</h3>
 <ul>
-<li><strong>Definition (co-coercivity)</strong> The property of <em>co-coercivity</em> of \(\nabla f\) with parameter \(L\) over norm \(a\) is \(\forall x,y\), \((\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{*}^{2}\)</li>
+<li><strong>Definition (co-coercivity)</strong> The property of <em>co-coercivity</em> of \(\nabla f\) with parameter \(L\) over norm \(a\) is \(\forall x,y\), \((\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{\ast}^{2}\)</li>
 <li><strong>Lemma 3.5 (Equivalence of Smoothness and Lipschitz under convexity)</strong> If (i) \(\mathbf{dom}(f) = \mathbb{R}^{d}\) (ii) \(f\) convex and differentiable. Then \(f\) is smooth with parameter \(L\) under norm \(a\) \(\Leftrightarrow\) \(\nabla f\) is Lipschitz continuous with parameter \(L\) under norm \(a\).
 <ul>
 <li><em>Proof Route</em> <strong>Lipschitzness</strong> -(<em>Lemma A</em>)-&gt; <strong>Smoothness</strong> -(<em>Lemma B</em>)-&gt; <strong>Co-coercivity</strong> -&gt; <strong>Lipschitzness</strong></li>
@@ -868,15 +868,15 @@ body{ box-sizing: border-box;
 <li>Define two function \(f_{x}(z)=f(z)-\nabla f(x)^{T} z, f_{y}(z)=f(z)-\nabla f(y)^{T} z\)</li>
 <li>Since we only add first-order term, \(f_x{z}, f_y(z)\) are still convex.</li>
 <li>Since \(\nabla f_x(z_1) - \nabla f_x(z_2) = \nabla f(z_1) - \nabla f(z_2)\), \(f_x{z}, f_y(z)\) are still \(L\)-smooth.</li>
-<li>Also \(\nabla f_x(z=x) = 0\), by convexity, it reaches it minimum, using Smoothness and left-hand inequality of Lemma B, and taking \(f = f_x, z=y\), we get \(f(y)-f(x)-\nabla f(x)^{T}(y-x) \geq \frac{1}{2 L}\Vert \nabla f(y)-\nabla f(x)\Vert _{a*}^{2}\)</li>
-<li>Similarly \(f(x)-f(y)-\nabla f(y)^{T}(x-y) \geq \frac{1}{2 L}\Vert \nabla f(y)-\nabla f(x)\Vert _{a*}^{2}\)</li>
-<li>Adding these together and we get \((\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{a*}^{2}\), co-coercivity</li>
+<li>Also \(\nabla f_x(z=x) = 0\), by convexity, it reaches it minimum, using Smoothness and left-hand inequality of Lemma B, and taking \(f = f_x, z=y\), we get \(f(y)-f(x)-\nabla f(x)^{T}(y-x) \geq \frac{1}{2 L}\Vert \nabla f(y)-\nabla f(x)\Vert _{a\ast}^{2}\)</li>
+<li>Similarly \(f(x)-f(y)-\nabla f(y)^{T}(x-y) \geq \frac{1}{2 L}\Vert \nabla f(y)-\nabla f(x)\Vert _{a\ast}^{2}\)</li>
+<li>Adding these together and we get \((\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast}^{2}\), co-coercivity</li>
 </ul>
 </li>
 <li><strong>Co-coercivity</strong> -&gt; <strong>Lipschitzness</strong>
 <ul>
-<li>\(\frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{a*}^{2} \leq (\nabla f(x)-\nabla f(y))^{T}(x-y) \leq \Vert \nabla f(x)-\nabla f(y)\Vert _{a*}\cdot \Vert x-y\Vert _{a}\)</li>
-<li>\(\Rightarrow \Vert \nabla f(x)-\nabla f(y)\Vert _{a*} \leq L  \Vert x-y\Vert _{a}\)</li>
+<li>\(\frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast}^{2} \leq (\nabla f(x)-\nabla f(y))^{T}(x-y) \leq \Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast}\cdot \Vert x-y\Vert _{a}\)</li>
+<li>\(\Rightarrow \Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast} \leq L  \Vert x-y\Vert _{a}\)</li>
 </ul>
 </li>
 </ul>
@@ -891,7 +891,7 @@ body{ box-sizing: border-box;
 <ul>
 <li>(i) \(f(y) \geq f(x)+\nabla f(x)^{T}(y-x)+\frac{\mu}{2}\Vert y-x\Vert _{a}^{2}, \forall x, y\) (This is also used in text book)</li>
 <li>(ii) \(f(\theta x+(1-\theta) y) \leq \theta f(x)+(1-\theta) f(y)-\frac{\mu}{2} \theta(1-\theta)\Vert x-y\Vert _{a}^{2}\), \(\theta \in [0,1]\)</li>
-<li>(iii) \(\forall x,y\in\mathbf{dom}(f), g(t) :=f(x+t(y-x))-\frac{m}{2} t^{2}\Vert x-y\Vert ^{2}\) is convex over \(t\)</li>
+<li>(iii) \(\forall x,y\in\mathbf{dom}(f), g(t) :=f(x+t(y-x))-\frac{m}{2} t^{2}\Vert x-y\Vert ^{2}_{a}\) is convex over \(t\)</li>
 <li>(iiii) \((\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \mu\Vert x-y\Vert _{a}^{2}\) (also known as <em>strong monotonicity</em> or <em>coercivity</em> of \(\nabla f\))</li>
 <li><strong>Proof of Equivalence</strong>
 <ul>
@@ -936,8 +936,8 @@ body{ box-sizing: border-box;
 <ul>
 <li>let \(x=x, y=x+t(y-x)\) in (iiii), and we have \((\nabla f(x + t (y-x) )-\nabla f(x))^{T}(y-x) \geq \mu t \Vert x-y\Vert ^{2}\)</li>
 <li>now we compute \(g'(t)\) in (iii), we have \(g'(t) = \nabla f(x + t(y-x))^{\top}(y-x) - \mu t \Vert y-x\Vert _{a}^2\)</li>
-<li>assume \(t_1 \geq t_2\), then \(g(t_1) - g(t_2) = \nabla (f(x + t_1(y-x)) - f(x + t_2(y-x)))^{\top}(y-x) - \mu (t_1 - t_2) \Vert y-x\Vert _{a}^2 \geq \mu (t1 - t2) \Vert x-y\Vert _{a}^2 - \mu (t_1 - t_2) \Vert y-x\Vert _{a}^2 = 0\)</li>
-<li>\(g(t)\) nondecreasing, convex -&gt; (iii).</li>
+<li>assume \(t_1 \geq t_2\), then \(g'(t_1) - g'(t_2) = \nabla (f(x + t_1(y-x)) - f(x + t_2(y-x)))^{\top}(y-x) - \mu (t_1 - t_2) \Vert y-x\Vert _{a}^2 \geq \mu (t1 - t2) \Vert x-y\Vert _{a}^2 - \mu (t_1 - t_2) \Vert y-x\Vert _{a}^2 = 0\)</li>
+<li>\(g'(t)\) nondecreasing, convex -&gt; (iii).</li>
 </ul>
 </li>
 </ul>
@@ -951,8 +951,8 @@ body{ box-sizing: border-box;
 <ul>
 <li>Since \(f\) \(\mu\)-strongly convex, given any \(x,y\), value along this line will go to \(+\infty\) by quadratic function.</li>
 <li>suppose \(f^{\leq \alpha}\) non-empty, since \(f\) convex -&gt; continuous, then \(\exists y\) s.t. \(f(y) = \alpha\).</li>
-<li>Then  \(\forall x, f(x) \geq f(y) + \nabla f(y)^{\top} (y-x) + \frac{\mu}{2}\Vert y-x\Vert ^2_{a} \geq f(y) - \Vert \nabla f(y)\Vert _{a*}\Vert y-x\Vert  + \frac{\mu}{2}\Vert y-x\Vert ^2_{a}\),</li>
-<li>If \(\Vert y-x\Vert _{a} \geq 2 \Vert \nabla f(y)\Vert _{a*} / \mu\), then \(f(x) \geq f(y) = \alpha\), then \(f^{\leq \alpha}\)  bounded.</li>
+<li>Then  \(\forall x, f(x) \geq f(y) + \nabla f(y)^{\top} (y-x) + \frac{\mu}{2}\Vert y-x\Vert ^2_{a} \geq f(y) - \Vert \nabla f(y)\Vert _{a\ast}\Vert y-x\Vert  + \frac{\mu}{2}\Vert y-x\Vert ^2_{a}\),</li>
+<li>If \(\Vert y-x\Vert _{a} \geq 2 \Vert \nabla f(y)\Vert _{a\ast} / \mu\), then \(f(x) \geq f(y) = \alpha\), then \(f^{\leq \alpha}\)  bounded.</li>
 </ul>
 </li>
 <li>This means \(\inf_{x\in\mathbf{dom}(f)} f &gt; -\infty\), if further one of \(f^{\leq \alpha}\) is closed, then \(f\) have a global minimum.</li>
@@ -960,7 +960,7 @@ body{ box-sizing: border-box;
 </ul>
 </li>
 <li>
-<p><strong>Lemma E (quadratic lower bound)</strong> If \(f\) is closed (means has closed sublevel sets), and \(\mathbf{x}^{\star}\) is its unique minimizer, then \(\forall z\in \mathbf{dom}(f), \frac{m}{2}\lVert z-x^{\star}\rVert^{2} \leq f(z)-f\left(x^{\star}\right) \leq \frac{1}{2 m}\Vert \nabla f(z)\Vert _{*}^{2}.\)</p>
+<p><strong>Lemma E (quadratic lower bound)</strong> If \(f\) is closed (means has closed sublevel sets), and \(\mathbf{x}^{\star}\) is its unique minimizer, then \(\forall z\in \mathbf{dom}(f), \frac{m}{2}\lVert z-x^{\star}\rVert^{2} \leq f(z)-f\left(x^{\star}\right) \leq \frac{1}{2 m}\Vert \nabla f(z)\Vert _{\ast}^{2}.\)</p>
 <ul>
 <li><strong>Proof</strong> similar to smoothness case.</li>
 </ul>
@@ -988,7 +988,7 @@ body{ box-sizing: border-box;
 </ul>
 <h2><a id="speed-metric" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Speed metric</h2>
 <ul>
-<li>\(\lim _{k \rightarrow \infty} \frac{f\left(w^{k+1}\right)-f\left(w^{*}\right)}{f\left(w^{k}\right)-f\left(w^{*}\right)}=\rho\)
+<li>\(\lim _{k \rightarrow \infty} \frac{f\left(w^{k+1}\right)-f\left(w^{\ast}\right)}{f\left(w^{k}\right)-f\left(w^{\ast}\right)}=\rho\)
 <ul>
 <li>\(\rho=1\) sublinear rate</li>
 <li>\(\rho\in(0,1)\) linear rate</li>
@@ -1005,7 +1005,7 @@ body{ box-sizing: border-box;
 <ul>
 <li>This gives upper bound on average error \(\mathbb{E}_{t} [f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)]\)</li>
 <li>note that last iterate is not necessarily the best one. Some algorithms guarantee last iterate convergence.</li>
-<li>Bad result since we cannot control \(\Vert \mathbf{g}_t\Vert \)</li>
+<li>Bad result since we cannot control \(\Vert \mathbf{g}_t\Vert\)</li>
 </ul>
 </li>
 </ul>
@@ -1013,10 +1013,10 @@ body{ box-sizing: border-box;
 <ul>
 <li>By Theorem 2.9, if we assume convex function \(f\) is \(B\)-Lipschitz, then \(\Vert D f(x)\Vert  \leq B\), the spectual norm in Thm 2.9 is Euclidian norm when \(D f \in \mathbb{R}^{1\times d}\)
 <ul>
-<li>then \(\mathbf{g}_t \leq B\) -&gt; Theorem 3.1</li>
+<li>then \(\Vert\mathbf{g}_t\Vert \leq B\) -&gt; Theorem 3.1</li>
 </ul>
 </li>
-<li><strong>Theorem 3.1</strong> Suppose \(f \in C^1(x)\) convex, with global minimum \(\mathbf{x}^{\star}\). If (1) \(\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert \leq R\) (2) \(\forall \mathbf{x}, \Vert \nabla f(\mathbf{x})\Vert  \leq B\), when with step size \(\gamma:=\frac{R}{B \sqrt{T}}\), we have average error bounded by \(\frac{1}{T} \sum_{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \frac{R B}{\sqrt{T}}\)
+<li><strong>Theorem 3.1</strong> Suppose \(f \in C^1(x)\) convex, with global minimum \(\mathbf{x}^{\star}\). If (1) \(\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert \leq R\), (2) \(\forall \mathbf{x}, \Vert \nabla f(\mathbf{x})\Vert  \leq B\), when with step size \(\gamma:=\frac{R}{B \sqrt{T}}\), we have average error bounded by \(\frac{1}{T} \sum_{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \frac{R B}{\sqrt{T}}\)
 <ul>
 <li><strong>Proof</strong> Straighforward from vanilla case, \(\sum_{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \frac{\gamma}{2} B^{2} T+\frac{1}{2 \gamma} R^{2}\)</li>
 <li><strong>Time Complexity</strong> To achieve \(\min _{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \varepsilon\), we need \(T \geq \frac{R^{2} B^{2}}{\varepsilon^{2}}\) iterations, \(\mathcal{O}\left(1 / \varepsilon^{2}\right)\).</li>

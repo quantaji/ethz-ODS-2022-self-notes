@@ -135,7 +135,7 @@
             - If $\exists \mathbf{x}'$ s.t. $\nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}'-\mathbf{x}^{\star}\right) < 0$, then $h(t\in[0,1]) := f(\mathbf{x}^{\star}) + \nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}'-\mathbf{x}^{\star}\right) < f(\mathbf{x}^{\star})$
             - by Tayler theorem, we have $f(\mathbf{x}^{\star} + t \left(\mathbf{x}'-\mathbf{x}^{\star}\right))< f(\mathbf{x}^{\star})$, contradict to convexity in $\operatorname{dom}(f)$.
         - ($\leftarrow$) Suppose $\forall \mathbf{x} \in X, \nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}-\mathbf{x}^{\star}\right) \geq 0$,
-            - by convexity in $\operatorname{dom}(f)$ we have, $\forall \mathbf{x}\in X$, $f(\mathbf{x}) \geq f(\mathbf{x}^{\star} + t \left(\mathbf{x}-\mathbf{x}^{\star}\right)) \geq f(\mathbf{x}^{\star}$
+            - by convexity in $\operatorname{dom}(f)$ we have, $\forall \mathbf{x}\in X$, $f(\mathbf{x}) \geq f(\mathbf{x}^{\star} + t \left(\mathbf{x}-\mathbf{x}^{\star}\right)) \geq f(\mathbf{x}^{\star}) + t \nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}-\mathbf{x}^{\star}\right) \geq f(\mathbf{x}^{\star})$
 
 ## Existence of minimizer
 ### Sublevel sets, Weierstrass Theorem
@@ -151,19 +151,19 @@
 ### Recession cone and lineality space
 Examples like $f(x) = e^x$ is convex but does not have a global minimum.
 - **Definition 2.30 (unbounded in direction)** Let $C\subseteq \mathbb{R}^{d}$ be a convex set. Then $\mathbf{y}\in\mathbf{R}^d$ is a *direction of recession* of $C$ if $\exists \mathbf{x} \in C$ and $\forall \lambda \geq 0$ $\mathbf{x} + \lambda \mathbf{y} \in C$.
-- **Lemma 2.31 (Equivalance for existance and arbitry)** Let $C\subseteq \mathbf{R}^d$ be a nonempty closed convex set, and let $\mathbf{y}\in\mathbb{R}^d$. $\forall \lambda \geq 0, \exists \mathbf{x} \in C: \mathbf{x}+\lambda \mathbf{y} \in C \Leftrightarrow \forall \lambda \geq 0 \forall \mathbf{x} \in C: \mathbf{x}+\lambda \mathbf{y} \in C$
+- **Lemma 2.31 (Equivalance for existance and arbitry)** Let $C\subseteq \mathbf{R}^d$ be a nonempty closed convex set, and let $\mathbf{y}\in\mathbb{R}^d$. $\forall \lambda \geq 0, \exists \mathbf{x} \in C: \mathbf{x}+\lambda \mathbf{y} \in C \Leftrightarrow \forall \lambda \geq 0, \forall \mathbf{x} \in C: \mathbf{x}+\lambda \mathbf{y} \in C$
     - **Proof** 
-        - ($\rightarrow$) is obvious. ($\leftarrow$): We already have $\mathbf{x}_0$ s.t. $\forall \lambda \geq 0, \mathbf{x}_0+\lambda \mathbf{y} \in C$. 
+        - ($\leftarrow$) is obvious. ($\rightarrow$): We already have $\mathbf{x}_0$ s.t. $\forall \lambda \geq 0, \mathbf{x}_0+\lambda \mathbf{y} \in C$. 
             - For arbitary $\mathbf{x}\in C$, let $\mathbf{z}=\lambda \mathbf{y}$, define $\mathbf{w}_{k}:=\mathbf{x}_0+k \mathbf{z} \in C$ by our assumption, 
             - Define $\mathbf{z}_k := \frac{1}{k}\left(\mathbf{w}_{k}-\mathbf{x}\right) = \lambda \mathbf{y}+\frac{1}{k}\left(\mathbf{x}_0-\mathbf{x}\right)$, 
-            - and $\mathbf{x} + \mathbf{z}_k = \lambda\mathbf{y} = \frac{1}{k} \mathbf{W}_{k} + \left(1-\frac{1}{k}\right) \mathbf{x}^{\prime} \in C$ by convex set.
+            - and $\mathbf{x} + \mathbf{z}_k = \lambda\mathbf{y} + \frac{1}{k}\mathbf{x}_0 + \left(1-\frac{1}{k}\right) \mathbf{x} = \frac{1}{k} \mathbf{w}_{k} + \left(1-\frac{1}{k}\right) \mathbf{x} \in C$ by convex set.
             - By closeness of $C$, $\lim_{k\to \infty} \mathbf{x} + \mathbf{z}_k = \mathbf{x} + \mathbf{z} \in C$
 - **Definition (recession cone)** The *recession cone* $R(C)$ of $C$ is the set of directions of recession of $C$
     - This set is closed under non-negative linear combinations, see next lemma.
 - **Lemma 2.32 (non-negative linear combination of recession cone)** Let $C\subseteq \mathbb{R}^d$ be closed convex set, and let $\mathbf{y_1, y_2}$ be directions of recession of $C$. Then $\forall \lambda_1, \lambda_2 \in \mathbb{R}^+$, $\mathbf{y} = \lambda_1\mathbf{y}_1 + \lambda_2\mathbf{y}_2$ is also direction of recession of C.
     - **Proof**: $\mathbf{x}+\lambda \mathbf{y}=\mathbf{x}+\lambda_{1} \lambda \mathbf{y}_{1}+\lambda_{2} \lambda \mathbf{y}_{2}=\lambda_{1}\left(\mathbf{x}+\lambda \mathbf{y}_{1}\right)+\lambda_{2}\left(\mathbf{x}+\lambda \mathbf{y}_{2}\right) \in C$
 - **Definition 2.33 (direction of constancy)** Let $C\subseteq \mathbb{R}^{d}$ be a convex set. Then $\mathbf{y}\in\mathbf{R}^d$ is a *direction of constancy* of $C$ if both $\mathbf{y}$ and $-\mathbf{y}$ are directions of recession of $C$.
-- **Lemma 2.34 (also non-negative linear combination)**. Let $C\subseteq \mathbb{R}^d$ be closed convex set, and let $\mathbf{y_1, y_2}$ be directions of constancy of C. Then $\forall \lambda_1, \lambda_2 \in \mathbb{R}^+$, $\mathbf{y} = \lambda_1\mathbf{y}_1 + \lambda_2\mathbf{y}_2$ is also direction of constancy of C.
+- **Lemma 2.34 (linear combination)**. Let $C\subseteq \mathbb{R}^d$ be closed convex set, and let $\mathbf{y_1, y_2}$ be directions of constancy of C. Then $\forall \lambda_1, \lambda_2 \in \mathbb{R}$, $\mathbf{y} = \lambda_1\mathbf{y}_1 + \lambda_2\mathbf{y}_2$ is also direction of constancy of C.
 
 ### Recession Cone in Sub-level set
 - **Lemma (non-deceasing along direction)** Suppose $\mathbf{y}$ is a direction of recession of $f^{\leq \alpha}$, then $\forall \mathbf{x}\in f^{\leq \alpha},\forall \lambda \geq 0, f(\mathbf{x}+\lambda \mathbf{y}) \leq f(\mathbf{x})$
@@ -178,9 +178,9 @@ Examples like $f(x) = e^x$ is convex but does not have a global minimum.
     - The set of directions of recession of $f$ is called the *recession cone* $R(f)$ of $f$. 
     - The set of directions of constancy of $f$ is called the *lineality space* $L(f)$ of $f$.
 - **Lemma 2.37 & 2.38 (Relation to Epigraph)** Let $f: \mathbb{R}^d \to \mathbb{R}$ be a convex function. The following statements are equivalent.
-    - (i) $\mathbf{y} \in \mathbb{R}^{d}$ is a direction of (recession / constancy) of f.
-    - (ii) $\forall \mathbf{x} \in \mathbb{R}^d, \lambda > 0$, ($f(\mathbf{x}+\lambda \mathbf{y}) \leq f(\mathbf{x})$ / $f(\mathbf{x}+\lambda \mathbf{y}) = f(\mathbf{x})$)
-    - (iii) $(\mathbf{y}, 0)$ is a direction of (recession / constancy) of (the closed convex set) $\mathbf{epi}(f)$.
+    - (i) $\mathbf{y} \in \mathbb{R}^{d}$ is a direction of **(** recession / constancy **)** of f.
+    - (ii) $\forall \mathbf{x} \in \mathbb{R}^d, \lambda > 0$, **(** $f(\mathbf{x}+\lambda \mathbf{y}) \leq f(\mathbf{x})$ / $f(\mathbf{x}+\lambda \mathbf{y}) = f(\mathbf{x})$ **)**
+    - (iii) $(\mathbf{y}, 0)$ is a direction of **(** recession / constancy **)** of (the closed convex set) $\mathbf{epi}(f)$.
     - **Proof**
         - (i)<->(ii) obvious
         - (ii)<->(iii) $(\mathbf{x}, f(\mathbf{x})) + \lambda (\mathbf{y}, 0) = (\mathbf{x} + \lambda \mathbf{y}, f(\mathbf{x}) )$. $f(\mathbf{x} + \lambda \mathbf{y}) \leq f(\mathbf{x}) \Leftrightarrow (\mathbf{x} + \lambda \mathbf{y}, f(\mathbf{x}) )\in \mathbf{epi}(f)$.
@@ -213,7 +213,7 @@ Examples like $f(x) = e^x$ is convex but does not have a global minimum.
     - $X=\{\mathbf{x} \in \mathbb{R}^{d}: f_{i}(\mathbf{x}) \leq 0, i=1, \ldots, m ; h_{i}(\mathbf{x})=0, i=1, \ldots, p\}$ is the *feasible region* of the program. $x\in X$ is called the *feasible solution*.
 
 ### Lagrange duality (Weak duality) 
-- Idea: Then hard constrains of primal into soft constrains into objective function.
+- Idea: Turn hard constrains of primal into soft constrains into objective function.
 - **Definition (Lagrangian)** givem convex program $\{f_{i}, h_{i}\}$, its *Lagrangian* $L: \mathcal{D} \times \mathbb{R}^{m} \times \mathbb{R}^{p} \rightarrow \mathbb{R}$ is $L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu})=f_{0}(\mathbf{x})+\sum_{i=1}^{m} \lambda_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \nu_{i} h_{i}(\mathbf{x})$.
 - **Definition (Lagrange dual function)** The Lagrange dual function is the function $g: \mathbb{R}^{m} \times \mathbb{R}^{p} \rightarrow \mathbb{R} \cup\{-\infty\}$ defined by $g(\boldsymbol{\lambda}, \boldsymbol{\nu})=\inf _{\mathbf{x} \in \mathcal{D}} L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu})$.
     - $g$ assume value $-\infty$ is typical. The interesting $(\boldsymbol{\lambda}, \boldsymbol{\nu})$ are those $g(\boldsymbol{\lambda}, \boldsymbol{\nu})>-\infty$.
@@ -241,7 +241,7 @@ Examples like $f(x) = e^x$ is convex but does not have a global minimum.
 - *Key Idea*
     - If optimization program is differentiable, KKT condition is necessary
     - Futher if program is convex, then KKT condition is sufficient.
-- **Deﬁnition 2.48 (Zero duality gap)** Let $\tilde{\mathbf{x}}$ be feasible for the primal and $(\tilde{\boldsymbol{\lambda}}, \tilde{22.07.2022\boldsymbol{\nu}})$ feasible for the Lagrange dual. The primal and dual solutions $\tilde{\mathbf{x}}$ and $(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})$ are said to have *zero duality gap* if $f_0(\tilde{\mathbf{x}}) = g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})$.
+- **Deﬁnition 2.48 (Zero duality gap)** Let $\tilde{\mathbf{x}}$ be feasible for the primal and $(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})$ feasible for the Lagrange dual. The primal and dual solutions $\tilde{\mathbf{x}}$ and $(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})$ are said to have *zero duality gap* if $f_0(\tilde{\mathbf{x}}) = g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})$.
 - **Lemma 2.49 (Complementary slackness)** If $\tilde{\mathbf{x}}$ and $(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})$ have zero duality gap, then $\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})=0, i=1, \ldots, m$.
     - **Proof** 
         - $f_{0}(\tilde{\mathbf{x}})=g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}}) =\inf _{\mathbf{x} \in \mathcal{D}}\left(f_{0}(\mathbf{x})+\sum_{i=1}^{m} \tilde{\lambda}_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \tilde{\nu}_{i} h_{i}(\mathbf{x})\right) \leq f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \underbrace{\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})}_{\leq 0}+\sum_{i=1}^{p} \underbrace{\tilde{\nu}_{i} h_{i}(\tilde{\mathbf{x}})}_{0} \leq f_{0}(\tilde{\mathbf{x}})$
@@ -252,7 +252,7 @@ Examples like $f(x) = e^x$ is convex but does not have a global minimum.
     - (i) $\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})=0, \quad i=1, \ldots, m$
     - (ii)  $\nabla f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \tilde{\lambda}_{i} \nabla f_{i}(\tilde{\mathbf{x}})+\sum_{i=1}^{p} \tilde{\nu}_{i} \nabla h_{i}(\tilde{\mathbf{x}})=\mathbf{0}$
     - PS: no need to assume convexity
-- **Theorem 2.52 (KKT sufficient condition, convxe + KKT -> zero gap)**  Let $\tilde{\mathbf{x}}$ and $(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})$ are feasible solution for primal and dual, and all $f_i$ and $h_i$ are differentiable, all $f_i$ are convex and all $h_i$ affine. If KKT condition ((i) and (ii) in Theorem 2.51)holds, then $f_0(\tilde{\mathbf{x}}) = g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})$ (zero duality gap).
+- **Theorem 2.52 (KKT sufficient condition, convexity + KKT -> zero gap)**  Let $\tilde{\mathbf{x}}$ and $(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})$ are feasible solution for primal and dual, and all $f_i$ and $h_i$ are differentiable, all $f_i$ are convex and all $h_i$ affine. If KKT condition ((i) and (ii) in Theorem 2.51)holds, then $f_0(\tilde{\mathbf{x}}) = g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})$ (zero duality gap).
     - **Proof** 
         - By KKT(ii) $\nabla f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \tilde{\lambda}_{i} \nabla f_{i}(\tilde{\mathbf{x}})+\sum_{i=1}^{p} \tilde{\nu}_{i} \nabla h_{i}(\tilde{\mathbf{x}})=\mathbf{0}$, $\tilde{\mathbf{x}}$ is solution for unconstraint convex optimization problem $\min _{\mathbf{x} \in \mathcal{D}}\left(f_{0}(\mathbf{x})+\sum_{i=1}^{m} \tilde{\lambda}_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \tilde{\nu}_{i} h_{i}(\mathbf{x})\right)$ (Lemma 2.21), therefore $g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}}) = L(\tilde{\mathbf{x}}, \tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})$.
         - By KKT(i) $\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})=0, \quad i=1, \ldots, m$ and because $\tilde{\mathbf{x}}$ feasible, $L(\tilde{\mathbf{x}}, \tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}}) = f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})+\sum_{i=1}^{p} \tilde{\nu}_{i} h_{i}(\tilde{\mathbf{x}}) = f_{0}(\tilde{\mathbf{x}})$

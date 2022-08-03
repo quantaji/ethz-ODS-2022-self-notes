@@ -68,7 +68,7 @@
 - **Definition and Lemma C (Strong Convexity)** A differentiable function $f$ is strongly convex with parameter $\mu$ over norm $\Vert \cdot\Vert _{a}$ if $\mathbf{dom}(f)$ is convex and (for following are equivalent)
     - (i) $f(y) \geq f(x)+\nabla f(x)^{T}(y-x)+\frac{\mu}{2}\Vert y-x\Vert _{a}^{2}, \forall x, y$ (This is also used in text book)
     - (ii) $f(\theta x+(1-\theta) y) \leq \theta f(x)+(1-\theta) f(y)-\frac{\mu}{2} \theta(1-\theta)\Vert x-y\Vert _{a}^{2}$, $\theta \in [0,1]$
-    - (iii) $\forall x,y\in\mathbf{dom}(f), g(t) :=f(x+t(y-x))-\frac{m}{2} t^{2}\Vert x-y\Vert ^{2}$ is convex over $t$
+    - (iii) $\forall x,y\in\mathbf{dom}(f), g(t) :=f(x+t(y-x))-\frac{m}{2} t^{2}\Vert x-y\Vert ^{2}_{a}$ is convex over $t$
     - (iiii) $(\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \mu\Vert x-y\Vert _{a}^{2}$ (also known as *strong monotonicity* or *coercivity* of $\nabla f$)
     - **Proof of Equivalence**
         - (i) -> (ii)
@@ -90,8 +90,8 @@
         - (iiii) -> (iii)
             - let $x=x, y=x+t(y-x)$ in (iiii), and we have $(\nabla f(x + t (y-x) )-\nabla f(x))^{T}(y-x) \geq \mu t \Vert x-y\Vert ^{2}$
             - now we compute $g'(t)$ in (iii), we have $g'(t) = \nabla f(x + t(y-x))^{\top}(y-x) - \mu t \Vert y-x\Vert _{a}^2$
-            - assume $t_1 \geq t_2$, then $g(t_1) - g(t_2) = \nabla (f(x + t_1(y-x)) - f(x + t_2(y-x)))^{\top}(y-x) - \mu (t_1 - t_2) \Vert y-x\Vert _{a}^2 \geq \mu (t1 - t2) \Vert x-y\Vert _{a}^2 - \mu (t_1 - t_2) \Vert y-x\Vert _{a}^2 = 0$
-            - $g(t)$ nondecreasing, convex -> (iii).
+            - assume $t_1 \geq t_2$, then $g'(t_1) - g'(t_2) = \nabla (f(x + t_1(y-x)) - f(x + t_2(y-x)))^{\top}(y-x) - \mu (t_1 - t_2) \Vert y-x\Vert _{a}^2 \geq \mu (t1 - t2) \Vert x-y\Vert _{a}^2 - \mu (t_1 - t_2) \Vert y-x\Vert _{a}^2 = 0$
+            - $g'(t)$ nondecreasing, convex -> (iii).
 
 - **Lemma D (boundedness and global minimum)** If $f$ is differentiable and $\mu$-strongly convex, then $f$ have bounded sublevel.
     - **Proof** 
@@ -132,8 +132,8 @@
 
 ## Improvement Case 1: Lipschitz $f$: $\mathcal{O}\left(1 / \varepsilon^{2}\right)$ Steps
 - By Theorem 2.9, if we assume convex function $f$ is $B$-Lipschitz, then $\Vert D f(x)\Vert  \leq B$, the spectual norm in Thm 2.9 is Euclidian norm when $D f \in \mathbb{R}^{1\times d}$
-    - then $\mathbf{g}_t \leq B$ -> Theorem 3.1
-- **Theorem 3.1** Suppose $f \in C^1(x)$ convex, with global minimum $\mathbf{x}^{\star}$. If (1) $\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert \leq R$ (2) $\forall \mathbf{x}, \Vert \nabla f(\mathbf{x})\Vert  \leq B$, when with step size $\gamma:=\frac{R}{B \sqrt{T}}$, we have average error bounded by $\frac{1}{T} \sum_{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \frac{R B}{\sqrt{T}}$
+    - then $\Vert\mathbf{g}_t\Vert \leq B$ -> Theorem 3.1
+- **Theorem 3.1** Suppose $f \in C^1(x)$ convex, with global minimum $\mathbf{x}^{\star}$. If (1) $\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert \leq R$, (2) $\forall \mathbf{x}, \Vert \nabla f(\mathbf{x})\Vert  \leq B$, when with step size $\gamma:=\frac{R}{B \sqrt{T}}$, we have average error bounded by $\frac{1}{T} \sum_{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \frac{R B}{\sqrt{T}}$
     - **Proof** Straighforward from vanilla case, $\sum_{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \frac{\gamma}{2} B^{2} T+\frac{1}{2 \gamma} R^{2}$
     - **Time Complexity** To achieve $\min _{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \varepsilon$, we need $T \geq \frac{R^{2} B^{2}}{\varepsilon^{2}}$ iterations, $\mathcal{O}\left(1 / \varepsilon^{2}\right)$.
     - but no dependence on dimension $d$.

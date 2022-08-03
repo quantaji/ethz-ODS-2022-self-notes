@@ -1,0 +1,1249 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>/* copy from https://github.com/sindresorhus/github-markdown-css/ */
+
+html,body{background-color: #342839;}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #fafedd;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body figure{margin:0;padding:0; display:table;}
+.markdown-body figure figcaption{font-size:92%; text-align:center; color:#76dae8;}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #fed765;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' fill='%23fed765' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+.markdown-body strong{
+  color: #fe6188;
+}
+.markdown-body em{
+  color: #77dbe8;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #aa9df2;
+  text-decoration: none;
+}
+.markdown-body mjx-container[jax="SVG"] > svg a{fill:#aa9df2;stroke: #aa9df2;}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 12px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 12px;
+  color: #76dae8;
+  vertical-align: middle;
+  background-color: #3a2e3f;
+  border: 1px solid #504455;
+  border-radius: 3px;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #504455;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #c9cdac;
+  border-left: .25em solid #f5f5f5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #4a3e4f;
+  color: #fed765;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+  color: #fed765;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+  color: #fed765;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+  color: #fed765;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+  color: #fed765;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #fed765;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #786c7d;
+}
+
+.markdown-body table tr {
+  background-color: #342839;
+  border-top: 1px solid #786c7d;
+}
+
+.markdown-body table th {
+  background-color: #4a3e4f;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #392d3e;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #3a2e3f;
+  color: #76dae8;
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+   font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #3a2e3f;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+  color: #f0f0f0;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+.markdown-body section.footnotes{
+    margin-top:48px;
+    border-top:solid 1px #504455;
+    padding-top:0px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .markdown-body mark{color: #111;}
+}
+
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background-color: #3a2e3f;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #48be66;
+}
+
+.token.punctuation {
+    color: #fdd664;
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #9a95e3;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #fdd664;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #$$codeBlockColor$$;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #ccddf6;
+}
+
+.token.function,
+.token.class-name {
+    color: #f28d55;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #d38e63;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em; /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 1px solid #726677;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+  .line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+  }
+
+    .line-numbers-rows > span:before {
+      content: counter(linenumber);
+      color: #726677;
+      display: block;
+      padding-right: 0.8em;
+      text-align: right;
+    }
+
+
+</style><style>.mweb-charts{background:#fff;}
+body{ box-sizing: border-box;
+    margin: 0 auto;
+    padding: 28px}
+@media print{
+    pre, code, pre code {
+     overflow: visible !important;
+     white-space: pre-wrap !important;       /* css-3 */
+     white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap !important;      /* Opera 4-6 */
+     white-space: -o-pre-wrap !important;    /* Opera 7 */
+     word-wrap: break-word !important;       /* Internet Explorer 5.5+ */
+    }
+    html,body{margin:0;padding:4px;}
+}
+
+</style><script>window.MathJax = {     tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] },     startup: {     pageReady() {       return MathJax.startup.defaultPageReady().then(function () {          window.mweb_mathjax_ready_val = 'yes';          if(window.mweb_mathjax_ready !== undefined){ mweb_mathjax_ready(); }       });     }   }};document.addEventListener('DOMContentLoaded', function(event) {    if (typeof Prism != 'undefined') {         Prism.highlightAll();     }});window.mweb_mathjax_ready_val = '';function theMWebMathJaxRenderIsReady(key){ return window.mweb_mathjax_ready_val; }</script><script>window.MathJax = { tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] } }; </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script></head><body><div id='markdown_content' class='markdown-body'><h1><a id="lecture-02-convexity" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lecture 02 Convexity</h1>
+<h2><a id="notation" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notation</h2>
+<ul>
+<li>\(\Vert \mathbf{x}\Vert\): Euclidian norm, \(\ell\)-2 norm.</li>
+<li>Cauchy-Schwarz ineq: \(\vert \mathbf{u}^{\top} \mathbf{v}\vert  \leqslant \Vert \mathbf{u}\Vert  \cdot \Vert \mathbf{v}\Vert \)</li>
+<li>spectual norm (2-norm) of matrix \(A\in \mathbb{R}^{m\times n}\): \(\Vert A\Vert :=\max _{\mathbf{v} \in \mathbb{R}^{d}, \mathbf{v} \neq 0} \dfrac{\Vert A \mathbf{v}\Vert }{\Vert \mathbf{v}\Vert }=\max _{\Vert \mathbf{v}\Vert =1}\Vert A \mathbf{v}\Vert \)
+<ul>
+<li>\(\Vert A \mathbf{v}\Vert  \leq\Vert A\Vert \Vert \mathbf{v}\Vert \)</li>
+</ul>
+</li>
+</ul>
+<h2><a id="convex-sets" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convex Sets</h2>
+<ul>
+<li><strong>Defnition 2.7</strong> A set \(C \subseteq \mathbb{R}^{d}\) is convex if \(\forall \mathbf{x}, \mathbf{y} \in C\), \(\forall \lambda \in[0,1]\), \(\lambda \mathbf{x}+(1-\lambda) \mathbf{y} \in C\).</li>
+<li><strong>Observation 2.8 (Intersection)</strong> Let \(C_{i}, i \in I\) be convex sets, then \(C=\bigcap_{i \in I} C_{i}\) is a convex set.</li>
+<li><strong>Theorem 2.9 (B-Lipschitz equivalence to Derivative)</strong> If (1) \(f: \mathbf{dom}(f) \rightarrow \mathbb{R}^{m}\) is differentiable, (2) \(X \subseteq \mathbf{dom}(f)\) is a non-empety and open convex set, then following equivalent:
+<ul>
+<li>(1) \(f\) is \(B\)-Lipschitz, \(\Vert f(\mathbf{x})-f(\mathbf{y})\Vert  \leq B\Vert \mathbf{x}-\mathbf{y}\Vert , \forall \mathbf{x}, \mathbf{y} \in X\).</li>
+<li>(2) \(f\)'s Jacobian is bounded by \(B\) in spectual norm, \(\Vert D f(\mathbf{x})\Vert  \leq B,  \forall \mathbf{x} \in X\).</li>
+<li>Further, if \(X\) not open, then (2) implies (1).</li>
+<li><strong>Proof</strong>
+<ul>
+<li>(1)\(\to\)(2)
+<ul>
+<li>By openness, \(\forall \mathbf{x} \in X\), \(\exists l\) s.t. ball \(B(\mathbf{x},l) \in X\),</li>
+<li>By differentiability,  \(\forall \mathbf{x} \in X, \mathbf{v} \in B(\mathbf{x},l)\), \(f(\mathbf{x+v}) = f(\mathbf{x}) + Df(\mathbf{x}) \mathbf{v}+ r(\mathbf{v})\), where \(\lim_{\Vert \mathbf{v}\Vert  \to 0}\dfrac{\Vert r(\mathbf{v})\Vert }{\Vert \mathbf{v}\Vert } = 0\)</li>
+<li>By \(B\)-Lipschitz, \(B\Vert \mathbf{v}\Vert  \geq \Vert f(\mathbf{x+v}) - f(\mathbf{x})\Vert  = \Vert Df(\mathbf{x}) \mathbf{v}+ r(\mathbf{v})\Vert  \geq \Vert Df(\mathbf{x}) \mathbf{v}\Vert  - \Vert r(\mathbf{v})\Vert \)</li>
+<li>Therefore\(\dfrac{\Vert Df(\mathbf{x}) \mathbf{v}\Vert }{\Vert \mathbf{v}\Vert } \leq B + \dfrac{\Vert r(\mathbf{v})\Vert }{\Vert \mathbf{v}\Vert }, \forall \mathbf{v} \in B(\mathbf{x}, l)\),</li>
+<li>let \(\mathbf{v}\) be the optimal direction where \(\dfrac{\Vert Df(\mathbf{x}) \mathbf{v}\Vert }{\Vert \mathbf{v}\Vert } = \Vert Df(\mathbf{x})\Vert\), and let its magnitude towards zero, then \(\Vert D f(\mathbf{x})\Vert  \leq B\).</li>
+</ul>
+</li>
+<li>(2)\(\to\)(1), no need to assume open
+<ul>
+<li>For arbitary \(\mathbf{x}, \mathbf{y} \in X \subseteq \mathbf{dom}(f), \mathbf{x} \neq \mathbf{y}\), define a scalar function for arbitary \(\mathbf{z}\), \(h(t)=\mathbf{z}^{\top} f(\mathbf{x}+t(\mathbf{y}-\mathbf{x}))\), \(h'(t) = \mathbf{z}^{\top} Df(t) \times (\mathbf{y-x})\)</li>
+<li>by mean value theorem, \(\exists c\in (0, 1)\) s.t. \(h'(c) = h(1) - h(0)\), so \(\mathbf{z}^{\top} Df(c) \times (\mathbf{y-x}) = \mathbf{z}^{\top} (f(\mathbf{y}) - f(\mathbf{x}))\),</li>
+<li>By Cauch-Schwarz ineq \(\lVert \mathbf{z}^{\top}(f(\mathbf{y})-f(\mathbf{x}))\rVert  = \mathbf{z}^{\top} D f(c)(\mathbf{y}-\mathbf{x}) \leq \Vert \mathbf{z}\Vert \Vert D f(c)(\mathbf{y}-\mathbf{x})\Vert \)</li>
+<li>By spec-norm \(\mathsf{RHS} \leq \vert \mathbf{z}\Vert \Vert D f(c)\Vert \Vert (\mathbf{y}-\mathbf{x})\Vert \)</li>
+<li>By \(B\)-boundness of \(\Vert Df\Vert \), \(\mathsf{RHS} \leq B\Vert \mathbf{z}\Vert \Vert (\mathbf{y}-\mathbf{x})\Vert \)</li>
+<li>Taking \(\mathbf{z}=\dfrac{f(\mathbf{y})-f(\mathbf{x})}{\Vert f(\mathbf{y})-f(\mathbf{x})\Vert }\), \(\mathsf{LHS} = \Vert f(\mathbf{y})-f(\mathbf{x})\Vert  \leq \mathsf{RHS} = B\Vert (\mathbf{y}-\mathbf{x})\Vert \)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="convex-functions" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convex Functions</h2>
+<ul>
+<li><strong>Definition 2.10</strong> A function \(f\): \(\mathbf{dom}(f) \rightarrow \mathbb{R}\) is <em>convex</em> if
+<ul>
+<li>(i) \(\mathbf{dom}(f)\) is convex and</li>
+<li>(ii) \(\forall \mathbf{x}, \mathbf{y} \in \mathbf{d o m}(f), \lambda \in[0,1]\), \(f(\lambda \mathbf{x}+(1-\lambda) \mathbf{y}) \leq \lambda f(\mathbf{x})+(1-\lambda) f(\mathbf{y})\)</li>
+</ul>
+</li>
+<li><strong>Definition of</strong> <em>Epigraph</em> \(\operatorname{epi}(f):=\{(\mathbf{x}, \alpha) \in \mathbb{R}^{d+1}: \mathbf{x} \in \mathbf{dom}(f), \alpha \geq f(\mathbf{x})\}\)</li>
+<li><strong>Observation 2.11</strong> \(f\) is a convex function if and only if \(\operatorname{epi}(f)\) is a convex set.
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(f\to\mathrm{epi}(f)\)
+<ul>
+<li>\(\forall (\mathbf{x}, \alpha), (\mathbf{y}, \beta) \in \mathrm{epi} f\), we know \(\alpha \geq f(\mathrm{x}), \beta \geq f(\mathrm{y})\),</li>
+<li>then \(\forall \lambda\in [0,1]\), \(\lambda \alpha + (1-\lambda)\beta \geq \lambda f(\mathrm{x}) + (1-\lambda)f(\mathrm{y}) \geq f(\lambda\mathrm{x} + (1-\lambda)\mathrm{y})\)</li>
+<li>then point \((\lambda\mathrm{x} + (1-\lambda)\mathrm{y}, \lambda \alpha + (1-\lambda)\beta) \in \mathrm{epi}(f)\)</li>
+<li>\(\mathrm{epi}(f)\) convex</li>
+</ul>
+</li>
+<li>\(\mathrm{epi}(f)\to f\)
+<ul>
+<li>let \(\alpha = f(\mathbf{x}), \beta = f(\mathbf{y})\), \(\mathrm{epi}(f)\) convex means points \((\lambda\mathrm{x} + (1-\lambda)\mathrm{y}, \lambda f(\mathrm{x}) + (1-\lambda)f(\mathrm{y})) \in \mathrm{epi}(f)\),</li>
+<li>be def of \(\mathrm{epi}(f)\), we have \(\lambda f(\mathrm{x}) + (1-\lambda)f(\mathrm{y})) \geq f(\lambda\mathrm{x} + (1-\lambda)\mathrm{y})\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma 2.12 (Jensen’s inequality)</strong> Let \(f: \mathbb{R}^{d} \rightarrow \mathbb{R}\) be a convex function, \(\mathbf{x}_{1}, \ldots, \mathbf{x}_{m} \in \mathbf{dom}(f)\), and \(\lambda_{1}, \ldots, \lambda_{m} \in \mathbb{R}_{+}\) s.t. \(\sum_{i=1}^{m} \lambda_{i}=1\), \(f\left(\sum_{i=1}^{m} \lambda_{i} \mathbf{x}_{i}\right) \leq \sum_{i=1}^{m} \lambda_{i} f\left(\mathbf{x}_{i}\right)\)
+<ul>
+<li><strong>Proof</strong> Assume this holds for \(m-1\), then \(f\left(\sum_{i=1}^{m} \lambda_{i} \mathbf{x}_{i}\right) = f\left(\sum_{i=3}^{m} \lambda_{i} \mathbf{x}_{i} + (\lambda_1 + \lambda_2)\frac{\lambda_1 \mathbf{x}_1 + \lambda_2 \mathbf{x}_2 }{\lambda_1 + \lambda_2}\right) \leq (\lambda_1 + \lambda_2) f(\frac{\lambda_1 \mathbf{x}_1 + \lambda_2 \mathbf{x}_2 }{\lambda_1 + \lambda_2}) + \sum_{i=3}^{m} \lambda_{i} f(\mathbf{x}_{i}) \leq \sum_{i=1}^{m} \lambda_{i} f(\mathbf{x}_{i})\). \(m=2\) holds as normal def of convexity</li>
+</ul>
+</li>
+<li><strong>Lemma 2.13 (Convexity and Continuity)</strong> If \(f\) is convex and suppose that \(\mathbf{dom}(f) \subseteq \mathbb{R}^{d}\) is open, then \(f\) is continuous.
+<ul>
+<li><strong>Proof</strong> (By hint from Homework)
+<ul>
+<li>Since \(\mathbf{dom}(f)\) open, \(\forall \mathbf{x}\), we can always find an open ball, and further a closed cube that \(\mathrm{x} \in \otimes_{i=1}^{d} [l_i, r_i]\) and \(\mathbf{x}\) being its center,</li>
+<li>Any point \(\mathbf{x}'\) in the cube can be written as normalized linear combination of corner. E.g. \(\mathbf{x}' = (x_n, x_{-n}) = \dfrac{r_n - x_n}{r_n - l_n}(l_n, x_{-n}) + \dfrac{x_n - l_n}{r_n - l_n}(r_n, x_{-n})\)
+<ul>
+<li>we can iteratively do this to every coordinate of \(\mathbf{x}'\), until we get a normalized combination of \(2^d\) corner</li>
+<li>Therefore, \(\forall \mathbf{x}' \in \otimes_{i=1}^{d} [l_i, r_i], f(\mathbf{x}') \leq \sum_{i=1}^{2^d} \lambda_i' f(\mathbf{x}_i) \leq \max_{i} f(\mathbf{x}_i)\), \(\mathbf{x}_i\) is corner.</li>
+</ul>
+</li>
+<li>If we do shrinkage over the cube by factor \(\alpha_t\), then each corner \(\mathbf{x}_i\) becomes \((1-\alpha_t)\mathbf{x} + \alpha_t \mathbf{x}_i\)
+<ul>
+<li>then \(f((1-\alpha_t)\mathbf{x} + \alpha_t \mathbf{x}_i) \leq (1-\alpha_t) f(\mathbf{x} ) + \alpha_t f(\mathbf{x}_i) \to f(\mathbf{x} )\) when \(\alpha_t\to 0\)</li>
+<li>Therefore, we upper bound the value in the cube. \(\forall \varepsilon\), \(\exists \alpha_t\) s.t. \(\max_{i} f(\mathbf{x}_{\alpha_t, i}) -f(\mathbf{x}) \leq \varepsilon\)</li>
+</ul>
+</li>
+<li>Now need to lower bound it, if we already have \(\forall \mathbf{x}' \in \otimes_{i=1}^{d} [l_{i, \alpha_t}, r_{i, \alpha_t}]\), \(f(\mathbf{x}')-f(\mathbf{x}) \leq \varepsilon\).
+<ul>
+<li>If lower not bounded, e.g. \(\exists \mathbf{y} \in \otimes_{i=1}^{d} [l_{i, \alpha_t}, r_{i, \alpha_t}]\) s.t. \(f(\mathbf{y}) &lt; f(\mathbf{x}) - \varepsilon\),</li>
+<li>by convexity \(f(\mathbf{x}) \leq (f(\mathbf{y}) + f(2\mathbf{y} - \mathbf{x}))/2\), then \(f(2\mathbf{y} - \mathbf{x}) \geq 2f(\mathbf{x}) - f(\mathbf{y}) &gt; f(\mathbf{x}) + \varepsilon\).</li>
+<li>contradictory, then in the cude, value also lower bounded by \(\varepsilon\)</li>
+</ul>
+</li>
+<li>We can also find a ball inside a cude, therefore \(f\) continuous.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma 2.14 (Counter Example in Infinite Dimension)</strong> \(\exists\) vector space \(V\) and linear function \(f\) s.t. \(\forall \mathbf{v}\in V\), \(f\) is discontinuous.
+<ul>
+<li><strong>Example</strong> \(V\) be the polynomial function in \(x\in[-1,1]\), distance measured by <em>supreme norm</em> \(\Vert h\Vert _{\infty}:=\sup _{x \in[-1,1]}\vert h(x)\vert \)
+<ul>
+<li>consider the linear function mapping \(p\) to its derivative at \(x=0\), \(f: p(x) \to p'(0)\)</li>
+<li>consider zero polynomial \(p_0(x) \equiv 0\), with \(p_0'(0) = 0\),</li>
+<li>consider its neighbor \(p_{n, k}(x)=\frac{1}{n} \sum_{i=0}^{k}(-1)^{i} \frac{(n x)^{2 i+1}}{(2 i+1) !}\) which is a finite expansion of \(s_{n}(x)=\frac{1}{n} \sin (n x)=\frac{1}{n} \sum_{i=0}^{\infty}(-1)^{i} \frac{(n x)^{2 i+1}}{(2 i+1) !}\)</li>
+<li>since \(\Vert p_{n, k} - s_{n}\Vert _{\infty} \rightarrow 0\) as \(k\to\infty\) and \(\lVert s_{n}\rVert _{\infty} \rightarrow 0\) as \(n\to\infty\), this means \(\lVert p_{n, k}\rVert  \rightarrow 0\) as \(n, k \rightarrow \infty\), on the other hand \(f\left(p_{n, k}\right)=p_{n, k}^{\prime}(0)=1\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="convexity-characterization" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convexity Characterization</h2>
+<h3><a id="first-order" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>First Order</h3>
+<ul>
+<li><strong>Lemma 2.15</strong> Suppose \(\mathbf{dom}(f)\) open, \(f\) differentiable and \(\forall \mathbf{x}\)m \(\nabla f(\mathbf{x})\) exists, then \(f\) is convex iff  \(\mathbf{dom}(f)\) convex, and \(f(\mathbf{y}) \geq f(\mathbf{x})+\nabla f(\mathbf{x})^{\top}(\mathbf{y}-\mathbf{x})\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>(\(\rightarrow\)), by convexity, for \(t\in(0,1)\), \(f(\mathbf{x} + t(\mathbf{y-x}))\leq f(\mathbf{x})+t(f(\mathbf{y})-f(\mathbf{x}))\)
+<ul>
+<li>\(f(\mathbf{y}) \geq f(\mathbf{x})+\frac{f(\mathbf{x}+t(\mathbf{y}-\mathbf{x}))-f(\mathbf{x})}{t} = f(\mathbf{x})+\nabla f(\mathbf{x})^{\top}(\mathbf{y}-\mathbf{x})+\frac{r(t(\mathbf{y}-\mathbf{x}))}{t}\)</li>
+<li>Taking \(t\to 0\) we have  \(f(\mathbf{y}) \geq f(\mathbf{x})+\nabla f(\mathbf{x})^{\top}(\mathbf{y}-\mathbf{x})\)</li>
+</ul>
+</li>
+<li>(\(\leftarrow)\), for \(\mathbf{z}:=\lambda \mathbf{x}+(1-\lambda) \mathbf{y} \in \mathbf{dom}(f)\) we have \(f(\mathbf{x}) \geq f(\mathbf{z})+\nabla f(\mathbf{z})^{\top}(\mathbf{x}-\mathbf{z})\), and \(f(\mathbf{y}) \geq f(\mathbf{z})+\nabla f(\mathbf{z})^{\top}(\mathbf{y}-\mathbf{z})\)
+<ul>
+<li>Weighted addition of two ineqs by factor \(\{\lambda, 1-\lambda\}\), we get convexity \(\lambda f(\mathbf{x})+(1-\lambda) f(\mathbf{y}) \geq f(\mathbf{z})=f(\lambda \mathbf{x}+(1-\lambda) \mathbf{y})\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma 2.16 (monotonicity of the gradient)</strong> Suppose \(\mathbf{dom}(f)\) open, \(f\) differentiable. Then \(f\) is convex iff if dom(f) is convex and \(\forall \mathbf{x,y} \in \mathbf{dom}(f),(\nabla f(\mathbf{y})-\nabla f(\mathbf{x}))^{\top}(\mathbf{y}-\mathbf{x}) \geq 0\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>(\(\rightarrow\)) If \(f\) convex, apply <strong>2.15</strong> to \(\mathbf{x, y}\), and get \(f(\mathbf{y}) \geq f(\mathbf{x})+\nabla f(\mathbf{x})^{\top}(\mathbf{y}-\mathbf{x})\) and \(f(\mathbf{x}) \geq f(\mathbf{y})+\nabla f(\mathbf{y})^{\top}(\mathbf{x}-\mathbf{y})\)
+<ul>
+<li>add them togethor and get \(0 \geq (\nabla f(\mathbf{y})-\nabla f(\mathbf{x}))^{\top}(\mathbf{x}-\mathbf{y})\)</li>
+</ul>
+</li>
+<li>(\(\leftarrow\)) Denote scalar function \(h(t) := f(\mathbf{x} + t(\mathbf{y-x})), t\in[0,1]\),
+<ul>
+<li>so \(h'(t) = \nabla f(\mathbf{x} + t(\mathbf{y-x}))^{\top}(\mathbf{y-x})\)</li>
+<li>setting \(\mathbf{y} \leftarrow \mathbf{x} + t(\mathbf{y-x})\) in monotonicity inequality, we have \(h'(t) \geq h(0) \forall t\in[0,1]\)</li>
+<li>By mean value theorem, \(\exists c\) s.t. \(f(\mathbf{y}) = h(1) = h(0) + h'(c) \geq h(0) + h'(0) = f(\mathbf{x}) + \nabla f(\mathbf{y})^{\top}(\mathbf{y}-\mathbf{x})\), convexity</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a id="second-order" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Second Order</h3>
+<ul>
+<li><strong>Lemma 2.17</strong> Suppose \(\mathbf{dom}(f)\) open and \(f\) twice differentiable, and hessian \(\nabla f = (\partial_{ij} f)\) exists and symmetric. Then \(f\) is convex iff \(\mathbf{dom}(f)\) convex and \(\forall \mathbf{x}\in\mathbf{dom}(f)\), \(\nabla^{2} f(\mathbf{x}) \succeq 0\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>(\(\rightarrow\)) Denote \(\mathbf{v} = \mathbf{x-y}\), again define \(h(t\in[[0,1]) := f(\mathbf{x} + t\mathbf{v})\).
+<ul>
+<li>We have \(h'(t) = \nabla f(\mathbf{x}+t \mathbf{v})^{\top} \mathbf{v}\) and \(h^{\prime \prime}(t)=\mathbf{v}^{\top} \nabla^{2} f(\mathbf{x}+t \mathbf{v}) \mathbf{v}\).</li>
+<li>Since \(\mathbf{dom}(f)\) open, \(\forall \mathbf{x}, \exists \mathcal{U}(x, \delta) \in \mathbf{dom}(f)\), then we can set \(\mathbf{v}\) to be arbitary on \(\Vert \mathbf{v}\Vert =1\).</li>
+<li>Since \(f\) convex, \(h\) is also convex, by <em>Lemma 2.16</em> we have \((h'(\delta) - h'(0))\delta \geq 0 \Rightarrow h'(\delta) - h'(0)) /\delta \geq 0\)</li>
+<li>Taking limit of \(\delta\to 0\) we have \(h'(\delta) - h'(0)) /\delta \to h''(0) \geq 0\)</li>
+<li>This holds for arbitary  \(\Vert \mathbf{v}\Vert =1\), therefore \(f\) positive semi-definite.</li>
+</ul>
+</li>
+<li>(\(\leftarrow\)) Assume \(\nabla^{2} f(\mathbf{x}) \succeq 0\), then we have \(h'(t) \geq 0\) for arbitary \(t\in[0,1]\) and \(\mathrm{x, y} \in \mathbf{dom}(f)\)
+<ul>
+<li>Then \((\nabla f(\mathbf{y}) - \nabla f(\mathbf{x}))^{\top}(\mathrm{y-x}) = h'(1) - h'(0) = \int_{0}^{1} h''(t) dt \geq 0\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>PS: Hessians of a twice continuously differentiable function are symmetric is a classical result known as the <em>Schwarz theorem</em>. If \(f\) twice differentiable, symmetry already holds. If \(f\) is only twice <em>partially</em> differentiable, we may have non-symmetric Hessians.</li>
+</ul>
+</li>
+</ul>
+<h3><a id="operations-preserving-convexity" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Operations Preserving Convexity</h3>
+<ul>
+<li><strong>Lemma 2.18</strong>
+<ul>
+<li>(i) Let \(f_{1}, f_{2}, \ldots, f_{m}\) be convex functions and \(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{m} \in \mathbb{R}_{+}\). Then (1) \(\max _{i=1}^{m} f_{i}\) (2) \(f:=\sum_{i=1}^{m} \lambda_{i} f_{i}\) convex on \(\mathbf{dom}(f):=\bigcap_{i=1}^{m} \mathbf{dom}\left(f_{i}\right)\).</li>
+<li>(ii) Let \(f\) convex on \(\mathbf{dom}(f) \subseteq \mathbb{R}^{d}\), \(g: \mathbb{R}^{m} \rightarrow \mathbb{R}^{d}, \mathbf{x} \to A \mathbf{x}+\mathbf{b}\) be an affine function. Then \(f \circ g\) convex on \(\mathbf{dom}(f \circ g):=\{\mathbf{x} \in \mathbb{R}^{m}: g(\mathbf{x}) \in \mathbf{dom}(f)\}\).</li>
+</ul>
+</li>
+<li>Given \(f, g\) convex, \(f \circ g\) may be non-convex, example: \(f(x)=x^2\), \(g(x) = x^2- 1\), \((f \circ g)(x) = x^4 - 2x^2 + 1\), \((f \circ g)(-1)=(f \circ g)(1)=0\) and \((f \circ g)(0)=1\).</li>
+</ul>
+<h2><a id="minimizer-condition" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Minimizer Condition</h2>
+<ul>
+<li><strong>Definition 2.19</strong> A <em>local minimum</em> of \(f: \operatorname{dom}(f) \rightarrow \mathbb{R}\) is a point \(x\) s.t. \(\exists \varepsilon &gt; 0\), \(\forall \mathbf{y} \in \operatorname{dom}(f)\) s.t. \(\Vert \mathbf{y}-\mathbf{x}\Vert &lt;\varepsilon\), we have \(f(\mathbf{x}) \leq f(\mathbf{y})\)</li>
+<li><strong>Lemma 2.20 (Global minimum)</strong> Let \(\mathbf{x}^{\star}\) be a local minimum of a convex function \(f: \operatorname{dom}(f) \rightarrow \mathbb{R}\). Then \(\mathbf{x}^{\star}\) is a global minimum, if \(\forall \mathbf{y} \in \operatorname{dom}(f), f\left(\mathbf{x}^{\star}\right) \leq f(\mathbf{y})\).
+<ul>
+<li>not all convex function have global minimum.</li>
+</ul>
+</li>
+<li><strong>Lemma 2.21 (Zero grad -&gt; Global minimum)</strong> Suppose that \(f: \operatorname{dom}(f) \rightarrow \mathbb{R}\) is convex and differentiable over an open domain \(\operatorname{dom}(f) \subseteq \mathbb{R}^{d}\). Let \(\mathbf{x} \in \mathbf{d o m}(f)\). If \(\nabla f(\mathbf{x})=\mathbf{0}\), then \(\mathbf{x}\) is a global minimum.
+<ul>
+<li><strong>Proof</strong> \(f(\mathbf{y}) \geq f(\mathbf{x})+\nabla f(\mathbf{x})^{\top}(\mathbf{y}-\mathbf{x})=f(\mathbf{x})\).</li>
+</ul>
+</li>
+<li><strong>Lemma 2.22 (Global minimum -&gt; zero grad)</strong> Suppose that \(f: \operatorname{dom}(f) \rightarrow \mathbb{R}\) is convex and differentiable over an open domain \(\operatorname{dom}(f) \subseteq \mathbb{R}^{d}\).  If \(\mathbf{x}\) is a global minimum, then \(\nabla f(\mathbf{x})=\mathbf{0}\).</li>
+</ul>
+<h3><a id="strictly-convex-function" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Strictly convex function</h3>
+<p><strong>Note: not strong convex function</strong></p>
+<ul>
+<li><strong>Definition 2.23 (Strict convexity)</strong> A function \(f: \operatorname{dom}(f) \rightarrow \mathbb{R}\) is <em>strictly convex</em> if (i) \(\operatorname{dom}(f)\) is convex and (ii) \(\forall \mathbf{x}\neq \mathbf{y} \in \mathbf{dom}(f)\) and \(\forall \lambda \in (0, 1)\), \(f(\lambda \mathbf{x}+(1-\lambda) \mathbf{y})&lt;\lambda f(\mathbf{x})+(1-\lambda) f(\mathbf{y})\).</li>
+<li><strong>Lemma 2.24 (Positive definite -&gt; strict convexity)</strong> Suppose that \(\operatorname{dom}(f)\) is open and that \(f\) is twice continuously differentiable. If \(\forall \mathbf{x} \in \mathbf{dom}(f)\) the Hessian \(\nabla^{2} f(\mathbf{x}) \succ \mathbf{0}\), then \(f\) is strictly convex.
+<ul>
+<li><strong>Proof</strong> similar to 2.17, only that \(\mathbf{v} \neq 0\) so \(\geq \to &gt;\).</li>
+<li>Converse (<strong>Strict convexity -&gt; posi definite</strong>) is false, <strong>counter example</strong>: \(f(x) = x^4\).</li>
+</ul>
+</li>
+<li><strong>Lemma 2.25 (Strict convexity -&gt; Unique minimum)</strong>. Let \(f: \operatorname{dom}(f) \rightarrow \mathbb{R}\) be strictly convex. Then f has at most one global minimum.
+<ul>
+<li>If \(\mathbf{x}^{\star} \neq \mathbf{y}^{\star}\) both global minimum, then by strict convexity \(\mathbf{z}=\frac{1}{2} \mathbf{x}^{\star}+\frac{1}{2} \mathbf{y}^{\star}\) have \(f(\mathbf{z})&lt;\frac{1}{2} f_{\min }+\frac{1}{2} f_{\min }=f_{\min }\).</li>
+</ul>
+</li>
+</ul>
+<h3><a id="constrained-minimization" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constrained Minimization</h3>
+<ul>
+<li><strong>Deﬁnition 2.26 (minimizer on subset)</strong> Let \(f: \operatorname{dom}(f) \rightarrow \mathbb{R}\) be convex and let \(X \subseteq \mathbf{dom}(f)\) be a convex set. A point \(\mathbf{x} \in X\) is a <em>minimizer</em> of \(f\) over \(X\) if \(\forall \mathbf{y}\in X, f(\mathbf{x}) \leq f(\mathbf{y})\).
+<ul>
+<li>Subset can be lower dimension embedded to \(\operatorname{dom}(f)\).</li>
+</ul>
+</li>
+<li><strong>Lemma 2.27 (First order condition, variational inequality)</strong> Suppose that \(f: \operatorname{dom}(f) \rightarrow \mathbb{R}\) is convex and differentiable over an open domain \(\operatorname{dom}(f) \subset \mathbb{R}^{d}\), and let \(X \subseteq \operatorname{dom}(f)\) be a convex set. \(\mathbf{x}^{\star} \in X\) is a minimizer of \(f\) over \(X\) iff \(\forall \mathbf{x} \in X, \nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}-\mathbf{x}^{\star}\right) \geq 0\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>(\(\rightarrow\)) Suppose \(\mathbf{x}^{\star}\) is minimizer, then for all \(\mathbf{x}\in X\), \(f(\mathbf{x}) - f(\mathbf{x}^{\star}) \geq 0\).
+<ul>
+<li>If \(\exists \mathbf{x}'\) s.t. \(\nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}'-\mathbf{x}^{\star}\right) &lt; 0\), then \(h(t\in[0,1]) := f(\mathbf{x}^{\star}) + \nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}'-\mathbf{x}^{\star}\right) &lt; f(\mathbf{x}^{\star})\)</li>
+<li>by Tayler theorem, we have \(f(\mathbf{x}^{\star} + t \left(\mathbf{x}'-\mathbf{x}^{\star}\right))&lt; f(\mathbf{x}^{\star})\), contradict to convexity in \(\operatorname{dom}(f)\).</li>
+</ul>
+</li>
+<li>(\(\leftarrow\)) Suppose \(\forall \mathbf{x} \in X, \nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}-\mathbf{x}^{\star}\right) \geq 0\),
+<ul>
+<li>by convexity in \(\operatorname{dom}(f)\) we have, \(\forall \mathbf{x}\in X\), \(f(\mathbf{x}) \geq f(\mathbf{x}^{\star} + t \left(\mathbf{x}-\mathbf{x}^{\star}\right)) \geq f(\mathbf{x}^{\star}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="existence-of-minimizer" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Existence of minimizer</h2>
+<h3><a id="sublevel-sets-weierstrass-theorem" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sublevel sets, Weierstrass Theorem</h3>
+<ul>
+<li><strong>Definition 2.28</strong> Let \(f: \mathbb{R}^{d} \rightarrow \mathbb{R}, \alpha \in \mathbb{R}\). Set \(f^{\leq \alpha}:=\{\mathbf{x} \in \mathbb{R}^{d}: f(\mathbf{x}) \leq \alpha\}\) is the \(\alpha\)-<em>sublevel set</em> of \(f\).
+<ul>
+<li>If \(f\) convex, \(f^{\leq \alpha}\) is convex set.</li>
+<li>If \(f\) continuous (implied by convexity and finit dim),  \(f^{\leq \alpha}\) is closed.</li>
+</ul>
+</li>
+<li><strong>Theorem 2.29 (Weierstrass)</strong> Let \(f: \mathbb{R}^{d} \rightarrow \mathbb{R}, \alpha \in \mathbb{R}\) be a continuous function, and suppose there is a nonempty and bounded sublevel set \(f^{\leq \alpha}\). Then \(f\) has a global minimum.
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>since \((-\infty, \alpha]\) is closed, by continuity of \(f\), its pre-image \(f^{\leq \alpha}\) is closed.</li>
+<li>From the fact that continuous function attains minimum over closed and bounded (=compact) set. We know \(f\) have minimum \(\mathbf{x}^{\star}\in f^{\leq \alpha}\).</li>
+<li>This is global minimum. Otherwise, if \(\exists \mathbf{x}' \notin f^{\leq \alpha}\), then \(f(\mathbf{x}' ) &gt; \alpha \geq f(\mathbf{x}^{\star})\).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a id="recession-cone-and-lineality-space" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recession cone and lineality space</h3>
+<p>Examples like \(f(x) = e^x\) is convex but does not have a global minimum.</p>
+<ul>
+<li><strong>Definition 2.30 (unbounded in direction)</strong> Let \(C\subseteq \mathbb{R}^{d}\) be a convex set. Then \(\mathbf{y}\in\mathbf{R}^d\) is a <em>direction of recession</em> of \(C\) if \(\exists \mathbf{x} \in C\) and \(\forall \lambda \geq 0\) \(\mathbf{x} + \lambda \mathbf{y} \in C\).</li>
+<li><strong>Lemma 2.31 (Equivalance for existance and arbitry)</strong> Let \(C\subseteq \mathbf{R}^d\) be a nonempty closed convex set, and let \(\mathbf{y}\in\mathbb{R}^d\). \(\forall \lambda \geq 0, \exists \mathbf{x} \in C: \mathbf{x}+\lambda \mathbf{y} \in C \Leftrightarrow \forall \lambda \geq 0 \forall \mathbf{x} \in C: \mathbf{x}+\lambda \mathbf{y} \in C\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>(\(\rightarrow\)) is obvious. (\(\leftarrow\)): We already have \(\mathbf{x}_0\) s.t. \(\forall \lambda \geq 0, \mathbf{x}_0+\lambda \mathbf{y} \in C\).
+<ul>
+<li>For arbitary \(\mathbf{x}\in C\), let \(\mathbf{z}=\lambda \mathbf{y}\), define \(\mathbf{w}_{k}:=\mathbf{x}_0+k \mathbf{z} \in C\) by our assumption,</li>
+<li>Define \(\mathbf{z}_k := \frac{1}{k}\left(\mathbf{w}_{k}-\mathbf{x}\right) = \lambda \mathbf{y}+\frac{1}{k}\left(\mathbf{x}_0-\mathbf{x}\right)\),</li>
+<li>and \(\mathbf{x} + \mathbf{z}_k = \lambda\mathbf{y} = \frac{1}{k} \mathbf{W}_{k} + \left(1-\frac{1}{k}\right) \mathbf{x}^{\prime} \in C\) by convex set.</li>
+<li>By closeness of \(C\), \(\lim_{k\to \infty} \mathbf{x} + \mathbf{z}_k = \mathbf{x} + \mathbf{z} \in C\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Definition (recession cone)</strong> The <em>recession cone</em> \(R(C)\) of \(C\) is the set of directions of recession of \(C\)
+<ul>
+<li>This set is closed under non-negative linear combinations, see next lemma.</li>
+</ul>
+</li>
+<li><strong>Lemma 2.32 (non-negative linear combination of recession cone)</strong> Let \(C\subseteq \mathbb{R}^d\) be closed convex set, and let \(\mathbf{y_1, y_2}\) be directions of recession of \(C\). Then \(\forall \lambda_1, \lambda_2 \in \mathbb{R}^+\), \(\mathbf{y} = \lambda_1\mathbf{y}_1 + \lambda_2\mathbf{y}_2\) is also direction of recession of C.
+<ul>
+<li><strong>Proof</strong>: \(\mathbf{x}+\lambda \mathbf{y}=\mathbf{x}+\lambda_{1} \lambda \mathbf{y}_{1}+\lambda_{2} \lambda \mathbf{y}_{2}=\lambda_{1}\left(\mathbf{x}+\lambda \mathbf{y}_{1}\right)+\lambda_{2}\left(\mathbf{x}+\lambda \mathbf{y}_{2}\right) \in C\)</li>
+</ul>
+</li>
+<li><strong>Definition 2.33 (direction of constancy)</strong> Let \(C\subseteq \mathbb{R}^{d}\) be a convex set. Then \(\mathbf{y}\in\mathbf{R}^d\) is a <em>direction of constancy</em> of \(C\) if both \(\mathbf{y}\) and \(-\mathbf{y}\) are directions of recession of \(C\).</li>
+<li><strong>Lemma 2.34 (also non-negative linear combination)</strong>. Let \(C\subseteq \mathbb{R}^d\) be closed convex set, and let \(\mathbf{y_1, y_2}\) be directions of constancy of C. Then \(\forall \lambda_1, \lambda_2 \in \mathbb{R}^+\), \(\mathbf{y} = \lambda_1\mathbf{y}_1 + \lambda_2\mathbf{y}_2\) is also direction of constancy of C.</li>
+</ul>
+<h3><a id="recession-cone-in-sub-level-set" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recession Cone in Sub-level set</h3>
+<ul>
+<li><strong>Lemma (non-deceasing along direction)</strong> Suppose \(\mathbf{y}\) is a direction of recession of \(f^{\leq \alpha}\), then \(\forall \mathbf{x}\in f^{\leq \alpha},\forall \lambda \geq 0, f(\mathbf{x}+\lambda \mathbf{y}) \leq f(\mathbf{x})\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Fix \(\lambda\) and let \(\mathbf{z}=\lambda \mathbf{y}\), define \(\mathbf{w}_{k}:=\mathbf{x}+k \mathbf{z}\), then \(\mathbf{x}+\mathbf{z}=\left(1-\frac{1}{k}\right) \mathbf{x}+\frac{1}{k} \mathbf{w}_{k}\).</li>
+<li>We know \(f(\mathbf{w}_{k}) \leq \alpha\), then \(f(\mathbf{x}+\mathbf{z}) \leq \left(1-\frac{1}{k}\right) f(\mathbf{x})+\frac{1}{k}\alpha \to f(\mathbf{x})\).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma 2.35 (level invariance of Recession cone)</strong> Let \(f: \mathbb{R}^d \to \mathbb{R}\) be a convex function. Any two sublevel sets \(f \leq \alpha, f \leq \alpha^{\prime}\) have the same recession cones.
+<ul>
+<li><strong>Proof</strong> Since two sets non-empty, \(\exists \mathbf{x}^{\prime} \in f^{\leq \alpha} \cap f^{\leq \alpha^{\prime}}\), then \(f\left(\mathbf{x}^{\prime}+\lambda \mathbf{y}\right) \leq f\left(\mathbf{x}^{\prime}\right) \leq \min \{\alpha^{\prime}, \alpha\}\). Every direction of recession \(\mathbf{y}\) of one set is also that of the other,</li>
+<li>This Lemma gives the definition of cone of a function \(R(f)\)</li>
+</ul>
+</li>
+<li><strong>Definition 2.36 (recession cone / lineality space)</strong> Let \(f: \mathbb{R}^d \to \mathbb{R}\) be a convex function.
+<ul>
+<li>Then \(\mathbf{y} \in \mathbb{R}^d\) is a direction of recession (of constancy, respectively) of \(f\) if \(\mathbf{y}\) is a direction of recession (of constancy, respectively) for some (equivalently, for every) nonempty sublevel set.</li>
+<li>The set of directions of recession of \(f\) is called the <em>recession cone</em> \(R(f)\) of \(f\).</li>
+<li>The set of directions of constancy of \(f\) is called the <em>lineality space</em> \(L(f)\) of \(f\).</li>
+</ul>
+</li>
+<li><strong>Lemma 2.37 &amp; 2.38 (Relation to Epigraph)</strong> Let \(f: \mathbb{R}^d \to \mathbb{R}\) be a convex function. The following statements are equivalent.
+<ul>
+<li>(i) \(\mathbf{y} \in \mathbb{R}^{d}\) is a direction of (recession / constancy) of f.</li>
+<li>(ii) \(\forall \mathbf{x} \in \mathbb{R}^d, \lambda &gt; 0\), (\(f(\mathbf{x}+\lambda \mathbf{y}) \leq f(\mathbf{x})\) / \(f(\mathbf{x}+\lambda \mathbf{y}) = f(\mathbf{x})\))</li>
+<li>(iii) \((\mathbf{y}, 0)\) is a direction of (recession / constancy) of (the closed convex set) \(\mathbf{epi}(f)\).</li>
+<li><strong>Proof</strong>
+<ul>
+<li>(i)&lt;-&gt;(ii) obvious</li>
+<li>(ii)&lt;-&gt;(iii) \((\mathbf{x}, f(\mathbf{x})) + \lambda (\mathbf{y}, 0) = (\mathbf{x} + \lambda \mathbf{y}, f(\mathbf{x}) )\). \(f(\mathbf{x} + \lambda \mathbf{y}) \leq f(\mathbf{x}) \Leftrightarrow (\mathbf{x} + \lambda \mathbf{y}, f(\mathbf{x}) )\in \mathbf{epi}(f)\).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a id="coercive-convex-functions-boundedness-of-sublevel" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Coercive convex functions (Boundedness of sublevel)</h3>
+<ul>
+<li><strong>Definition 2.39 (coerciveness)</strong> A convex function \(f\) is coercive if its recession cone is trivial, meaning that \(\mathbf{0}\) is its only direction of recession.
+<ul>
+<li>Coercivity means that along any direction, \(f(\mathbf{x})\) goes to inﬁnity.</li>
+<li>Coercive example: \(x_1^2 + x_2^2\); non-coercive example: \(f(x) = x, e^x\).</li>
+</ul>
+</li>
+<li><strong>Lemma 2.40 (Boundedness of coercive sublevel)</strong> Let \(f: \mathbb{R}^d \to \mathbb{R}\) be a coercive convex function. Then every nonempty sublevel set \(f^{\leq \alpha}\) is bounded.
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Given sublevel set \(f^{\leq \alpha}\), for an \(\mathbf{x}\in f^{\leq \alpha}\), define mapping from \(S^{d-1}=\{\mathbf{y} \in \mathbb{R}^{d}:\Vert y\Vert =1\}\) to \(\mathbb{R}\): \(g(\mathbf{y})=\max \{\lambda \geq 0: f(\mathbf{x} + \lambda \mathbf{y}) \leq \alpha\}\).
+<ul>
+<li>Since \(f\) coercive, \(g\) is well defined.</li>
+</ul>
+</li>
+<li>We claim \(g\) is continuous, by showing every sequence to \(\mathbf{y}\) have function value converge to \(g(\mathbf{y})\)
+<ul>
+<li>For arbitary \(\varepsilon &gt; 0\), define \(\{\underline{\lambda}, \overline{\lambda}\} := \{g(\mathbf{y}) - \varepsilon, g(\mathbf{y}) + \varepsilon\}\).  so \(f(\mathbf{x} + \underline{\lambda}\mathbf{y}) \leq \alpha\) and \(f(\mathbf{x} + \overline{\lambda}\mathbf{y}) &gt; \alpha\)</li>
+<li>For every sequence \(\{\mathbf{y}_k\}\) s.t. \(\lim_{k\to\infty}\mathbf{y}_k =\mathbf{y}\), by the continuity of \(f\), we have \(\lim_{k\to\infty}f(\mathbf{x} + \underline{\lambda}\mathbf{y}_k) = f(\mathbf{x} + \underline{\lambda}\mathbf{y}) \leq \alpha\) and \(\lim_{k\to\infty}f(\mathbf{x} + \overline{\lambda}\mathbf{y}_k) = f(\mathbf{x} + \overline{\lambda}\mathbf{y}) &gt; \alpha\)</li>
+<li>Therefore, since \(\lim_{k\to\infty} f(\mathbf{x} + g(\mathbf{y}_k) \mathbf{y}_k) = \alpha\), for sufficiently large \(k\), we have \(\underline{\lambda} \leq g(\mathbf{y}_k)\leq \overline{\lambda}\).</li>
+<li>This means continuity.</li>
+</ul>
+</li>
+<li>Since \(g\) continuous and \(S^{d-1}\) compact, \(g\) attains maximum of \(\lambda^*\). For arbitary \(\mathbf{x}' \in f^{\leq \alpha}\), \(\Vert \mathbf{x}' - \mathbf{x}\Vert  \leq g( \frac{\mathbf{x}' - \mathbf{x}}{\Vert \mathbf{x}' - \mathbf{x}\Vert  }) \leq \lambda^*\), Bounded.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Theorem 2.41 (Global minimum)</strong>. Let \(f: \mathbb{R}^d \to \mathbb{R}\) be a coercive convex function. Then \(f\) has a global minimum.</li>
+</ul>
+<h3><a id="weakly-coercive-convex-function" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Weakly coercive convex function</h3>
+<ul>
+<li><strong>Deﬁnition 2.42</strong> Let \(f: \mathbb{R}^d \to \mathbb{R}\)  be a convex function. Function \(f\) is called <em>weakly coercive</em> if its recession cone equals its lineality space.
+<ul>
+<li>example \(f\left(x_{1}, x_{2}\right)=x_{1}^{2}\)</li>
+</ul>
+</li>
+<li><strong>Theorem 2.43</strong>. Let \(f: \mathbb{R}^d \to \mathbb{R}\) be a weakly coercive convex function. Then \(f\) has a global minimum.
+<ul>
+<li><strong>Proof</strong> Lineality space \(L\) is a linear subspace of \(\mathbb{R}^d\), therefore, its orthogonal complement \(L^{\perp}\) is coercive, and can obtain global minimum in \(L^{\perp}\), which can be shown is also global minimum over all space by orthogonal decomposition.</li>
+</ul>
+</li>
+</ul>
+<h2><a id="convex-programming" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convex Programming</h2>
+<ul>
+<li><strong>Definition (Convex Program)</strong> minimize \(f_{0}(\mathbf{x})\), subject to \(f_{i}(\mathbf{x}) \leq 0\), \( i=1, \ldots, m\) and \(h_{i}(\mathbf{x})=0\), \(i=1, \ldots, p\), where \(f_i\) convex and \(h_i\) affine functions with domain \(\mathbb{R}^d\).
+<ul>
+<li>Domain \(\mathcal{D}=\left(\cap_{i=0}^{m} \operatorname{dom}\left(f_{i}\right)\right) \cap\left(\cap_{i=1}^{p} \operatorname{dom}\left(h_{i}\right)\right)\) is also convex.</li>
+<li>\(X=\{\mathbf{x} \in \mathbb{R}^{d}: f_{i}(\mathbf{x}) \leq 0, i=1, \ldots, m ; h_{i}(\mathbf{x})=0, i=1, \ldots, p\}\) is the <em>feasible region</em> of the program. \(x\in X\) is called the <em>feasible solution</em>.</li>
+</ul>
+</li>
+</ul>
+<h3><a id="lagrange-duality-weak-duality" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lagrange duality (Weak duality)</h3>
+<ul>
+<li>Idea: Then hard constrains of primal into soft constrains into objective function.</li>
+<li><strong>Definition (Lagrangian)</strong> givem convex program \(\{f_{i}, h_{i}\}\), its <em>Lagrangian</em> \(L: \mathcal{D} \times \mathbb{R}^{m} \times \mathbb{R}^{p} \rightarrow \mathbb{R}\) is \(L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu})=f_{0}(\mathbf{x})+\sum_{i=1}^{m} \lambda_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \nu_{i} h_{i}(\mathbf{x})\).</li>
+<li><strong>Definition (Lagrange dual function)</strong> The Lagrange dual function is the function \(g: \mathbb{R}^{m} \times \mathbb{R}^{p} \rightarrow \mathbb{R} \cup\{-\infty\}\) defined by \(g(\boldsymbol{\lambda}, \boldsymbol{\nu})=\inf _{\mathbf{x} \in \mathcal{D}} L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu})\).
+<ul>
+<li>\(g\) assume value \(-\infty\) is typical. The interesting \((\boldsymbol{\lambda}, \boldsymbol{\nu})\) are those \(g(\boldsymbol{\lambda}, \boldsymbol{\nu})&gt;-\infty\).</li>
+</ul>
+</li>
+<li><strong>Lemma 2.45 (Weak Lagrange duality, lower bound of minimum)</strong> \(\forall x\in X, \forall \boldsymbol{\lambda} \in \mathbb{R}^{m}, \boldsymbol{\nu} \in \mathbb{R}^{p}\) s.t. \(\lambda \geq 0\), we have \(g(\boldsymbol{\lambda}, \boldsymbol{\nu}) \leq f_{0}(\mathbf{x})\)
+<ul>
+<li><strong>Proof</strong> \(g(\boldsymbol{\lambda}, \boldsymbol{\nu}) = \inf _{\mathbf{x} \in \mathcal{D}} L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu}) \leq L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu})=f_{0}(\mathbf{x})+\underbrace{\sum_{i=1}^{m} \lambda_{i} f_{i}(\mathbf{x})}_{\leq 0}+\underbrace{\sum_{i=1}^{p} \nu_{i} h_{i}(\mathbf{x})}_{=0} \leq f_{0}(\mathbf{x})\)</li>
+<li>Finding the maximum \(g\) makes it the lower bound.</li>
+</ul>
+</li>
+<li><strong>Deﬁnition 2.46 (dual problem of original problem)</strong> Maximize \(g(\boldsymbol{\lambda}, \boldsymbol{\nu})\) subject to \(\lambda \geq 0\).</li>
+<li><strong>Lemma (convexity of dual)</strong> Given definition of function \(f: \mathbf{dom}(f) \rightarrow \mathbb{R} \cup\{\infty\}\) being convex if \(\mathbf{dom}(f)\) and any finite \(f(x), f(y)&lt;\infty\) follow convex inequality. Then \(-g(\boldsymbol{\lambda}, \boldsymbol{\nu})\) is convex.
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Denote \(f(\mathbf{x}, \mathbf{z}):= -L(\mathbf{x}, \boldsymbol{\lambda}, \boldsymbol{\nu}), f(\mathbf{z}):= - g(\boldsymbol{\lambda},\boldsymbol{\nu}) = \sup_{x\in X}f(\mathbf{x}, \mathbf{z})\).</li>
+<li>For \(f(\mathbf{y}), f(\mathbf{z}) &lt; \infty\), we have \(f(\lambda \mathbf{y}+(1-\lambda) \mathbf{z}) = \sup_{\mathbf{x}\in X} f(\mathbf{x}, \lambda \mathbf{y}+(1-\lambda) \mathbf{z}) \leq \sup_{\mathbf{x}\in X} \left[ \lambda f(\mathbf{x},  \mathbf{y}) + (1-\lambda)f(\mathbf{x},  \mathbf{z}) \right]\) last by convexity</li>
+<li>Since \(f(\mathbf{y}), f(\mathbf{z}) &lt; \infty\), \(\sup_{x\in X}f(\mathbf{x}, \mathbf{z})\) and \(\sup_{x\in X}f(\mathbf{x}, \mathbf{y})\) exists, So \(\mathsf{RHS} \leq \lambda \sup_{x\in X}f(\mathbf{x}, \mathbf{y}) + (1-\lambda)\sup_{x\in X}f(\mathbf{x}, \mathbf{z}) = \lambda f(\mathbf{y}) + (1-\lambda)f( \mathbf{z})\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a id="strong-duality" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Strong duality</h3>
+<ul>
+<li><strong>Theorem 2.47 (Strong duality for convex program)</strong> Suppose a convex program has a feasible solution \(\tilde{\mathbf{x}}\) that <u>in addition</u> satisfies \(f_{i}(\tilde{\mathbf{x}})&lt;0, i=1, \ldots, m\) (<em>Slater point</em>). Then
+<ul>
+<li>(i) \(\inf_{\mathbf{x} \in X} f_0(\mathbf{x}) = \sup_{\boldsymbol{\lambda}&gt;0, \boldsymbol{\nu}} g(\boldsymbol{\lambda}, \boldsymbol{\nu}) := f^{\star}\), infimum of primal = supremum of dual.</li>
+<li>(ii) if \(\vert f^{\star}\vert  &lt; \infty\), then exists feasible solution of dual \(\exists \boldsymbol{\lambda}^{\star} &gt; 0, \boldsymbol{\nu}^{\star}\) s.t. \(g(\boldsymbol{\lambda}^{\star}, \boldsymbol{\nu}^{\star})= f^{\star}\)</li>
+<li><em><strong>no proof</strong></em></li>
+</ul>
+</li>
+<li>In practice, we minimize \(f_{0}(\mathbf{x})+\sum_{i=1}^{m} \lambda_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \nu_{i} h_{i}(\mathbf{x})\) without constraint.
+<ul>
+<li>If Strong duality holds,  \(\exists \boldsymbol{\lambda}^{\star} &gt; 0, \boldsymbol{\nu}^{\star}\) that have same infimum as unconstrained one.</li>
+<li>Even if not, the infimum of unconstrained problem is a lower bound of primal.</li>
+</ul>
+</li>
+<li>Strong duality may also hold when there is no Slater point, or even when not a convex program. <strong>Theorem 2.47</strong> is only a sufficient condition.</li>
+</ul>
+<h3><a id="karush-kuhn-tucker-kkt-conditions" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Karush-Kuhn-Tucker (KKT) conditions</h3>
+<ul>
+<li><em>Key Idea</em>
+<ul>
+<li>If optimization program is differentiable, KKT condition is necessary</li>
+<li>Futher if program is convex, then KKT condition is sufficient.</li>
+</ul>
+</li>
+<li><strong>Deﬁnition 2.48 (Zero duality gap)</strong> Let \(\tilde{\mathbf{x}}\) be feasible for the primal and \((\tilde{\boldsymbol{\lambda}}, \tilde{22.07.2022\boldsymbol{\nu}})\) feasible for the Lagrange dual. The primal and dual solutions \(\tilde{\mathbf{x}}\) and \((\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})\) are said to have <em>zero duality gap</em> if \(f_0(\tilde{\mathbf{x}}) = g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})\).</li>
+<li><strong>Lemma 2.49 (Complementary slackness)</strong> If \(\tilde{\mathbf{x}}\) and \((\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})\) have zero duality gap, then \(\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})=0, i=1, \ldots, m\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(f_{0}(\tilde{\mathbf{x}})=g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}}) =\inf _{\mathbf{x} \in \mathcal{D}}\left(f_{0}(\mathbf{x})+\sum_{i=1}^{m} \tilde{\lambda}_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \tilde{\nu}_{i} h_{i}(\mathbf{x})\right) \leq f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \underbrace{\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})}_{\leq 0}+\sum_{i=1}^{p} \underbrace{\tilde{\nu}_{i} h_{i}(\tilde{\mathbf{x}})}_{0} \leq f_{0}(\tilde{\mathbf{x}})\)</li>
+<li>equation holds only when \(\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})=0, i=1, \ldots, m\).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma 2.50 (Vanishing Lagrangian gradient)</strong> If \(\tilde{\mathbf{x}}\) and \((\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})\) have zero duality gap, and if all \(f_i\) and \(h_i\) are differentiable, then \(\nabla f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \tilde{\lambda}_{i} \nabla f_{i}(\tilde{\mathbf{x}})+\sum_{i=1}^{p} \tilde{\nu}_{i} \nabla h_{i}(\tilde{\mathbf{x}})=\mathbf{0}\)
+<ul>
+<li><strong>Proof</strong> Since \(f_{0}(\tilde{\mathbf{x}})=g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}}) =\inf _{\mathbf{x} \in \mathcal{D}}\left(f_{0}(\mathbf{x})+\sum_{i=1}^{m} \tilde{\lambda}_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \tilde{\nu}_{i} h_{i}(\mathbf{x})\right)\), \(\tilde{\mathbf{x}}\) is the minimizer of \(L(\mathbf{x}, \tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}} )\)</li>
+</ul>
+</li>
+<li><strong>Theorem 2.51 (=2.49 + 2.50, KKT necessary condition, zero gap -&gt; KKT)</strong> Let \(\tilde{\mathbf{x}}\) and \((\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})\) are feasible solution for primal and dual, and have zero duality gap, and if all \(f_i\) and \(h_i\) are differentiable, then
+<ul>
+<li>(i) \(\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})=0, \quad i=1, \ldots, m\)</li>
+<li>(ii)  \(\nabla f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \tilde{\lambda}_{i} \nabla f_{i}(\tilde{\mathbf{x}})+\sum_{i=1}^{p} \tilde{\nu}_{i} \nabla h_{i}(\tilde{\mathbf{x}})=\mathbf{0}\)</li>
+<li>PS: no need to assume convexity</li>
+</ul>
+</li>
+<li><strong>Theorem 2.52 (KKT sufficient condition, convxe + KKT -&gt; zero gap)</strong>  Let \(\tilde{\mathbf{x}}\) and \((\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})\) are feasible solution for primal and dual, and all \(f_i\) and \(h_i\) are differentiable, all \(f_i\) are convex and all \(h_i\) affine. If KKT condition ((i) and (ii) in Theorem 2.51)holds, then \(f_0(\tilde{\mathbf{x}}) = g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})\) (zero duality gap).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By KKT(ii) \(\nabla f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \tilde{\lambda}_{i} \nabla f_{i}(\tilde{\mathbf{x}})+\sum_{i=1}^{p} \tilde{\nu}_{i} \nabla h_{i}(\tilde{\mathbf{x}})=\mathbf{0}\), \(\tilde{\mathbf{x}}\) is solution for unconstraint convex optimization problem \(\min _{\mathbf{x} \in \mathcal{D}}\left(f_{0}(\mathbf{x})+\sum_{i=1}^{m} \tilde{\lambda}_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \tilde{\nu}_{i} h_{i}(\mathbf{x})\right)\) (Lemma 2.21), therefore \(g(\tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}}) = L(\tilde{\mathbf{x}}, \tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}})\).</li>
+<li>By KKT(i) \(\tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})=0, \quad i=1, \ldots, m\) and because \(\tilde{\mathbf{x}}\) feasible, \(L(\tilde{\mathbf{x}}, \tilde{\boldsymbol{\lambda}}, \tilde{\boldsymbol{\nu}}) = f_{0}(\tilde{\mathbf{x}})+\sum_{i=1}^{m} \tilde{\lambda}_{i} f_{i}(\tilde{\mathbf{x}})+\sum_{i=1}^{p} \tilde{\nu}_{i} h_{i}(\tilde{\mathbf{x}}) = f_{0}(\tilde{\mathbf{x}})\)</li>
+<li>We get duality gap.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></body></html>

@@ -21,6 +21,15 @@ if
 ```
 [Link text Here](https://link-url-here.org)
 
+Math test: 
+    
+$\mid$ $\mid \mid$
+
+
+$\|$ $\left\|\sum\right\|$
+
+$|$ $||$ $\left| a\right|$
+ 
 <!-- <u>ddddd<u>
 
 <ins>asdfasdf<ins> -->

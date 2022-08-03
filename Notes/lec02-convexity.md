@@ -70,7 +70,7 @@
 ## Convexity Characterization
 ### First Order
 
-- **Lemma 2.15** Suppose $\mathbf{dom}(f)$ open, $f$ differentiable and $\forall \mathbf{x}$m $\nabla f(\mathbf{x})$ exists, then $f$ is convex iff  $\mathbf{dom}(f)$ convex, and $f(\mathbf{y}) \geq f(\mathbf{x})+\nabla f(\mathbf{x})^{\top}(\mathbf{y}-\mathbf{x})$
+- **Lemma 2.15** Suppose $\mathbf{dom}(f)$ open, $f$ differentiable and $\forall \mathbf{x}$, $\nabla f(\mathbf{x})$ exists, then $f$ is convex iff  $\mathbf{dom}(f)$ convex, and $f(\mathbf{y}) \geq f(\mathbf{x})+\nabla f(\mathbf{x})^{\top}(\mathbf{y}-\mathbf{x})$
     - **Proof**
         - ($\rightarrow$), by convexity, for $t\in(0,1)$, $f(\mathbf{x} + t(\mathbf{y-x}))\leq f(\mathbf{x})+t(f(\mathbf{y})-f(\mathbf{x}))$
             - $f(\mathbf{y}) \geq f(\mathbf{x})+\frac{f(\mathbf{x}+t(\mathbf{y}-\mathbf{x}))-f(\mathbf{x})}{t} = f(\mathbf{x})+\nabla f(\mathbf{x})^{\top}(\mathbf{y}-\mathbf{x})+\frac{r(t(\mathbf{y}-\mathbf{x}))}{t}$

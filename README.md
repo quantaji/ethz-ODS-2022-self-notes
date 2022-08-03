@@ -5,7 +5,7 @@ This is a repo for my self notes of this course. I choose markdown for its fast 
 
 
 ## How to read it
-All math expression are inline, and start and end with ` `` `, e.g. ` ``\LaTeX`` ` shows as ``\LaTeX``. 
+All math expression are inline, and start and end with ` `` `, e.g. ` ``\LaTeX`` ` shows as $\LaTeX$. 
 
 The reason is that I use MWeb on Mac/iOS as Markdown Editor, and the default setting of ` $\LaTex$ ` show some bugs with absolute function `\mid`, `\|` or  `|`. I use this app (which is free) because it is convenient to export html and to pdf.
 

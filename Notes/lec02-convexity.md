@@ -1,32 +1,32 @@
 # Lecture 02 Convexity
 
 ## Notation
-- ``\|\mathbf{x}\|``: Euclidian norm, ``\ell``-2 norm.
-- Cauchy-Schwarz ineq: ``|\mathbf{u}^{\top} \mathbf{v}| \leqslant \|\mathbf{u}\| \cdot \|\mathbf{v}\|``
-- spectual norm (2-norm) of matrix ``A\in \mathbb{R}^{m\times n}``: ``\|A\|:=\max _{\mathbf{v} \in \mathbb{R}^{d}, \mathbf{v} \neq 0} \dfrac{\|A \mathbf{v}\|}{\|\mathbf{v}\|}=\max _{\|\mathbf{v}\|=1}\|A \mathbf{v}\|``
-    - ``\|A \mathbf{v}\| \leq\|A\|\|\mathbf{v}\|``
+- ``\Vert \mathbf{x}\Vert ``: Euclidian norm, ``\ell``-2 norm.
+- Cauchy-Schwarz ineq: ``\vert \mathbf{u}^{\top} \mathbf{v}\vert  \leqslant \Vert \mathbf{u}\Vert  \cdot \Vert \mathbf{v}\Vert ``
+- spectual norm (2-norm) of matrix ``A\in \mathbb{R}^{m\times n}``: ``\Vert A\Vert :=\max _{\mathbf{v} \in \mathbb{R}^{d}, \mathbf{v} \neq 0} \dfrac{\Vert A \mathbf{v}\Vert }{\Vert \mathbf{v}\Vert }=\max _{\Vert \mathbf{v}\Vert =1}\Vert A \mathbf{v}\Vert ``
+    - ``\Vert A \mathbf{v}\Vert  \leq\Vert A\Vert \Vert \mathbf{v}\Vert ``
 
 ## Convex Sets
 - **Defnition 2.7** A set ``C \subseteq \mathbb{R}^{d}`` is convex if ``\forall \mathbf{x}, \mathbf{y} \in C``, ``\forall \lambda \in[0,1]``, ``\lambda \mathbf{x}+(1-\lambda) \mathbf{y} \in C``.
 - **Observation 2.8 (Intersection)** Let ``C_{i}, i \in I`` be convex sets, then ``C=\bigcap_{i \in I} C_{i}`` is a convex set.
 - **Theorem 2.9 (B-Lipschitz equivalence to Derivative)** If (1) ``f: \mathbf{dom}(f) \rightarrow \mathbb{R}^{m}`` is differentiable, (2) ``X \subseteq \mathbf{dom}(f)`` is a non-empety and open convex set, then following equivalent:
-    - (1) ``f`` is ``B``-Lipschitz, ``\|f(\mathbf{x})-f(\mathbf{y})\| \leq B\|\mathbf{x}-\mathbf{y}\|, \forall \mathbf{x}, \mathbf{y} \in X``.
-    - (2) ``f``'s Jacobian is bounded by ``B`` in spectual norm, ``\|D f(\mathbf{x})\| \leq B,  \forall \mathbf{x} \in X``.
+    - (1) ``f`` is ``B``-Lipschitz, ``\Vert f(\mathbf{x})-f(\mathbf{y})\Vert  \leq B\Vert \mathbf{x}-\mathbf{y}\Vert , \forall \mathbf{x}, \mathbf{y} \in X``.
+    - (2) ``f``'s Jacobian is bounded by ``B`` in spectual norm, ``\Vert D f(\mathbf{x})\Vert  \leq B,  \forall \mathbf{x} \in X``.
     - Further, if ``X`` not open, then (2) implies (1).
     - **Proof**
         - (1)``\to``(2)
             - By openness, ``\forall \mathbf{x} \in X``, ``\exists l`` s.t. ball ``B(\mathbf{x},l) \in X``,
-            - By differentiability,  ``\forall \mathbf{x} \in X, \mathbf{v} \in B(\mathbf{x},l)``, ``f(\mathbf{x+v}) = f(\mathbf{x}) + Df(\mathbf{x}) \mathbf{v}+ r(\mathbf{v})``, where ``\lim_{\|\mathbf{v}\| \to 0}\dfrac{\|r(\mathbf{v})\|}{\|\mathbf{v}\|} = 0``
-            - By ``B``-Lipschitz, ``B\|\mathbf{v}\| \geq \|f(\mathbf{x+v}) - f(\mathbf{x})\| = \|Df(\mathbf{x}) \mathbf{v}+ r(\mathbf{v})\| \geq \|Df(\mathbf{x}) \mathbf{v}\| - \|r(\mathbf{v})\|``
-            - Therefore``\dfrac{\|Df(\mathbf{x}) \mathbf{v}\|}{\|\mathbf{v}\|} \leq B + \dfrac{\|r(\mathbf{v})\|}{\|\mathbf{v}\|}, \forall \mathbf{v} \in B(\mathbf{x}, l)``,
-            - let ``\mathbf{v}`` be the optimal direction where ``\dfrac{\|Df(\mathbf{x}) \mathbf{v}\|}{\|\mathbf{v}\|} = \|Df(\mathbf{x})\|``, and let its magnitude towards zero, then ``\|D f(\mathbf{x})\| \leq B``.
+            - By differentiability,  ``\forall \mathbf{x} \in X, \mathbf{v} \in B(\mathbf{x},l)``, ``f(\mathbf{x+v}) = f(\mathbf{x}) + Df(\mathbf{x}) \mathbf{v}+ r(\mathbf{v})``, where ``\lim_{\Vert \mathbf{v}\Vert  \to 0}\dfrac{\Vert r(\mathbf{v})\Vert }{\Vert \mathbf{v}\Vert } = 0``
+            - By ``B``-Lipschitz, ``B\Vert \mathbf{v}\Vert  \geq \Vert f(\mathbf{x+v}) - f(\mathbf{x})\Vert  = \Vert Df(\mathbf{x}) \mathbf{v}+ r(\mathbf{v})\Vert  \geq \Vert Df(\mathbf{x}) \mathbf{v}\Vert  - \Vert r(\mathbf{v})\Vert ``
+            - Therefore``\dfrac{\Vert Df(\mathbf{x}) \mathbf{v}\Vert }{\Vert \mathbf{v}\Vert } \leq B + \dfrac{\Vert r(\mathbf{v})\Vert }{\Vert \mathbf{v}\Vert }, \forall \mathbf{v} \in B(\mathbf{x}, l)``,
+            - let ``\mathbf{v}`` be the optimal direction where ``\dfrac{\Vert Df(\mathbf{x}) \mathbf{v}\Vert }{\Vert \mathbf{v}\Vert } = \Vert Df(\mathbf{x})\Vert ``, and let its magnitude towards zero, then ``\Vert D f(\mathbf{x})\Vert  \leq B``.
         - (2)``\to``(1), no need to assume open
             - For arbitary ``\mathbf{x}, \mathbf{y} \in X \subseteq \mathbf{dom}(f), \mathbf{x} \neq \mathbf{y}``, define a scalar function for arbitary ``\mathbf{z}``, ``h(t)=\mathbf{z}^{\top} f(\mathbf{x}+t(\mathbf{y}-\mathbf{x}))``, ``h'(t) = \mathbf{z}^{\top} Df(t) \times (\mathbf{y-x})``
             - by mean value theorem, ``\exists c\in (0, 1)`` s.t. ``h'(c) = h(1) - h(0)``, so ``\mathbf{z}^{\top} Df(c) \times (\mathbf{y-x}) = \mathbf{z}^{\top} (f(\mathbf{y}) - f(\mathbf{x}))``,
-            -  By Cauch-Schwarz ineq ``\left\|\mathbf{z}^{\top}(f(\mathbf{y})-f(\mathbf{x}))\right\| = \mathbf{z}^{\top} D f(c)(\mathbf{y}-\mathbf{x}) \leq \|\mathbf{z}\|\|D f(c)(\mathbf{y}-\mathbf{x})\|``
-            - By spec-norm ``\mathsf{RHS} \leq |\mathbf{z}\|\|D f(c)\|\|(\mathbf{y}-\mathbf{x})\|``
-            - By ``B``-boundness of ``\|Df\|``, ``\mathsf{RHS} \leq B\|\mathbf{z}\|\|(\mathbf{y}-\mathbf{x})\|``
-            - Taking ``\mathbf{z}=\dfrac{f(\mathbf{y})-f(\mathbf{x})}{\|f(\mathbf{y})-f(\mathbf{x})\|}``, ``\mathsf{LHS} = \|f(\mathbf{y})-f(\mathbf{x})\| \leq \mathsf{RHS} = B\|(\mathbf{y}-\mathbf{x})\|``
+            -  By Cauch-Schwarz ineq ``\lVert \mathbf{z}^{\top}(f(\mathbf{y})-f(\mathbf{x}))\rVert  = \mathbf{z}^{\top} D f(c)(\mathbf{y}-\mathbf{x}) \leq \Vert \mathbf{z}\Vert \Vert D f(c)(\mathbf{y}-\mathbf{x})\Vert ``
+            - By spec-norm ``\mathsf{RHS} \leq \vert \mathbf{z}\Vert \Vert D f(c)\Vert \Vert (\mathbf{y}-\mathbf{x})\Vert ``
+            - By ``B``-boundness of ``\Vert Df\Vert ``, ``\mathsf{RHS} \leq B\Vert \mathbf{z}\Vert \Vert (\mathbf{y}-\mathbf{x})\Vert ``
+            - Taking ``\mathbf{z}=\dfrac{f(\mathbf{y})-f(\mathbf{x})}{\Vert f(\mathbf{y})-f(\mathbf{x})\Vert }``, ``\mathsf{LHS} = \Vert f(\mathbf{y})-f(\mathbf{x})\Vert  \leq \mathsf{RHS} = B\Vert (\mathbf{y}-\mathbf{x})\Vert ``
             
           
 ## Convex Functions
@@ -61,11 +61,11 @@
             - contradictory, then in the cude, value also lower bounded by ``\varepsilon``
         - We can also find a ball inside a cude, therefore ``f`` continuous.
 - **Lemma 2.14 (Counter Example in Infinite Dimension)** ``\exists`` vector space ``V`` and linear function ``f`` s.t. ``\forall \mathbf{v}\in V``, ``f`` is discontinuous.
-    - **Example** ``V`` be the polynomial function in ``x\in[-1,1]``, distance measured by *supreme norm* ``\|h\|_{\infty}:=\sup _{x \in[-1,1]}|h(x)|``
+    - **Example** ``V`` be the polynomial function in ``x\in[-1,1]``, distance measured by *supreme norm* ``\Vert h\Vert _{\infty}:=\sup _{x \in[-1,1]}\vert h(x)\vert ``
         - consider the linear function mapping ``p`` to its derivative at ``x=0``, ``f: p(x) \to p'(0)``
         - consider zero polynomial ``p_0(x) \equiv 0``, with ``p_0'(0) = 0``,
         - consider its neighbor ``p_{n, k}(x)=\frac{1}{n} \sum_{i=0}^{k}(-1)^{i} \frac{(n x)^{2 i+1}}{(2 i+1) !}`` which is a finite expansion of ``s_{n}(x)=\frac{1}{n} \sin (n x)=\frac{1}{n} \sum_{i=0}^{\infty}(-1)^{i} \frac{(n x)^{2 i+1}}{(2 i+1) !}``
-        - since ``\|p_{n, k} - s_{n}\|_{\infty} \rightarrow 0`` as ``k\to\infty`` and ``\left\|s_{n}\right\|_{\infty} \rightarrow 0`` as ``n\to\infty``, this means ``\left\|p_{n, k}\right\| \rightarrow 0`` as ``n, k \rightarrow \infty``, on the other hand ``f\left(p_{n, k}\right)=p_{n, k}^{\prime}(0)=1``
+        - since ``\Vert p_{n, k} - s_{n}\Vert _{\infty} \rightarrow 0`` as ``k\to\infty`` and ``\lVert s_{n}\rVert _{\infty} \rightarrow 0`` as ``n\to\infty``, this means ``\lVert p_{n, k}\rVert  \rightarrow 0`` as ``n, k \rightarrow \infty``, on the other hand ``f\left(p_{n, k}\right)=p_{n, k}^{\prime}(0)=1``
 
 ## Convexity Characterization
 ### First Order
@@ -93,10 +93,10 @@
     - **Proof**
         - (``\rightarrow``) Denote ``\mathbf{v} = \mathbf{x-y}``, again define ``h(t\in[[0,1]) := f(\mathbf{x} + t\mathbf{v})``. 
             - We have ``h'(t) = \nabla f(\mathbf{x}+t \mathbf{v})^{\top} \mathbf{v}`` and ``h^{\prime \prime}(t)=\mathbf{v}^{\top} \nabla^{2} f(\mathbf{x}+t \mathbf{v}) \mathbf{v}``.
-            - Since ``\mathbf{dom}(f)`` open, ``\forall \mathbf{x}, \exists \mathcal{U}(x, \delta) \in \mathbf{dom}(f)``, then we can set ``\mathbf{v}`` to be arbitary on ``\|\mathbf{v}\|=1``.
+            - Since ``\mathbf{dom}(f)`` open, ``\forall \mathbf{x}, \exists \mathcal{U}(x, \delta) \in \mathbf{dom}(f)``, then we can set ``\mathbf{v}`` to be arbitary on ``\Vert \mathbf{v}\Vert =1``.
             - Since ``f`` convex, ``h`` is also convex, by *Lemma 2.16* we have ``(h'(\delta) - h'(0))\delta \geq 0 \Rightarrow h'(\delta) - h'(0)) /\delta \geq 0``
             - Taking limit of ``\delta\to 0`` we have ``h'(\delta) - h'(0)) /\delta \to h''(0) \geq 0``
-            - This holds for arbitary  ``\|\mathbf{v}\|=1``, therefore ``f`` positive semi-definite.
+            - This holds for arbitary  ``\Vert \mathbf{v}\Vert =1``, therefore ``f`` positive semi-definite.
         - (``\leftarrow``) Assume ``\nabla^{2} f(\mathbf{x}) \succeq 0``, then we have ``h'(t) \geq 0`` for arbitary ``t\in[0,1]`` and ``\mathrm{x, y} \in \mathbf{dom}(f)``
             - Then ``(\nabla f(\mathbf{y}) - \nabla f(\mathbf{x}))^{\top}(\mathrm{y-x}) = h'(1) - h'(0) = \int_{0}^{1} h''(t) dt \geq 0``
     - PS: Hessians of a twice continuously differentiable function are symmetric is a classical result known as the *Schwarz theorem*. If ``f`` twice differentiable, symmetry already holds. If ``f`` is only twice *partially* differentiable, we may have non-symmetric Hessians.
@@ -109,7 +109,7 @@
 
 
 ## Minimizer Condition
-- **Definition 2.19** A *local minimum* of ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}`` is a point ``x`` s.t. ``\exists \varepsilon > 0``, ``\forall \mathbf{y} \in \operatorname{dom}(f)`` s.t. ``\|\mathbf{y}-\mathbf{x}\|<\varepsilon``, we have ``f(\mathbf{x}) \leq f(\mathbf{y})``
+- **Definition 2.19** A *local minimum* of ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}`` is a point ``x`` s.t. ``\exists \varepsilon > 0``, ``\forall \mathbf{y} \in \operatorname{dom}(f)`` s.t. ``\Vert \mathbf{y}-\mathbf{x}\Vert <\varepsilon``, we have ``f(\mathbf{x}) \leq f(\mathbf{y})``
 - **Lemma 2.20 (Global minimum)** Let ``\mathbf{x}^{\star}`` be a local minimum of a convex function ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}``. Then ``\mathbf{x}^{\star}`` is a global minimum, if ``\forall \mathbf{y} \in \operatorname{dom}(f), f\left(\mathbf{x}^{\star}\right) \leq f(\mathbf{y})``.
     - not all convex function have global minimum.
 - **Lemma 2.21 (Zero grad -> Global minimum)** Suppose that ``f: \operatorname{dom}(f) \rightarrow \mathbb{R}`` is convex and differentiable over an open domain ``\operatorname{dom}(f) \subseteq \mathbb{R}^{d}``. Let ``\mathbf{x} \in \mathbf{d o m}(f)``. If ``\nabla f(\mathbf{x})=\mathbf{0}``, then ``\mathbf{x}`` is a global minimum.
@@ -191,14 +191,14 @@ Examples like ``f(x) = e^x`` is convex but does not have a global minimum.
     - Coercive example: ``x_1^2 + x_2^2``; non-coercive example: ``f(x) = x, e^x``.
 - **Lemma 2.40 (Boundedness of coercive sublevel)** Let ``f: \mathbb{R}^d \to \mathbb{R}`` be a coercive convex function. Then every nonempty sublevel set ``f^{\leq \alpha}`` is bounded.
     - **Proof**
-        - Given sublevel set ``f^{\leq \alpha}``, for an ``\mathbf{x}\in f^{\leq \alpha}``, define mapping from ``S^{d-1}=\left\{\mathbf{y} \in \mathbb{R}^{d}:\|y\|=1\right\}`` to ``\mathbb{R}``: ``g(\mathbf{y})=\max \{\lambda \geq 0: f(\mathbf{x} + \lambda \mathbf{y}) \leq \alpha\}``. 
+        - Given sublevel set ``f^{\leq \alpha}``, for an ``\mathbf{x}\in f^{\leq \alpha}``, define mapping from ``S^{d-1}=\left\{\mathbf{y} \in \mathbb{R}^{d}:\Vert y\Vert =1\right\}`` to ``\mathbb{R}``: ``g(\mathbf{y})=\max \{\lambda \geq 0: f(\mathbf{x} + \lambda \mathbf{y}) \leq \alpha\}``. 
             - Since ``f`` coercive, ``g`` is well defined.
         - We claim ``g`` is continuous, by showing every sequence to ``\mathbf{y}`` have function value converge to ``g(\mathbf{y})``
             - For arbitary ``\varepsilon > 0``, define ``\{\underline{\lambda}, \overline{\lambda}\} := \{g(\mathbf{y}) - \varepsilon, g(\mathbf{y}) + \varepsilon\}``.  so ``f(\mathbf{x} + \underline{\lambda}\mathbf{y}) \leq \alpha`` and ``f(\mathbf{x} + \overline{\lambda}\mathbf{y}) > \alpha``
             - For every sequence ``\{\mathbf{y}_k\}`` s.t. ``\lim_{k\to\infty}\mathbf{y}_k =\mathbf{y}``, by the continuity of ``f``, we have ``\lim_{k\to\infty}f(\mathbf{x} + \underline{\lambda}\mathbf{y}_k) = f(\mathbf{x} + \underline{\lambda}\mathbf{y}) \leq \alpha`` and ``\lim_{k\to\infty}f(\mathbf{x} + \overline{\lambda}\mathbf{y}_k) = f(\mathbf{x} + \overline{\lambda}\mathbf{y}) > \alpha``
             - Therefore, since ``\lim_{k\to\infty} f(\mathbf{x} + g(\mathbf{y}_k) \mathbf{y}_k) = \alpha``, for sufficiently large ``k``, we have ``\underline{\lambda} \leq g(\mathbf{y}_k)\leq \overline{\lambda}``.
             - This means continuity.
-        - Since ``g`` continuous and ``S^{d-1}`` compact, ``g`` attains maximum of ``\lambda^*``. For arbitary ``\mathbf{x}' \in f^{\leq \alpha}``, ``\|\mathbf{x}' - \mathbf{x}\| \leq g( \frac{\mathbf{x}' - \mathbf{x}}{\|\mathbf{x}' - \mathbf{x}\| }) \leq \lambda^*``, Bounded.
+        - Since ``g`` continuous and ``S^{d-1}`` compact, ``g`` attains maximum of ``\lambda^*``. For arbitary ``\mathbf{x}' \in f^{\leq \alpha}``, ``\Vert \mathbf{x}' - \mathbf{x}\Vert  \leq g( \frac{\mathbf{x}' - \mathbf{x}}{\Vert \mathbf{x}' - \mathbf{x}\Vert  }) \leq \lambda^*``, Bounded.
 - **Theorem 2.41 (Global minimum)**. Let ``f: \mathbb{R}^d \to \mathbb{R}`` be a coercive convex function. Then ``f`` has a global minimum.
             
 ### Weakly coercive convex function
@@ -230,7 +230,7 @@ Examples like ``f(x) = e^x`` is convex but does not have a global minimum.
 ### Strong duality
 - **Theorem 2.47 (Strong duality for convex program)** Suppose a convex program has a feasible solution ``\tilde{\mathbf{x}}`` that <u>in addition</u> satisfies ``f_{i}(\tilde{\mathbf{x}})<0, i=1, \ldots, m`` (*Slater point*). Then
     - (i) ``\inf_{\mathbf{x} \in X} f_0(\mathbf{x}) = \sup_{\boldsymbol{\lambda}>0, \boldsymbol{\nu}} g(\boldsymbol{\lambda}, \boldsymbol{\nu}) := f^{\star}``, infimum of primal = supremum of dual.
-    - (ii) if ``|f^{\star}| < \infty``, then exists feasible solution of dual ``\exists \boldsymbol{\lambda}^{\star} > 0, \boldsymbol{\nu}^{\star}`` s.t. ``g(\boldsymbol{\lambda}^{\star}, \boldsymbol{\nu}^{\star})= f^{\star}``
+    - (ii) if ``\vert f^{\star}\vert  < \infty``, then exists feasible solution of dual ``\exists \boldsymbol{\lambda}^{\star} > 0, \boldsymbol{\nu}^{\star}`` s.t. ``g(\boldsymbol{\lambda}^{\star}, \boldsymbol{\nu}^{\star})= f^{\star}``
     - ***no proof***
 - In practice, we minimize ``f_{0}(\mathbf{x})+\sum_{i=1}^{m} \lambda_{i} f_{i}(\mathbf{x})+\sum_{i=1}^{p} \nu_{i} h_{i}(\mathbf{x})`` without constraint.
     - If Strong duality holds,  ``\exists \boldsymbol{\lambda}^{\star} > 0, \boldsymbol{\nu}^{\star}`` that have same infimum as unconstrained one.

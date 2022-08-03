@@ -2,9 +2,9 @@
 
 ## Notation
 - $\Vert \mathbf{x}\Vert$: Euclidian norm, $\ell$-2 norm.
-- Cauchy-Schwarz ineq: $\vert \mathbf{u}^{\top} \mathbf{v}\vert  \leqslant \Vert \mathbf{u}\Vert  \cdot \Vert \mathbf{v}\Vert $
-- spectual norm (2-norm) of matrix $A\in \mathbb{R}^{m\times n}$: $\Vert A\Vert :=\max _{\mathbf{v} \in \mathbb{R}^{d}, \mathbf{v} \neq 0} \dfrac{\Vert A \mathbf{v}\Vert }{\Vert \mathbf{v}\Vert }=\max _{\Vert \mathbf{v}\Vert =1}\Vert A \mathbf{v}\Vert $
-    - $\Vert A \mathbf{v}\Vert  \leq\Vert A\Vert \Vert \mathbf{v}\Vert $
+- Cauchy-Schwarz ineq: $\vert \mathbf{u}^{\top} \mathbf{v}\vert  \leqslant \Vert \mathbf{u}\Vert  \cdot \Vert \mathbf{v}\Vert$
+- spectual norm (2-norm) of matrix $A\in \mathbb{R}^{m\times n}$: $\Vert A\Vert :=\max _{\mathbf{v} \in \mathbb{R}^{d}, \mathbf{v} \neq 0} \dfrac{\Vert A \mathbf{v}\Vert }{\Vert \mathbf{v}\Vert }=\max _{\Vert \mathbf{v}\Vert =1}\Vert A \mathbf{v}\Vert$
+    - $\Vert A \mathbf{v}\Vert  \leq\Vert A\Vert \Vert \mathbf{v}\Vert$
 
 ## Convex Sets
 - **Defnition 2.7** A set $C \subseteq \mathbb{R}^{d}$ is convex if $\forall \mathbf{x}, \mathbf{y} \in C$, $\forall \lambda \in[0,1]$, $\lambda \mathbf{x}+(1-\lambda) \mathbf{y} \in C$.
@@ -17,16 +17,16 @@
         - (1)$\to$(2)
             - By openness, $\forall \mathbf{x} \in X$, $\exists l$ s.t. ball $B(\mathbf{x},l) \in X$,
             - By differentiability,  $\forall \mathbf{x} \in X, \mathbf{v} \in B(\mathbf{x},l)$, $f(\mathbf{x+v}) = f(\mathbf{x}) + Df(\mathbf{x}) \mathbf{v}+ r(\mathbf{v})$, where $\lim_{\Vert \mathbf{v}\Vert  \to 0}\dfrac{\Vert r(\mathbf{v})\Vert }{\Vert \mathbf{v}\Vert } = 0$
-            - By $B$-Lipschitz, $B\Vert \mathbf{v}\Vert  \geq \Vert f(\mathbf{x+v}) - f(\mathbf{x})\Vert  = \Vert Df(\mathbf{x}) \mathbf{v}+ r(\mathbf{v})\Vert  \geq \Vert Df(\mathbf{x}) \mathbf{v}\Vert  - \Vert r(\mathbf{v})\Vert $
+            - By $B$-Lipschitz, $B\Vert \mathbf{v}\Vert  \geq \Vert f(\mathbf{x+v}) - f(\mathbf{x})\Vert  = \Vert Df(\mathbf{x}) \mathbf{v}+ r(\mathbf{v})\Vert  \geq \Vert Df(\mathbf{x}) \mathbf{v}\Vert  - \Vert r(\mathbf{v})\Vert$
             - Therefore$\dfrac{\Vert Df(\mathbf{x}) \mathbf{v}\Vert }{\Vert \mathbf{v}\Vert } \leq B + \dfrac{\Vert r(\mathbf{v})\Vert }{\Vert \mathbf{v}\Vert }, \forall \mathbf{v} \in B(\mathbf{x}, l)$,
             - let $\mathbf{v}$ be the optimal direction where $\dfrac{\Vert Df(\mathbf{x}) \mathbf{v}\Vert }{\Vert \mathbf{v}\Vert } = \Vert Df(\mathbf{x})\Vert$, and let its magnitude towards zero, then $\Vert D f(\mathbf{x})\Vert  \leq B$.
         - (2)$\to$(1), no need to assume open
             - For arbitary $\mathbf{x}, \mathbf{y} \in X \subseteq \mathbf{dom}(f), \mathbf{x} \neq \mathbf{y}$, define a scalar function for arbitary $\mathbf{z}$, $h(t)=\mathbf{z}^{\top} f(\mathbf{x}+t(\mathbf{y}-\mathbf{x}))$, $h'(t) = \mathbf{z}^{\top} Df(t) \times (\mathbf{y-x})$
             - by mean value theorem, $\exists c\in (0, 1)$ s.t. $h'(c) = h(1) - h(0)$, so $\mathbf{z}^{\top} Df(c) \times (\mathbf{y-x}) = \mathbf{z}^{\top} (f(\mathbf{y}) - f(\mathbf{x}))$,
-            -  By Cauch-Schwarz ineq $\lVert \mathbf{z}^{\top}(f(\mathbf{y})-f(\mathbf{x}))\rVert  = \mathbf{z}^{\top} D f(c)(\mathbf{y}-\mathbf{x}) \leq \Vert \mathbf{z}\Vert \Vert D f(c)(\mathbf{y}-\mathbf{x})\Vert $
-            - By spec-norm $\mathsf{RHS} \leq \vert \mathbf{z}\Vert \Vert D f(c)\Vert \Vert (\mathbf{y}-\mathbf{x})\Vert $
-            - By $B$-boundness of $\Vert Df\Vert $, $\mathsf{RHS} \leq B\Vert \mathbf{z}\Vert \Vert (\mathbf{y}-\mathbf{x})\Vert $
-            - Taking $\mathbf{z}=\dfrac{f(\mathbf{y})-f(\mathbf{x})}{\Vert f(\mathbf{y})-f(\mathbf{x})\Vert }$, $\mathsf{LHS} = \Vert f(\mathbf{y})-f(\mathbf{x})\Vert  \leq \mathsf{RHS} = B\Vert (\mathbf{y}-\mathbf{x})\Vert $
+            -  By Cauch-Schwarz ineq $\lVert \mathbf{z}^{\top}(f(\mathbf{y})-f(\mathbf{x}))\rVert  = \mathbf{z}^{\top} D f(c)(\mathbf{y}-\mathbf{x}) \leq \Vert \mathbf{z}\Vert \Vert D f(c)(\mathbf{y}-\mathbf{x})\Vert$
+            - By spec-norm $\mathsf{RHS} \leq \vert \mathbf{z}\Vert \Vert D f(c)\Vert \Vert (\mathbf{y}-\mathbf{x})\Vert$
+            - By $B$-boundness of $\Vert Df\Vert$, $\mathsf{RHS} \leq B\Vert \mathbf{z}\Vert \Vert (\mathbf{y}-\mathbf{x})\Vert$
+            - Taking $\mathbf{z}=\dfrac{f(\mathbf{y})-f(\mathbf{x})}{\Vert f(\mathbf{y})-f(\mathbf{x})\Vert }$, $\mathsf{LHS} = \Vert f(\mathbf{y})-f(\mathbf{x})\Vert  \leq \mathsf{RHS} = B\Vert (\mathbf{y}-\mathbf{x})\Vert$
             
           
 ## Convex Functions
@@ -61,7 +61,7 @@
             - contradictory, then in the cude, value also lower bounded by $\varepsilon$
         - We can also find a ball inside a cude, therefore $f$ continuous.
 - **Lemma 2.14 (Counter Example in Infinite Dimension)** $\exists$ vector space $V$ and linear function $f$ s.t. $\forall \mathbf{v}\in V$, $f$ is discontinuous.
-    - **Example** $V$ be the polynomial function in $x\in[-1,1]$, distance measured by *supreme norm* $\Vert h\Vert _{\infty}:=\sup _{x \in[-1,1]}\vert h(x)\vert $
+    - **Example** $V$ be the polynomial function in $x\in[-1,1]$, distance measured by *supreme norm* $\Vert h\Vert _{\infty}:=\sup _{x \in[-1,1]}\vert h(x)\Vert$
         - consider the linear function mapping $p$ to its derivative at $x=0$, $f: p(x) \to p'(0)$
         - consider zero polynomial $p_0(x) \equiv 0$, with $p_0'(0) = 0$,
         - consider its neighbor $p_{n, k}(x)=\frac{1}{n} \sum_{i=0}^{k}(-1)^{i} \frac{(n x)^{2 i+1}}{(2 i+1) !}$ which is a finite expansion of $s_{n}(x)=\frac{1}{n} \sin (n x)=\frac{1}{n} \sum_{i=0}^{\infty}(-1)^{i} \frac{(n x)^{2 i+1}}{(2 i+1) !}$

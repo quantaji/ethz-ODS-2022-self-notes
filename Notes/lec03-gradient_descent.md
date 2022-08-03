@@ -1,7 +1,7 @@
 # lecture 03 Gradient descent
 - We assume existance of minimizer $\mathbf{x}^{\star}$.
 - The goal is to find approximation $\mathbf{x}$, s.t. $f(\mathbf{x})-f\left(\mathbf{x}^{\star}\right)<\varepsilon$. 
-    - no need for $\Vert \mathbf{x} - \mathbf{x}^{\star}\Vert $ to be close
+    - no need for $\Vert \mathbf{x} - \mathbf{x}^{\star}\Vert$ to be close
 
 ### Notation on Norm
 - $\Vert \cdot\Vert _{a*}$ is the dual norm, $\Vert u\Vert _{a*}=\sup _{v \neq 0} \frac{u^{T} v}{\Vert v\Vert _a}=\sup _{\Vert v\Vert _a=1} u^{T} v$
@@ -128,7 +128,7 @@
 - By convexity $f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right) \leq \mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)$, we have $\sum_{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \frac{\gamma}{2} \sum_{t=0}^{T-1}\lVert\mathbf{g}_{t}\rVert^{2}+\frac{1}{2 \gamma}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert^{2}$
     - This gives upper bound on average error $\mathbb{E}_{t} [f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)]$
     - note that last iterate is not necessarily the best one. Some algorithms guarantee last iterate convergence.
-    - Bad result since we cannot control $\Vert \mathbf{g}_t\Vert $
+    - Bad result since we cannot control $\Vert \mathbf{g}_t\Vert$
 
 ## Improvement Case 1: Lipschitz $f$: $\mathcal{O}\left(1 / \varepsilon^{2}\right)$ Steps
 - By Theorem 2.9, if we assume convex function $f$ is $B$-Lipschitz, then $\Vert D f(x)\Vert  \leq B$, the spectual norm in Thm 2.9 is Euclidian norm when $D f \in \mathbb{R}^{1\times d}$

@@ -4,19 +4,19 @@
     - no need for $\Vert \mathbf{x} - \mathbf{x}^{\star}\Vert$ to be close
 
 ### Notation on Norm
-- $\Vert \cdot\Vert _{a*}$ is the dual norm, $\Vert u\Vert _{a*}=\sup _{v \neq 0} \frac{u^{T} v}{\Vert v\Vert _a}=\sup _{\Vert v\Vert _a=1} u^{T} v$
+- $\Vert \cdot\Vert _{a\ast}$ is the dual norm, $\Vert u\Vert _{a\ast}=\sup _{v \neq 0} \frac{u^{T} v}{\Vert v\Vert _a}=\sup _{\Vert v\Vert _a=1} u^{T} v$
    
- - This implies generalized Cauchy-Schwarz inequality $\lvert u^{T} v\rvert \leq\Vert u\Vert _{a*}\Vert v\Vert _a, \forall u,v$.
-- For Eculidiean norm $\Vert \cdot\Vert =\Vert \cdot\Vert _{*}=\Vert \cdot\Vert _{2}$
+ - This implies generalized Cauchy-Schwarz inequality $\lvert u^{T} v\rvert \leq\Vert u\Vert _{a\ast}\Vert v\Vert _a, \forall u,v$.
+- For Eculidiean norm $\Vert \cdot\Vert =\Vert \cdot\Vert _{\ast}=\Vert \cdot\Vert _{2}$
 - the parameter $L$ depends on choice of norm
 - $\Vert x\Vert _{2} \leq\Vert x\Vert _{1} \leq \sqrt{n}\Vert x\Vert _{2}$, $\frac{1}{\sqrt{n}}\Vert x\Vert _{2} \leq\Vert x\Vert _{\infty} \leq\Vert x\Vert _{2}$.
 
 ## Smoothness and Lipschitz
 ### Lipschitz
-- **Definition (Lipschitz)** The gradient of $f$ is *Lipschitz continuous* with parameter $L > 0$ w.r.t. norm $\Vert \cdot\Vert _a$, if $\Vert \nabla f(x)-\nabla f(y)\Vert _{a*} \leq L\Vert x-y\Vert _a$.
+- **Definition (Lipschitz)** The gradient of $f$ is *Lipschitz continuous* with parameter $L > 0$ w.r.t. norm $\Vert \cdot\Vert _a$, if $\Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast} \leq L\Vert x-y\Vert _a$.
 - **Lemma A (generalized Cauchy–Schwarz inequality)** $\nabla f$ is $L$-Lipschitz $\Rightarrow$ $\forall \mathbf{x,y}\in\mathbf{dom}(f)$, $(\nabla f(x)-\nabla f(y))^{T}(x-y) \leq L\Vert x-y\Vert ^{2}_{a}$
     - **Proof**
-        - $(\nabla f(x)-\nabla f(y))^{T}(x-y) \leq \Vert \nabla f(x)-\nabla f(y)\Vert _{a*}\Vert x-y\Vert _{a} \leq L\Vert x-y\Vert _a^2$
+        - $(\nabla f(x)-\nabla f(y))^{T}(x-y) \leq \Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast}\Vert x-y\Vert _{a} \leq L\Vert x-y\Vert _a^2$
     
 ### Smoothness
 - **Definition 3.2 (Smoothness)** Let $f: \operatorname{dom}(f) \rightarrow \mathbb{R}$ be a differentiable function, $X \subset \operatorname{dom}(f)$ convex and $L \in \mathbb{R}_{+}$. Function $f$ is called *smooth with parameter $L$* over $X$ (over norm $\Vert \cdot\Vert _a$) if $f(\mathbf{y}) \leq f(\mathbf{x})+\nabla f(\mathbf{x})^{\top}(\mathbf{y}-\mathbf{x})+\frac{L}{2}\Vert \mathbf{x}-\mathbf{y}\Vert _{a}^{2}$
@@ -26,12 +26,12 @@
         - $\nabla g(\mathbf{x}) = L\mathbf{x} - \nabla f(\mathbf{x})$
         - $g$ convex $\Leftrightarrow$ $\forall \mathbf{x,y}, g(\mathbf{y}) \geq g(\mathbf{x}) + \nabla g(\mathbf{x})^{\top}(\mathbf{y-x})$ $\Leftrightarrow$ $\frac{L}{2} \mathbf{y}^{\top} \mathbf{y}-f(\mathbf{y}) \geq \frac{L}{2} \mathbf{x}^{\top} \mathbf{x}-f(\mathbf{x}) + \left[ L\mathbf{x} - \nabla f(\mathbf{x}) \right]^{\top}(\mathbf{y-x})$ $\Leftrightarrow$ $f(\mathbf{y}) \leq f(\mathbf{x})+\nabla f(\mathbf{x})^{\top}(\mathbf{y}-\mathbf{x})+\frac{L}{2}\Vert \mathbf{x}-\mathbf{y}\Vert _{2}^{2}$
     - If $f$ twice differentiable, Hessian of $g$ is $LI-\nabla^2 f \succeq 0$, this means $\forall x, \lambda_{\max }\left(\nabla^{2} f(x)\right) \leq L$.
-- **Lemma B (quadratic upper bound)** If $\operatorname{dom} f=\mathbf{R}^{n}$ and $f$ is $L$-smooth over norm $a$, and has minimizer $\mathbf{x}^{\star}$, then $\forall z$, $\frac{1}{2 L}\Vert \nabla f(z)\Vert _{a*}^{2} \leq f(z)-f\left(x^{\star}\right) \leq \frac{L}{2}\lVert z-x^{\star}\rVert_{a}^{2}$
+- **Lemma B (quadratic upper bound)** If $\operatorname{dom} f=\mathbf{R}^{n}$ and $f$ is $L$-smooth over norm $a$, and has minimizer $\mathbf{x}^{\star}$, then $\forall z$, $\frac{1}{2 L}\Vert \nabla f(z)\Vert _{a\ast}^{2} \leq f(z)-f\left(x^{\star}\right) \leq \frac{L}{2}\lVert z-x^{\star}\rVert_{a}^{2}$
     - **Proof**
         - Right-hand inequality by smoothness setting $y=z, x=x^{\star}$, $f(\mathbf{z}) \leq f(\mathbf{x}^{\star})+ {\underbrace{\nabla f(\mathbf{x}^{\star})}_{=0}}^{\top}(\mathbf{z}-\mathbf{x}^{\star})+\frac{L}{2}\Vert \mathbf{x}^{\star}-\mathbf{z}\Vert _{a}^{2}$
         - Left-hand ineuqality, by smoothness $\inf _{y} f(y) \leq \inf _{y}\left(f(z)+\nabla f(z)^{T}(y-z)+\frac{L}{2}\Vert y-z\Vert ^{2}\right)$
             - by seperation of direction and magnitude $\mathsf{LHS }\leq =\inf _{\Vert v\Vert =1} \inf _{t}\left(f(z)+t \nabla f(z)^{T} v+\frac{L t^{2}}{2}\right) = \inf _{\Vert v\Vert =1}\left(f(z)-\frac{1}{2 L}\left(\nabla f(z)^{T} v\right)^{2}\right)$ by maximum of quadratic function.
-            - By the definition of dual norm, we have $\inf _{y} f(y) = f(z^{\star}) \leq f(z)-\frac{1}{2 L}\Vert \nabla f(z)\Vert _{*}^{2}$
+            - By the definition of dual norm, we have $\inf _{y} f(y) = f(z^{\star}) \leq f(z)-\frac{1}{2 L}\Vert \nabla f(z)\Vert _{\ast}^{2}$
 
 - **Lemma 3.4 (quadratic function)** quadratic form $f(\mathbf{x})=\mathbf{x}^{\top} Q \mathbf{x}+\mathbf{b}^{\top} \mathbf{x}+c$ is $2\Vert Q\Vert _{\mathrm{spec}}$-smooth over 2-norm.
 - Example of Non-Smooth func: $f(x) = x^4$ since $\forall L, y^{4} \leq \frac{L}{2} y^{2}$ does not hold for all $y$ near $x=0$. 
@@ -42,7 +42,7 @@
     - **Proof** Straightforward
 
 ### Equivalence of Smoothness and Lipschitz under Convexity
-- **Definition (co-coercivity)** The property of *co-coercivity* of $\nabla f$ with parameter $L$ over norm $a$ is $\forall x,y$, $(\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{*}^{2}$
+- **Definition (co-coercivity)** The property of *co-coercivity* of $\nabla f$ with parameter $L$ over norm $a$ is $\forall x,y$, $(\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{\ast}^{2}$
 - **Lemma 3.5 (Equivalence of Smoothness and Lipschitz under convexity)** If (i) $\mathbf{dom}(f) = \mathbb{R}^{d}$ (ii) $f$ convex and differentiable. Then $f$ is smooth with parameter $L$ under norm $a$ $\Leftrightarrow$ $\nabla f$ is Lipschitz continuous with parameter $L$ under norm $a$.
     - *Proof Route* **Lipschitzness** -(*Lemma A*)-> **Smoothness** -(*Lemma B*)-> **Co-coercivity** -> **Lipschitzness**
     - **Proof**
@@ -57,12 +57,12 @@
             - Define two function $f_{x}(z)=f(z)-\nabla f(x)^{T} z, f_{y}(z)=f(z)-\nabla f(y)^{T} z$
             - Since we only add first-order term, $f_x{z}, f_y(z)$ are still convex.
             - Since $\nabla f_x(z_1) - \nabla f_x(z_2) = \nabla f(z_1) - \nabla f(z_2)$, $f_x{z}, f_y(z)$ are still $L$-smooth.
-            - Also $\nabla f_x(z=x) = 0$, by convexity, it reaches it minimum, using Smoothness and left-hand inequality of Lemma B, and taking $f = f_x, z=y$, we get $f(y)-f(x)-\nabla f(x)^{T}(y-x) \geq \frac{1}{2 L}\Vert \nabla f(y)-\nabla f(x)\Vert _{a*}^{2}$
-            - Similarly $f(x)-f(y)-\nabla f(y)^{T}(x-y) \geq \frac{1}{2 L}\Vert \nabla f(y)-\nabla f(x)\Vert _{a*}^{2}$
-            - Adding these together and we get $(\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{a*}^{2}$, co-coercivity
+            - Also $\nabla f_x(z=x) = 0$, by convexity, it reaches it minimum, using Smoothness and left-hand inequality of Lemma B, and taking $f = f_x, z=y$, we get $f(y)-f(x)-\nabla f(x)^{T}(y-x) \geq \frac{1}{2 L}\Vert \nabla f(y)-\nabla f(x)\Vert _{a\ast}^{2}$
+            - Similarly $f(x)-f(y)-\nabla f(y)^{T}(x-y) \geq \frac{1}{2 L}\Vert \nabla f(y)-\nabla f(x)\Vert _{a\ast}^{2}$
+            - Adding these together and we get $(\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast}^{2}$, co-coercivity
         - **Co-coercivity** -> **Lipschitzness**
-            - $\frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{a*}^{2} \leq (\nabla f(x)-\nabla f(y))^{T}(x-y) \leq \Vert \nabla f(x)-\nabla f(y)\Vert _{a*}\cdot \Vert x-y\Vert _{a}$
-            - $\Rightarrow \Vert \nabla f(x)-\nabla f(y)\Vert _{a*} \leq L  \Vert x-y\Vert _{a}$
+            - $\frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast}^{2} \leq (\nabla f(x)-\nabla f(y))^{T}(x-y) \leq \Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast}\cdot \Vert x-y\Vert _{a}$
+            - $\Rightarrow \Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast} \leq L  \Vert x-y\Vert _{a}$
 
 ## Strong convexity
 - **Definition and Lemma C (Strong Convexity)** A differentiable function $f$ is strongly convex with parameter $\mu$ over norm $\Vert \cdot\Vert _{a}$ if $\mathbf{dom}(f)$ is convex and (for following are equivalent)
@@ -97,12 +97,12 @@
     - **Proof** 
         - Since $f$ $\mu$-strongly convex, given any $x,y$, value along this line will go to $+\infty$ by quadratic function.
         - suppose $f^{\leq \alpha}$ non-empty, since $f$ convex -> continuous, then $\exists y$ s.t. $f(y) = \alpha$.
-        - Then  $\forall x, f(x) \geq f(y) + \nabla f(y)^{\top} (y-x) + \frac{\mu}{2}\Vert y-x\Vert ^2_{a} \geq f(y) - \Vert \nabla f(y)\Vert _{a*}\Vert y-x\Vert  + \frac{\mu}{2}\Vert y-x\Vert ^2_{a}$,
-        - If $\Vert y-x\Vert _{a} \geq 2 \Vert \nabla f(y)\Vert _{a*} / \mu$, then $f(x) \geq f(y) = \alpha$, then $f^{\leq \alpha}$  bounded.
+        - Then  $\forall x, f(x) \geq f(y) + \nabla f(y)^{\top} (y-x) + \frac{\mu}{2}\Vert y-x\Vert ^2_{a} \geq f(y) - \Vert \nabla f(y)\Vert _{a\ast}\Vert y-x\Vert  + \frac{\mu}{2}\Vert y-x\Vert ^2_{a}$,
+        - If $\Vert y-x\Vert _{a} \geq 2 \Vert \nabla f(y)\Vert _{a\ast} / \mu$, then $f(x) \geq f(y) = \alpha$, then $f^{\leq \alpha}$  bounded.
     - This means $\inf_{x\in\mathbf{dom}(f)} f > -\infty$, if further one of $f^{\leq \alpha}$ is closed, then $f$ have a global minimum.
     - The global minimum is also unique (trivial).
 
--  **Lemma E (quadratic lower bound)** If $f$ is closed (means has closed sublevel sets), and $\mathbf{x}^{\star}$ is its unique minimizer, then $\forall z\in \mathbf{dom}(f), \frac{m}{2}\lVert z-x^{\star}\rVert^{2} \leq f(z)-f\left(x^{\star}\right) \leq \frac{1}{2 m}\Vert \nabla f(z)\Vert _{*}^{2}.$
+-  **Lemma E (quadratic lower bound)** If $f$ is closed (means has closed sublevel sets), and $\mathbf{x}^{\star}$ is its unique minimizer, then $\forall z\in \mathbf{dom}(f), \frac{m}{2}\lVert z-x^{\star}\rVert^{2} \leq f(z)-f\left(x^{\star}\right) \leq \frac{1}{2 m}\Vert \nabla f(z)\Vert _{\ast}^{2}.$
     -  **Proof** similar to smoothness case.
 
 - **Lemma 3.11 (equivalance of strong convexity in 2-norm)** $f$ $\mu$-strong convex over 2-norm iff $k(x)=f(x)-\frac{\mu}{2}\Vert x\Vert ^{2}_2$ is convex
@@ -116,7 +116,7 @@
     - co-coercivity of $\nabla h$ gives $\forall x,y, (\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{\mu L}{\mu+L}\Vert x-y\Vert _{2}^{2}+\frac{1}{\mu+L}\Vert \nabla f(x)-\nabla f(y)\Vert _{2}^{2}$
 
 ## Speed metric
-- $\lim _{k \rightarrow \infty} \frac{f\left(w^{k+1}\right)-f\left(w^{*}\right)}{f\left(w^{k}\right)-f\left(w^{*}\right)}=\rho$
+- $\lim _{k \rightarrow \infty} \frac{f\left(w^{k+1}\right)-f\left(w^{\ast}\right)}{f\left(w^{k}\right)-f\left(w^{\ast}\right)}=\rho$
     - $\rho=1$ sublinear rate
     - $\rho\in(0,1)$ linear rate
     - $\rho = 0$super linear reate

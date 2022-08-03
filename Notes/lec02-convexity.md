@@ -33,7 +33,7 @@
 - **Definition 2.10** A function $f$: $\mathbf{dom}(f) \rightarrow \mathbb{R}$ is *convex* if 
     - (i) $\mathbf{dom}(f)$ is convex and 
     - (ii) $\forall \mathbf{x}, \mathbf{y} \in \mathbf{d o m}(f), \lambda \in[0,1]$, $f(\lambda \mathbf{x}+(1-\lambda) \mathbf{y}) \leq \lambda f(\mathbf{x})+(1-\lambda) f(\mathbf{y})$
-- **Definition of** *Epigraph* $\operatorname{epi}(f):=\left\{(\mathbf{x}, \alpha) \in \mathbb{R}^{d+1}: \mathbf{x} \in \mathbf{dom}(f), \alpha \geq f(\mathbf{x})\right\}$
+- **Definition of** *Epigraph* $\operatorname{epi}(f):=\{(\mathbf{x}, \alpha) \in \mathbb{R}^{d+1}: \mathbf{x} \in \mathbf{dom}(f), \alpha \geq f(\mathbf{x})\}$
 - **Observation 2.11** $f$ is a convex function if and only if $\operatorname{epi}(f)$ is a convex set.
     - **Proof**
         - $f\to\mathrm{epi}(f)$
@@ -104,7 +104,7 @@
 ### Operations Preserving Convexity
 - **Lemma 2.18**
     - (i) Let $f_{1}, f_{2}, \ldots, f_{m}$ be convex functions and $\lambda_{1}, \lambda_{2}, \ldots, \lambda_{m} \in \mathbb{R}_{+}$. Then (1) $\max _{i=1}^{m} f_{i}$ (2) $f:=\sum_{i=1}^{m} \lambda_{i} f_{i}$ convex on $\mathbf{dom}(f):=\bigcap_{i=1}^{m} \mathbf{dom}\left(f_{i}\right)$.
-    - (ii) Let $f$ convex on $\mathbf{dom}(f) \subseteq \mathbb{R}^{d}$, $g: \mathbb{R}^{m} \rightarrow \mathbb{R}^{d}, \mathbf{x} \to A \mathbf{x}+\mathbf{b}$ be an affine function. Then $f \circ g$ convex on $\mathbf{dom}(f \circ g):=\left\{\mathbf{x} \in \mathbb{R}^{m}: g(\mathbf{x}) \in \mathbf{dom}(f)\right\}$.
+    - (ii) Let $f$ convex on $\mathbf{dom}(f) \subseteq \mathbb{R}^{d}$, $g: \mathbb{R}^{m} \rightarrow \mathbb{R}^{d}, \mathbf{x} \to A \mathbf{x}+\mathbf{b}$ be an affine function. Then $f \circ g$ convex on $\mathbf{dom}(f \circ g):=\{\mathbf{x} \in \mathbb{R}^{m}: g(\mathbf{x}) \in \mathbf{dom}(f)\}$.
 - Given $f, g$ convex, $f \circ g$ may be non-convex, example: $f(x)=x^2$, $g(x) = x^2- 1$, $(f \circ g)(x) = x^4 - 2x^2 + 1$, $(f \circ g)(-1)=(f \circ g)(1)=0$ and $(f \circ g)(0)=1$.
 
 
@@ -139,7 +139,7 @@
 
 ## Existence of minimizer
 ### Sublevel sets, Weierstrass Theorem
-- **Definition 2.28** Let $f: \mathbb{R}^{d} \rightarrow \mathbb{R}, \alpha \in \mathbb{R}$. Set $f^{\leq \alpha}:=\left\{\mathbf{x} \in \mathbb{R}^{d}: f(\mathbf{x}) \leq \alpha\right\}$ is the $\alpha$-*sublevel set* of $f$.
+- **Definition 2.28** Let $f: \mathbb{R}^{d} \rightarrow \mathbb{R}, \alpha \in \mathbb{R}$. Set $f^{\leq \alpha}:=\{\mathbf{x} \in \mathbb{R}^{d}: f(\mathbf{x}) \leq \alpha\}$ is the $\alpha$-*sublevel set* of $f$.
     - If $f$ convex, $f^{\leq \alpha}$ is convex set.
     - If $f$ continuous (implied by convexity and finit dim),  $f^{\leq \alpha}$ is closed.
 - **Theorem 2.29 (Weierstrass)** Let $f: \mathbb{R}^{d} \rightarrow \mathbb{R}, \alpha \in \mathbb{R}$ be a continuous function, and suppose there is a nonempty and bounded sublevel set $f^{\leq \alpha}$. Then $f$ has a global minimum.
@@ -191,7 +191,7 @@ Examples like $f(x) = e^x$ is convex but does not have a global minimum.
     - Coercive example: $x_1^2 + x_2^2$; non-coercive example: $f(x) = x, e^x$.
 - **Lemma 2.40 (Boundedness of coercive sublevel)** Let $f: \mathbb{R}^d \to \mathbb{R}$ be a coercive convex function. Then every nonempty sublevel set $f^{\leq \alpha}$ is bounded.
     - **Proof**
-        - Given sublevel set $f^{\leq \alpha}$, for an $\mathbf{x}\in f^{\leq \alpha}$, define mapping from $S^{d-1}=\left\{\mathbf{y} \in \mathbb{R}^{d}:\Vert y\Vert =1\right\}$ to $\mathbb{R}$: $g(\mathbf{y})=\max \{\lambda \geq 0: f(\mathbf{x} + \lambda \mathbf{y}) \leq \alpha\}$. 
+        - Given sublevel set $f^{\leq \alpha}$, for an $\mathbf{x}\in f^{\leq \alpha}$, define mapping from $S^{d-1}=\{\mathbf{y} \in \mathbb{R}^{d}:\Vert y\Vert =1\}$ to $\mathbb{R}$: $g(\mathbf{y})=\max \{\lambda \geq 0: f(\mathbf{x} + \lambda \mathbf{y}) \leq \alpha\}$. 
             - Since $f$ coercive, $g$ is well defined.
         - We claim $g$ is continuous, by showing every sequence to $\mathbf{y}$ have function value converge to $g(\mathbf{y})$
             - For arbitary $\varepsilon > 0$, define $\{\underline{\lambda}, \overline{\lambda}\} := \{g(\mathbf{y}) - \varepsilon, g(\mathbf{y}) + \varepsilon\}$.  so $f(\mathbf{x} + \underline{\lambda}\mathbf{y}) \leq \alpha$ and $f(\mathbf{x} + \overline{\lambda}\mathbf{y}) > \alpha$
@@ -210,7 +210,7 @@ Examples like $f(x) = e^x$ is convex but does not have a global minimum.
 ## Convex Programming
 - **Definition (Convex Program)** minimize $f_{0}(\mathbf{x})$, subject to $f_{i}(\mathbf{x}) \leq 0$, $ i=1, \ldots, m$ and $h_{i}(\mathbf{x})=0$, $i=1, \ldots, p$, where $f_i$ convex and $h_i$ affine functions with domain $\mathbb{R}^d$.
     - Domain $\mathcal{D}=\left(\cap_{i=0}^{m} \operatorname{dom}\left(f_{i}\right)\right) \cap\left(\cap_{i=1}^{p} \operatorname{dom}\left(h_{i}\right)\right)$ is also convex.
-    - $X=\left\{\mathbf{x} \in \mathbb{R}^{d}: f_{i}(\mathbf{x}) \leq 0, i=1, \ldots, m ; h_{i}(\mathbf{x})=0, i=1, \ldots, p\right\}$ is the *feasible region* of the program. $x\in X$ is called the *feasible solution*.
+    - $X=\{\mathbf{x} \in \mathbb{R}^{d}: f_{i}(\mathbf{x}) \leq 0, i=1, \ldots, m ; h_{i}(\mathbf{x})=0, i=1, \ldots, p\}$ is the *feasible region* of the program. $x\in X$ is called the *feasible solution*.
 
 ### Lagrange duality (Weak duality) 
 - Idea: Then hard constrains of primal into soft constrains into objective function.

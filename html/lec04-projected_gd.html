@@ -1,0 +1,920 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>/* copy from https://github.com/sindresorhus/github-markdown-css/ */
+
+html,body{background-color: #342839;}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #fafedd;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body figure{margin:0;padding:0; display:table;}
+.markdown-body figure figcaption{font-size:92%; text-align:center; color:#76dae8;}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #fed765;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' fill='%23fed765' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+.markdown-body strong{
+  color: #fe6188;
+}
+.markdown-body em{
+  color: #77dbe8;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #aa9df2;
+  text-decoration: none;
+}
+.markdown-body mjx-container[jax="SVG"] > svg a{fill:#aa9df2;stroke: #aa9df2;}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 12px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 12px;
+  color: #76dae8;
+  vertical-align: middle;
+  background-color: #3a2e3f;
+  border: 1px solid #504455;
+  border-radius: 3px;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #504455;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #c9cdac;
+  border-left: .25em solid #f5f5f5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #4a3e4f;
+  color: #fed765;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+  color: #fed765;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+  color: #fed765;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+  color: #fed765;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+  color: #fed765;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #fed765;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #786c7d;
+}
+
+.markdown-body table tr {
+  background-color: #342839;
+  border-top: 1px solid #786c7d;
+}
+
+.markdown-body table th {
+  background-color: #4a3e4f;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #392d3e;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #3a2e3f;
+  color: #76dae8;
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+   font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #3a2e3f;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+  color: #f0f0f0;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+.markdown-body section.footnotes{
+    margin-top:48px;
+    border-top:solid 1px #504455;
+    padding-top:0px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .markdown-body mark{color: #111;}
+}
+
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background-color: #3a2e3f;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #48be66;
+}
+
+.token.punctuation {
+    color: #fdd664;
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #9a95e3;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #fdd664;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #$$codeBlockColor$$;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #ccddf6;
+}
+
+.token.function,
+.token.class-name {
+    color: #f28d55;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #d38e63;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em; /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 1px solid #726677;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+  .line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+  }
+
+    .line-numbers-rows > span:before {
+      content: counter(linenumber);
+      color: #726677;
+      display: block;
+      padding-right: 0.8em;
+      text-align: right;
+    }
+
+
+</style><style>.mweb-charts{background:#fff;}
+body{ box-sizing: border-box;
+    margin: 0 auto;
+    padding: 28px}
+@media print{
+    pre, code, pre code {
+     overflow: visible !important;
+     white-space: pre-wrap !important;       /* css-3 */
+     white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap !important;      /* Opera 4-6 */
+     white-space: -o-pre-wrap !important;    /* Opera 7 */
+     word-wrap: break-word !important;       /* Internet Explorer 5.5+ */
+    }
+    html,body{margin:0;padding:4px;}
+}
+
+</style><script>window.MathJax = {     tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] },     startup: {     pageReady() {       return MathJax.startup.defaultPageReady().then(function () {          window.mweb_mathjax_ready_val = 'yes';          if(window.mweb_mathjax_ready !== undefined){ mweb_mathjax_ready(); }       });     }   }};document.addEventListener('DOMContentLoaded', function(event) {    if (typeof Prism != 'undefined') {         Prism.highlightAll();     }});window.mweb_mathjax_ready_val = '';function theMWebMathJaxRenderIsReady(key){ return window.mweb_mathjax_ready_val; }</script><script>window.MathJax = { tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] } }; </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script></head><body><div id='markdown_content' class='markdown-body'><h1><a id="projected-gradient-descent" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Projected Gradient Descent</h1>
+<h2><a id="algorithm" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Algorithm</h2>
+<ul>
+<li>Gradient Step: \(\mathbf{y}_{t+1}:=\mathbf{x}_{t}-\gamma \nabla f\left(\mathbf{x}_{t}\right)\)</li>
+<li>Projection Step: \(\mathbf{x}_{t+1}:=\Pi_{X}\left(\mathbf{y}_{t+1}\right):=\underset{\mathbf{x} \in X}{\operatorname{argmin}}\lVert\mathbf{x}-\mathbf{y}_{t+1}\rVert^{2}\)
+<ul>
+<li>We assume the minimization in projection step is easy to solve.</li>
+<li>\(d_{\mathbf{y}}(\mathbf{x}):=\lVert \mathbf{x}-\mathbf{y} \rVert^{2}\) is strongly convex -&gt; projection unique.</li>
+</ul>
+</li>
+<li><strong>Fact 4.1</strong> Let \(X \subseteq \mathbb{R}^{d}\) be closed and convex, \(\mathbf{x} \in X, \mathbf{y} \in \mathbb{R}^{d}\). Then
+<ul>
+<li>(i) \(\left(\mathbf{x}-\Pi_{X}(\mathbf{y})\right)^{\top}\left(\mathbf{y}-\Pi_{X}(\mathbf{y})\right) \leq 0\)</li>
+<li>(ii) \(\lVert\mathbf{x}-\Pi_{X}(\mathbf{y})\rVert^{2}+\lVert\mathbf{y}-\Pi_{X}(\mathbf{y})\rVert^{2} \leq\Vert \mathbf{x}-\mathbf{y}\Vert ^{2}\) (<em>Note this is square of distance</em>)</li>
+<li><strong>Proof</strong>
+<ul>
+<li>(i) \(\nabla d_{\mathbf{y}}(\mathbf{x}) = \mathbf{x - y}\), With Lemma 2.27 \(\forall \mathbf{x} \in X, \nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}-\mathbf{x}^{\star}\right) \geq 0\) (also holds for closed set) and \(\Pi_{X}(\mathbf{y})\) as minimum, we get \((\Pi_{X}(\mathbf{y}) - \mathbf{y})^{\top}(\mathbf{x} - \Pi_{X}(\mathbf{y}))\geq 0\).</li>
+<li>(i) -&gt; (ii) By \(2 \mathbf{v}^{\top} \mathbf{w}=\Vert \mathbf{v}\Vert ^{2}+\Vert \mathbf{w}\Vert ^{2}-\Vert \mathbf{v}-\mathbf{w}\Vert ^{2}\).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma (Ex 31)</strong> If \(\mathbf{x}_{t+1} = \mathbf{x}_t\), then \(\mathbf{x}_t\) is minimizer.
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Let \(\mathbf{y} \leftarrow \mathbf{x}_{t} - \gamma \mathbf{g}_{t}\) we have \(\Pi_X(\mathbf{y}) := \mathbf{x}_{t+1} = \Pi_X(\mathbf{x}_{t} - \gamma \mathbf{g}_{t}) = \mathbf{x}_t\).</li>
+<li>By (i) \(\left(\mathbf{x}-\Pi_{X}(\mathbf{y})\right)^{\top}\left(\mathbf{y}-\Pi_{X}(\mathbf{y})\right) = \left(\mathbf{x}-\mathbf{x}_t \right)^{\top}\left(-\gamma \mathbf{g}_{t}\right) \leq 0 \Leftrightarrow \nabla f(\mathbf{x}_t)^{\top} \left(\mathbf{x}-\mathbf{x}_t \right) \geq 0\) -&gt; Lemma 2.27 -&gt; minimizer.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="bounded-gradients-mathcal-o-left-1-varepsilon-2-right-steps-same" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bounded gradients: \(\mathcal{O}\left(1 / \varepsilon^{2}\right)\) steps (SAME)</h2>
+<ul>
+<li><strong>Theorem 4.2</strong> Same as unbounded case
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Difference only in gradient step, original procedure gives \(\mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)=\frac{1}{2 \gamma}\left(\gamma^{2}\lVert\mathbf{g}_{t}\rVert^{2}+\lVert\mathbf{x}_{t}-\mathbf{x}^{\star}\rVert^{2}-\lVert\mathbf{y}_{t+1}-\mathbf{x}^{\star}\rVert^{2}\right)\)</li>
+<li>But we need \(\mathbf{x}_{t+1}\) instead of \(\mathbf{y}_{t+1}\). By fact 4.1 (ii) setting \(\mathbf{x}=\mathbf{x}^{\star}, \mathbf{y}=\mathbf{y}_{t+1}\), we get \(\lVert\mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert^{2} \leq \Vert  \mathbf{y}_{t+1}-\mathbf{x}^{\star} \Vert ^{2}\)
+<ul>
+<li>so we have \(\mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right) \leq \frac{1}{2 \gamma}\left(\gamma^{2}\lVert\mathbf{g}_{t}\rVert^{2}+\lVert\mathbf{x}_{t}-\mathbf{x}^{\star}\rVert^{2}-\lVert\mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert^{2}\right)\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="smooth-convex-function-mathcal-o-left-1-varepsilon-right-steps-same" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Smooth convex function: \(\mathcal{O}\left(1 / \varepsilon\right)\) steps (SAME)</h2>
+<ul>
+<li>
+<p><strong>Lemma 4.3 (Sufficient descent under constraint)</strong> For \(L\)-smooth covnex function \(f\), a step size of \(\gamma = L^{-1}\) gives sufficient descent of \(f\left(\mathbf{x}_{t+1}\right) \leq f\left(\mathbf{x}_{t}\right)-\frac{1}{2 L}\lVert\nabla f\left(\mathbf{x}_{t}\right)\rVert^{2}+\frac{L}{2}\lVert\mathbf{y}_{t+1}-\mathbf{x}_{t+1}\rVert^{2}\).</p>
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(f\left(\mathbf{x}_{t+1}\right) \leq f\left(\mathbf{x}_{t}\right)+\nabla f\left(\mathbf{x}_{t}\right)^{\top}\left(\mathbf{x}_{t+1}-\mathbf{x}_{t}\right)+\frac{L}{2}\lVert\mathbf{x}_{t}-\mathbf{x}_{t+1}\rVert^{2} = f\left(\mathbf{x}_{t}\right)-L\left(\mathbf{y}_{t+1}-\mathbf{x}_{t}\right)^{\top}\left(\mathbf{x}_{t+1}-\mathbf{x}_{t}\right)+\frac{L}{2}\lVert\mathbf{x}_{t}-\mathbf{x}_{t+1}\rVert^{2}\)</li>
+<li>Use \(2 \mathbf{v}^{\top} \mathbf{w}=\Vert \mathbf{v}\Vert ^{2}+\Vert \mathbf{w}\Vert ^{2}-\Vert \mathbf{v}-\mathbf{w}\Vert ^{2}\) on term \(\left(\mathbf{y}_{t+1}-\mathbf{x}_{t}\right)^{\top}\left(\mathbf{x}_{t+1}-\mathbf{x}_{t}\right)\) we get</li>
+<li>\(f\left(\mathbf{x}_{t+1}\right) \leq f\left(\mathbf{x}_{t}\right)-\frac{L}{2}\lVert\mathbf{y}_{t+1}-\mathbf{x}_{t}\rVert^{2}+\frac{L}{2}\lVert\mathbf{y}_{t+1}-\mathbf{x}_{t+1}\rVert^{2}\)</li>
+<li>Then we arrive at our destination</li>
+</ul>
+</li>
+<li><strong>PS (Ex 32):</strong> Since \(\mathbf{x}_{t+1}\) is the minimzer of distance to \(\mathbf{y}_{t+1}\), we have \(\lVert\mathbf{y}_{t+1}-\mathbf{x}_{t}\rVert^{2} \geq \lVert\mathbf{y}_{t+1}-\mathbf{x}_{t+1}\rVert^{2}\), therefore from the last inequality, \(f\left(\mathbf{x}_{t+1}\right) \leq f\left(\mathbf{x}_{t}\right)\)</li>
+</ul>
+</li>
+<li>
+<p><strong>Lemma 4.4 (Error Bound)</strong> \(f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq \frac{L}{2 T}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert^{2}\) (<em>same as unbounded case</em>).</p>
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Since we have an additional term \(\frac{1}{2 L}\lVert\nabla f\left(\mathbf{x}_{t}\right)\rVert^{2} \leq f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}_{t+1}\right)+\frac{L}{2}\lVert\mathbf{y}_{t+1}-\mathbf{x}_{t+1}\rVert^{2}\) we have to find some compensate in GD algorithm.</li>
+<li>We have \(\mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)=\frac{1}{2 \gamma}\left(\gamma^{2}\lVert\mathbf{g}_{t}\rVert^{2}+\lVert\mathbf{x}_{t}-\mathbf{x}^{\star}\rVert^{2}-\lVert\mathbf{y}_{t+1}-\mathbf{x}^{\star}\rVert^{2}\right)\),
+<ul>
+<li>since \(\lVert\mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert^{2}+\lVert\mathbf{y}_{t+1}-\mathbf{x}_{t+1}\rVert^{2} \leq\lVert\mathbf{y}_{t+1}-\mathbf{x}^{\star}\rVert^{2}\), we can upper bound it by</li>
+<li>\(\mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right) \leq \frac{1}{2 \gamma}\left(\gamma^{2}\lVert\mathbf{g}_{t}\rVert^{2}+\lVert\mathbf{x}_{t}-\mathbf{x}^{\star}\rVert^{2}-\lVert\mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert^{2}-\lVert\mathbf{y}_{t+1}-\mathbf{x}_{t+1}\rVert^{2}\right)\)</li>
+</ul>
+</li>
+<li>with convexity and sum over all \(t\), we get \(\sum_{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \sum_{t=0}^{T-1} \mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right) \leq \frac{1}{2 L} \sum_{t=0}^{T-1}\lVert\mathbf{g}_{t}\rVert^{2}+\frac{L}{2}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert^{2}-\frac{L}{2} \sum_{t=0}^{T-1}\lVert\mathbf{y}_{t+1}-\mathbf{x}_{t+1}\rVert^{2}\)</li>
+<li>with new version of sufficient decrease we have \(\frac{1}{2 L} \sum_{t=0}^{T-1}\lVert\mathbf{g}_{t}\rVert^{2}=f\left(\mathbf{x}_{0}\right)-f\left(\mathbf{x}_{T}\right)+\frac{L}{2} \sum_{t=0}^{T-1}\lVert\mathbf{y}_{t+1}-\mathbf{x}_{t+1}\rVert^{2}\)</li>
+<li>then we can prove the claim.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="smooth-and-strongly-convex-f-mathcal-o-log-1-varepsilon-steps-same" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Smooth and strongly convex \(f\): \(\mathcal{O}(\log (1 / \varepsilon))\) steps (SAME)</h2>
+<ul>
+<li><strong>Theorem 4.5</strong> (<em>similar to theorem 4.3</em>)
+<ul>
+<li>(i) Geometric decrease for \(\lVert\mathbf{x}_{t}-\mathbf{x}^{\star}\rVert^{2}\), \(\lVert\mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert^{2} \leq\left(1-\frac{\mu}{L}\right)\lVert\mathbf{x}_{t}-\mathbf{x}^{\star}\rVert^{2}\)</li>
+<li>(ii) Exponential decrease for absoulute error \(f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq \frac{L}{2}\left(1-\frac{\mu}{L}\right)^{T}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert^{2} + \lVert\nabla f\left(\mathbf{x}^{\star}\right)\rVert\left(1-\frac{\mu}{L}\right)^{T / 2}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert\)</li>
+<li><strong>Proof</strong>
+<ul>
+<li>with strong convexity, we can bound gradient to \(\mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right) \leq \frac{1}{2 \gamma}\left(\gamma^{2}\lVert\nabla f\left(\mathbf{x}_{t}\right)\rVert^{2}+\lVert\mathbf{x}_{t}-\mathbf{x}^{\star}\rVert^{2}-\lVert\mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert^{2}-\lVert\mathbf{y}_{t+1}-\mathbf{x}_{t+1}\rVert^{2}\right)-\frac{\mu}{2}\lVert\mathbf{x}_{t}-\mathbf{x}^{\star}\rVert^{2}\)</li>
+<li>with convexity \(f(\mathbf{x}_t) - f(\mathbf{x}^{\star}) \leq \mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)\) we can bound on \(\lVert\mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert^{2}\)</li>
+<li>\(\lVert\mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert^{2} \leq (1-\mu \gamma)\lVert\mathbf{x}_{t}-\mathbf{x}^{\star}\rVert^{2} + 2 \gamma\left(f\left(\mathbf{x}^{\star}\right)-f\left(\mathbf{x}_{t}\right)\right)+\gamma^{2}\lVert\nabla f\left(\mathbf{x}_{t}\right)\rVert^{2}-\lVert\mathbf{y}_{t+1}-\mathbf{x}_{t+1}\rVert^{2}\) (<em>geometric decrease with some noise</em>)
+<ul>
+<li>The additional term is bound to be non-positive by the adapted version of sufficient descent (Lemma 4.3) \(\frac{2}{L}\left(f\left(\mathbf{x}^{\star}\right)-f\left(\mathbf{x}_{t}\right)\right)+\frac{1}{L^{2}}\lVert\nabla f\left(\mathbf{x}_{t}\right)\rVert^{2}-\lVert\mathbf{y}_{t+1}-\mathbf{x}_{t+1}\rVert^{2} \leq 0 .\)</li>
+<li>Then we get (i)</li>
+</ul>
+</li>
+<li>(ii) is attained by smoothness, but the gradient term does not vanish, \(f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq \nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}_{T}-\mathbf{x}^{\star}\right)+\frac{L}{2}\lVert\mathbf{x}^{\star}-\mathbf{x}_{T}\rVert^{2} \leq\lVert\nabla f\left(\mathbf{x}^{\star}\right)\rVert\lVert\mathbf{x}_{T}-\mathbf{x}^{\star}\rVert+\frac{L}{2}\lVert\mathbf{x}^{\star}-\mathbf{x}_{T}\rVert^{2}\leq\lVert\nabla f\left(\mathbf{x}^{\star}\right)\rVert\left(1-\frac{\mu}{L}\right)^{T / 2}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert+\frac{L}{2}\left(1-\frac{\mu}{L}\right)^{T}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert^{2}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="pgd-on-ell-1-ball" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>PGD on \(\ell_1\)-Ball</h2>
+<ul>
+<li><strong>Definition</strong> An \(\ell_1\)-Ball of radius \(R\) is \(X=B_{1}(R):=\left\{\mathbf{x} \in \mathbb{R}^{d}:\Vert\mathbf{x}\Vert_{1}=\sum_{i=1}^{d}\mid x_{i}\mid \leq R\right\}\)</li>
+<li><strong>Fact 4.6</strong> By suitable scaling and sign flipping of coordinates, we can assume \(R=1\) and for the point \(\mathbf{v}\) to be projected, each component \(v_{i} \geq 0\), and the non-trivil case is when \(\sum_{i} v_i &gt; 1\).</li>
+<li><strong>Fact 4.7</strong> Under Fact 4.6, the projected point \(\mathbf{x}=\Pi_{X}(\mathbf{v})\) satisfies (i) \(x_i \geq 0\) (ii) \(\sum_{i=1}^{d} x_{i}=1\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>(i) Otherwise \(\left(-x_{i}-v_{i}\right)^{2} \leq\left(x_{i}-v_{i}\right)^{2}\) if \(x_i &lt; 0\), then sign-flipping can get better result.</li>
+<li>(ii) If \(\sum_{i=1}^{d} x_{i}&lt;1\), then for some small \(\lambda &gt; 0\) still \(\mathbf{x}^{\prime}=\mathbf{x}+\lambda(\mathbf{v}-\mathbf{x}) \in X\), then \(\lVert\mathbf{x}^{\prime}-\mathbf{v}\rVert=(1-\lambda)\Vert\mathbf{x}-\mathbf{v}\Vert\) is smaller.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Collary 4.8 (4.6 + 4.7)</strong> \(\Pi_{X}(\mathbf{v})=\underset{\mathbf{x} \in \Delta_{d}}{\operatorname{argmin}}\Vert\mathbf{x}-\mathbf{v}\Vert^{2}\) where \(\Delta_{d}:=\left\{\mathbf{x} \in \mathbb{R}^{d}: \sum_{i=1}^{d} x_{i}=1, x_{i} \geq 0 \forall i\right\}\) is the standard simplex.</li>
+<li><strong>Fact 4.9</strong> By switching coordinates, we can assume \(v_{1} \geq v_{2} \geq \cdots \geq v_{d}\).</li>
+<li><strong>Lemma 4.10</strong> Let \(\mathbf{x}^{\star}:=\operatorname{argmin}_{\mathbf{x} \in \Delta_{d}}\Vert\mathbf{x}-\mathbf{v}\Vert^{2}\). Under Fact 4.9, there exists (a unique) \(p \in\{1, \ldots, d\}\) such that \(x_{i}^{\star}&gt;0, i \leq p\) and \(x_{i}^{\star}=0, i&gt;p\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By Lemma 2.27, the optimal condition is \(\forall \mathbf{x} in \Delta_d\), \(\nabla d_{\mathbf{v}}\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}-\mathbf{x}^{\star}\right)=2\left(\mathbf{x}^{\star}-\mathbf{v}\right)^{\top}\left(\mathbf{x}-\mathbf{x}^{\star}\right) \geq 0\)</li>
+<li>Since \(\sum_{i=1}^{d} x_{i}^{\star}=1\), at least one \(x_i &gt; 0\).</li>
+<li>If we have \(x_{i}^{\star}=0 \text { and } x_{i+1}^{\star}&gt;0\), we construct an \(\mathbf{x}\) s.t. \(x_{i+1}^{\star} - x_{i+1} = x_{i} - x_{i}^{\star}=\varepsilon\), for small enough \(\varepsilon\), we can ensure \(\mathbf{x}\in\Delta_d\).
+<ul>
+<li>then we take this into optimial condition and get \(\left(\mathbf{x}^{\star}-\mathbf{v}\right)^{\top}\left(\mathbf{x}-\mathbf{x}^{\star}\right)=\left(0-v_{i}\right) \varepsilon-\left(x_{i+1}^{\star}-v_{i+1}\right) \varepsilon=\varepsilon(\underbrace{v_{i+1}-v_{i}}_{\leq 0}-\underbrace{x_{i+1}^{\star}}_{&gt;0})&lt;0\) which leads to contradictory.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma 4.11</strong> Under Fact 4.9, we further have \(x_{i}^{\star}=v_{i}-\Theta_{p}, i \leq p\) where \(\Theta_{p}=\frac{1}{p}\left(\sum_{i=1}^{p} v_{i}-1\right)\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>If not all \(x_{i}^{\star}-v_{i}, i \leq p\) is the same, then we must have \(x_{i}^{\star}-v_{i}&lt;x_{j}^{\star}-v_{j}\) for some \(i, j \leq p\). Similar to 4.10, we set \(\mathbf{x}\) to be \(x_{j}^{\star} - x_{j} = x_{i}- x_{i}^{\star} = \varepsilon\) for some small enough \(\varepsilon\)</li>
+<li>then \(\left(\mathbf{x}^{\star}-\mathbf{v}\right)^{\top}\left(\mathbf{x}-\mathbf{x}^{\star}\right)=\left(x_{i}^{\star}-v_{i}\right) \varepsilon-\left(x_{j}^{\star}-v_{j}\right) \varepsilon=\varepsilon\underbrace{\left((x_{i}^{\star}-v_{i})-(x_{j}^{\star}-v_{j})\right)}_{&lt;0}&lt;0\)</li>
+<li>then we can compute \(\Theta_p\) by \(1=\sum_{i=1}^{p} x_{i}^{\star}=\sum_{i=1}^{p}\left(v_{i}-\Theta_{p}\right)=\sum_{i=1}^{p} v_{i}-p \Theta_{p}\).</li>
+</ul>
+</li>
+<li>Therefore, the solution is of the form \(\mathbf{x}^{\star}(p):=\left(v_{1}-\Theta_{p}, \ldots, v_{p}-\Theta_{p}, 0, \ldots, 0\right)\) and \(v_{p}-\Theta_{p}&gt;0\).</li>
+<li>The total sorting and comparison of maximum \(\lVert\mathbf{x}^{\star}(p)-\mathbf{V}\rVert^{2}\) takes \(\mathcal{O}(d \log d)\)</li>
+<li>The following lemma show comparing \(\lVert\mathbf{x}^{\star}(p)-\mathbf{V}\rVert^{2}\) is not necessary.</li>
+</ul>
+</li>
+<li><strong>Lemma 4.12</strong> Finding \(p^{\star}:=\max \left\{p \in\{1, \ldots, d\}: v_{p}-\frac{1}{p}\left(\sum_{i=1}^{p} v_{i}-1\right)&gt;0\right\}\) is enough, \(\underset{\mathbf{x} \in \Delta_{d}}{\operatorname{argmin}}\Vert\mathbf{x}-\mathbf{v}\Vert^{2}=\mathbf{x}^{\star}\left(p^{\star}\right)\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>We can show \(\Vert\mathbf{x}^{\star}(p)-\mathbf{v}\Vert^2\) is non-increasing w.r.t. p.</li>
+<li>\(\Vert\mathbf{x}^{\star}(p)-\mathbf{v}\Vert^2 - \Vert\mathbf{x}^{\star}(p+1)-\mathbf{v}\Vert^2 = v_{p+1}^2 + \sum_{i=1}^p (x_i^{\star}(p) - v_i)^2 - \sum_{i=1}^{p+1} (x_i^{\star}(p+1) - v_i)^2 = v_{p+1}^2 + p\Theta(p)^2 - (p+1)\Theta(p+1)^2\)</li>
+<li>Denote \(\Delta := \sum_{i=1}^{p}v_i - 1\) then</li>
+<li>\(\Vert\mathbf{x}^{\star}(p)-\mathbf{v}\Vert^2 - \Vert\mathbf{x}^{\star}(p+1)-\mathbf{v}\Vert^2 = v_{p+1}^2 + \Delta^2 / p - (v_{p+1} + \Delta)^2/(p+1) = \dfrac{(p v_{p+1} - \Delta)^2}{p(p+1)}\geq 0\).</li>
+<li>Then we can simply find the maximum \(p\) with \(v_p -\Theta_p &gt; 0\).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></body></html>

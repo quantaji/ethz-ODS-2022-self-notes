@@ -116,10 +116,12 @@
     - co-coercivity of $\nabla h$ gives $\forall x,y, (\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{\mu L}{\mu+L}\Vert x-y\Vert _{2}^{2}+\frac{1}{\mu+L}\Vert \nabla f(x)-\nabla f(y)\Vert _{2}^{2}$
 
 ## Speed metric
-- $\lim _{k \rightarrow \infty} \frac{f\left(w^{k+1}\right)-f\left(w^{\ast}\right)}{f\left(w^{k}\right)-f\left(w^{\ast}\right)}=\rho$
-    - $\rho=1$ sublinear rate
-    - $\rho\in(0,1)$ linear rate
-    - $\rho = 0$super linear reate
+- $\lim _{k \rightarrow \infty} \frac{f\left(w^{k+1}\right)-f\left(w^{\ast}\right)}{(f\left(w^{k}\right)-f\left(w^{\ast}\right))^p}=q$
+    - $p=1, q\in(0,1)$, *linear* rate. E.g. ``\Delta f_t = O(e^{-\alpha t}), \alpha > 0``.
+    - $p=1, q=1$, *sublinear* rate. E.g. ``\Delta f_t = O(t^{-\beta}), \beta > 0``.
+    - $p=1, q=0$, *super linear* rate. E.g. ``\Delta f_t = O(e^{-\alpha t^2}), \alpha > 0``.
+    - $p>1, q>0$, *convergence of order $p$*. E.g. ``\Delta f_t = O(e^{-\alpha p^t}), \alpha > 0``.
+        - when $p=2$, *quadratic convergence*.
 
 ## Vanilla GD
 - Update: $\mathbf{x}_{t+1}:=\mathbf{x}_{t}-\gamma \mathbf{g}_{t}$, $\mathbf{g}_{t}:=\nabla f\left(\mathbf{x}_{t}\right)$

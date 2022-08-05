@@ -988,11 +988,16 @@ body{ box-sizing: border-box;
 </ul>
 <h2><a id="speed-metric" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Speed metric</h2>
 <ul>
-<li>\(\lim _{k \rightarrow \infty} \frac{f\left(w^{k+1}\right)-f\left(w^{\ast}\right)}{f\left(w^{k}\right)-f\left(w^{\ast}\right)}=\rho\)
+<li>\(\lim _{k \rightarrow \infty} \frac{f\left(w^{k+1}\right)-f\left(w^{\ast}\right)}{(f\left(w^{k}\right)-f\left(w^{\ast}\right))^p}=q\)
 <ul>
-<li>\(\rho=1\) sublinear rate</li>
-<li>\(\rho\in(0,1)\) linear rate</li>
-<li>\(\rho = 0\)super linear reate</li>
+<li>\(p=1, q\in(0,1)\), <em>linear</em> rate. E.g. \(\Delta f_t = O(e^{-\alpha t}), \alpha &gt; 0\).</li>
+<li>\(p=1, q=1\), <em>sublinear</em> rate. E.g. \(\Delta f_t = O(t^{-\beta}), \beta &gt; 0\).</li>
+<li>\(p=1, q=0\), <em>super linear</em> rate. E.g. \(\Delta f_t = O(e^{-\alpha t^2}), \alpha &gt; 0\).</li>
+<li>\(p&gt;1, q&gt;0\), <em>convergence of order \(p\)</em>. E.g. \(\Delta f_t = O(e^{-\alpha p^t}), \alpha &gt; 0\).
+<ul>
+<li>when \(p=2\), <em>quadratic convergence</em>.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

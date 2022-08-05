@@ -1,0 +1,901 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>/* copy from https://github.com/sindresorhus/github-markdown-css/ */
+
+html,body{background-color: #342839;}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #fafedd;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body figure{margin:0;padding:0; display:table;}
+.markdown-body figure figcaption{font-size:92%; text-align:center; color:#76dae8;}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #fed765;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' fill='%23fed765' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+.markdown-body strong{
+  color: #fe6188;
+}
+.markdown-body em{
+  color: #77dbe8;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #aa9df2;
+  text-decoration: none;
+}
+.markdown-body mjx-container[jax="SVG"] > svg a{fill:#aa9df2;stroke: #aa9df2;}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 12px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 12px;
+  color: #76dae8;
+  vertical-align: middle;
+  background-color: #3a2e3f;
+  border: 1px solid #504455;
+  border-radius: 3px;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #504455;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #c9cdac;
+  border-left: .25em solid #f5f5f5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #4a3e4f;
+  color: #fed765;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+  color: #fed765;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+  color: #fed765;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+  color: #fed765;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+  color: #fed765;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #fed765;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #786c7d;
+}
+
+.markdown-body table tr {
+  background-color: #342839;
+  border-top: 1px solid #786c7d;
+}
+
+.markdown-body table th {
+  background-color: #4a3e4f;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #392d3e;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #3a2e3f;
+  color: #76dae8;
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+   font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #3a2e3f;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+  color: #f0f0f0;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+.markdown-body section.footnotes{
+    margin-top:48px;
+    border-top:solid 1px #504455;
+    padding-top:0px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .markdown-body mark{color: #111;}
+}
+
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background-color: #3a2e3f;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #48be66;
+}
+
+.token.punctuation {
+    color: #fdd664;
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #9a95e3;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #fdd664;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #$$codeBlockColor$$;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #ccddf6;
+}
+
+.token.function,
+.token.class-name {
+    color: #f28d55;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #d38e63;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em; /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 1px solid #726677;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+  .line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+  }
+
+    .line-numbers-rows > span:before {
+      content: counter(linenumber);
+      color: #726677;
+      display: block;
+      padding-right: 0.8em;
+      text-align: right;
+    }
+
+
+</style><style>.mweb-charts{background:#fff;}
+body{ box-sizing: border-box;
+    margin: 0 auto;
+    padding: 28px}
+@media print{
+    pre, code, pre code {
+     overflow: visible !important;
+     white-space: pre-wrap !important;       /* css-3 */
+     white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap !important;      /* Opera 4-6 */
+     white-space: -o-pre-wrap !important;    /* Opera 7 */
+     word-wrap: break-word !important;       /* Internet Explorer 5.5+ */
+    }
+    html,body{margin:0;padding:4px;}
+}
+
+</style><script>window.MathJax = {     tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] },     startup: {     pageReady() {       return MathJax.startup.defaultPageReady().then(function () {          window.mweb_mathjax_ready_val = 'yes';          if(window.mweb_mathjax_ready !== undefined){ mweb_mathjax_ready(); }       });     }   }};document.addEventListener('DOMContentLoaded', function(event) {    if (typeof Prism != 'undefined') {         Prism.highlightAll();     }});window.mweb_mathjax_ready_val = '';function theMWebMathJaxRenderIsReady(key){ return window.mweb_mathjax_ready_val; }</script><script>window.MathJax = { tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] } }; </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script></head><body><div id='markdown_content' class='markdown-body'><h1><a id="coordinate-descent" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Coordinate Descent</h1>
+<ul>
+<li><strong>Key Idea</strong> Update only one coordinate</li>
+<li><strong>Results:</strong> Worse case \(d\) times more of iteration, under suitable condition results may improve.</li>
+</ul>
+<h2><a id="polyak%C5%81-ojasiewicz-inequality" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Polyak-Łojasiewicz inequality</h2>
+<ul>
+<li><em>Goal</em> only to prove function values can converge to optimal, no care of complexity.</li>
+<li><strong>Definition 5.1</strong> Let \(f: \mathbb{R}^d \to \mathbb{R} \in C^1\) has a global minimum \(\mathbf{x}^{\star}\). We say that \(f\) satisfies the <em>Polyak-Łojasiewicz inequality</em> (PL inequality) if \(\exists\mu &gt; 0\) s.t. \(\forall \mathbf{x} \in \mathbb{R}^{d}, \frac{1}{2}\Vert\nabla f(\mathbf{x})\Vert^{2} \geq \mu\left(f(\mathbf{x})-f\left(\mathbf{x}^{\star}\right)\right)\).</li>
+<li><strong>Lemma 5.2 (Strong Convexity -&gt; PL ineq)</strong> The proof is in <em>Lemma E</em> of lecture 03.</li>
+<li>PL ineq is strictly weaker than strong convexity.
+<ul>
+<li>E.g. \(f\left(x_{1}, x_{2}\right)=x_{1}^{2}\) is not strongly convex, but satisfies PL ineq.</li>
+<li>Example of non-convex function that satisfies PL ineq: \(f(x)=x^2 + \mathrm{Sigmoid}(\frac{x}{20})\times 5 x^2\).</li>
+</ul>
+</li>
+<li><strong>Theorem 5.3 (Exponential decay)</strong> Let \(f: \mathbb{R}^d \to \mathbb{R} \in C^1\) has a global minimum \(\mathbf{x}^{\star}\). Suppose that \(f\) is \(L\)-smooth satiefies \(\mu\)-PL ineq. Choosing stepsize \(\gamma = L^{-1}\), then gradient descent starting with arbitrary \(\mathbf{x}_0\) satiefies \(f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq\left(1-\frac{\mu}{L}\right)^{T}\left(f\left(\mathbf{x}_{0}\right)-f\left(\mathbf{x}^{\star}\right)\right)\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By sufficient descent \(f\left(\mathbf{x}_{t+1}\right) \leq f\left(\mathbf{x}_{t}\right)-\frac{1}{2 L}\Vert\nabla f\left(\mathbf{x}_{t}\right)\Vert^{2}\),</li>
+<li>by PL ineq \(\mathsf{RHS} \leq f\left(\mathbf{x}_{t}\right)-\frac{\mu}{L}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right)\), then we get what we want.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="coordinate-smoothness" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Coordinate Smoothness</h2>
+<ul>
+<li><strong>Definition 5.4</strong> Let \(f: \mathbb{R}^d \to \mathbb{R} \in C^1\) and \(\mathcal{L} = (L_1 , L_2 , \ldots, L_d ) \in \mathbb{R}^d \). Function <strong>f</strong> is called <em>coordinate-wise smooth (with parameter \(\mathcal{L}\))</em> if \(\forall i \in [d]\), \(\forall \mathbf{x} \in \mathbb{R}^{d}, \lambda \in \mathbb{R},f\left(\mathbf{x}+\lambda \mathbf{e}_{i}\right) \leq f(\mathbf{x})+\lambda \nabla_{i} f(\mathbf{x})+\frac{L_{i}}{2} \lambda^{2}\)
+<ul>
+<li>If \(\forall i, L_i = L\), \(f\) is said to be coordinate-wise smooth with parameter \(L\).</li>
+</ul>
+</li>
+<li>Coordinate-wise smoothness is more fine grined.
+<ul>
+<li>\(f\left(x_{1}, x_{2}\right)=x_{1}^{2}+10 x_{2}^{2}\) is \((2, 20)\)-coordinate-smooth, but only \(20\)-smooth.</li>
+<li>\(f\left(x_{1}, x_{2}\right)=x_{1}^{2}+x_{2}^{2}+M x_{1} x_{2}\) is \((2,2)\)-coordinate-smooth, but only \((M+2)\)-smooth.</li>
+</ul>
+</li>
+<li><strong>Algorithm</strong>
+<ul>
+<li>(i) choose an active coordinate \(i \in [d]\)</li>
+<li>(ii) \(\mathbf{x}_{t+1}:=\mathbf{x}_{t}-\gamma_{i} \nabla_{i} f\left(\mathbf{x}_{t}\right) \mathbf{e}_{i}\)</li>
+</ul>
+</li>
+<li><strong>Lemma 5.5 (Sufficient Descent)</strong> A stepsize of \(\gamma_i = L_i^{-1}\) gives \(f\left(\mathbf{x}_{t+1}\right) \leq f\left(\mathbf{x}_{t}\right)-\frac{1}{2 L_{i}}\mid\nabla_{i} f\left(\mathbf{x}_{t}\right)\mid^{2}\).</li>
+</ul>
+<h3><a id="randomized-cd" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Randomized CD</h3>
+<ul>
+<li><strong>Algorithm Change</strong> (i) sample \(i \in [d]\) uniformly at random.</li>
+<li><strong>Theorem 5.6</strong> Let \(f: \mathbb{R}^d \to \mathbb{R} \in C^1\) has a global minimum \(\mathbf{x}^{\star}\). Suppose that \(f\) is coordinate-wise \(L\)-smooth and satisfies the \(\mu\)-PL inequality. Choosing stepsize \(\gamma_i = \ L^{-1}\), then randomized coordinate descent with arbitrary start satisfies \(\mathbb{E}\left[f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right)\right] \leq\left(1-\frac{\mu}{d L}\right)^{T}\left(f\left(\mathbf{x}_{0}\right)-f\left(\mathbf{x}^{\star}\right)\right)\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Take expectation over sufficient descent with each coordiate of probability \(1/d\), \(\mathbb{E}\left[f\left(\mathbf{x}_{t+1}\right) \mid \mathbf{x}_{t}\right] \leq f\left(\mathbf{x}_{t}\right)-\frac{1}{2 L} \sum_{i=1}^{d} \frac{1}{d}\mid\nabla_{i} f\left(\mathbf{x}_{t}\right)\mid^{2} =f\left(\mathbf{x}_{t}\right)-\frac{1}{2 d L}\Vert\nabla f\left(\mathbf{x}_{t}\right)\Vert^{2}\)</li>
+<li>With PL ineq, \(\mathsf{RHS} \leq f\left(\mathbf{x}_{t}\right)-\frac{\mu}{d L}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right)\)</li>
+<li>Take expectation over condition \(\mathbb{E}[\cdot \mid \mathbf{x}_{t}]\), we arrive at our conclusion.</li>
+</ul>
+</li>
+<li><strong>Comment</strong> \(\left(1-\frac{\mu}{L}\right) \approx\left(1-\frac{\mu}{d L}\right)^{d}\), this is nearly the same as vanilla GD, need improvement.</li>
+</ul>
+</li>
+</ul>
+<h3><a id="importance-sampling" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Importance Sampling</h3>
+<ul>
+<li><strong>Algorithm Change</strong> (i) when \(L_i\) not the same, sample \(i\in [d]\) with probability \(\frac{L_{i}}{\sum_{j=1}^{d} L_{j}}\)</li>
+<li><strong>Theorem 5.7</strong> Let \(f: \mathbb{R}^d \to \mathbb{R} \in C^1\) has a global minimum \(\mathbf{x}^{\star}\). Suppose that \(f\) is coordinate-wise \(\mathcal{L}\)-smooth and satisfies the \(\mu\)-PL inequality. Let \(\bar{L}=\frac{1}{d} \sum_{i=1}^{d} L_{i}\) be the average of all coordinate-wise smoothness constants. Then coordinate descent with importance sampling with arbitrary start satisfies \(\mathbb{E}\left[f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right)\right] \leq\left(1-\frac{\mu}{d \bar{L}}\right)^{T}\left(f\left(\mathbf{x}_{0}\right)-f\left(\mathbf{x}^{\star}\right)\right)\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(\mathbb{E}\left[f\left(\mathbf{x}_{t+1}\right) \mid \mathbf{x}_{t}\right] \leq f\left(\mathbf{x}_{t}\right)- \sum_{i=1}^{d}  \frac{1}{2 L} \frac{L_{i}}{\sum_{j=1}^{d} L_{j}}\mid\nabla_{i} f\left(\mathbf{x}_{t}\right)\mid^{2} =f\left(\mathbf{x}_{t}\right)-\frac{1}{2 d \bar{L}}\Vert\nabla f\left(\mathbf{x}_{t}\right)\Vert^{2}\)</li>
+</ul>
+</li>
+<li><strong>Comment</strong> \(\bar{L}\) can be much smaller than \(L=\max _{i=1}^{d} L_{i}\), this is a improvement in constant. When all \(L\) are equal, no improvement.</li>
+</ul>
+</li>
+</ul>
+<h3><a id="steepest-coordinate-descent" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Steepest Coordinate Descent</h3>
+<ul>
+<li><strong>Algorithm Change</strong> (i) Choose \(i=\underset{i \in[d]}{\operatorname{argmax}}\mid\nabla_{i} f\left(\mathbf{x}_{t}\right)\mid\), also called <em>Gauss-Southwell</em> rule.</li>
+<li>Since \(\max _{i}\mid\nabla_{i} f(\mathbf{x})\mid^{2} \geq \frac{1}{d} \sum_{i=1}^{d}\mid\nabla_{i} f(\mathbf{x})\mid^{2}\), for a coordinate-\(L\)-smooth function, we have
+<ul>
+<li>\(f\left(\mathbf{x}_{t+1}\right) \leq f\left(\mathbf{x}_{t}\right)-\frac{1}{2 L} \max _{i}\mid\nabla_{i} f(\mathbf{x})\mid^{2}\leq f\left(\mathbf{x}_{t}\right)-\frac{1}{2 L} \sum_{i=1}^{d} \frac{1}{d}\mid\nabla_{i} f\left(\mathbf{x}_{t}\right)\mid^{2} \)</li>
+<li>Then we arrive at <strong>Corollary 5.8</strong>, still \(f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq\left(1-\frac{\mu}{d L}\right)^{T}\left(f\left(\mathbf{x}_{0}\right)-f\left(\mathbf{x}^{\star}\right)\right)\)</li>
+</ul>
+</li>
+</ul>
+<h4><a id="better-convergence-of-steepest-descent-with-ell-1-norm-strong-convexity-also-known-as-steeper" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Better Convergence of <strong>Steepest Descent</strong> with \(\ell_1\) norm strong convexity (Also known as <strong>Steeper</strong>)</h4>
+<ul>
+<li><strong>Lemma 5.9 (\(\ell_1\) norm \(\mu\)-strong convexity -&gt; \(\ell_\infty\) norm \(\mu\)-PL inequality)</strong> This is a natual resutl for <em>Lemma E</em>, as the dual norm of \(\lVert\cdot \rVert_{1}\) is \(\lVert\cdot \rVert_{\infty}\).</li>
+<li>Proof of dual norm \(\lVert\cdot \rVert_{p *} = \lVert\cdot \rVert_{q}\) where \(p^{-1} + q^{-1} = 1\) is by Hölder inequality \(\sum_{k=1}^{n}\mid x_{k} y_{k}\mid \leq\left(\sum_{k=1}^{n}\mid x_{k}\mid^{p}\right)^{\frac{1}{p}}\left(\sum_{k=1}^{n}\mid y_{k}\mid^{q}\right)^{\frac{1}{q}}\) (equality holds if \(x^p\) and \(y^q\) are proportional.)
+<ul>
+<li>Proof of special case of \((1, \infty)\) is simple.</li>
+</ul>
+</li>
+<li><strong>Theorem 5.10</strong> Let \(f: \mathbb{R}^d \to \mathbb{R} \in C^1\) has a global minimum \(\mathbf{x}^{\star}\). Suppose that \(f\) is coordinate-wise \(L\)-smooth and satisfies the \(\mu_1\)-PL inequality under \(\ell_1\) norm. Then <em>steepest coordinate descent</em> with step size \(\gamma_i = L^{-1}\) arbitrary start satisfies \(f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq\left(1-\frac{\mu_{1}}{L}\right)^{T}\left(f\left(\mathbf{x}_{0}\right)-f\left(\mathbf{x}^{\star}\right)\right)\).
+<ul>
+<li><strong>Key Idea</strong> \(f\left(\mathbf{x}_{t+1}\right) \leq f\left(\mathbf{x}_{t}\right)-\frac{1}{2 L} \max _{i}\mid\nabla_{i} f(\mathbf{x})\mid^{2} = f\left(\mathbf{x}_{t}\right)-\frac{1}{2 L}\Vert\nabla f\left(\mathbf{x}_{t}\right)\Vert_{\infty}^{2}\)</li>
+</ul>
+</li>
+<li><strong>Comment</strong> Since \(\Vert\mathbf{y}-\mathbf{x}\Vert_{1} \geq\Vert\mathbf{y}-\mathbf{x}\Vert \geq\Vert\mathbf{y}-\mathbf{x}\Vert_{1} / \sqrt{d}\)
+<ul>
+<li>If \(f\) is \(\ell_1\) \(\mu\)-strong convex -&gt; \(f\) is \(\ell_2\) \(\mu\)-strong convex.</li>
+<li>If \(f\) is \(\ell_2\) \(\mu\)-strong convex -&gt; \(f\) is \(\ell_1\) \(\mu/d\)-strong convex.</li>
+<li>Seems no better than \(\ell_2\) case, but cases like \(f(x) = x^{\top}\mathrm{diag}\{\lambda_i\} x/2\) shows \(\ell_1\) gives much better results. <a href="https://arxiv.org/abs/1506.00552">(Appendic C of this)</a></li>
+<li>Has sth to do with <em>convex conjugates</em>.</li>
+</ul>
+</li>
+</ul>
+<h3><a id="greedy-coordinate-descent" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Greedy coordinate descent</h3>
+<ul>
+<li><strong>Algorithm Change</strong> (ii) \(\mathbf{x}_{t+1}:=\underset{\lambda \in \mathbb{R}}{\operatorname{argmin}} f\left(\mathbf{x}_{t}+\lambda \mathbf{e}_{i}\right)\)
+<ul>
+<li>Might be easier when \(f\) is analytic.</li>
+</ul>
+</li>
+<li><strong>Problem</strong> May stuck at non-minimum.
+<ul>
+<li>Example: \(f(\mathbf{x}):=\Vert\mathbf{x}\Vert^{2}+\mid x_{1}-x_{2}\mid\), \((x,x)\) is minimal for all single coordinate in range \(\mid x\mid \leq 1 / 2\).</li>
+<li>The following form is guaranteed to not be.</li>
+</ul>
+</li>
+<li><strong>Theorem 5.11</strong>  Let \(f: \mathbb{R}^{d} \rightarrow \mathbb{R}\) be of the form \(f(\mathbf{x}):=g(\mathbf{x})+h(\mathbf{x})\) where \(h(\mathbf{x})=\sum_{i} h_{i}\left(x_{i}\right)\), \(g, f_i\) all convex, \(g\in C^1\), then whenever <em>greedy coordinate descent</em> makes no improvement, its in minimum.
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>No improvement means \(\forall \lambda, i\in[d], f\left(\mathbf{x}+\lambda \mathbf{e}_{i}\right) \geq f\left(\mathbf{x}\right)\),
+<ul>
+<li>then \(f(\mathbf{x} + (y_i- x_i) \mathbf{e}_i) \geq f(\mathbf{x}) \)</li>
+<li>let \(p(z):=g(z, x_{-i}) - \partial_i g(x_i)(z-x_i)\) and \(q(z):=h_i(z) + \partial_i g(x_i)(z-x_i)\), since \(g\) convex and differentiabl, \(p(z)\) reach global minimum at \(z=x_i\), \(f_i := f(z; x_{-i})= p(z) + q(z)\), so \(f_i\) also reach global minimum at \(z=x_i\).</li>
+<li>Since \(p(z)\) differentiabl, \(\partial p(x_i) = 0\), if \(q\) does not reach global minimum at \(z = x_i\), then \(\exists y\) s.t. \(q(y) &lt; q(x_i)\), then by convexit \(q(x_i + \lambda (y-x_i)) \leq q(x_i) + \lambda (q(y) - q(x_i))\) is bounded by a negative slopt of \(-(q(x_i) - q(y))\) at \(z=x_i\).</li>
+<li>This leads to contradiction where \(f=p + q\) reaches minimum at \(z=x\).</li>
+<li>Therefore, \(q(z)\) also reaches minimal at \(z=x_i\).</li>
+</ul>
+</li>
+<li>The above discussion means \(\forall y_i, q(y_i) \geq q(x_i)\), equivalently \(h_i(y_i) +\partial_i g(\mathbf{x})(y_i - x_i) - h(x_i)\geq 0\)</li>
+<li>Since \(g\) convex, \(f(\mathbf{y}) \geq g(\mathbf{x}) + \nabla g(\mathbf{x})^{\top} (\mathbf{y}-\mathbf{x}) + h(\mathbf{y}) - h(\mathbf{x}) = f(\mathbf{x})+\sum_{i=1}^{d}\underbrace{\left(\nabla_{i} g(\mathbf{x})\left(y_{i}-x_{i}\right)+h_{i}\left(y_{i}\right)-h_{i}\left(x_{i}\right)\right)}_{\geq 0} \geq f(\mathbf{x})\)</li>
+</ul>
+</li>
+<li><strong>Comment</strong> LASSO \(\min _{\mathbf{x} \in \mathbb{R}^{n}}\Vert A \mathbf{x}-\mathbf{b}\Vert^{2}+\lambda\Vert\mathbf{x}\Vert_{1}\) is of this form
+<ul>
+<li>Under mild regularity on \(g\), convergence is affirmative.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></body></html>

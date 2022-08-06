@@ -126,8 +126,13 @@
     - Using descent lemma, we get $\lVert x_{t+1}-x^{*}\rVert _{2}^{2} \leq\lVert x_{t}-x^{*}\rVert _{2}^{2}-\frac{\left(f\left(x_{t}\right)-f^{*}\right)^{2}}{\lVert g\left(x_{t}\right)\rVert _{2}^{2}}$
     - then $(f(x_t) - f(x^{\star}))^2 \leq \Vert \mathbf{g}_t\Vert ^2  ( \lVert x_{t}-x^{*}\rVert _{2}^2 - \lVert x_{t+1}-x^{*}\rVert _{2}^2 ) \leq B^2 (\lVert x_{t}-x^{*}\rVert _{2}^2 - \lVert x_{t+1}-x^{*}\rVert _{2}^2)$
     - then $\sum_{t=1}^{T}\left(f\left(x_{t}\right)-f^{*}\right)^{2} \leq R^{2} \cdot M<\infty$, this means $f\left(\mathbf{x}_{t}\right) \rightarrow f^{*}$.
-    - **Note** this is *last iterate* convergence, not *average* convergence!
-
+    -  **Note** this is *last iterate* convergence, not *average* convergence!
+    - can also show that $\exists \mathbf{x}^{\star}\in X^{\star}$ s.t. $\lim \sup _{t \rightarrow \infty}\lVert \mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2} \rightarrow 0$, converge to one of the optimal point.
+        - Since series $\lVert \mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2}$ is bounded and non-increasing, there exists a subsequence $\left\{\mathbf{x}_{t_{k}}\right\}$ with accumulation point $\hat{\mathbf{x}}$,
+        - Since we already have $f\left(\mathbf{x}_{t}\right) \rightarrow f^{*}$, then $\hat{\mathbf{x}} \in X^{*}$.
+        - So $\lVert \mathbf{x}_{t+1}-\hat{\mathbf{x}}\rVert _{2}^{2} \leq\lVert \mathbf{x}_{t_{k}}-\hat{\mathbf{x}}\rVert _{2}^{2}-\sum_{j=t_{k}}^{t} \frac{\left(f\left(\mathbf{x}_{j}\right)-f^{*}\right)^{2}}{\lVert g\left(\mathbf{x}_{j}\right)\rVert _{2}^{2}}$, 
+        - taking $\lim\sup$ we have $\lim\sup_{t\to\infty} \lVert \mathbf{x}_{t}-\hat{\mathbf{x}}\rVert _{2}^{2} \leq\lVert \mathbf{x}_{t_{k}}-\hat{\mathbf{x}}\rVert _{2}^{2}-\sum_{j=t_{k}}^{\infty} \frac{\left(f\left(\mathbf{x}_{j}\right)-f^{*}\right)^{2}}{\lVert g\left(\mathbf{x}_{j}\right)\rVert _{2}^{2}}$
+        - then take $k\to\infty$, we get $\limsup _{t \rightarrow \infty}\lVert \mathbf{x}_{t}-\hat{\mathbf{x}}\rVert _{2}^{2} \leq \lim _{k \rightarrow \infty}\lVert \mathbf{x}_{t_{k}}-\hat{\mathbf{x}}\rVert _{2}^{2}=0$.
     
 ### $\mathcal{O}(1 / t)$ convergence for strong convex functions
 - **Lemma E(Descent Lemma under strong convexity)** $f$ is $\mu$-strongly convex, then $\lVert \mathbf{x}_{t+1}-\mathbf{x}^{*}\rVert _{2}^{2} \leq\left(1-\mu \gamma_{t}\right)\lVert \mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2}^{2}-2 \gamma_{t}\left(f\left(\mathbf{x}_{t}\right)-f^{*}\right)+\gamma_{t}^{2}\lVert \mathbf{g}_{t}\rVert _{2}^{2}$
@@ -147,7 +152,21 @@
 
 
 ## Lower Bound Complexity
-We can show that, the above ``\mathcal{O}(1/\sqrt{t})`` and ``\mathcal{O}(1/t)`` can not be improved. The worst case function is given by the piecewise-linear function ``f(x)=\max _{1 \leq i \leq n} x_{i}``.
-- **Theorem 6.20 (Nemirovski & Yudin 1979)**. For any ``1 \leq t \leq n, x_{1} \in \mathbb{R}_{n}``,
-    - (i) *``B``-Lipschit* there exists a ``B``-Lipschitz continuous function ``f`` and a convex set ``X`` with diameter ``R``, such that for any first-order method that generates ``\mathbf{x}_{t} \in \mathbf{x}_{1}+\operatorname{span}\left(\mathbf{g}_{1}, \ldots, \mathbf{g}_{t-1}\right)``, where ``\mathbf{g}_{i} \in \partial f\left(\mathbf{x}_{i}\right)``, we have ``\min _{1 \leq s \leq t} f\left(\mathbf{x}_{s}\right)-f^{*} \geq \frac{B \cdot R}{4(1+\sqrt{t})}``.
-    - (ii) *``B``-Lipschitz and ``\mu``-convex* there exists a ``\mu``-strongly convex, ``B``-Lipschitz continuous function ``f`` and a convex set ``X`` with diameter ``R``, for any ﬁrst-order method as described above, we always have ``\min _{1 \leq s \leq t} f\left(x_{s}\right)-f^{*} \geq \frac{B^{2}}{8 \mu t}``.
+We can show that, the above $\mathcal{O}(1/\sqrt{t})$ and $\mathcal{O}(1/t)$ can not be improved. The worst case function is given by the piecewise-linear function similar to $f(x)=\max _{1 \leq i \leq n} x_{i}$.
+- **Theorem 6.20 (Nemirovski & Yudin 1979)**. For any $1 \leq t \leq n, x_{1} \in \mathbb{R}_{n}$,
+    - (i) *$B$-Lipschit* there exists a $B$-Lipschitz continuous function $f$ and a convex set $X$ with diameter $R$, such that for any first-order method that generates $\mathbf{x}_{t} \in \mathbf{x}_{1}+\operatorname{span}\left(\mathbf{g}_{1}, \ldots, \mathbf{g}_{t-1}\right)$, where $\mathbf{g}_{i} \in \partial f\left(\mathbf{x}_{i}\right)$, we have $\min _{1 \leq s \leq t} f\left(\mathbf{x}_{s}\right)-f^{*} \geq \frac{B \cdot R}{4(1+\sqrt{t})}$.
+    - (ii) *$B$-Lipschitz and $\mu$-convex* there exists a $\mu$-strongly convex, $B$-Lipschitz continuous function $f$ and a convex set $X$ with diameter $R$, for any ﬁrst-order method as described above, we always have $\min _{1 \leq s \leq t} f\left(x_{s}\right)-f^{*} \geq \frac{B^{2}}{8 \mu t}$.
+    - **Proof**
+        - The function we construct is $f(x)=C \cdot \max _{1 \leq i \leq t} x_{i}+\frac{\mu}{2}\Vert x\Vert _{2}^{2},$ and we restrict ourself within region $X=\left\{x \in \mathbb{R}^{n},\Vert x\Vert _{2} \leq R\right\}$.
+            - The subgradient is $\partial f(x)=\mu x+C \cdot \operatorname{conv}\left\{e_{i}: i \text { such that } x_{i}=\max _{1 \leq j \leq t} x_{j}\right\}$.
+            - The optimal solution is $x_{i}^{*}=\begin{cases}-\frac{C}{\mu t} & 1 \leq i \leq t \\0 & t<i \leq n\end{cases}$ and $f^{*}=-\frac{C^{2}}{2 \mu t}$, can be verified by $0 \in \partial f(x)$.
+        - Since all subgradient method controls $\gamma_T$, but not how to choose subgradient, we can design a process that gives worst case. The update is design to have $g(x)=C \cdot e_{i}+\mu x$, only one pure direction of $x_{i}=\max _{1 \leq j \leq t} x_{j}$, but not its combination.
+            - To simplify, we always choose the smallest one.
+        - We claim that if we start from $x_{s=1} = 0$, then $x_{s} \in \operatorname{span}\left(e_{1}, \ldots, e_{s-1}\right)$, always one dimension less than $s$.
+            - When $s=2$, all coordinates are equal and we choose $e_1$ to update, so $x_{s=2} \in \mathrm{span}\{e_1\}$.
+            - By our update rule $g(x)=C \cdot e_{i}+\mu x$, the span can only increase at most one dimension at each update, so induction still holds.
+        - This means for $x_s, 1\leq s \leq t$, at least one coordinate is unchanged as $0$. So $\max _{1 \leq i \leq t} x_{i}$ -> $f(x_s) \geq 0$.
+            - This gives $\min _{1 \leq s \leq t} f\left(x_{s}\right)-f^{*} \geq \frac{C^{2}}{2 \mu t}$
+        - Choosing $C=\frac{B \sqrt{t}}{1+\sqrt{t}}, \mu=\frac{2 B}{R(1+\sqrt{t})}$, we have $\Vert \partial f(x)\Vert _{2} \leq C+\mu\Vert x\Vert _{2} \leq C+\mu R=: M$, this is the $M$-Lipschitz case, we have $\min _{1 \leq s \leq t} f\left(x_{s}\right)-f^{*} \geq \frac{C^{2}}{2 \mu t}=\frac{B \cdot R}{2(1+\sqrt{t})}$.
+        - Choosing $C=\frac{B}{2}, \mu=\frac{B}{R}$, we have $\Vert \partial f(x)\Vert _{2} \leq C+\mu R=:M$, this is $M$-Lispchitz and $\mu$-strongly convex case, we have $\min _{1 \leq s \leq t} f\left(x_{s}\right)-f^{*} \geq \frac{C^{2}}{2 \mu t}=\frac{B^{2}}{8 \mu t}$
+    - *Comment* This theorem is so strange that number of updates is related to dimension.

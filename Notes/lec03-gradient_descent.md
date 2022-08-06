@@ -12,7 +12,7 @@
 - $\Vert x\Vert _{2} \leq\Vert x\Vert _{1} \leq \sqrt{n}\Vert x\Vert _{2}$, $\frac{1}{\sqrt{n}}\Vert x\Vert _{2} \leq\Vert x\Vert _{\infty} \leq\Vert x\Vert _{2}$.
 
 ## Smoothness and Lipschitz
-### Lipschitz
+### (Gradient) Lipschitz
 - **Definition (Lipschitz)** The gradient of $f$ is *Lipschitz continuous* with parameter $L > 0$ w.r.t. norm $\Vert \cdot\Vert _a$, if $\Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast} \leq L\Vert x-y\Vert _a$.
 - **Lemma A (generalized Cauchy–Schwarz inequality)** $\nabla f$ is $L$-Lipschitz $\Rightarrow$ $\forall \mathbf{x,y}\in\mathbf{dom}(f)$, $(\nabla f(x)-\nabla f(y))^{T}(x-y) \leq L\Vert x-y\Vert ^{2}_{a}$
     - **Proof**
@@ -39,9 +39,9 @@
 - **Lemma 3.6 (Operation that preserves smoothness)** 
     - (i) *Linear combination* $f:=\sum_{i=1}^{m} \lambda_{i} f_{i}$, where $\lambda_i > 0$.
     - (ii) *Affine Transform* $f(A \mathbf{x}+\mathbf{b}))$.
-    - **Proof** Straightforward
+    - **Proof** Straightforward    
 
-### Equivalence of Smoothness and Lipschitz under Convexity
+### Equivalence of Smoothness and Gradient Lipschitz under Convexity
 - **Definition (co-coercivity)** The property of *co-coercivity* of $\nabla f$ with parameter $L$ over norm $a$ is $\forall x,y$, $(\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{\ast}^{2}$
 - **Lemma 3.5 (Equivalence of Smoothness and Lipschitz under convexity)** If (i) $\mathbf{dom}(f) = \mathbb{R}^{d}$ (ii) $f$ convex and differentiable. Then $f$ is smooth with parameter $L$ under norm $a$ $\Leftrightarrow$ $\nabla f$ is Lipschitz continuous with parameter $L$ under norm $a$.
     - *Proof Route* **Lipschitzness** -(*Lemma A*)-> **Smoothness** -(*Lemma B*)-> **Co-coercivity** -> **Lipschitzness**
@@ -63,6 +63,11 @@
         - **Co-coercivity** -> **Lipschitzness**
             - $\frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast}^{2} \leq (\nabla f(x)-\nabla f(y))^{T}(x-y) \leq \Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast}\cdot \Vert x-y\Vert _{a}$
             - $\Rightarrow \Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast} \leq L  \Vert x-y\Vert _{a}$
+
+### Smoothness $\neq$ Lipschitz in $f$ itself
+- **Counter Examples**
+    - **Lipschitz** $\nRightarrow$ **Smoothness** $f(x)= \begin{cases}\vert x\vert^{3 / 2}, & \vert x\vert \leq 1 \\ \frac{3}{2}\vert x\vert-\frac{1}{2}, & \vert x\vert \geq 1\end{cases}$, $f$ is $3/2$-Lipschitz but $\infty$-smooth.
+    - **Smoothness** $\nRightarrow$ **Lipschitz** $f(x)=x^{2}, x \in(-\infty, \infty)$, $f$ is $2$-smooth, but $\infty$-Lipschitz.
 
 ## Strong convexity
 - **Definition and Lemma C (Strong Convexity)** A differentiable function $f$ is strongly convex with parameter $\mu$ over norm $\Vert \cdot\Vert _{a}$ if $\mathbf{dom}(f)$ is convex and (for following are equivalent)
@@ -117,10 +122,10 @@
 
 ## Speed metric
 - $\lim _{k \rightarrow \infty} \frac{f\left(w^{k+1}\right)-f\left(w^{\ast}\right)}{(f\left(w^{k}\right)-f\left(w^{\ast}\right))^p}=q$
-    - $p=1, q\in(0,1)$, *linear* rate. E.g. ``\Delta f_t = O(e^{-\alpha t}), \alpha > 0``.
-    - $p=1, q=1$, *sublinear* rate. E.g. ``\Delta f_t = O(t^{-\beta}), \beta > 0``.
-    - $p=1, q=0$, *super linear* rate. E.g. ``\Delta f_t = O(e^{-\alpha t^2}), \alpha > 0``.
-    - $p>1, q>0$, *convergence of order $p$*. E.g. ``\Delta f_t = O(e^{-\alpha p^t}), \alpha > 0``.
+    - $p=1, q\in(0,1)$, *linear* rate. E.g. $\Delta f_t = O(e^{-\alpha t}), \alpha > 0$.
+    - $p=1, q=1$, *sublinear* rate. E.g. $\Delta f_t = O(t^{-\beta}), \beta > 0$.
+    - $p=1, q=0$, *super linear* rate. E.g. $\Delta f_t = O(e^{-\alpha t^2}), \alpha > 0$.
+    - $p>1, q>0$, *convergence of order $p$*. E.g. $\Delta f_t = O(e^{-\alpha p^t}), \alpha > 0$.
         - when $p=2$, *quadratic convergence*.
 
 ## Vanilla GD

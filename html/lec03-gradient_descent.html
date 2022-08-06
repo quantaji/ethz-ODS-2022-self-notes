@@ -778,7 +778,7 @@ body{ box-sizing: border-box;
 </li>
 </ul>
 <h2><a id="smoothness-and-lipschitz" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Smoothness and Lipschitz</h2>
-<h3><a id="lipschitz" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lipschitz</h3>
+<h3><a id="gradient-lipschitz" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>(Gradient) Lipschitz</h3>
 <ul>
 <li><strong>Definition (Lipschitz)</strong> The gradient of \(f\) is <em>Lipschitz continuous</em> with parameter \(L &gt; 0\) w.r.t. norm \(\Vert \cdot\Vert _a\), if \(\Vert \nabla f(x)-\nabla f(y)\Vert _{a\ast} \leq L\Vert x-y\Vert _a\).</li>
 <li><strong>Lemma A (generalized Cauchy–Schwarz inequality)</strong> \(\nabla f\) is \(L\)-Lipschitz \(\Rightarrow\) \(\forall \mathbf{x,y}\in\mathbf{dom}(f)\), \((\nabla f(x)-\nabla f(y))^{T}(x-y) \leq L\Vert x-y\Vert ^{2}_{a}\)
@@ -842,7 +842,7 @@ body{ box-sizing: border-box;
 </ul>
 </li>
 </ul>
-<h3><a id="equivalence-of-smoothness-and-lipschitz-under-convexity" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Equivalence of Smoothness and Lipschitz under Convexity</h3>
+<h3><a id="equivalence-of-smoothness-and-gradient-lipschitz-under-convexity" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Equivalence of Smoothness and Gradient Lipschitz under Convexity</h3>
 <ul>
 <li><strong>Definition (co-coercivity)</strong> The property of <em>co-coercivity</em> of \(\nabla f\) with parameter \(L\) over norm \(a\) is \(\forall x,y\), \((\nabla f(x)-\nabla f(y))^{T}(x-y) \geq \frac{1}{L}\Vert \nabla f(x)-\nabla f(y)\Vert _{\ast}^{2}\)</li>
 <li><strong>Lemma 3.5 (Equivalence of Smoothness and Lipschitz under convexity)</strong> If (i) \(\mathbf{dom}(f) = \mathbb{R}^{d}\) (ii) \(f\) convex and differentiable. Then \(f\) is smooth with parameter \(L\) under norm \(a\) \(\Leftrightarrow\) \(\nabla f\) is Lipschitz continuous with parameter \(L\) under norm \(a\).
@@ -881,6 +881,15 @@ body{ box-sizing: border-box;
 </li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+<h3><a id="smoothness-neq-lipschitz-in-f-itself" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Smoothness \(\neq\) Lipschitz in \(f\) itself</h3>
+<ul>
+<li><strong>Counter Examples</strong>
+<ul>
+<li><strong>Lipschitz</strong> \(\nRightarrow\) <strong>Smoothness</strong> \(f(x)= \begin{cases}\vert x\vert^{3 / 2}, &amp; \vert x\vert \leq 1 \\ \frac{3}{2}\vert x\vert-\frac{1}{2}, &amp; \vert x\vert \geq 1\end{cases}\), \(f\) is \(3/2\)-Lipschitz but \(\infty\)-smooth.</li>
+<li><strong>Smoothness</strong> \(\nRightarrow\) <strong>Lipschitz</strong> \(f(x)=x^{2}, x \in(-\infty, \infty)\), \(f\) is \(2\)-smooth, but \(\infty\)-Lipschitz.</li>
 </ul>
 </li>
 </ul>

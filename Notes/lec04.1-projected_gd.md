@@ -56,7 +56,7 @@
         - (ii) is attained by smoothness, but the gradient term does not vanish, $f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq \nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}_{T}-\mathbf{x}^{\star}\right)+\frac{L}{2}\lVert\mathbf{x}^{\star}-\mathbf{x}_{T}\rVert^{2} \leq\lVert\nabla f\left(\mathbf{x}^{\star}\right)\rVert\lVert\mathbf{x}_{T}-\mathbf{x}^{\star}\rVert+\frac{L}{2}\lVert\mathbf{x}^{\star}-\mathbf{x}_{T}\rVert^{2}\leq\lVert\nabla f\left(\mathbf{x}^{\star}\right)\rVert\left(1-\frac{\mu}{L}\right)^{T / 2}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert+\frac{L}{2}\left(1-\frac{\mu}{L}\right)^{T}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert^{2}$
 
 ## PGD on $\ell_1$-Ball
-- **Definition** An $\ell_1$-Ball of radius $R$ is $X=B_{1}(R):=\left\{\mathbf{x} \in \mathbb{R}^{d}:\Vert\mathbf{x}\Vert_{1}=\sum_{i=1}^{d}\mid x_{i}\mid \leq R\right\}$
+- **Definition** An $\ell_1$-Ball of radius $R$ is $X=B_{1}(R):=\left\{\mathbf{x} \in \mathbb{R}^{d}:\Vert\mathbf{x}\Vert_{1}=\sum_{i=1}^{d}\vert x_{i}\vert \leq R\right\}$
 - **Fact 4.6** By suitable scaling and sign flipping of coordinates, we can assume $R=1$ and for the point $\mathbf{v}$ to be projected, each component $v_{i} \geq 0$, and the non-trivil case is when $\sum_{i} v_i > 1$.
 - **Fact 4.7** Under Fact 4.6, the projected point $\mathbf{x}=\Pi_{X}(\mathbf{v})$ satisfies (i) $x_i \geq 0$ (ii) $\sum_{i=1}^{d} x_{i}=1$.
     - **Proof**

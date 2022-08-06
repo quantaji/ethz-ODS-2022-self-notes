@@ -27,7 +27,7 @@
 ### Topological Properties of Subgradients
 - **Lemma 6.6** Let $f(x)$ be a convex function and $x \in \operatorname{dom}(f)$. Then $\partial f(x)$ is convex and closed.
     - **Proof** $\partial f(x) = \cap_{y}\left\{g \in \mathbb{R}^{n}: f(y) \geq f(x)+g^{\top}(y-x)\right\}$, solution of $g$ for each $y$ is convex and closed linear separation.
-- **Deﬁnition 6.7 (separation of convex sets)** Let $S$ and $T$ be two nonempty convex sets in $\mathbb{R}^n$. A hyperplane $H=\left\{x \in \mathbb{R}^{n}: a^{\top} x=b, a\neq 0\right\}$ is said to *separate* $S$ and $T$ if $S \cup T \not \subset H$ and $S \subset H^{-}=\left\{x \in \mathbb{R}^{n}: a^{\top} x \leq b\right\}$ and $T \subset H^{+}=\left\{x \in \mathbb{R}^{n}: a^{\top} x \geq b\right\}$.
+- **Definition 6.7 (separation of convex sets)** Let $S$ and $T$ be two nonempty convex sets in $\mathbb{R}^n$. A hyperplane $H=\left\{x \in \mathbb{R}^{n}: a^{\top} x=b, a\neq 0\right\}$ is said to *separate* $S$ and $T$ if $S \cup T \not \subset H$ and $S \subset H^{-}=\left\{x \in \mathbb{R}^{n}: a^{\top} x \leq b\right\}$ and $T \subset H^{+}=\left\{x \in \mathbb{R}^{n}: a^{\top} x \geq b\right\}$.
     - PS: It's OK that one of $S$ or $T$ is a point, or part of the hyperplane.
     - *Strictly separation* if $S \subset H^{--}=\left\{x \in \mathbb{R}^{n}: a^{\top} x<b\right\}$ and $T \subset H^{++}=\left\{x \in \mathbb{R}^{n}: a^{\top} x>b\right\}$.
 - **Theorem 6.8 (Hyperplane separation theorem, [Roc97, Thm 11.3], no proof)** Let $S$ and $T$ be two nonempty convex sets. Then S and T can be separated if and only if their (relative) interiors do not intersect, $\operatorname{rint}(S) \cap \operatorname{rint}(T)=\emptyset$.
@@ -144,3 +144,10 @@
         - Times $t$ on each side and we get $t \left(f\left(\mathbf{x}_{t}\right)-f^{*}\right) \leq \frac{\mu t(t-1)}{4}\lVert \mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2}^{2}-\frac{\mu(t+1)t}{4}\lVert \mathbf{x}_{t+1}-\mathbf{x}^{*}\rVert _{2}^{2}+\frac{t}{\mu(t+1)}\lVert \mathbf{g}_{t}\rVert _{2}^{2}$
         - Since $\frac{t}{\mu(t+1)}\lVert \mathbf{g}_{t}\rVert _{2}^{2} \leq \frac{1}{\mu}B^{2}$, sum over $t=[1:T]$ and get $\sum_{t=1}^{T} t\left(f\left(\mathbf{x}_{t}\right)-f^{*}\right) \leq-\frac{\mu T(T+1)}{4}\lVert \mathbf{x}_{T+1}-\mathbf{x}^{*}\rVert _{2}^{2}+\frac{T}{\mu} B^{2}$
         - else is straightforward.
+
+
+## Lower Bound Complexity
+We can show that, the above ``\mathcal{O}(1/\sqrt{t})`` and ``\mathcal{O}(1/t)`` can not be improved. The worst case function is given by the piecewise-linear function ``f(x)=\max _{1 \leq i \leq n} x_{i}``.
+- **Theorem 6.20 (Nemirovski & Yudin 1979)**. For any ``1 \leq t \leq n, x_{1} \in \mathbb{R}_{n}``,
+    - (i) *``B``-Lipschit* there exists a ``B``-Lipschitz continuous function ``f`` and a convex set ``X`` with diameter ``R``, such that for any first-order method that generates ``\mathbf{x}_{t} \in \mathbf{x}_{1}+\operatorname{span}\left(\mathbf{g}_{1}, \ldots, \mathbf{g}_{t-1}\right)``, where ``\mathbf{g}_{i} \in \partial f\left(\mathbf{x}_{i}\right)``, we have ``\min _{1 \leq s \leq t} f\left(\mathbf{x}_{s}\right)-f^{*} \geq \frac{B \cdot R}{4(1+\sqrt{t})}``.
+    - (ii) *``B``-Lipschitz and ``\mu``-convex* there exists a ``\mu``-strongly convex, ``B``-Lipschitz continuous function ``f`` and a convex set ``X`` with diameter ``R``, for any ﬁrst-order method as described above, we always have ``\min _{1 \leq s \leq t} f\left(x_{s}\right)-f^{*} \geq \frac{B^{2}}{8 \mu t}``.

@@ -133,6 +133,10 @@
         - So $\lVert \mathbf{x}_{t+1}-\hat{\mathbf{x}}\rVert _{2}^{2} \leq\lVert \mathbf{x}_{t_{k}}-\hat{\mathbf{x}}\rVert _{2}^{2}-\sum_{j=t_{k}}^{t} \frac{\left(f\left(\mathbf{x}_{j}\right)-f^{*}\right)^{2}}{\lVert g\left(\mathbf{x}_{j}\right)\rVert _{2}^{2}}$, 
         - taking $\lim\sup$ we have $\lim\sup_{t\to\infty} \lVert \mathbf{x}_{t}-\hat{\mathbf{x}}\rVert _{2}^{2} \leq\lVert \mathbf{x}_{t_{k}}-\hat{\mathbf{x}}\rVert _{2}^{2}-\sum_{j=t_{k}}^{\infty} \frac{\left(f\left(\mathbf{x}_{j}\right)-f^{*}\right)^{2}}{\lVert g\left(\mathbf{x}_{j}\right)\rVert _{2}^{2}}$
         - then take $k\to\infty$, we get $\limsup _{t \rightarrow \infty}\lVert \mathbf{x}_{t}-\hat{\mathbf{x}}\rVert _{2}^{2} \leq \lim _{k \rightarrow \infty}\lVert \mathbf{x}_{t_{k}}-\hat{\mathbf{x}}\rVert _{2}^{2}=0$.
+
+### Similar result under Polyak's step size (Exercise Prob 5)
+
+Left Blank
     
 ### $\mathcal{O}(1 / t)$ convergence for strong convex functions
 - **Lemma E(Descent Lemma under strong convexity)** $f$ is $\mu$-strongly convex, then $\lVert \mathbf{x}_{t+1}-\mathbf{x}^{*}\rVert _{2}^{2} \leq\left(1-\mu \gamma_{t}\right)\lVert \mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2}^{2}-2 \gamma_{t}\left(f\left(\mathbf{x}_{t}\right)-f^{*}\right)+\gamma_{t}^{2}\lVert \mathbf{g}_{t}\rVert _{2}^{2}$
@@ -170,3 +174,76 @@ We can show that, the above $\mathcal{O}(1/\sqrt{t})$ and $\mathcal{O}(1/t)$ can
         - Choosing $C=\frac{B \sqrt{t}}{1+\sqrt{t}}, \mu=\frac{2 B}{R(1+\sqrt{t})}$, we have $\Vert \partial f(x)\Vert _{2} \leq C+\mu\Vert x\Vert _{2} \leq C+\mu R=: M$, this is the $M$-Lipschitz case, we have $\min _{1 \leq s \leq t} f\left(x_{s}\right)-f^{*} \geq \frac{C^{2}}{2 \mu t}=\frac{B \cdot R}{2(1+\sqrt{t})}$.
         - Choosing $C=\frac{B}{2}, \mu=\frac{B}{R}$, we have $\Vert \partial f(x)\Vert _{2} \leq C+\mu R=:M$, this is $M$-Lispchitz and $\mu$-strongly convex case, we have $\min _{1 \leq s \leq t} f\left(x_{s}\right)-f^{*} \geq \frac{C^{2}}{2 \mu t}=\frac{B^{2}}{8 \mu t}$
     - *Comment* This theorem is so strange that number of updates is related to dimension.
+
+
+## Mirror Descent
+
+- **Key Idea** Update can be viewed as $x_{t+1}=\underset{x \in X}{\operatorname{argmin}}\left\{\frac{1}{2}\lVert x-x_{t}\rVert _{2}^{2}+\left\langle\gamma_{t} g\left(x_{t}\right), x\right\rangle\right\}$, how about we change $\Vert \cdot\Vert _2^2$ to something else.
+
+### Bregman Divergence
+- **Definition 6.22** Let $\omega(x): X \rightarrow \mathbb{R}$ be a function that is *strictly* convex, continuously differentiable on a closed convex set $X$. The *Bregman divergence* is defined as $V_{\omega}(x, y)=\omega(x)-\omega(y)-\nabla \omega(y)^{T}(x-y), \forall x, y \in X$.
+    - Asymmetric $V_{\omega}(x, y) \neq V_{\omega}(y, x)$, not a valid distance, triangle inequality may not hold.
+    - $\omega(\cdot)$ is called *distance-generating function*.
+    - If $\omega(\cdot)$ is also $\sigma$-strongly convex w.r.t. norm $\Vert \cdot\Vert _{a}$, then $V_{\omega}(x,y) \geq \sigma \Vert x-y\Vert _{a}^2 /2$.
+- **Example**
+    - *Euclidean Distance* $\Omega=\mathbb{R}^{d}, \omega(\mathbf{x})=\frac{1}{2}\Vert \mathbf{x}\Vert _{2}^{2}$, $\omega$ is $1$ strongly convex w.r.t $\ell_2$ norm, 
+        - $V_{\omega}(\mathbf{x}, \mathbf{y})=\frac{1}{2}\Vert \mathbf{x}-\mathbf{y}\Vert _{2}^{2}$.
+    - *Mahalanobis distance* $\Omega=\mathbb{R}^{d}, \omega(\mathbf{x})=\frac{1}{2} \mathbf{x}^{T} Q \mathbf{x}$ where $Q \succeq I$, $\omega$ is $1$ strongly convex w.r.t $\ell_2$ norm, 
+        - $V_{\omega}(\mathbf{x}, \mathbf{y})=\frac{1}{2}(\mathbf{x}-\mathbf{y})^{T} Q(\mathbf{x}-\mathbf{y})$.
+    - *Kullback-Leibler divergence* $\Omega=\Delta_{d}, \omega(\mathbf{x})=\sum_{i=1}^{d} x_{i} \ln x_{i}$, $\nabla \omega (x) = \ln (x) - 1$, 
+        - $V_{\omega}(x,y) = \sum_{i} x_i \ln x_i - y_i \ln y_i - (\ln(y_i) - 1)(x_i - y_i) = \sum_i x_i \ln \frac{x_i}{y_i} = \mathrm{KL}(x \Vert  y)$, since $\sum_i x_i = \sum_i y_i =1$.
+        - The proof for $V_{\omega}(x,y) \geq \Vert x-y\Vert _1^2 /\ln 4$ is complicated, see [this](http://www.stat.yale.edu/~yw562/teaching/598/lec04.pdf).
+- **Lemma 6.23 (Generalized Pythagorean Theorem, Exercise 46)** If $x^{*}$ is the Bregman projection of $x_0$ onto a convex set $C \subset X: x^{*} \operatorname{argmin}_{x \in C} V_{\omega}\left(x, x_{0}\right)$. Then $\forall y \in C$, $V_{\omega}\left(y, x_{0}\right) \geq V_{\omega}\left(y, x^{*}\right)+V_{\omega}\left(x^{*}, x_{0}\right)$.
+    - **Proof**
+        - $\nabla_x V_\omega(x,y) = \nabla \omega(x) - \nabla \omega(y)$, optimal condition means $\forall y \in C, (\nabla \omega(x^{*}) - \nabla \omega(x_0))^{\top}(y - x^{*}) \geq 0$.
+        - equivalently, $- \nabla \omega(x_0)^{\top}(y - x_0 + x_0 -x^{*}) \geq -\nabla \omega(x^{*})^{\top}(y - x^{*})$
+        - or $- \nabla \omega(x_0)^{\top}(y - x_0) \geq -\nabla \omega(x^{*})^{\top}(y - x^{*}) - \nabla \omega(x_0)^{\top}(x_0 -x^{*})$
+        - then $\omega(x_0)  - \omega_(y)- \nabla \omega(x_0)^{\top}(y - x_0) \geq \omega(x_0)  - \omega_(x^{*}) +\omega(x^{*})- \omega_(y) -  \nabla \omega(x^{*})^{\top}(y - x^{*}) +- \nabla \omega(x_0)^{\top}(x_0 -x^{*})$, QED.
+
+### Mirror Descent Algorithm
+- *Prox-mapping* $\operatorname{Prox}_{x}(\xi)=\underset{u \in X}{\operatorname{argmin}}\left\{V_{\omega}(u, x)+\langle\xi, u\rangle\right\}$, and suppose $\omega$ is $1$-strongly convex on norm $\Vert \cdot\Vert _{a}$.
+- **Algorithm** $x_{t+1}=\operatorname{Prox}_{x_{t}}\left(\gamma_{t} g\left(x_{t}\right)\right)$, where $g\left(x_{t}\right) \in \partial f\left(x_{t}\right)$.
+- **Example 6.25** Under KL divergence, the prox-mapping becomes $\operatorname{Prox}_{x}\xi)=\left(\sum_{i=1}^{n} x_{i} e^{-\xi_{i}}\right)^{-1}\left[\begin{array}{c}x_{1} e^{-\xi_{1}} \\\ldots \\x_{n} e^{-\xi_{n}}\end{array}\right]$
+    - **Proof** 
+        - $V_{\omega}(u, x)+\langle\xi, u\rangle = \sum_{i} u_i \ln (u_i / x_i) + u_i \xi_i$, optimal condition under constraint is $0 = \ln(u_i/x_i) + 1 + \lambda + \xi_i$
+        - So solution is $u_i = x_i e^{-\xi_i + \alpha}$ where $\sum_i u_i =1 \Rightarrow e^{-\alpha} = \sum_i x_i e^{-\xi_i}$ QED.
+
+### $\mathcal{O}(1 / \sqrt{t})$ convergence for convex functions
+- **Lemma 6.26 (Three point identity)** $\forall x,y,z \in \mathbf{dom}(\omega)$, $V_{\omega}(x, z)=V_{\omega}(x, y)+V_{\omega}(y, z)-\langle\nabla \omega(z)-\nabla \omega(y), x-y\rangle$
+    - **Proof**
+        - $V_{\omega}(x, y)+V_{\omega}(y, z)=\omega(x)-\omega(y)+\omega(y)-\omega(z)-\langle\nabla \omega(y), x-y\rangle-\langle\nabla \omega(z), y-z\rangle =V_{\omega}(x, z)+\langle\nabla \omega(z), x-z\rangle-\langle\nabla \omega(y), x-y\rangle-\langle\nabla \omega(z), y-z\rangle =V_{\omega}(x, z)+\langle\nabla \omega(z)-\nabla \omega(y), x-y\rangle$
+    - When $\omega = \Vert \cdot\Vert _2^2$, this becomes law of cosines.
+- **Lemma G (Descent Lemma)** $\gamma_{t}\left(f\left(\mathbf{x}_{t}\right)-f^{*}\right) \leq V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{t}\right)-V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{t+1}\right)+\frac{\gamma_{t}^{2}}{2}\lVert \mathbf{g}_{t}\rVert _{a*}^{2}$
+    - **Proof**
+        - By 3-point identiy, $V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t})=V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t+1})+V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t})-\langle\nabla \omega(\mathbf{x}_{t})-\nabla \omega(\mathbf{x}_{t+1}), \mathbf{x}^{\star}-\mathbf{x}_{t+1}\rangle$, equivalently
+            - $V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t}) - V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t+1}) + \langle\nabla \omega(\mathbf{x}_{t})-\nabla \omega(\mathbf{x}_{t+1}), \mathbf{x}^{\star}-\mathbf{x}_{t+1}\rangle = V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t})$
+        - by def of algo, the optimial condition is $\forall x\in X$, espectially $\mathbf{x}^{\star}$ $\langle \nabla_{\mathbf{x}_{t+1}}V_{\omega}(\mathbf{x}_{t+1},\mathbf{x}_{t}) + \gamma_t \mathbf{g}_{t},\mathbf{x}^{\star} - \mathbf{x}_{t+1}\rangle=  \langle \nabla \omega (\mathbf{x}_{t+1}) - \nabla \omega (\mathbf{x}_{t}) + \gamma_t \mathbf{g}_{t},\mathbf{x}^{\star} - \mathbf{x}_{t+1}\rangle \geq 0$, this means
+            - $V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t}) - V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t+1}) + \langle\gamma_t \mathbf{g}_{t}, \mathbf{x}^{\star}-\mathbf{x}_{t+1}\rangle \geq V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t})$
+        - By convexity, $\langle\mathbf{g}_{t}, \mathbf{x}^{\star}-\mathbf{x}_{t}\rangle \leq f(\mathbf{x}^{\star}) - f(\mathbf{x}_{t})$, so $V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t}) - V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t+1}) +\gamma_t ( f(\mathbf{x}^{\star}) - f(\mathbf{x}_{t}))  \geq V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t}) + \langle\gamma_t \mathbf{g}_{t}, \mathbf{x}_{t+1} - \mathbf{x}_{t}\rangle$
+        - By *Young’s inequality*, $\langle a, b\rangle  \leq \Vert a\Vert _{a}\cdot \Vert b\Vert _{a*} \leq \Vert a\Vert _{a}^2/2 + \Vert b\Vert _{a*}^2/2$, therefore 
+            - $\langle\gamma_t \mathbf{g}_{t}, \mathbf{x}_{t} - \mathbf{x}_{t+1}\rangle \leq \gamma_t^2 \Vert \mathbf{g}_t\Vert _{a*}^2/2 + \Vert \mathbf{x}_{t} - \mathbf{x}_{t+1}\Vert ^2_{a}/2$
+        - By the assumption of $\omega$ is $1$-strongly convex, $V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t}) \geq  \Vert \mathbf{x}_{t} - \mathbf{x}_{t+1}\Vert ^2_{a}/2$
+        - Combine the above two, $V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t}) + \langle\gamma_t \mathbf{g}_{t}, \mathbf{x}_{t+1} - \mathbf{x}_{t}\rangle \geq \Vert \mathbf{x}_{t} - \mathbf{x}_{t+1}\Vert ^2_{a}/2 - \gamma_t^2 \Vert \mathbf{g}_t\Vert _{a*}^2/2 - \Vert \mathbf{x}_{t} - \mathbf{x}_{t+1}\Vert ^2_{a}/2 = - \gamma_t^2 \Vert \mathbf{g}_t\Vert _{a*}^2/2$
+        - Combine above, we arrive at the descent lemma.
+           
+- **THEOREM 6.28** $f$ convex, then $\displaystyle \max\left\{\min _{1 \leq t \leq T} f\left(x_{t}\right), f\left(\hat{x}_{T}\right)\right\}-f^{*} \leq \frac{V_{\omega}\left(x^{*}, x_{1}\right)+\frac{1}{2} \sum_{t=1}^{T} \gamma_{t}^{2}\lVert g\left(x_{t}\right)\rVert _{*}^{2}}{\sum_{t=1}^{T} \gamma_{t}}$, where $\displaystyle \hat{x}_T = \frac{\sum_{t=1}^{T} \gamma_{t} x_{t}}{\sum_{t=1}^{T} \gamma_{t}}$.
+    - **Proof** Similar to Theorem 6.17, sum over all $t\in[1:T]$ we get the result.
+    - Convergence similar to subgradient case $\min _{1 \leq t \leq T} f\left(\mathbf{x}_{t}\right)-f^{*}=O\left(\frac{B R}{\sqrt{T}}\right)$, where $R=\sqrt{\max _{\mathbf{x} \in X} V_{\omega}\left(\mathbf{x}, \mathbf{x}_{1}\right)}$ and $B:=\sup _{\mathbf{x} \in X} \frac{\vert f(\mathbf{x})-f(\mathbf{y})\vert }{\Vert \mathbf{x}-\mathbf{y}\Vert }$.
+- The constant may be different. **Example of Simplex** of $X=\left\{x \in \mathbb{R}^{d}: x_{i} \geq 0, \sum_{i=1}^{d} x_{i}=1\right\}$, assume $\Vert \mathbf{g}\Vert _{\infty} \leq 1$,
+    - In normal case of $\omega(x)=\frac{1}{2}\Vert x\Vert _{2}^{2}$, $R^2 \leq 2= O(1)$, $B \sim \Vert g\Vert _2 = O(\sqrt{d})$, overall it's $O(\frac{\sqrt{d}}{\sqrt{T}})$.
+    - If we choose $w(x)=\sum_{i=1}^{d} x_{i} \ln x_{i}$ and starting point to be $x_{1}=\operatorname{argmin}_{x \in X} \omega(x)$, then $\Omega \leq \max _{x \in X} \omega(x)-\min _{x \in X} \omega(x)=0-(-\ln d)=\ln (d)$, overall it's $O(\frac{\ln d}{\sqrt{T}})$
+    - The ratio of efficiency is then $O\left(\frac{1}{\ln (d)} \cdot \frac{\max _{x \in X}\Vert g(x)\Vert _{2}}{\max _{x \in X}\Vert g(x)\Vert _{\infty}}\right)$, since $\Vert g(x)\Vert _{\infty} \leq\Vert g(x)\Vert _{2} \leq \sqrt{d}\Vert g(x)\Vert _{\infty}$, in worst case Mirror Descent is $O(\sqrt{d})$ faster than norm subgradient descent.
+
+### Mirror Descent under Smoothness (Exercise 47)
+- **Lemma H** If $f$ convex and gradient Lipschitz w.r.t. some norm, $\Vert \nabla f(x)-\nabla f(y)\Vert _{a*} \leq L\Vert x-y\Vert _{a}$, then setting $\gamma_{t}=1 / L$ will give $\min _{1 \leq t \leq T} f\left(x_{t}\right)-f^{*} \leq {L \cdot V_{\omega}\left(x^{*}, x_{1}\right)}/{T}$
+    - **Proof**
+        
+        - By equivalence of smoothness and Lipschitz, $f(\mathbf{x}_{t+1}) \leq f(\mathbf{x}_{t})+\mathbf{g}_{t}^{\top}(\mathbf{x}_{t+1}-\mathbf{x}_{t})+\frac{L}{2}\Vert \mathbf{x}_{t}-\mathbf{x}_{t+1}\Vert _{a}^{2}$
+            - Using the fact of $\omega$ is $1$-strongly convex, we have $\Vert \mathbf{x}_{t}-\mathbf{x}_{t+1}\Vert _{a}^{2}/2 \leq V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t})$
+            - This makes $\frac{1}{\gamma_t} V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t}) + \langle \mathbf{g}_{t}, \mathbf{x}_{t+1}-\mathbf{x}_{t} \rangle \geq f(\mathbf{x}_{t+1}) - f(\mathbf{x}_{t})$
+            - By the optimal condition of prox-mapping, we can show that $V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t}) + \langle \gamma_{t} \mathbf{g}_{t}, \mathbf{x}_{t+1} \rangle \leq \underset{=0}{V_{\omega}(\mathbf{x}_{t}, \mathbf{x}_{t})} + \langle \gamma_{t} \mathbf{g}_{t}, \mathbf{x}_{t} \rangle$
+            - This means $f(\mathbf{x}_{t+1}) - f(\mathbf{x}_{t}) \leq 0$, always non-increasing.
+        - In the third step of descent lemma, bu convexity we have $V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t}) - V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t+1}) +\gamma_t ( f(\mathbf{x}^{\star}) - f(\mathbf{x}_{t}))  \geq V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t}) + \langle\gamma_t \mathbf{g}_{t}, \mathbf{x}_{t+1} - \mathbf{x}_{t}\rangle$
+            - take the above into it we get $V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t}) - V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t+1}) + \gamma_t ( f(\mathbf{x}^{\star}) - f(\mathbf{x}_{t})) \geq \gamma_t(f(\mathbf{x}_{t+1}) - f(\mathbf{x}_{t}))$
+        - take $\gamma_t = L^{-1}$ and sum over $t=[0:T-1]$, we have 
+            - $\sum_{i=1}^{T} f(\mathbf{x}_{i}) - f(\mathbf{x}^{\star}) \leq L\left(V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{1}) - V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{T})\right)$, QED

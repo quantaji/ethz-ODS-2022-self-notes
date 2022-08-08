@@ -1,0 +1,1018 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>/* copy from https://github.com/sindresorhus/github-markdown-css/ */
+
+html,body{background-color: #342839;}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #fafedd;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body figure{margin:0;padding:0; display:table;}
+.markdown-body figure figcaption{font-size:92%; text-align:center; color:#76dae8;}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #fed765;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' fill='%23fed765' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+.markdown-body strong{
+  color: #fe6188;
+}
+.markdown-body em{
+  color: #77dbe8;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #aa9df2;
+  text-decoration: none;
+}
+.markdown-body mjx-container[jax="SVG"] > svg a{fill:#aa9df2;stroke: #aa9df2;}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 12px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 12px;
+  color: #76dae8;
+  vertical-align: middle;
+  background-color: #3a2e3f;
+  border: 1px solid #504455;
+  border-radius: 3px;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #504455;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #c9cdac;
+  border-left: .25em solid #f5f5f5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #4a3e4f;
+  color: #fed765;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+  color: #fed765;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+  color: #fed765;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+  color: #fed765;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+  color: #fed765;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #fed765;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #786c7d;
+}
+
+.markdown-body table tr {
+  background-color: #342839;
+  border-top: 1px solid #786c7d;
+}
+
+.markdown-body table th {
+  background-color: #4a3e4f;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #392d3e;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #3a2e3f;
+  color: #76dae8;
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+   font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #3a2e3f;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+  color: #f0f0f0;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+.markdown-body section.footnotes{
+    margin-top:48px;
+    border-top:solid 1px #504455;
+    padding-top:0px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .markdown-body mark{color: #111;}
+}
+
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background-color: #3a2e3f;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #48be66;
+}
+
+.token.punctuation {
+    color: #fdd664;
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #9a95e3;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #fdd664;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #$$codeBlockColor$$;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #ccddf6;
+}
+
+.token.function,
+.token.class-name {
+    color: #f28d55;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #d38e63;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em; /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 1px solid #726677;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+  .line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+  }
+
+    .line-numbers-rows > span:before {
+      content: counter(linenumber);
+      color: #726677;
+      display: block;
+      padding-right: 0.8em;
+      text-align: right;
+    }
+
+
+</style><style>.mweb-charts{background:#fff;}
+body{ box-sizing: border-box;
+    margin: 0 auto;
+    padding: 28px}
+@media print{
+    pre, code, pre code {
+     overflow: visible !important;
+     white-space: pre-wrap !important;       /* css-3 */
+     white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap !important;      /* Opera 4-6 */
+     white-space: -o-pre-wrap !important;    /* Opera 7 */
+     word-wrap: break-word !important;       /* Internet Explorer 5.5+ */
+    }
+    html,body{margin:0;padding:4px;}
+}
+
+</style><script>window.MathJax = {     tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] },     startup: {     pageReady() {       return MathJax.startup.defaultPageReady().then(function () {          window.mweb_mathjax_ready_val = 'yes';          if(window.mweb_mathjax_ready !== undefined){ mweb_mathjax_ready(); }       });     }   }};document.addEventListener('DOMContentLoaded', function(event) {    if (typeof Prism != 'undefined') {         Prism.highlightAll();     }});window.mweb_mathjax_ready_val = '';function theMWebMathJaxRenderIsReady(key){ return window.mweb_mathjax_ready_val; }</script><script>window.MathJax = { tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] } }; </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script></head><body><div id='markdown_content' class='markdown-body'><h1><a id="chapter-7-smoothing-techniques" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chapter 7 Smoothing Techniques</h1>
+<h2><a id="convex-conjugate" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convex Conjugate</h2>
+<ul>
+<li><strong>Definition 7.1 (Convex conjugate)</strong> For any function \(f: \mathbb{R}^{n} \rightarrow \mathbb{R}\), its <em>convex conjugate</em> is \(f^{\star}(y)=\sup _{x \in \operatorname{dom}(f)}\left\{x^{\top} y-f(x)\right\}\)</li>
+<li><strong>Fenchel's inequality</strong> \(f^{\star}(y) \geq x^{\top} y-f(x), \forall x, y \; \Rightarrow \; x^{\top} y \leq f(x)+f^{*}(y), \forall x, y\).
+<ul>
+<li>which is a generalization if Yong's inequality \(x^{\top} y \leq \frac{\Vert x\Vert ^{2}}{2}+\frac{\Vert y\Vert _{*}^{2}}{2}, \forall x, y\)</li>
+</ul>
+</li>
+<li><strong>Lemma 7.2 (Sec.12, [Roc97], no proof here)</strong> If \(f\) is convex, lower semi-continuous and proper, then \(\left(f^{\star}\right)^{\star}=f\).
+<ul>
+<li><em>Lower semi-continuous (l.s.c)</em> means \(f(\mathbf{x}) \leq \liminf _{t \rightarrow \infty} f\left(\mathbf{x}_{t}\right)\) for \(\mathbf{x}_{t} \rightarrow \mathbf{x}\). <em>Proper</em> means \(f(x) \geq -\infty\).</li>
+</ul>
+</li>
+<li><strong>Proposition 7.3</strong> If \(f\) is \(\mu\)-strongly convex then \(f^{\star}\) is continuously differentiable and \(\mu^{-1}\)-Lipschitz smooth.
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li><em>Differentiable</em>
+<ul>
+<li>Since \(f\) strongly-convex -&gt; &quot;\(f\) + linear term&quot; strictly convex -&gt; \(\sup _{x \in \operatorname{dom}(f)}\left\{x^{\top} y-f(x)\right\}\) have a unique solution for all \(y\in \mathbb{R}^n\), \(\mathbf{dom}(f^{\star})\) is then convex.</li>
+<li>\(f^{\star}\) is convex since \(\sup _{x \in \operatorname{dom}(f)}\left\{x^{\top} (\lambda y_1 + (1-\lambda)y_2)-f(x)\right\} \geq  \lambda \sup _{x \in \operatorname{dom}(f)}\left\{x^{\top} y_1-f(x)\right\} + (1-\lambda) \sup _{x \in \operatorname{dom}(f)}\left\{x^{\top} y_2-f(x)\right\}\)
+<ul>
+<li>then \(\partial f^{\star}\) is non-empty.</li>
+</ul>
+</li>
+<li>Since \(f\) strongly convex, its level set \(\{x: f(x) \leq \alpha\}\) is closed, and its proper \(f(x)&gt;-\infty\). By lemma 7.2, \(\left(f^{\star}\right)^{\star}=f\).</li>
+<li>Consider \(f^{\star}\)'s subdifferential, \(g\in \partial f^{\star}(z) \Leftrightarrow \forall y, f^{\star}(y) \geq f^{\star}(z) + g^{\top}(y-z) \Leftrightarrow \forall y, g^{\top} y - f^{\star}(y) \leq g^{\top} z - f^{\star}(z)\)
+<ul>
+<li>this means \(g^{\top} z - f^{\star}(z) = \left(f^{\star}\right)^{\star}(g) = f(g)\), equivalently, \(f^{\star}(z) = g^{\top} z - f(g) \Leftrightarrow g \in \arg \max _{x \in \operatorname{dom} f}\left\{y^{\mathcal{T}} x-f(x)\right\}\).</li>
+<li>Since \(f\) strongly convex, \(\arg\max\) is unique, this is a single-valued mapping.</li>
+</ul>
+</li>
+<li>By Lemma 26.1 in <a href="https://books.google.ch/books?hl=zh-CN&amp;lr=&amp;id=1TiOka9bx3sC&amp;oi=fnd&amp;pg=PR7&amp;dq=R.+Tyrrell+Rockafellar.+Convex+Analysis.&amp;ots=HtTHVAJTgb&amp;sig=FV2qBFxDygeUI7ezTkfU8HsGUzU#v=onepage&amp;q=R.%20Tyrrell%20Rockafellar.%20Convex%20Analysis.&amp;f=false">[Roc97]</a>, <em>\(\partial f\) is single values mapping iff \(f\) essentially smooth. In that case \(\partial f\) reduce to gradient mapping \(\nabla f\)</em>.
+<ul>
+<li>This means \(f^{\star}\) is differentiable.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>\(\mu^{-1}\)-smoothness</em>
+<ul>
+<li>By similar argument, we know \(y \in \partial f(g_y)\), by strong convexity \(f(g_z) \geq f(g_y) + y^{\top}(g_z - g_y) + \mu \Vert g_y - g_z\Vert _{a}^2 /2\)
+<ul>
+<li>and also \(f(g_y) \geq f(g_z) + z^{\top}(g_y - g_z) + \mu \Vert g_y - g_z\Vert _{a}^2 /2\)</li>
+</ul>
+</li>
+<li>combine two, we have \(\mu \Vert g_y - g_z\Vert _{a}^2  \leq (g_z - g_y)^{\top} (z - y) \leq \Vert g_z - g_y\Vert _{a} \Vert z - y\Vert _{a*} \Rightarrow \Vert g_y - g_z\Vert _{a} \leq \mu^{-1} \Vert z - y\Vert _{a*}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma 7.4 (Exercise 49)</strong> Let \(f\) and \(g\) be two proper, convex and semi-continuous functions, then
+<ul>
+<li>(a) \((f+g)^{\star}(x)=\inf _{y}\left\{f^{\star}(y)+g^{\star}(x-y)\right\}\)</li>
+<li>(b) \((\alpha f)^{\star}(x)=\alpha f^{\star}\left(\frac{x}{\alpha}\right)\) for \(\alpha&gt;0\).</li>
+<li><strong>Proof</strong>
+<ul>
+<li>(a)
+<ul>
+<li>\((f+g)^{\star}(x) = \sup _{y \in \operatorname{dom}(f\cap g)}\left\{x^{\top} y-f(y) - g(y)\right\} = \sup _{y \in \operatorname{dom}(f\cap g)} \inf_{z} \{ (x-z)^{\top} y- g(y) +  f^{\star}(z)\}\)</li>
+<li>Since function \(h(y,z) := (x-z)^{\top} y- g(y) +  f^{\star}(z)\) is convex w.r.t \(z\) and concave w.r.t. \(y\), then by <em>von Neumann-Fan minimax theorem</em> \(\min \max = \max\min\)
+<ul>
+<li>then \((f+g)^{\star}(x) = \inf_{z} \sup _{y \in \operatorname{dom}(f\cap g)}  \{ (x-z)^{\top} y- g(y) +  f^{\star}(z)\} = \inf_{z}  \{ g^{\star}(x-z) +  f^{\star}(z)\}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>(b) \((\alpha f)^{\star}(x) = \sup _{y \in \operatorname{dom}(f\cap g)}\left\{x^{\top} y- \alpha f(y) \right\} = \alpha \sup _{y \in \operatorname{dom}(f\cap g)}\left\{\alpha^{-1} x^{\top} y-  f(y) \right\} = \alpha f^{\star} (x / \alpha)\).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Examples</strong>
+<ul>
+<li>\(f(\mathbf{x})=\frac{1}{2} \mathbf{x}^{\top} Q \mathbf{x}, Q \succ 0, f^{\star}(y)=\frac{1}{2} \mathbf{y}^{\top} Q^{-1} \mathbf{y}\).</li>
+<li>\(f(\mathbf{x})=\sum_{i=1}^{n} x_{i} \log \left(x_{i}\right), f^{\star}(\mathbf{y})=\sum_{i=1}^{n} e^{y_{i}-1}.\)</li>
+<li>\(f(\mathbf{x})=-\sum_{i=1}^{n} \log \left(x_{i}\right), f^{\star}(\mathbf{y})=-\sum_{i=1}^{n} \log \left(-y_{i}\right)-n.\)</li>
+<li>\(f(\mathbf{x})=\Vert \mathbf{x}\Vert , f^{\star}(\mathbf{y})= \begin{cases}0, &amp; \Vert \mathbf{y}\Vert _{*} \leq 1 \\ +\infty, &amp; \Vert \mathbf{y}\Vert _{*}&gt;1.\end{cases}\)</li>
+</ul>
+</li>
+</ul>
+<h2><a id="smoothing-techniques" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Smoothing Techniques</h2>
+<h3><a id="common-smoothing-techs" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Common Smoothing techs</h3>
+<ul>
+<li><strong>Nesterov's smoothing based on conjugate function</strong> \(f_{\mu}(x)=\max _{y \in \operatorname{dom}\left(f^{*}\right)}\left\{x^{\top} y-f^{\star}(y)-\mu \cdot d(y)\right\} = \left(f^{\star}+\mu d\right)^{\star}(x)\), where \(d(y)\) is some proximity function, \(d\) is (i) 1-strongly convex (ii) non-negative everywhere and (possibly iii) \(\min d(y) = 0\).
+<ul>
+<li>By Prop 7.3, \(f_\mu\) is <em>continuously differentiable</em> and \(\mu^{-1}\)-Lipschitz.</li>
+<li>Examples of \(d\):
+<ul>
+<li>\(d(\mathbf{y})=\frac{1}{2}\lVert \mathbf{y}-\mathbf{y}_{0}\rVert _{2}^{2}\)</li>
+<li>\(d(\mathbf{y})=\frac{1}{2} \sum w_{i}\left(y_{i}-y_{0, i}\right)^{2} \text { with } w_{i} \geq 1\)</li>
+<li>\(d(\mathbf{y}) = V_{\omega}(\mathbf{y}, \mathbf{y}_0)\).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Moreau-Yosida smoothing/regularization</strong> \(f_{\mu}(x)=\min _{y \in \operatorname{dom}(f)}\left\{f(y)+\frac{1}{2 \mu}\Vert x-y\Vert _{2}^{2}\right\}\).
+<ul>
+<li>when \(d(y)=\frac{1}{2}\Vert y\Vert _{2}^{2}\), Nesterov's smoothing turns to Moreau-Yosida regularization (by Lemma 7.4).</li>
+</ul>
+</li>
+<li><strong>Lasry-Lions regularization</strong> double application of M-Y reg \(f_{\mu,\delta}(x)=\max _{y} \min _{z}\left\{f(z)+\frac{1}{2 \mu}\Vert z-y\Vert _{2}^{2}-\frac{1}{2 \delta}\Vert y-x\Vert _{2}^{2}\right\}\)
+<ul>
+<li>If \(f\) 1-Lipschitz, then choosing \((\delta, \mu)=O(\epsilon)\) guarantees \(\epsilon\) approximation error, and \(f_{\mu, \delta}(\mathbf{x})\) is \(O(1 / \epsilon)\)-smooth.</li>
+<li>Computation ineﬃciency due to solving nonconvex problems.</li>
+</ul>
+</li>
+<li><strong>Randomized smoothing</strong> \(f_{\mu}(x)=\mathbb{E}_{Z} f(x+\mu Z)\) where \(Z\) is isotopic Gaussian or uniform.
+<ul>
+<li>Choosing \(\mu=O(\epsilon)\) guarantees  \(\epsilon\) approximation error.</li>
+<li>\(f_{\mu}(\mathbf{x})\) is \(O\left(\frac{\sqrt{d}}{\epsilon}\right)\)-smooth, <u>dimension dependent</u>.</li>
+<li>Stochastic gradient is computationally efficient through sampling.</li>
+</ul>
+</li>
+<li><strong>Ben-Tal-Teboulle smoothing</strong> based on recession function. Only applicable to particular class \(f(x)=F\left(f_{1}(x), f_{2}(x), \ldots, f_{m}(x)\right)\), where \(F(y)=\max _{x \in \operatorname{dom}(g)}\{g(x+y)-g(x)\}\) is the recession function of some func \(g\).
+<ul>
+<li>The smoothed function is \(f_{\mu}(x)=\mu g\left(\frac{f_{1}(x)}{\mu}, \ldots, \frac{f_{m}(x)}{\mu}\right)\).</li>
+</ul>
+</li>
+</ul>
+<h2><a id="nesterov-s-smoothing" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nesterov's Smoothing</h2>
+<ul>
+<li><strong>Proposition 7.10</strong> \(\forall \mu &gt; 0\), let \(D_{Y}^{2}=\max _{y \in Y} d(y)\), \(f(x)-\mu D_{Y}^{2} \leq f_{\mu}(x) \leq f(x)\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Left: \(f_{\mu}(x)=\max _{y \in \operatorname{dom}\left(f^{*}\right)}\left\{x^{\top} y-f^{\star}(y)-\mu \cdot d(y)\right\} \geq \max \left\{x^{\top} y-f^{\star}(y)\right\} - \mu\max \left\{d(y)\right\} = f(x) - \mu D^2\)</li>
+<li>Right: \(f_{\mu}(x)=\max _{y \in \operatorname{dom}\left(f^{*}\right)}\left\{x^{\top} y-f^{\star}(y)-\mu \cdot d(y)\right\} \leq f_{\mu}(x)=\max _{y \in \operatorname{dom}\left(f^{*}\right)}\left\{x^{\top} y-f^{\star}(y)\right\}=f(x)\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Remark</strong> Tadeoff b.t.w. approximation error and optimization efficiency \(f(\mathbf{x})-f^{*} \leq \underbrace{f(\mathbf{x})-f_{\mu}(\mathbf{x})}_{\text {approximation error }}+\underbrace{f_{\mu}(\mathbf{x})-\min _{x} f_{\mu}(\mathbf{x})}_{\text {optimization error }}\).</li>
+<li>Suppose we can access \(\nabla f_{\mu}(x)\) and apply gradient methods to solve \(\min _{x \in X} f_{\mu}(x)\)
+<ul>
+<li>PGD gives \(f\left(x_{t}\right)-f_{*} \leq O\left(\frac{R^{2}}{\mu t}+\mu D_{Y}^{2}\right)\)
+<ul>
+<li>to achieve arror of \(\epsilon\), we have to set \(\mu=O\left(\frac{\epsilon}{D_{Y}^{2}}\right)\), and the number of iteration is \(T = O\left(\frac{R^{2} D_{Y}^{2}}{\epsilon^{2}}\right)\)</li>
+</ul>
+</li>
+<li>Accelerater GD gives \(f\left(x_{t}\right)-f_{*} \leq O\left(\frac{R^{2}}{\mu t^{2}}+\mu D_{Y}^{2}\right)\)
+<ul>
+<li>similarly to achieve error of \(\epsilon\), we have to set \(\mu=O\left(\frac{\epsilon}{D_{Y}^{2}}\right)\) and \(T = O\left(\frac{R D_{Y}}{\epsilon}\right)\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a id="example" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+<ul>
+<li>The function form is generalized as \(f(x)=\max _{y \in Y}\{\langle A x+b, y\rangle-\phi(y)\}\), where \(\phi\) convex and continuous, \(Y\) convex and compact.
+<ul>
+<li>example like \(f(x)=\max _{1 \leq i \leq m}\vert a_{i}^{\mathcal{T}} x-b_{i}\vert\) can be re-written as \(f(x)=\max _{y \in Y} \sum_{i=1}^{m}\left(a_{i}^{\mathcal{T}} x-b_{i}\right) y_{i}\), where \(Y:=\left\{y \in \mathbb{R}^{m}: \sum_{i=1}^{m}\vert y_{i}\vert  \leq 1\right\}\).</li>
+<li>The smoothed function is \(f_{\mu}(x)=\max _{y \in Y}\{\langle A x+b, y\rangle-\phi(y)-\mu \cdot d(y)\} = (\phi + \mu \cdot d)^{\star} (Ax+b)\)</li>
+</ul>
+</li>
+<li>As an example, \(f(x) = \vert x \vert = \sup _{\vert y\vert  \leq 1} y x = \sup _{\substack{y_{1}, y_{2} \geq 0 \\ y_{1}+y_{2}=1}}\left(y_{1}-y_{2}\right) x\),
+<ul>
+<li>\(d(y) = y^2/2\), then \(f_{\mu}(x)=\sup _{\vert y\vert  \leq 1}\left\{y x-\frac{\mu}{2} y^{2}\right\}= \begin{cases}\frac{x^{2}}{2 \mu}, &amp; \vert x\vert  \leq \mu \\ \vert x\vert -\frac{\mu}{2}, &amp; \vert x\vert &gt;\mu\end{cases}\).</li>
+<li>\(d(y)=1-\sqrt{1-y^{2}}\) (half circle), clearly 1-strongly convex. \(f_{\mu}(x)=\sup _{\vert y\vert  \leq 1}\left\{y x-\mu\left(1-\sqrt{1-y^{2}}\right)\right\}=\sqrt{x^{2}+\mu^{2}}-\mu\).
+<ul>
+<li>This is a special case of Ben-Tal &amp; Teboulle's smoothing \(\vert x\vert =\sup _{y}\{g(x+\mu)-g(y)\}, g(y)=\sqrt{1+y^{2}}\) and \(f_{\mu}(x)=\mu g\left({x}/{\mu}\right)=\sqrt{x^{2}+\mu^{2}}\)</li>
+</ul>
+</li>
+<li>\(d(y)=y_{1} \log y_{1}+y_{2} \log y_{2}+\log 2\), where \(Y=\left\{\left(y_{1}, y_{2}\right): y_{1}, y_{2} \geq 0, y_{1}+y_{2}=1\right\}\), \(f_\mu (x) =\mu \log \left(\frac{e^{-\frac{x}{\mu}}+e^{\frac{x}{\mu}}}{2}\right)\)
+<ul>
+<li>This can be seen as \(\vert x\vert =\max \{x,-x\}=\sup _{y}\{g(x+\mu)-g(y)\}, \quad g(y)=\log \left(e^{y_{1}}+e^{y_{2}}\right)\).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="moreau-yosida-regularization" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Moreau-Yosida Regularization</h2>
+<ul>
+<li><strong>Definition 7.11</strong> the <em>proximal operator</em> of convex \(f\) at a given point \(x\) is defined as \(\operatorname{prox}_{f}(x)=\underset{y}{\operatorname{argmin}}\left\{f(y)+\frac{1}{2}\Vert x-y\Vert ^{2}\right\}\).</li>
+<li><strong>Examples</strong>
+<ul>
+<li>Indicator function \(f(\mathbf{x})=\delta_{X}(\mathbf{x})= \begin{cases}0, &amp; \mathbf{x} \in X \\ +\infty, &amp; \mathbf{x} \notin X\end{cases}\), \(\operatorname{prox}_{f}(\mathbf{x})=\Pi_{X}(\mathbf{x})\) is the projection.</li>
+<li>\(f(\mathbf{x})=\mu\Vert \mathbf{x}\Vert _{1}\), \(\operatorname{prox}_{\mu\vert \cdot\vert }\left(x_{i}\right)= \begin{cases}x_{i}-\mu &amp; \text { if } x_{i}&gt;\mu \\ 0 &amp; \text { if }\vert x_{i}\vert  \leq \mu \\ x_{i}+\mu &amp; \text { if } x_{i}&lt;-\mu\end{cases} = \operatorname{sign}(\mathbf{x}) \otimes[\vert \mathbf{x}\vert -\lambda]+\) <em>soft thresholding operator</em>.</li>
+<li>2-norm \(f(\mathbf{x}):=\Vert \mathbf{x}\Vert _{2}\), \(\operatorname{prox}_{\lambda f}(\mathbf{x})=\left[1-\lambda /\Vert \mathbf{x}\Vert _{2}\right]+\mathbf{x}\)</li>
+<li>Support function \(f(\mathbf{x}):=\max _{\mathbf{y} \in \mathcal{C}} \mathbf{x}^{T} \mathbf{y}\), \(\operatorname{prox}_{\lambda_{f}}(\mathbf{x})=\mathbf{x}-\lambda \pi_{\mathcal{C}}(\mathbf{x})\)</li>
+<li>Square norm \(f(\mathbf{x}):=(1 / 2)\Vert \mathbf{x}\Vert _{2}^{2}\), \(\operatorname{prox}_{\lambda f}(\mathbf{x})=(1 /(1+\lambda)) \mathbf{x}\)</li>
+<li>log function \(f(\mathbf{x}):=-\log (x)\), \(\operatorname{prox}_{\lambda f}(x)=\left(\left(x^{2}+4 \lambda\right)^{1 / 2}+x\right) / 2\)</li>
+<li>log det \(f(\mathbf{x}):=-\log \operatorname{det}(\mathbf{X})\), \(\operatorname{prox}_{\lambda f}(x)\) is the log function prox applied to the individual eigenvalues of \(\mathbf{X}\).</li>
+</ul>
+</li>
+<li><strong>Proposition 7.13</strong> \(f\) convex, then
+<ul>
+<li>(a) <em>fixed point</em> \(x^{\star}\) minimized \(f(x)\) iff \(x^{\star}=\operatorname{prox}_{f}\left(x^{\star}\right)\)
+<ul>
+<li><strong>Proof</strong> (one direction is obvious)
+<ul>
+<li>\(x^{\star}=\operatorname{prox}_{f}\left(x^{\star}\right) \Leftrightarrow \forall y, f(x^{\star}) \leq f(y) + \frac{1}{2}\Vert x^{\star} - y\Vert ^2\)</li>
+<li>If \(\exists y_0\) s.t. \(f(y) &lt; f(x^{\star})\), by convexity, \(f(y_\lambda) := f(x^{\star} + \lambda(y-x^{\star})) \leq f(x^{\star}) - \lambda (f(x^{\star})-f(y)) \Rightarrow  f(x^{\star}) \geq f(x^{\star} + \lambda(y-x^{\star})) + \lambda (f(x^{\star})-f(y))\)</li>
+<li>Setting \(\lambda \min \{1, \alpha 2(f(x^{\star})-f(y)) / \Vert x^{\star} - y\Vert ^2\}\), we get \(f(x^{\star}) \geq f(y_\lambda) + \frac{\alpha}{2} \Vert x^{\star} - y_\lambda\Vert ^2\), setting \(\alpha &gt; 1\) and we get contradiction.</li>
+<li>Another path is to prove \(0 \in \partial f\left(x_{*}\right)+\left(x_{*}-x_{*}\right) \Longrightarrow 0 \in \partial f\left(x_{*}\right)\).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>(b) <em>Non-expansive</em> \(\lVert \operatorname{prox}_{f}(x)-\operatorname{prox}_{f}(y)\rVert  \leq\Vert x-y\Vert\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>by optimial condition (suppose \(\mathbf{dom}(f) = \mathbb{R}^n\)), \(\nabla f(\mathrm{prox}(x)) + \mathrm{prox}(x) - x = 0\) and \(\nabla f(\mathrm{prox}(y)) + \mathrm{prox}(y) - y = 0\)</li>
+<li>By convexity \((\nabla f(\mathrm{prox}(y)) - \nabla f(\mathrm{prox}(x)))^{\top}(\mathrm{prox}(y) - \mathrm{prox}(x))\geq 0\)
+<ul>
+<li>This means \((y - x)^{\top}(\mathrm{prox}(y) - \mathrm{prox}(x))\geq \Vert \mathrm{prox}(y) - \mathrm{prox}(x)\Vert _2^2 \Rightarrow\) QED</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>(c) <em>Moreau Decomposition</em> \(x=\operatorname{prox}_{f}(x)+\operatorname{prox}_{f^{\star}}(x)\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By fact of \(\partial f^{\star}(g) = \arg\max_{x} \{ g^{\top} x - f(x) \} = \{x\vert  \nabla f(x) = g  \}\)</li>
+<li>we already have \(\nabla f(\mathrm{prox}(x)) + \mathrm{prox}(x) - x = 0\)
+<ul>
+<li>which can be seen as \(g=\nabla f(\mathrm{prox}(x))\), so \(\nabla f^{\star} (g) = \mathrm{prox}(x))\)</li>
+<li>then this means \(g + \nabla f^{\star} (g)  - x = 0\), which is the optimial condition for \(\mathrm{prox}_{f^{\star}}(x)\), QED.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a id="proximal-point-algorithm" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Proximal Point Algorithm</h3>
+<ul>
+<li><strong>Proximal Point Algorithm (PPA)</strong> \(\mathbf{x}_{t+1}=\operatorname{prox}_{\gamma{t} f}\left(\mathbf{x}_{t}\right)\)
+<ul>
+<li>This comes from \(x_{t+1}=x_{t}-L^{-1} \nabla f_{\mu}\left(x_{t}\right)\), (Danskin's thm used here)</li>
+</ul>
+</li>
+<li><strong>Example</strong> \(\min_x \Vert Ax + b\Vert _2^2 + \lambda \Vert x\Vert _1 = \min_x f_1 + f_2\), where \(f_1\) differentiable while \(f_2\) is not. Usually we approximate \(x_{t+1} = \mathrm{prox}_{f_2} (x_t - \frac{1}{L_{f_1}} \nabla f_1(x_t))\).</li>
+<li><strong>Theorem 7.14</strong> If \(f\) convex, then PPA satisfies \(f\left(x_{t}\right)-f^{\star} \leq \frac{\lVert x_{0}-x_{*}\rVert _{2}^{2}}{2 \sum_{\tau=0}^{t-1} \gamma_{\tau}}\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>by the optimality condition of \(x_{t+1}\), \(f(x_{t+1) + \frac{1}{2\gamma_t}\Vert x_{t+1} - x_{t}\Vert _2^2 \leq f(x_t)\), this is something like sufficient decrease.</li>
+<li>by first order optimality condition, \(0 \in \partial f\left(x_{t+1}\right)+\frac{1}{\gamma_{t}}\left(x_{t+1}-x_{t}\right) \Longrightarrow \frac{x_{t}-x_{t+1}}{\gamma_{t}} \in \partial f\left(x_{t+1}\right)\),
+<ul>
+<li>so by convexity/subgradient \(f\left(x_{\tau+1}\right)-f^{\star}  \leq \frac{1}{\gamma_{\tau}}\left(x_{\tau}-x_{\tau+1}\right)^{T}\left(x_{\tau+1}-x_{*}\right) = \frac{1}{\gamma_{t}}\left[\left(x_{\tau}-x_{*}\right)^{T}\left(x_{\tau+1}-x_{*}\right)-\lVert x_{\tau+1}-x_{*}\rVert ^{2}\right]\)</li>
+<li>By Young's inequality, \(\left(x_{\tau}-x_{*}\right)^{T}\left(x_{\tau+1}-x_{*}\right) \leq \frac{1}{2}\left[\lVert x_{\tau}-x_{*}\rVert ^{2}+\lVert x_{\tau+1}-x_{*}\rVert ^{2}\right]\), plug this in and we get</li>
+<li>\(\gamma_{\tau}\left(f\left(x_{\tau+1}\right)-f^{\star}\right) \leq \frac{1}{2}\left[\lVert x_{\tau}-x_{*}\rVert ^{2}-\lVert x_{\tau+1}-x_{*}\rVert ^{2}\right]\)</li>
+<li>Then we can happily do our summation over \(t\in[0:T-1]\)</li>
+</ul>
+</li>
+<li>Since we have monotonicity in \(f\), this algorithm have last iteration convergence.</li>
+</ul>
+</li>
+<li><em>Comment</em> prox step is more like a second order step.... more computation, but also more effective.</li>
+<li>Algorithm converge a.l.a \(\sum_{t} \gamma_{t} \rightarrow \infty\).</li>
+<li>Larger \(\gamma_t\) makes algo converge faster, but harder to solve each step.</li>
+</ul>
+</li>
+</ul>
+</div></body></html>

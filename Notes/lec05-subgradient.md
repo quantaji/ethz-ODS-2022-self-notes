@@ -135,8 +135,26 @@
         - then take $k\to\infty$, we get $\limsup _{t \rightarrow \infty}\lVert \mathbf{x}_{t}-\hat{\mathbf{x}}\rVert _{2}^{2} \leq \lim _{k \rightarrow \infty}\lVert \mathbf{x}_{t_{k}}-\hat{\mathbf{x}}\rVert _{2}^{2}=0$.
 
 ### Similar result under Polyak's step size (Exercise Prob 5)
+- For non-differentiable convex $f$, $\mu$-strongly convex w.r.t. 2-norm is defined to be $f_{\mu}(x):=f(x)-\frac{\mu}{2}\Vert \mathbf{x}\Vert ^{2}$ is convex. It can also be shown that this means $f(y) \geq f(x)+g^{\top}(y-x)+\frac{\mu}{2}\Vert x-y\Vert ^{2}$.
+- **Lemma I** If $f$ convex and $B$-Lipschitz, optimization in whole space $x \in \mathbb{R}^{d}$ with Polyak step size gives $\min _{1 \leq t \leq T} f\left(x_{t}\right)-f\left(x^{*}\right) \leq \frac{B\lVert x_{1}-x^{*}\rVert _{2}}{\sqrt{T}}$.
+    - **Proof**
+        - Denote $h_t:=f\left(x_{t}\right)-f\left(x^{*}\right)$ and $d_t:=\lVert x_{t}-x^{*}\rVert _{2}$, update gives $d_{t+1}^{2} \leq d_{t}^{2}-\frac{h_{t}^{2}}{\lVert \mathbf{g}_{t}\rVert _{2}^{2}}$
+        - equivalently $h_{t}^{2} \leq\lVert \mathbf{g}_{t}\rVert _{2}^{2}\left(d_{t}^{2}-d_{t+1}^{2}\right) \leq B^{2}\left(d_{t}^{2}-d_{t+1}^{2}\right)$
+        - sum over $t=[1:T]$ gives the result.
+- **Lemma J** If $f$ $\mu$-strongly convex and $B$-Lipschitz, optimization in whole space $x \in \mathbb{R}^{d}$ with  Polyak step size gives $\min _{1 \leq t \leq T} f\left(x_{t}\right)-f\left(x^{*}\right) \leq \frac{4 B^{2}}{\mu T}$
+    - **Proof**
+        - Similarly, $d_{t+1}^{2} - d_{t}^{2} \leq -\frac{h_{t}^{2}}{\lVert \mathbf{g}_{t}\rVert _{2}^{2}} \leq  -\frac{h_{t}^{2}}{B^{2}} $
+        - By strong convexity w.r.t. optimial point (since optimization on whole space, $0\in\partial f(\mathbf{x}^{\star})$, $h_{t} = f(\mathbf{x}_t) - f(\mathbf{x}^{\star}) \leq \mu d_t^2/2$,
+            - this means $d_{t+1}^{2} - d_{t}^{2} \leq  -\frac{h_{t}^{2}}{B^{2}} \leq - \frac{\mu^2}{4B^2}d_t^4$. Denote $a_{t}=\mu^{2}\lVert x_{t}-x^{*}\rVert _{2}^{2} /\left(4 B^{2}\right)$, we have $a_{t+1} \leq a_t(1 - a_t)$
+        - By strong convexity w.r.t. $x_0$ and $x^{\star}$, we have $f^{\star} \geq f(x_0) + \mathbf{g}_0^{\top}(x^{\star} - x_0) + \mu \Vert \Delta x_0\Vert _2^2 / 2$
+            - by sufficient descent of Polyak step size, $0 \geq - h_0 \geq \mu d_0^2/2 - \mathbf{g}_0^{\top}\Delta x_0$,
+            - this means $\mu d_0^2 /2 \geq \mathbf{g}_0^{\top}\Delta x_0 \leq B d_0$, take square we get $a_0 \leq 1 $.
+        - We claim $a_t \leq 1/(t+1)$, by induction, we have $a_{t+1} \leq \frac{1}{t+2} \frac{t(t+2)}{(t+1)^2}$ (by monotonicity of $x(1-x)$ in $[0, 1/2]$)
+            - Since $b_t := t/t+1$ is increasing, $b_{t}/b_{t+1} = \frac{t(t+2)}{(t+1)^2} \leq 1$, this means $a_{t+1} \leq \frac{1}{t+2}$, induction succeeds.
+            - This means $d_t^2 \leq \frac{4B^2}{\mu^2} \frac{1}{t+1} \leq \frac{4B^2}{\mu^2} \frac{1}{t} $
+        - Again, by $d_{t+1}^{2} - d_{t}^{2} \leq  -\frac{h_{t}^{2}}{B^{2}} $, sum over $t\in[T/2, T]$, we get $\sum_{t=T/2}^{T} h_t^2 \leq B^2 (d_{T/2}^2 - d^2_{T}) \leq  B^2 d_{T/2}^2 \leq \frac{8B^4}{\mu^2} \frac{1}{T}$
+            - this means $\min_{t\in[T/2:T]} h_t^2 \leq \frac{16B^4}{\mu^2} \frac{1}{T^2}$, taking square root and we finish our proof.
 
-Left Blank
     
 ### $\mathcal{O}(1 / t)$ convergence for strong convex functions
 - **Lemma E(Descent Lemma under strong convexity)** $f$ is $\mu$-strongly convex, then $\lVert \mathbf{x}_{t+1}-\mathbf{x}^{*}\rVert _{2}^{2} \leq\left(1-\mu \gamma_{t}\right)\lVert \mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2}^{2}-2 \gamma_{t}\left(f\left(\mathbf{x}_{t}\right)-f^{*}\right)+\gamma_{t}^{2}\lVert \mathbf{g}_{t}\rVert _{2}^{2}$
@@ -226,7 +244,7 @@ We can show that, the above $\mathcal{O}(1/\sqrt{t})$ and $\mathcal{O}(1/t)$ can
         - Combine the above two, $V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t}) + \langle\gamma_t \mathbf{g}_{t}, \mathbf{x}_{t+1} - \mathbf{x}_{t}\rangle \geq \Vert \mathbf{x}_{t} - \mathbf{x}_{t+1}\Vert ^2_{a}/2 - \gamma_t^2 \Vert \mathbf{g}_t\Vert _{a*}^2/2 - \Vert \mathbf{x}_{t} - \mathbf{x}_{t+1}\Vert ^2_{a}/2 = - \gamma_t^2 \Vert \mathbf{g}_t\Vert _{a*}^2/2$
         - Combine above, we arrive at the descent lemma.
            
-- **THEOREM 6.28** $f$ convex, then $\displaystyle \max\left\{\min _{1 \leq t \leq T} f\left(x_{t}\right), f\left(\hat{x}_{T}\right)\right\}-f^{*} \leq \frac{V_{\omega}\left(x^{*}, x_{1}\right)+\frac{1}{2} \sum_{t=1}^{T} \gamma_{t}^{2}\lVert g\left(x_{t}\right)\rVert _{*}^{2}}{\sum_{t=1}^{T} \gamma_{t}}$, where $\displaystyle \hat{x}_T = \frac{\sum_{t=1}^{T} \gamma_{t} x_{t}}{\sum_{t=1}^{T} \gamma_{t}}$.
+- **Theorem 6.28** $f$ convex, then $\displaystyle \max\left\{\min _{1 \leq t \leq T} f\left(x_{t}\right), f\left(\hat{x}_{T}\right)\right\}-f^{*} \leq \frac{V_{\omega}\left(x^{*}, x_{1}\right)+\frac{1}{2} \sum_{t=1}^{T} \gamma_{t}^{2}\lVert g\left(x_{t}\right)\rVert _{*}^{2}}{\sum_{t=1}^{T} \gamma_{t}}$, where $\displaystyle \hat{x}_T = \frac{\sum_{t=1}^{T} \gamma_{t} x_{t}}{\sum_{t=1}^{T} \gamma_{t}}$.
     - **Proof** Similar to Theorem 6.17, sum over all $t\in[1:T]$ we get the result.
     - Convergence similar to subgradient case $\min _{1 \leq t \leq T} f\left(\mathbf{x}_{t}\right)-f^{*}=O\left(\frac{B R}{\sqrt{T}}\right)$, where $R=\sqrt{\max _{\mathbf{x} \in X} V_{\omega}\left(\mathbf{x}, \mathbf{x}_{1}\right)}$ and $B:=\sup _{\mathbf{x} \in X} \frac{\vert f(\mathbf{x})-f(\mathbf{y})\vert }{\Vert \mathbf{x}-\mathbf{y}\Vert }$.
 - The constant may be different. **Example of Simplex** of $X=\left\{x \in \mathbb{R}^{d}: x_{i} \geq 0, \sum_{i=1}^{d} x_{i}=1\right\}$, assume $\Vert \mathbf{g}\Vert _{\infty} \leq 1$,

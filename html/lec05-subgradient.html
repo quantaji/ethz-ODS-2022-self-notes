@@ -807,7 +807,7 @@ body{ box-sizing: border-box;
 <li><strong>Proof</strong> \(\partial f(x) = \cap_{y}\left\{g \in \mathbb{R}^{n}: f(y) \geq f(x)+g^{\top}(y-x)\right\}\), solution of \(g\) for each \(y\) is convex and closed linear separation.</li>
 </ul>
 </li>
-<li><strong>Deﬁnition 6.7 (separation of convex sets)</strong> Let \(S\) and \(T\) be two nonempty convex sets in \(\mathbb{R}^n\). A hyperplane \(H=\left\{x \in \mathbb{R}^{n}: a^{\top} x=b, a\neq 0\right\}\) is said to <em>separate</em> \(S\) and \(T\) if \(S \cup T \not \subset H\) and \(S \subset H^{-}=\left\{x \in \mathbb{R}^{n}: a^{\top} x \leq b\right\}\) and \(T \subset H^{+}=\left\{x \in \mathbb{R}^{n}: a^{\top} x \geq b\right\}\).
+<li><strong>Definition 6.7 (separation of convex sets)</strong> Let \(S\) and \(T\) be two nonempty convex sets in \(\mathbb{R}^n\). A hyperplane \(H=\left\{x \in \mathbb{R}^{n}: a^{\top} x=b, a\neq 0\right\}\) is said to <em>separate</em> \(S\) and \(T\) if \(S \cup T \not \subset H\) and \(S \subset H^{-}=\left\{x \in \mathbb{R}^{n}: a^{\top} x \leq b\right\}\) and \(T \subset H^{+}=\left\{x \in \mathbb{R}^{n}: a^{\top} x \geq b\right\}\).
 <ul>
 <li>PS: It's OK that one of \(S\) or \(T\) is a point, or part of the hyperplane.</li>
 <li><em>Strictly separation</em> if \(S \subset H^{--}=\left\{x \in \mathbb{R}^{n}: a^{\top} x&lt;b\right\}\) and \(T \subset H^{++}=\left\{x \in \mathbb{R}^{n}: a^{\top} x&gt;b\right\}\).</li>
@@ -1013,6 +1013,61 @@ body{ box-sizing: border-box;
 <li>then \((f(x_t) - f(x^{\star}))^2 \leq \Vert \mathbf{g}_t\Vert ^2  ( \lVert x_{t}-x^{*}\rVert _{2}^2 - \lVert x_{t+1}-x^{*}\rVert _{2}^2 ) \leq B^2 (\lVert x_{t}-x^{*}\rVert _{2}^2 - \lVert x_{t+1}-x^{*}\rVert _{2}^2)\)</li>
 <li>then \(\sum_{t=1}^{T}\left(f\left(x_{t}\right)-f^{*}\right)^{2} \leq R^{2} \cdot M&lt;\infty\), this means \(f\left(\mathbf{x}_{t}\right) \rightarrow f^{*}\).</li>
 <li><strong>Note</strong> this is <em>last iterate</em> convergence, not <em>average</em> convergence!</li>
+<li>can also show that \(\exists \mathbf{x}^{\star}\in X^{\star}\) s.t. \(\lim \sup _{t \rightarrow \infty}\lVert \mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2} \rightarrow 0\), converge to one of the optimal point.
+<ul>
+<li>Since series \(\lVert \mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2}\) is bounded and non-increasing, there exists a subsequence \(\left\{\mathbf{x}_{t_{k}}\right\}\) with accumulation point \(\hat{\mathbf{x}}\),</li>
+<li>Since we already have \(f\left(\mathbf{x}_{t}\right) \rightarrow f^{*}\), then \(\hat{\mathbf{x}} \in X^{*}\).</li>
+<li>So \(\lVert \mathbf{x}_{t+1}-\hat{\mathbf{x}}\rVert _{2}^{2} \leq\lVert \mathbf{x}_{t_{k}}-\hat{\mathbf{x}}\rVert _{2}^{2}-\sum_{j=t_{k}}^{t} \frac{\left(f\left(\mathbf{x}_{j}\right)-f^{*}\right)^{2}}{\lVert g\left(\mathbf{x}_{j}\right)\rVert _{2}^{2}}\),</li>
+<li>taking \(\lim\sup\) we have \(\lim\sup_{t\to\infty} \lVert \mathbf{x}_{t}-\hat{\mathbf{x}}\rVert _{2}^{2} \leq\lVert \mathbf{x}_{t_{k}}-\hat{\mathbf{x}}\rVert _{2}^{2}-\sum_{j=t_{k}}^{\infty} \frac{\left(f\left(\mathbf{x}_{j}\right)-f^{*}\right)^{2}}{\lVert g\left(\mathbf{x}_{j}\right)\rVert _{2}^{2}}\)</li>
+<li>then take \(k\to\infty\), we get \(\limsup _{t \rightarrow \infty}\lVert \mathbf{x}_{t}-\hat{\mathbf{x}}\rVert _{2}^{2} \leq \lim _{k \rightarrow \infty}\lVert \mathbf{x}_{t_{k}}-\hat{\mathbf{x}}\rVert _{2}^{2}=0\).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a id="similar-result-under-polyak-s-step-size-exercise-prob-5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Similar result under Polyak's step size (Exercise Prob 5)</h3>
+<ul>
+<li>For non-differentiable convex \(f\), \(\mu\)-strongly convex w.r.t. 2-norm is defined to be \(f_{\mu}(x):=f(x)-\frac{\mu}{2}\Vert \mathbf{x}\Vert ^{2}\) is convex. It can also be shown that this means \(f(y) \geq f(x)+g^{\top}(y-x)+\frac{\mu}{2}\Vert x-y\Vert ^{2}\).</li>
+<li><strong>Lemma I</strong> If \(f\) convex and \(B\)-Lipschitz, optimization in whole space \(x \in \mathbb{R}^{d}\) with Polyak step size gives \(\min _{1 \leq t \leq T} f\left(x_{t}\right)-f\left(x^{*}\right) \leq \frac{B\lVert x_{1}-x^{*}\rVert _{2}}{\sqrt{T}}\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Denote \(h_t:=f\left(x_{t}\right)-f\left(x^{*}\right)\) and \(d_t:=\lVert x_{t}-x^{*}\rVert _{2}\), update gives \(d_{t+1}^{2} \leq d_{t}^{2}-\frac{h_{t}^{2}}{\lVert \mathbf{g}_{t}\rVert _{2}^{2}}\)</li>
+<li>equivalently \(h_{t}^{2} \leq\lVert \mathbf{g}_{t}\rVert _{2}^{2}\left(d_{t}^{2}-d_{t+1}^{2}\right) \leq B^{2}\left(d_{t}^{2}-d_{t+1}^{2}\right)\)</li>
+<li>sum over \(t=[1:T]\) gives the result.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma J</strong> If \(f\) \(\mu\)-strongly convex and \(B\)-Lipschitz, optimization in whole space \(x \in \mathbb{R}^{d}\) with  Polyak step size gives \(\min _{1 \leq t \leq T} f\left(x_{t}\right)-f\left(x^{*}\right) \leq \frac{4 B^{2}}{\mu T}\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Similarly, \(d_{t+1}^{2} - d_{t}^{2} \leq -\frac{h_{t}^{2}}{\lVert \mathbf{g}_{t}\rVert _{2}^{2}} \leq  -\frac{h_{t}^{2}}{B^{2}} \)</li>
+<li>By strong convexity w.r.t. optimial point (since optimization on whole space, \(0\in\partial f(\mathbf{x}^{\star})\), \(h_{t} = f(\mathbf{x}_t) - f(\mathbf{x}^{\star}) \leq \mu d_t^2/2\),
+<ul>
+<li>this means \(d_{t+1}^{2} - d_{t}^{2} \leq  -\frac{h_{t}^{2}}{B^{2}} \leq - \frac{\mu^2}{4B^2}d_t^4\). Denote \(a_{t}=\mu^{2}\lVert x_{t}-x^{*}\rVert _{2}^{2} /\left(4 B^{2}\right)\), we have \(a_{t+1} \leq a_t(1 - a_t)\)</li>
+</ul>
+</li>
+<li>By strong convexity w.r.t. \(x_0\) and \(x^{\star}\), we have \(f^{\star} \geq f(x_0) + \mathbf{g}_0^{\top}(x^{\star} - x_0) + \mu \Vert \Delta x_0\Vert _2^2 / 2\)
+<ul>
+<li>by sufficient descent of Polyak step size, \(0 \geq - h_0 \geq \mu d_0^2/2 - \mathbf{g}_0^{\top}\Delta x_0\),</li>
+<li>this means \(\mu d_0^2 /2 \geq \mathbf{g}_0^{\top}\Delta x_0 \leq B d_0\), take square we get \(a_0 \leq 1 \).</li>
+</ul>
+</li>
+<li>We claim \(a_t \leq 1/(t+1)\), by induction, we have \(a_{t+1} \leq \frac{1}{t+2} \frac{t(t+2)}{(t+1)^2}\) (by monotonicity of \(x(1-x)\) in \([0, 1/2]\))
+<ul>
+<li>Since \(b_t := t/t+1\) is increasing, \(b_{t}/b_{t+1} = \frac{t(t+2)}{(t+1)^2} \leq 1\), this means \(a_{t+1} \leq \frac{1}{t+2}\), induction succeeds.</li>
+<li>This means \(d_t^2 \leq \frac{4B^2}{\mu^2} \frac{1}{t+1} \leq \frac{4B^2}{\mu^2} \frac{1}{t} \)</li>
+</ul>
+</li>
+<li>Again, by \(d_{t+1}^{2} - d_{t}^{2} \leq  -\frac{h_{t}^{2}}{B^{2}} \), sum over \(t\in[T/2, T]\), we get \(\sum_{t=T/2}^{T} h_t^2 \leq B^2 (d_{T/2}^2 - d^2_{T}) \leq  B^2 d_{T/2}^2 \leq \frac{8B^4}{\mu^2} \frac{1}{T}\)
+<ul>
+<li>this means \(\min_{t\in[T/2:T]} h_t^2 \leq \frac{16B^4}{\mu^2} \frac{1}{T^2}\), taking square root and we finish our proof.</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1043,6 +1098,193 @@ body{ box-sizing: border-box;
 <li>Times \(t\) on each side and we get \(t \left(f\left(\mathbf{x}_{t}\right)-f^{*}\right) \leq \frac{\mu t(t-1)}{4}\lVert \mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2}^{2}-\frac{\mu(t+1)t}{4}\lVert \mathbf{x}_{t+1}-\mathbf{x}^{*}\rVert _{2}^{2}+\frac{t}{\mu(t+1)}\lVert \mathbf{g}_{t}\rVert _{2}^{2}\)</li>
 <li>Since \(\frac{t}{\mu(t+1)}\lVert \mathbf{g}_{t}\rVert _{2}^{2} \leq \frac{1}{\mu}B^{2}\), sum over \(t=[1:T]\) and get \(\sum_{t=1}^{T} t\left(f\left(\mathbf{x}_{t}\right)-f^{*}\right) \leq-\frac{\mu T(T+1)}{4}\lVert \mathbf{x}_{T+1}-\mathbf{x}^{*}\rVert _{2}^{2}+\frac{T}{\mu} B^{2}\)</li>
 <li>else is straightforward.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="lower-bound-complexity" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lower Bound Complexity</h2>
+<p>We can show that, the above \(\mathcal{O}(1/\sqrt{t})\) and \(\mathcal{O}(1/t)\) can not be improved. The worst case function is given by the piecewise-linear function similar to \(f(x)=\max _{1 \leq i \leq n} x_{i}\).</p>
+<ul>
+<li><strong>Theorem 6.20 (Nemirovski &amp; Yudin 1979)</strong>. For any \(1 \leq t \leq n, x_{1} \in \mathbb{R}_{n}\),
+<ul>
+<li>(i) <em>\(B\)-Lipschit</em> there exists a \(B\)-Lipschitz continuous function \(f\) and a convex set \(X\) with diameter \(R\), such that for any first-order method that generates \(\mathbf{x}_{t} \in \mathbf{x}_{1}+\operatorname{span}\left(\mathbf{g}_{1}, \ldots, \mathbf{g}_{t-1}\right)\), where \(\mathbf{g}_{i} \in \partial f\left(\mathbf{x}_{i}\right)\), we have \(\min _{1 \leq s \leq t} f\left(\mathbf{x}_{s}\right)-f^{*} \geq \frac{B \cdot R}{4(1+\sqrt{t})}\).</li>
+<li>(ii) <em>\(B\)-Lipschitz and \(\mu\)-convex</em> there exists a \(\mu\)-strongly convex, \(B\)-Lipschitz continuous function \(f\) and a convex set \(X\) with diameter \(R\), for any ﬁrst-order method as described above, we always have \(\min _{1 \leq s \leq t} f\left(x_{s}\right)-f^{*} \geq \frac{B^{2}}{8 \mu t}\).</li>
+<li><strong>Proof</strong>
+<ul>
+<li>The function we construct is \(f(x)=C \cdot \max _{1 \leq i \leq t} x_{i}+\frac{\mu}{2}\Vert x\Vert _{2}^{2},\) and we restrict ourself within region \(X=\left\{x \in \mathbb{R}^{n},\Vert x\Vert _{2} \leq R\right\}\).
+<ul>
+<li>The subgradient is \(\partial f(x)=\mu x+C \cdot \operatorname{conv}\left\{e_{i}: i \text { such that } x_{i}=\max _{1 \leq j \leq t} x_{j}\right\}\).</li>
+<li>The optimal solution is \(x_{i}^{*}=\begin{cases}-\frac{C}{\mu t} &amp; 1 \leq i \leq t \\0 &amp; t&lt;i \leq n\end{cases}\) and \(f^{*}=-\frac{C^{2}}{2 \mu t}\), can be verified by \(0 \in \partial f(x)\).</li>
+</ul>
+</li>
+<li>Since all subgradient method controls \(\gamma_T\), but not how to choose subgradient, we can design a process that gives worst case. The update is design to have \(g(x)=C \cdot e_{i}+\mu x\), only one pure direction of \(x_{i}=\max _{1 \leq j \leq t} x_{j}\), but not its combination.
+<ul>
+<li>To simplify, we always choose the smallest one.</li>
+</ul>
+</li>
+<li>We claim that if we start from \(x_{s=1} = 0\), then \(x_{s} \in \operatorname{span}\left(e_{1}, \ldots, e_{s-1}\right)\), always one dimension less than \(s\).
+<ul>
+<li>When \(s=2\), all coordinates are equal and we choose \(e_1\) to update, so \(x_{s=2} \in \mathrm{span}\{e_1\}\).</li>
+<li>By our update rule \(g(x)=C \cdot e_{i}+\mu x\), the span can only increase at most one dimension at each update, so induction still holds.</li>
+</ul>
+</li>
+<li>This means for \(x_s, 1\leq s \leq t\), at least one coordinate is unchanged as \(0\). So \(\max _{1 \leq i \leq t} x_{i}\) -&gt; \(f(x_s) \geq 0\).
+<ul>
+<li>This gives \(\min _{1 \leq s \leq t} f\left(x_{s}\right)-f^{*} \geq \frac{C^{2}}{2 \mu t}\)</li>
+</ul>
+</li>
+<li>Choosing \(C=\frac{B \sqrt{t}}{1+\sqrt{t}}, \mu=\frac{2 B}{R(1+\sqrt{t})}\), we have \(\Vert \partial f(x)\Vert _{2} \leq C+\mu\Vert x\Vert _{2} \leq C+\mu R=: M\), this is the \(M\)-Lipschitz case, we have \(\min _{1 \leq s \leq t} f\left(x_{s}\right)-f^{*} \geq \frac{C^{2}}{2 \mu t}=\frac{B \cdot R}{2(1+\sqrt{t})}\).</li>
+<li>Choosing \(C=\frac{B}{2}, \mu=\frac{B}{R}\), we have \(\Vert \partial f(x)\Vert _{2} \leq C+\mu R=:M\), this is \(M\)-Lispchitz and \(\mu\)-strongly convex case, we have \(\min _{1 \leq s \leq t} f\left(x_{s}\right)-f^{*} \geq \frac{C^{2}}{2 \mu t}=\frac{B^{2}}{8 \mu t}\)</li>
+</ul>
+</li>
+<li><em>Comment</em> This theorem is so strange that number of updates is related to dimension.</li>
+</ul>
+</li>
+</ul>
+<h2><a id="mirror-descent" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mirror Descent</h2>
+<ul>
+<li><strong>Key Idea</strong> Update can be viewed as \(x_{t+1}=\underset{x \in X}{\operatorname{argmin}}\left\{\frac{1}{2}\lVert x-x_{t}\rVert _{2}^{2}+\left\langle\gamma_{t} g\left(x_{t}\right), x\right\rangle\right\}\), how about we change \(\Vert \cdot\Vert _2^2\) to something else.</li>
+</ul>
+<h3><a id="bregman-divergence" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bregman Divergence</h3>
+<ul>
+<li><strong>Definition 6.22</strong> Let \(\omega(x): X \rightarrow \mathbb{R}\) be a function that is <em>strictly</em> convex, continuously differentiable on a closed convex set \(X\). The <em>Bregman divergence</em> is defined as \(V_{\omega}(x, y)=\omega(x)-\omega(y)-\nabla \omega(y)^{T}(x-y), \forall x, y \in X\).
+<ul>
+<li>Asymmetric \(V_{\omega}(x, y) \neq V_{\omega}(y, x)\), not a valid distance, triangle inequality may not hold.</li>
+<li>\(\omega(\cdot)\) is called <em>distance-generating function</em>.</li>
+<li>If \(\omega(\cdot)\) is also \(\sigma\)-strongly convex w.r.t. norm \(\Vert \cdot\Vert _{a}\), then \(V_{\omega}(x,y) \geq \sigma \Vert x-y\Vert _{a}^2 /2\).</li>
+</ul>
+</li>
+<li><strong>Example</strong>
+<ul>
+<li><em>Euclidean Distance</em> \(\Omega=\mathbb{R}^{d}, \omega(\mathbf{x})=\frac{1}{2}\Vert \mathbf{x}\Vert _{2}^{2}\), \(\omega\) is \(1\) strongly convex w.r.t \(\ell_2\) norm,
+<ul>
+<li>\(V_{\omega}(\mathbf{x}, \mathbf{y})=\frac{1}{2}\Vert \mathbf{x}-\mathbf{y}\Vert _{2}^{2}\).</li>
+</ul>
+</li>
+<li><em>Mahalanobis distance</em> \(\Omega=\mathbb{R}^{d}, \omega(\mathbf{x})=\frac{1}{2} \mathbf{x}^{T} Q \mathbf{x}\) where \(Q \succeq I\), \(\omega\) is \(1\) strongly convex w.r.t \(\ell_2\) norm,
+<ul>
+<li>\(V_{\omega}(\mathbf{x}, \mathbf{y})=\frac{1}{2}(\mathbf{x}-\mathbf{y})^{T} Q(\mathbf{x}-\mathbf{y})\).</li>
+</ul>
+</li>
+<li><em>Kullback-Leibler divergence</em> \(\Omega=\Delta_{d}, \omega(\mathbf{x})=\sum_{i=1}^{d} x_{i} \ln x_{i}\), \(\nabla \omega (x) = \ln (x) - 1\),
+<ul>
+<li>\(V_{\omega}(x,y) = \sum_{i} x_i \ln x_i - y_i \ln y_i - (\ln(y_i) - 1)(x_i - y_i) = \sum_i x_i \ln \frac{x_i}{y_i} = \mathrm{KL}(x \Vert  y)\), since \(\sum_i x_i = \sum_i y_i =1\).</li>
+<li>The proof for \(V_{\omega}(x,y) \geq \Vert x-y\Vert _1^2 /\ln 4\) is complicated, see <a href="http://www.stat.yale.edu/~yw562/teaching/598/lec04.pdf">this</a>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma 6.23 (Generalized Pythagorean Theorem, Exercise 46)</strong> If \(x^{*}\) is the Bregman projection of \(x_0\) onto a convex set \(C \subset X: x^{*} \operatorname{argmin}_{x \in C} V_{\omega}\left(x, x_{0}\right)\). Then \(\forall y \in C\), \(V_{\omega}\left(y, x_{0}\right) \geq V_{\omega}\left(y, x^{*}\right)+V_{\omega}\left(x^{*}, x_{0}\right)\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(\nabla_x V_\omega(x,y) = \nabla \omega(x) - \nabla \omega(y)\), optimal condition means \(\forall y \in C, (\nabla \omega(x^{*}) - \nabla \omega(x_0))^{\top}(y - x^{*}) \geq 0\).</li>
+<li>equivalently, \(- \nabla \omega(x_0)^{\top}(y - x_0 + x_0 -x^{*}) \geq -\nabla \omega(x^{*})^{\top}(y - x^{*})\)</li>
+<li>or \(- \nabla \omega(x_0)^{\top}(y - x_0) \geq -\nabla \omega(x^{*})^{\top}(y - x^{*}) - \nabla \omega(x_0)^{\top}(x_0 -x^{*})\)</li>
+<li>then \(\omega(x_0)  - \omega_(y)- \nabla \omega(x_0)^{\top}(y - x_0) \geq \omega(x_0)  - \omega_(x^{*}) +\omega(x^{*})- \omega_(y) -  \nabla \omega(x^{*})^{\top}(y - x^{*}) +- \nabla \omega(x_0)^{\top}(x_0 -x^{*})\), QED.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a id="mirror-descent-algorithm" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mirror Descent Algorithm</h3>
+<ul>
+<li><em>Prox-mapping</em> \(\operatorname{Prox}_{x}(\xi)=\underset{u \in X}{\operatorname{argmin}}\left\{V_{\omega}(u, x)+\langle\xi, u\rangle\right\}\), and suppose \(\omega\) is \(1\)-strongly convex on norm \(\Vert \cdot\Vert _{a}\).</li>
+<li><strong>Algorithm</strong> \(x_{t+1}=\operatorname{Prox}_{x_{t}}\left(\gamma_{t} g\left(x_{t}\right)\right)\), where \(g\left(x_{t}\right) \in \partial f\left(x_{t}\right)\).</li>
+<li><strong>Example 6.25</strong> Under KL divergence, the prox-mapping becomes \(\operatorname{Prox}_{x}\xi)=\left(\sum_{i=1}^{n} x_{i} e^{-\xi_{i}}\right)^{-1}\left[\begin{array}{c}x_{1} e^{-\xi_{1}} \\\ldots \\x_{n} e^{-\xi_{n}}\end{array}\right]\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(V_{\omega}(u, x)+\langle\xi, u\rangle = \sum_{i} u_i \ln (u_i / x_i) + u_i \xi_i\), optimal condition under constraint is \(0 = \ln(u_i/x_i) + 1 + \lambda + \xi_i\)</li>
+<li>So solution is \(u_i = x_i e^{-\xi_i + \alpha}\) where \(\sum_i u_i =1 \Rightarrow e^{-\alpha} = \sum_i x_i e^{-\xi_i}\) QED.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a id="mathcal-o-1-sqrt-t-convergence-for-convex-functions" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>\(\mathcal{O}(1 / \sqrt{t})\) convergence for convex functions</h3>
+<ul>
+<li>
+<p><strong>Lemma 6.26 (Three point identity)</strong> \(\forall x,y,z \in \mathbf{dom}(\omega)\), \(V_{\omega}(x, z)=V_{\omega}(x, y)+V_{\omega}(y, z)-\langle\nabla \omega(z)-\nabla \omega(y), x-y\rangle\)</p>
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(V_{\omega}(x, y)+V_{\omega}(y, z)=\omega(x)-\omega(y)+\omega(y)-\omega(z)-\langle\nabla \omega(y), x-y\rangle-\langle\nabla \omega(z), y-z\rangle =V_{\omega}(x, z)+\langle\nabla \omega(z), x-z\rangle-\langle\nabla \omega(y), x-y\rangle-\langle\nabla \omega(z), y-z\rangle =V_{\omega}(x, z)+\langle\nabla \omega(z)-\nabla \omega(y), x-y\rangle\)</li>
+</ul>
+</li>
+<li>When \(\omega = \Vert \cdot\Vert _2^2\), this becomes law of cosines.</li>
+</ul>
+</li>
+<li>
+<p><strong>Lemma G (Descent Lemma)</strong> \(\gamma_{t}\left(f\left(\mathbf{x}_{t}\right)-f^{*}\right) \leq V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{t}\right)-V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{t+1}\right)+\frac{\gamma_{t}^{2}}{2}\lVert \mathbf{g}_{t}\rVert _{a*}^{2}\)</p>
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By 3-point identiy, \(V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t})=V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t+1})+V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t})-\langle\nabla \omega(\mathbf{x}_{t})-\nabla \omega(\mathbf{x}_{t+1}), \mathbf{x}^{\star}-\mathbf{x}_{t+1}\rangle\), equivalently
+<ul>
+<li>\(V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t}) - V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t+1}) + \langle\nabla \omega(\mathbf{x}_{t})-\nabla \omega(\mathbf{x}_{t+1}), \mathbf{x}^{\star}-\mathbf{x}_{t+1}\rangle = V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t})\)</li>
+</ul>
+</li>
+<li>by def of algo, the optimial condition is \(\forall x\in X\), espectially \(\mathbf{x}^{\star}\) \(\langle \nabla_{\mathbf{x}_{t+1}}V_{\omega}(\mathbf{x}_{t+1},\mathbf{x}_{t}) + \gamma_t \mathbf{g}_{t},\mathbf{x}^{\star} - \mathbf{x}_{t+1}\rangle=  \langle \nabla \omega (\mathbf{x}_{t+1}) - \nabla \omega (\mathbf{x}_{t}) + \gamma_t \mathbf{g}_{t},\mathbf{x}^{\star} - \mathbf{x}_{t+1}\rangle \geq 0\), this means
+<ul>
+<li>\(V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t}) - V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t+1}) + \langle\gamma_t \mathbf{g}_{t}, \mathbf{x}^{\star}-\mathbf{x}_{t+1}\rangle \geq V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t})\)</li>
+</ul>
+</li>
+<li>By convexity, \(\langle\mathbf{g}_{t}, \mathbf{x}^{\star}-\mathbf{x}_{t}\rangle \leq f(\mathbf{x}^{\star}) - f(\mathbf{x}_{t})\), so \(V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t}) - V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t+1}) +\gamma_t ( f(\mathbf{x}^{\star}) - f(\mathbf{x}_{t}))  \geq V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t}) + \langle\gamma_t \mathbf{g}_{t}, \mathbf{x}_{t+1} - \mathbf{x}_{t}\rangle\)</li>
+<li>By <em>Young’s inequality</em>, \(\langle a, b\rangle  \leq \Vert a\Vert _{a}\cdot \Vert b\Vert _{a*} \leq \Vert a\Vert _{a}^2/2 + \Vert b\Vert _{a*}^2/2\), therefore
+<ul>
+<li>\(\langle\gamma_t \mathbf{g}_{t}, \mathbf{x}_{t} - \mathbf{x}_{t+1}\rangle \leq \gamma_t^2 \Vert \mathbf{g}_t\Vert _{a*}^2/2 + \Vert \mathbf{x}_{t} - \mathbf{x}_{t+1}\Vert ^2_{a}/2\)</li>
+</ul>
+</li>
+<li>By the assumption of \(\omega\) is \(1\)-strongly convex, \(V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t}) \geq  \Vert \mathbf{x}_{t} - \mathbf{x}_{t+1}\Vert ^2_{a}/2\)</li>
+<li>Combine the above two, \(V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t}) + \langle\gamma_t \mathbf{g}_{t}, \mathbf{x}_{t+1} - \mathbf{x}_{t}\rangle \geq \Vert \mathbf{x}_{t} - \mathbf{x}_{t+1}\Vert ^2_{a}/2 - \gamma_t^2 \Vert \mathbf{g}_t\Vert _{a*}^2/2 - \Vert \mathbf{x}_{t} - \mathbf{x}_{t+1}\Vert ^2_{a}/2 = - \gamma_t^2 \Vert \mathbf{g}_t\Vert _{a*}^2/2\)</li>
+<li>Combine above, we arrive at the descent lemma.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Theorem 6.28</strong> \(f\) convex, then \(\displaystyle \max\left\{\min _{1 \leq t \leq T} f\left(x_{t}\right), f\left(\hat{x}_{T}\right)\right\}-f^{*} \leq \frac{V_{\omega}\left(x^{*}, x_{1}\right)+\frac{1}{2} \sum_{t=1}^{T} \gamma_{t}^{2}\lVert g\left(x_{t}\right)\rVert _{*}^{2}}{\sum_{t=1}^{T} \gamma_{t}}\), where \(\displaystyle \hat{x}_T = \frac{\sum_{t=1}^{T} \gamma_{t} x_{t}}{\sum_{t=1}^{T} \gamma_{t}}\).</p>
+<ul>
+<li><strong>Proof</strong> Similar to Theorem 6.17, sum over all \(t\in[1:T]\) we get the result.</li>
+<li>Convergence similar to subgradient case \(\min _{1 \leq t \leq T} f\left(\mathbf{x}_{t}\right)-f^{*}=O\left(\frac{B R}{\sqrt{T}}\right)\), where \(R=\sqrt{\max _{\mathbf{x} \in X} V_{\omega}\left(\mathbf{x}, \mathbf{x}_{1}\right)}\) and \(B:=\sup _{\mathbf{x} \in X} \frac{\vert f(\mathbf{x})-f(\mathbf{y})\vert }{\Vert \mathbf{x}-\mathbf{y}\Vert }\).</li>
+</ul>
+</li>
+<li>
+<p>The constant may be different. <strong>Example of Simplex</strong> of \(X=\left\{x \in \mathbb{R}^{d}: x_{i} \geq 0, \sum_{i=1}^{d} x_{i}=1\right\}\), assume \(\Vert \mathbf{g}\Vert _{\infty} \leq 1\),</p>
+<ul>
+<li>In normal case of \(\omega(x)=\frac{1}{2}\Vert x\Vert _{2}^{2}\), \(R^2 \leq 2= O(1)\), \(B \sim \Vert g\Vert _2 = O(\sqrt{d})\), overall it's \(O(\frac{\sqrt{d}}{\sqrt{T}})\).</li>
+<li>If we choose \(w(x)=\sum_{i=1}^{d} x_{i} \ln x_{i}\) and starting point to be \(x_{1}=\operatorname{argmin}_{x \in X} \omega(x)\), then \(\Omega \leq \max _{x \in X} \omega(x)-\min _{x \in X} \omega(x)=0-(-\ln d)=\ln (d)\), overall it's \(O(\frac{\ln d}{\sqrt{T}})\)</li>
+<li>The ratio of efficiency is then \(O\left(\frac{1}{\ln (d)} \cdot \frac{\max _{x \in X}\Vert g(x)\Vert _{2}}{\max _{x \in X}\Vert g(x)\Vert _{\infty}}\right)\), since \(\Vert g(x)\Vert _{\infty} \leq\Vert g(x)\Vert _{2} \leq \sqrt{d}\Vert g(x)\Vert _{\infty}\), in worst case Mirror Descent is \(O(\sqrt{d})\) faster than norm subgradient descent.</li>
+</ul>
+</li>
+</ul>
+<h3><a id="mirror-descent-under-smoothness-exercise-47" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mirror Descent under Smoothness (Exercise 47)</h3>
+<ul>
+<li><strong>Lemma H</strong> If \(f\) convex and gradient Lipschitz w.r.t. some norm, \(\Vert \nabla f(x)-\nabla f(y)\Vert _{a*} \leq L\Vert x-y\Vert _{a}\), then setting \(\gamma_{t}=1 / L\) will give \(\min _{1 \leq t \leq T} f\left(x_{t}\right)-f^{*} \leq {L \cdot V_{\omega}\left(x^{*}, x_{1}\right)}/{T}\)
+<ul>
+<li>
+<p><strong>Proof</strong></p>
+<ul>
+<li>By equivalence of smoothness and Lipschitz, \(f(\mathbf{x}_{t+1}) \leq f(\mathbf{x}_{t})+\mathbf{g}_{t}^{\top}(\mathbf{x}_{t+1}-\mathbf{x}_{t})+\frac{L}{2}\Vert \mathbf{x}_{t}-\mathbf{x}_{t+1}\Vert _{a}^{2}\)
+<ul>
+<li>Using the fact of \(\omega\) is \(1\)-strongly convex, we have \(\Vert \mathbf{x}_{t}-\mathbf{x}_{t+1}\Vert _{a}^{2}/2 \leq V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t})\)</li>
+<li>This makes \(\frac{1}{\gamma_t} V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t}) + \langle \mathbf{g}_{t}, \mathbf{x}_{t+1}-\mathbf{x}_{t} \rangle \geq f(\mathbf{x}_{t+1}) - f(\mathbf{x}_{t})\)</li>
+<li>By the optimal condition of prox-mapping, we can show that \(V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t}) + \langle \gamma_{t} \mathbf{g}_{t}, \mathbf{x}_{t+1} \rangle \leq \underset{=0}{V_{\omega}(\mathbf{x}_{t}, \mathbf{x}_{t})} + \langle \gamma_{t} \mathbf{g}_{t}, \mathbf{x}_{t} \rangle\)</li>
+<li>This means \(f(\mathbf{x}_{t+1}) - f(\mathbf{x}_{t}) \leq 0\), always non-increasing.</li>
+</ul>
+</li>
+<li>In the third step of descent lemma, bu convexity we have \(V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t}) - V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t+1}) +\gamma_t ( f(\mathbf{x}^{\star}) - f(\mathbf{x}_{t}))  \geq V_{\omega}(\mathbf{x}_{t+1}, \mathbf{x}_{t}) + \langle\gamma_t \mathbf{g}_{t}, \mathbf{x}_{t+1} - \mathbf{x}_{t}\rangle\)
+<ul>
+<li>take the above into it we get \(V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t}) - V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{t+1}) + \gamma_t ( f(\mathbf{x}^{\star}) - f(\mathbf{x}_{t})) \geq \gamma_t(f(\mathbf{x}_{t+1}) - f(\mathbf{x}_{t}))\)</li>
+</ul>
+</li>
+<li>take \(\gamma_t = L^{-1}\) and sum over \(t=[0:T-1]\), we have
+<ul>
+<li>\(\sum_{i=1}^{T} f(\mathbf{x}_{i}) - f(\mathbf{x}^{\star}) \leq L\left(V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{1}) - V_{\omega}(\mathbf{x}^{\star}, \mathbf{x}_{T})\right)\), QED</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

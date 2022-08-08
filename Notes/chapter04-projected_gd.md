@@ -1,4 +1,4 @@
-# Projected Gradient Descent
+# Chapter 4 Projected Gradient Descent
 
 ## Algorithm
 - Gradient Step: $\mathbf{y}_{t+1}:=\mathbf{x}_{t}-\gamma \nabla f\left(\mathbf{x}_{t}\right)$

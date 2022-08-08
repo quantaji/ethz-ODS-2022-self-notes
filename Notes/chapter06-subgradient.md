@@ -1,4 +1,4 @@
-# Subgradient Methods
+# Chapter 6 Subgradient Methods
 
 ## Subgradient and Subdifferential
 - **Definition (Subgradient)** Let $f: \mathbb{R}^{n} \rightarrow \mathbb{R} \cup\{+\infty\}$ be convex. A vector $g \in \mathbb{R}^{n}$ is a *subgradient* of $f$ at a point $x \in \operatorname{dom}(f)$ if $f(y) \geq f(x)+g^{\top}(y-x), \forall y \in \operatorname{dom}(f)$.

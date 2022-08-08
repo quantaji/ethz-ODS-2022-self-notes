@@ -1,4 +1,4 @@
-# Coordinate Descent
+# Chapter 5 Coordinate Descent
 - **Key Idea** Update only one coordinate
 - **Results:** Worse case $d$ times more of iteration, under suitable condition results may improve.
 

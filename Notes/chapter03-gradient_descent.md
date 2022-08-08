@@ -1,4 +1,4 @@
-# lecture 03 Gradient descent
+# Chapter 3 Gradient descent
 - We assume existance of minimizer $\mathbf{x}^{\star}$.
 - The goal is to find approximation $\mathbf{x}$, s.t. $f(\mathbf{x})-f\left(\mathbf{x}^{\star}\right)<\varepsilon$. 
     - no need for $\Vert \mathbf{x} - \mathbf{x}^{\star}\Vert$ to be close

@@ -1,4 +1,4 @@
-# Lecture 02 Convexity
+# Chapter 2 Convexity
 
 ## Notation
 - $\Vert \mathbf{x}\Vert$: Euclidian norm, $\ell$-2 norm.

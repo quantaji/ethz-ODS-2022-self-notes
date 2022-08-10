@@ -50,6 +50,24 @@
     - If $F$ also $L$-smooth, we have $\mathbb{E}\left[F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)\right]=O\left(\frac{L \cdot C(\gamma)}{t}\right)$.
 - **Example** SGD over $\min _{x} F(x):=\frac{1}{2} \mathbb{E}_{\xi \sim N(0,1)}\left[(x-\xi)^{2}\right]$ with $\gamma_t = 1/t$ gives $\mathbb{E}\left[\lvert x_{t+1}-x^{*}\rvert ^{2}\right]=\frac{1}{t}$, since $t x_{t+1} = (t-1) x_{t} + \xi_t$.
 
+- **Lemma (Boundedness of Stochastic Gradients, Ex5.1 5.2)** $F(x)=\mathbb{E}[f(x, \xi)]$ and $f$ is convex and $L$-smooth, define $\mathbf{x}^{*}=\operatorname{argmin}_{\mathbf{x}} F(\mathbf{x})$, then 
+    - $\mathbb{E}\left[\lVert\nabla f(x, \xi)-\nabla f\left(x^{*}, \xi\right)\rVert _{2}^{2}\right] \leq 2 L\left[F(x)-F\left(x^{*}\right)\right]$ and $\mathbb{E}\left[\Vert \nabla f(x, \xi)\Vert _{2}^{2}\right] \leq 4 L\left[F(x)-F\left(x^{*}\right)\right]+2 \mathbb{E}\left[\lVert\nabla f\left(x^{*}, \xi\right)\rVert _{2}^{2}\right]$
+    - **Proof**
+        - First
+            - Define $f_y(x) := f(x,\xi) - \nabla f(y,\xi)^{\top}(x-y)$, then $x=y$ is the minima for $f_y$, 
+            - by Lemma B in chap3, the quadratic bound for smooth function 
+                - $f(\mathbf{x}^{\star},\xi) - \nabla f(y,\xi)^{\top}(\mathbf{x}^{\star}-y) - f(y,\xi) = f_y(\mathbf{x}^{\star}) - f_y(y) \geq \frac{1}{2L} \Vert \nabla f_y(\mathbf{x}^{\star})\Vert _2^2 = \frac{1}{2L} \Vert \nabla f(\mathbf{x}^{\star})- \nabla f(\mathbf{x}_y)\Vert _2^2$. 
+            - Taking expectation over $\xi$ and $\nabla F(\mathbf{x}^{\star}) = 0$, we get 
+                - $F(\mathbf{x}^{\star})- F(y) \geq  \frac{1}{2L} \mathbb{E} \Vert \nabla f(\mathbf{x}^{\star})- \nabla f(\mathbf{x}_y)\Vert _2^2$
+        - Second
+            - by $\Vert \mathbf{a}+\mathbf{b}\Vert _{2}^{2} \leq 2\Vert \mathbf{a}\Vert _{2}^{2}+2\Vert \mathbf{b}\Vert _{2}^{2}$
+                - so $\Vert \nabla f(x, \xi)\Vert _{2}^{2} \leq 2\lVert\nabla f(x, \xi)-\nabla f\left(x^{*}, \xi\right)\rVert _{2}^{2}+2\lVert\nabla f\left(x^{*}, \xi\right)\rVert _{2}^{2} .$
+- **Lemma of my own (might be useful in exam)** $f$ convex and $L$-smooth, then $\forall r, f(x) - f(y) \geq \nabla f_y^{\top}(x-y) - (\nabla f_x - \nabla f_y)^{\top} r - L\Vert r\Vert _2^2/ 2$
+    - **Proof**
+        - By smoothness, $f(x+r) \leq f(x) + \nabla f_x^{\top} r + L\Vert r\Vert _2^2/ 2$
+        - By convexity $f(x+r) \geq f(y) + \nabla f_y^{\top} (x+r-y)$
+        - combine them together and we get the result.
+
 ### Convergence of SGD under constant stepsize
 - **Theorem 12.5** Assume $F$ is $\mu$-strongly convex and $L$-smooth, and also $\mathbb{E}\left[\Vert \nabla f(\mathbf{x}, \boldsymbol{\xi})\Vert _{2}^{2}\right] \leq \sigma^{2}+c\Vert \nabla F(\mathbf{x})\Vert _{2}^{2}$, then SGD with constant step size $\gamma_{t} \equiv \gamma \leq \frac{1}{L c}$ gives $\mathbb{E}\left[F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}_{*}\right)\right] \leq \frac{\gamma L \sigma^{2}}{2 \mu}+(1-\gamma \mu)^{t-1}\left[F\left(\mathbf{x}_{1}\right)-F\left(\mathbf{x}_{*}\right)\right]$.
     - **Proof**

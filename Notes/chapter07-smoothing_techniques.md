@@ -116,7 +116,7 @@
 - **Example** $\min_x \Vert Ax + b\Vert _2^2 + \lambda \Vert x\Vert _1 = \min_x f_1 + f_2$, where $f_1$ differentiable while $f_2$ is not. Usually we approximate $x_{t+1} = \mathrm{prox}_{f_2} (x_t - \frac{1}{L_{f_1}} \nabla f_1(x_t))$.
 - **Theorem 7.14** If $f$ convex, then PPA satisfies $f\left(x_{t}\right)-f^{\star} \leq \frac{\lVert x_{0}-x_{*}\rVert _{2}^{2}}{2 \sum_{\tau=0}^{t-1} \gamma_{\tau}}$
     - **Proof**
-        - by the optimality condition of $x_{t+1}$, $f(x_{t+1) + \frac{1}{2\gamma_t}\Vert x_{t+1} - x_{t}\Vert _2^2 \leq f(x_t)$, this is something like sufficient decrease.
+        - by the optimality condition of $x_{t+1}$, $f(x_{t+1}) + \frac{1}{2\gamma_t}\Vert x_{t+1} - x_{t}\Vert _2^2 \leq f(x_t)$, this is something like sufficient decrease.
         - by first order optimality condition, $0 \in \partial f\left(x_{t+1}\right)+\frac{1}{\gamma_{t}}\left(x_{t+1}-x_{t}\right) \Longrightarrow \frac{x_{t}-x_{t+1}}{\gamma_{t}} \in \partial f\left(x_{t+1}\right)$,
             - so by convexity/subgradient $f\left(x_{\tau+1}\right)-f^{\star}  \leq \frac{1}{\gamma_{\tau}}\left(x_{\tau}-x_{\tau+1}\right)^{T}\left(x_{\tau+1}-x_{*}\right) = \frac{1}{\gamma_{t}}\left[\left(x_{\tau}-x_{*}\right)^{T}\left(x_{\tau+1}-x_{*}\right)-\lVert x_{\tau+1}-x_{*}\rVert ^{2}\right]$
             - By Young's inequality, $\left(x_{\tau}-x_{*}\right)^{T}\left(x_{\tau+1}-x_{*}\right) \leq \frac{1}{2}\left[\lVert x_{\tau}-x_{*}\rVert ^{2}+\lVert x_{\tau+1}-x_{*}\rVert ^{2}\right]$, plug this in and we get 

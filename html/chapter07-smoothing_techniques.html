@@ -997,7 +997,7 @@ body{ box-sizing: border-box;
 <ul>
 <li><strong>Proof</strong>
 <ul>
-<li>by the optimality condition of \(x_{t+1}\), \(f(x_{t+1) + \frac{1}{2\gamma_t}\Vert x_{t+1} - x_{t}\Vert _2^2 \leq f(x_t)\), this is something like sufficient decrease.</li>
+<li>by the optimality condition of \(x_{t+1}\), \(f(x_{t+1}) + \frac{1}{2\gamma_t}\Vert x_{t+1} - x_{t}\Vert _2^2 \leq f(x_t)\), this is something like sufficient decrease.</li>
 <li>by first order optimality condition, \(0 \in \partial f\left(x_{t+1}\right)+\frac{1}{\gamma_{t}}\left(x_{t+1}-x_{t}\right) \Longrightarrow \frac{x_{t}-x_{t+1}}{\gamma_{t}} \in \partial f\left(x_{t+1}\right)\),
 <ul>
 <li>so by convexity/subgradient \(f\left(x_{\tau+1}\right)-f^{\star}  \leq \frac{1}{\gamma_{\tau}}\left(x_{\tau}-x_{\tau+1}\right)^{T}\left(x_{\tau+1}-x_{*}\right) = \frac{1}{\gamma_{t}}\left[\left(x_{\tau}-x_{*}\right)^{T}\left(x_{\tau+1}-x_{*}\right)-\lVert x_{\tau+1}-x_{*}\rVert ^{2}\right]\)</li>

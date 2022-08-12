@@ -229,7 +229,7 @@ We can show that, the above $\mathcal{O}(1/\sqrt{t})$ and $\mathcal{O}(1/t)$ can
 ### $\mathcal{O}(1 / \sqrt{t})$ convergence for convex functions
 - **Lemma 6.26 (Three point identity)** $\forall x,y,z \in \mathbf{dom}(\omega)$, $V_{\omega}(x, z)=V_{\omega}(x, y)+V_{\omega}(y, z)-\langle\nabla \omega(z)-\nabla \omega(y), x-y\rangle$
     - **Proof**
-        - $V_{\omega}(x, y)+V_{\omega}(y, z)=\omega(x)-\omega(y)+\omega(y)-\omega(z)-\langle\nabla \omega(y), x-y\rangle-\langle\nabla \omega(z), y-z\rangle =V_{\omega}(x, z)+\langle\nabla \omega(z), x-z\rangle-\langle\nabla \omega(y), x-y\rangle-\langle\nabla \omega(z), y-z\rangle =V_{\omega}(x, z)+\langle\nabla \omega(z)-\nabla \omega(y), x-y\rangle$
+        - $V_{\omega}(x, y)+V_{\omega}(y, z)=\omega(x)-\omega(y)+\omega(y)-\omega(z)-\langle\nabla \omega(y), x-y\rangle-\langle\nabla \omega(z), y-z\rangle$ $=V_{\omega}(x, z)+\langle\nabla \omega(z), x-z\rangle-\langle\nabla \omega(y), x-y\rangle-\langle\nabla \omega(z), y-z\rangle$ $=V_{\omega}(x, z)+\langle\nabla \omega(z)-\nabla \omega(y), x-y\rangle$
     - When $\omega = \Vert \cdot\Vert _2^2$, this becomes law of cosines.
 - **Lemma G (Descent Lemma)** $\gamma_{t}\left(f\left(\mathbf{x}_{t}\right)-f^{*}\right) \leq V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{t}\right)-V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{t+1}\right)+\frac{\gamma_{t}^{2}}{2}\lVert \mathbf{g}_{t}\rVert _{a*}^{2}$
     - **Proof**

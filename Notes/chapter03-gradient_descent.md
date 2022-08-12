@@ -95,7 +95,7 @@
         - (iiii) -> (iii)
             - let $x=x, y=x+t(y-x)$ in (iiii), and we have $(\nabla f(x + t (y-x) )-\nabla f(x))^{T}(y-x) \geq \mu t \Vert x-y\Vert ^{2}$
             - now we compute $g'(t)$ in (iii), we have $g'(t) = \nabla f(x + t(y-x))^{\top}(y-x) - \mu t \Vert y-x\Vert _{a}^2$
-            - assume $t_1 \geq t_2$, then $g'(t_1) - g'(t_2) = \nabla (f(x + t_1(y-x)) - f(x + t_2(y-x)))^{\top}(y-x) - \mu (t_1 - t_2) \Vert y-x\Vert _{a}^2 \geq \mu (t1 - t2) \Vert x-y\Vert _{a}^2 - \mu (t_1 - t_2) \Vert y-x\Vert _{a}^2 = 0$
+            - assume $t_1 \geq t_2$, then $g'(t_1) - g'(t_2) = \nabla (f(x + t_1(y-x)) - f(x + t_2(y-x)))^{\top}(y-x) - \mu (t_1 - t_2) \Vert y-x\Vert _{a}^2$ $\geq \mu (t1 - t2) \Vert x-y\Vert _{a}^2 - \mu (t_1 - t_2) \Vert y-x\Vert _{a}^2 = 0$
             - $g'(t)$ nondecreasing, convex -> (iii).
 
 - **Lemma D (boundedness and global minimum)** If $f$ is differentiable and $\mu$-strongly convex, then $f$ have bounded sublevel.
@@ -130,7 +130,7 @@
 
 ## Vanilla GD
 - Update: $\mathbf{x}_{t+1}:=\mathbf{x}_{t}-\gamma \mathbf{g}_{t}$, $\mathbf{g}_{t}:=\nabla f\left(\mathbf{x}_{t}\right)$
-- Consider quantity $\mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)=\frac{1}{\gamma}\left(\mathbf{x}_{t}-\mathbf{x}_{t+1}\right)^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right) = \frac{1}{2 \gamma}\left(\lVert\mathbf{x}_{t}-\mathbf{x}_{t+1}\rVert^{2}+\lVert\mathbf{x}_{t}-\mathbf{x}^{\star}\rVert^{2}-\lVert\mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert^{2}\right) = \frac{\gamma}{2}\lVert\mathbf{g}_{t}\rVert^{2}+\frac{1}{2 \gamma}\left(\lVert\mathbf{x}_{t}-\mathbf{x}^{\star}\rVert^{2}-\lVert\mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert^{2}\right)$
+- Consider quantity $\mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)=\frac{1}{\gamma}\left(\mathbf{x}_{t}-\mathbf{x}_{t+1}\right)^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right) = \frac{1}{2 \gamma}\left(\lVert\mathbf{x}_{t}-\mathbf{x}_{t+1}\rVert^{2}+\lVert\mathbf{x}_{t}-\mathbf{x}^{\star}\rVert^{2}-\lVert\mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert^{2}\right)$ $= \frac{\gamma}{2}\lVert\mathbf{g}_{t}\rVert^{2}+\frac{1}{2 \gamma}\left(\lVert\mathbf{x}_{t}-\mathbf{x}^{\star}\rVert^{2}-\lVert\mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert^{2}\right)$
 - sum over $t=0,\ldots,T-1$, we have $\sum_{t=0}^{T-1} \mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)=\frac{\gamma}{2} \sum_{t=0}^{T-1}\lVert\mathbf{g}_{t}\rVert^{2}+\frac{1}{2 \gamma}\left(\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert^{2}-\lVert\mathbf{x}_{T}-\mathbf{x}^{\star}\rVert^{2}\right) \leq =\frac{\gamma}{2} \sum_{t=0}^{T-1}\lVert\mathbf{g}_{t}\rVert^{2}+\frac{1}{2 \gamma}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert^{2}$
 - By convexity $f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right) \leq \mathbf{g}_{t}^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{\star}\right)$, we have $\sum_{t=0}^{T-1}\left(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)\right) \leq \frac{\gamma}{2} \sum_{t=0}^{T-1}\lVert\mathbf{g}_{t}\rVert^{2}+\frac{1}{2 \gamma}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert^{2}$
     - This gives upper bound on average error $\mathbb{E}_{t} [f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}^{\star}\right)]$

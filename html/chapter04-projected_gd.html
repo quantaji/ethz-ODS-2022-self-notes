@@ -852,7 +852,7 @@ body{ box-sizing: border-box;
 <li>Then we get (i)</li>
 </ul>
 </li>
-<li>(ii) is attained by smoothness, but the gradient term does not vanish, \(f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq \nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}_{T}-\mathbf{x}^{\star}\right)+\frac{L}{2}\lVert\mathbf{x}^{\star}-\mathbf{x}_{T}\rVert^{2} \leq\lVert\nabla f\left(\mathbf{x}^{\star}\right)\rVert\lVert\mathbf{x}_{T}-\mathbf{x}^{\star}\rVert+\frac{L}{2}\lVert\mathbf{x}^{\star}-\mathbf{x}_{T}\rVert^{2}\leq\lVert\nabla f\left(\mathbf{x}^{\star}\right)\rVert\left(1-\frac{\mu}{L}\right)^{T / 2}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert+\frac{L}{2}\left(1-\frac{\mu}{L}\right)^{T}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert^{2}\)</li>
+<li>(ii) is attained by smoothness, but the gradient term does not vanish, \(f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq \nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}_{T}-\mathbf{x}^{\star}\right)+\frac{L}{2}\lVert\mathbf{x}^{\star}-\mathbf{x}_{T}\rVert^{2}\) \(\leq\lVert\nabla f\left(\mathbf{x}^{\star}\right)\rVert\lVert\mathbf{x}_{T}-\mathbf{x}^{\star}\rVert+\frac{L}{2}\lVert\mathbf{x}^{\star}-\mathbf{x}_{T}\rVert^{2}\leq\lVert\nabla f\left(\mathbf{x}^{\star}\right)\rVert\left(1-\frac{\mu}{L}\right)^{T / 2}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert+\frac{L}{2}\left(1-\frac{\mu}{L}\right)^{T}\lVert\mathbf{x}_{0}-\mathbf{x}^{\star}\rVert^{2}\)</li>
 </ul>
 </li>
 </ul>
@@ -908,7 +908,7 @@ body{ box-sizing: border-box;
 <li><strong>Proof</strong>
 <ul>
 <li>We can show \(\Vert\mathbf{x}^{\star}(p)-\mathbf{v}\Vert^2\) is non-increasing w.r.t. p.</li>
-<li>\(\Vert\mathbf{x}^{\star}(p)-\mathbf{v}\Vert^2 - \Vert\mathbf{x}^{\star}(p+1)-\mathbf{v}\Vert^2 = v_{p+1}^2 + \sum_{i=1}^p (x_i^{\star}(p) - v_i)^2 - \sum_{i=1}^{p+1} (x_i^{\star}(p+1) - v_i)^2 = v_{p+1}^2 + p\Theta(p)^2 - (p+1)\Theta(p+1)^2\)</li>
+<li>\(\Vert\mathbf{x}^{\star}(p)-\mathbf{v}\Vert^2 - \Vert\mathbf{x}^{\star}(p+1)-\mathbf{v}\Vert^2 = v_{p+1}^2 + \sum_{i=1}^p (x_i^{\star}(p) - v_i)^2 - \sum_{i=1}^{p+1} (x_i^{\star}(p+1) - v_i)^2\) \(= v_{p+1}^2 + p\Theta(p)^2 - (p+1)\Theta(p+1)^2\)</li>
 <li>Denote \(\Delta := \sum_{i=1}^{p}v_i - 1\) then</li>
 <li>\(\Vert\mathbf{x}^{\star}(p)-\mathbf{v}\Vert^2 - \Vert\mathbf{x}^{\star}(p+1)-\mathbf{v}\Vert^2 = v_{p+1}^2 + \Delta^2 / p - (v_{p+1} + \Delta)^2/(p+1) = \dfrac{(p v_{p+1} - \Delta)^2}{p(p+1)}\geq 0\).</li>
 <li>Then we can simply find the maximum \(p\) with \(v_p -\Theta_p &gt; 0\).</li>

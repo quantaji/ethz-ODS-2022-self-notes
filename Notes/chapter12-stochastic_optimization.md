@@ -53,7 +53,7 @@
 - **Lemma (Boundedness of Stochastic Gradients, Ex5.1 5.2)** $F(x)=\mathbb{E}[f(x, \xi)]$ and $f$ is convex and $L$-smooth, define $\mathbf{x}^{*}=\operatorname{argmin}_{\mathbf{x}} F(\mathbf{x})$, then 
     - $\mathbb{E}\left[\lVert\nabla f(x, \xi)-\nabla f\left(x^{*}, \xi\right)\rVert _{2}^{2}\right] \leq 2 L\left[F(x)-F\left(x^{*}\right)\right]$ and $\mathbb{E}\left[\Vert \nabla f(x, \xi)\Vert _{2}^{2}\right] \leq 4 L\left[F(x)-F\left(x^{*}\right)\right]+2 \mathbb{E}\left[\lVert\nabla f\left(x^{*}, \xi\right)\rVert _{2}^{2}\right]$
     - **Proof**
-        - First
+        - first
             - Define $f_y(x) := f(x,\xi) - \nabla f(y,\xi)^{\top}(x-y)$, then $x=y$ is the minima for $f_y$, 
             - by Lemma B in chap3, the quadratic bound for smooth function 
                 - $f(\mathbf{x}^{\star},\xi) - \nabla f(y,\xi)^{\top}(\mathbf{x}^{\star}-y) - f(y,\xi) = f_y(\mathbf{x}^{\star}) - f_y(y) \geq \frac{1}{2L} \Vert \nabla f_y(\mathbf{x}^{\star})\Vert _2^2 = \frac{1}{2L} \Vert \nabla f(\mathbf{x}^{\star})- \nabla f(\mathbf{x}_y)\Vert _2^2$. 
@@ -87,6 +87,11 @@
     - **Proof** 
         - By Lemma B in chp3 $f(\mathbf{x},\xi) - f(\mathbf{x}^{\star},\xi)\geq  \frac{1}{2L} \Vert \nabla f(\mathbf{x},\xi)\Vert _2^2 + \mathrm{Linear\;Term}$, taking expectation over $\xi$
             - $\mathbb{E} \Vert \nabla f(\mathbf{x},\xi)\Vert _2^2 \leq 2L (F(\mathbf{x}) - F(\mathbf{x}^{\star} ))$, then by PL of $F$, $F(\mathbf{x}) - F(\mathbf{x}^{\star}) \leq \frac{1}{2\mu} \Vert \nabla F(\mathbf{x})\Vert _2^2$ we get strong growth condition with $c=L/\mu$.
+- **Definition (Weak Growth)** $F=\mathbb{E} f$ is $L$-smooth and have a minima $\mathbf{x}^{\star}$, stochastic gradient satisfies the weak growth condition with constant $c$ if $\mathbb{E}\left[\Vert \nabla f(\mathbf{x}, \boldsymbol{\xi})\Vert _{2}^{2}\right] \leq 2 c L\left[F(\mathbf{x})-F\left(\mathbf{x}_{*}\right)\right]$.
+- **Lemma (Ex 75.1)** If $F$ convex, strong growth -> weak growth.
+    - **Proof** By smoothness $\Vert \nabla F(\mathbf{x})\Vert _{2}^{2} \leq 2L [F(\mathbf{x}) - F(\mathbf{x}^{\star})]$ (*PS: I don't see why assume convex*)
+- **Lemma (Ex 75.2)** If $F$ $\mu$-strong convex, weak growth -> strong growth.
+    - **Proof** By strong convexity $\Vert \nabla F(\mathbf{x})\Vert _{2}^{2} \geq 2\mu [F(\mathbf{x}) - F(\mathbf{x}^{\star})]$
 
 ### Convergence for nonconvex functions (handout 11)
 - **Theroem 12.8** If $\mathbf{dom}(F) = X = \mathbb{R}^{n}$, $F$ is $L$-smooth and $\mathbb{E}\left[\Vert \nabla f(\mathbf{x}, \boldsymbol{\xi})-\nabla F(\mathbf{x})\Vert _{2}^{2}\right] \leq \sigma^{2}$, then stepsize of $\gamma_t = \min \left\{\frac{1}{L}, \frac{\gamma}{\sigma \sqrt{T}}\right\}$ gives $\mathbb{E}\left[\lVert \nabla F\left(\hat{\mathbf{x}}_{T}\right)\rVert ^{2}\right] \leq \frac{\sigma}{\sqrt{T}}\left(\frac{2\left(F\left(\mathbf{x}_{1}\right)-F\left(\mathbf{x}_{*}\right)\right)}{\gamma}+L \gamma\right)$, where $\hat{\mathbf{x}}_{T}$ is selected uniformly at random from $\left\{\mathbf{x}_{1}, \ldots, \mathbf{x}_{T}\right\}$.
@@ -127,3 +132,117 @@
 - What we know in theory
     - SGD with momentum has no acceleration even for some convex quadratic functions.
     - For convex problems, Adagrad does converge, but RMSProp and Adam may not when $\beta_{1}<\sqrt{\beta_{2}}$.
+
+- Example of non-convergence of Adam
+    - $X=[-1,1], \;f(x, \xi)=\left\{\begin{array}{ll}C x, & \text { if } \xi=1 \\-x, & \text { if } \xi=0\end{array},\; P(\xi=1)=p=\frac{1+\delta}{C+1}\right.$
+    - $F(x)=\mathbb{E}[f(x, \xi)]=\delta x$ and $x^{*}=-1$.
+    - update rule gives $x_{t+1}=x_{t}-\gamma_{0} \Delta_{t}$ with $\Delta_{t}=\frac{\alpha m_{t}+(1-\alpha) g_{t}}{\sqrt{\beta v_{t}+(1-\beta) g_{t}^{2}}}$
+    - For $C$ large enough, one can show that $\mathbb{E}\left[\Delta_{t}\right] \leq 0$.
+- A fix: *AMSGrad*, can prove convergence for many convex case.
+    - changes: $v_{t}=\beta_{2} v_{t-1}+\left(1-\beta_{2}\right) g_{t}^{2}, \hat{v}_{t}=\max \left(\hat{v}_{t-1}, v_{t}\right)$ and $\hat{V}_{t}=\operatorname{diag}\left(\hat{v}_{t}\right)$.
+    - Idea: if $g_t \ll m_t$ then $v_t < v_{t+1}$, this might increase step size.
+## Variance reduce methods
+- **Idea** $\mathbb{E}\left[F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)\right] \leq \frac{\gamma L \sigma^{2}}{2 \mu}+(1-\mu \gamma)^{t-1}\left(F\left(\mathbf{x}_{1}\right)-F\left(\mathbf{x}^{*}\right)\right)$, if $\sigma^2$ can be reduced -> better upper bound.
+- **Mini-Batching** $\mathbf{x}_{t+1}=\mathbf{x}_{t}-\gamma_{t}\frac{1}{b} \sum_{i=1}^{b} \nabla f\left(\mathbf{x}_{t}, \boldsymbol{\xi}_{t, i}\right)$, $\sigma^2 \leftarrow \sigma^2/b$ but at cost of computation. sample complexity remains the same.
+- **Importance sampling** since $\xi\sim P$, we can change to another distri $Q$ by $G\left(\mathbf{x}_{t}, \boldsymbol{\xi}_{t}\right) \Longrightarrow G\left(\mathbf{x}_{t}, \boldsymbol{\eta}_{t}\right) \frac{P\left(\boldsymbol{\eta}_{t}\right)}{Q\left(\boldsymbol{\eta}_{t}\right)}$, and variance may be smaller.
+- **Momentum** $\mathbf{x}_{t+1}=\mathbf{x}_{t}-\gamma_{t} \hat{\mathbf{m}}_{t}$ where $\hat{\mathbf{m}}_{t}=c \cdot \sum_{\tau=1}^{t} \alpha^{t-\tau} \nabla f_{i_{\tau}}\left(\mathbf{x}_{\tau}\right)$
+- **Key Idea of Modern Variance Reduction**
+    - we want to estimate $\theta=\mathbb{E}[X]$, but estimator is $\hat{\Theta}:=X-Y$, where $\mathbb{E}[Y]=0$.
+    - $\mathbb{V}[X-Y] < \mathbb{V}[X]$ if $\mathrm{Cov}(X,Y) > 0$ 
+- **Point Estimator** $\hat{\Theta}_{\alpha}=\alpha(X-Y)+\mathbb{E}[Y]$, $\mathbb{E}\left[\hat{\Theta}_{\alpha}\right]=\alpha \mathbb{E}[X]+(1-\alpha) \mathbb{E}[Y]$ and $\mathbb{V}\left[\hat{\Theta}_{\alpha}\right]=\alpha^{2}(\mathbb{V}[X]+\mathbb{V}[Y]-2 \operatorname{Cov}[X, Y])$.
+    - $\alpha = 0 \to 1$, highly bias and no variance $\to$ unbiased but larges variance.
+    - If $\operatorname{Cov}[X, Y]$ is sufficiently large, then $\operatorname{Var}\left[\hat{\Theta}_{\alpha}\right]<\operatorname{Var}[X]$
+    - *Idea* $\mathbf{g}_{t}:=\alpha\left(\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)-Y\right)+\mathbb{E}[Y]$ s.t. $\mathbb{E}\left[\lVert\mathbf{g}_{t}-\nabla F\left(\mathbf{x}_{t}\right)\rVert ^{2}\right] \rightarrow 0$, as $t \rightarrow \infty$.
+- **Choice 1** $Y=\nabla f_{i_{t}}\left(\mathbf{x}^{\star}\right)$, $\mathbb{E}[Y]=0$, unrealistic but concptually useful.
+- **Choice 2** $Y=\nabla f_{i_{t}}\left(\overline{\mathbf{x}}_{i_{t}}\right)$, where $\overline{\mathbf{x}}_{i_{t}}$ is the last point for with we evaluated $\nabla f_{i}\left(\overline{\mathbf{x}}_{i}\right)$. $\mathbb{E}[Y]=\frac{1}{n} \sum_{i=1}^{n} \nabla f_{i}\left(\overline{\mathbf{x}}_{i}\right)$, but requires storage of $\left\{\overline{\mathbf{x}}_{i}\right\}_{i=1}^{n}$ or $\left\{\nabla f_{i}\left(\overline{\mathbf{x}}_{i}\right)\right\}_{i=1}^{n}$
+- **Choice 3** $Y=\nabla f_{i_{t}}(\tilde{\mathbf{x}})$, where $\tilde{\mathbf{x}}$ is some fixed reference point. $\mathbb{E}[Y]=\frac{1}{n} \sum_{i=1}^{n} \nabla f_{i}(\tilde{\mathbf{x}})$, and requires computing full gradient.
+
+## Stochastic Variance-Reduced Algorithms
+
+### Stochastic Average Gradient (SAG) ($\alpha=\frac{1}{n}, Y=\mathbf{v}_{i_{t}}$)
+- $\mathbf{g}_{t}=\frac{1}{n}\left(\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)-\mathbf{v}_{i_{t}}\right)+\frac{1}{n} \sum_{i=1}^{n} \mathbf{v}_{i}$ where $\mathbf{v}_{i}$ is the past gradient $\mathbf{v}_{i}^{t}= \begin{cases}\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right), & \text { if } i=i_{t} \\ \mathbf{v}_{i}^{t-1}, & \text { if } i \neq i_{t}\end{cases}$.
+- Equivalently $\mathbf{g}_{t}=\mathbf{g}_{t-1}-\frac{1}{n} \mathbf{v}_{i_{t}}^{t-1}+\frac{1}{n} \nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)$, or the update rule $\mathbf{x}_{t+1}=\mathbf{x}_{t}-\frac{\gamma}{n} \sum_{i=1}^{n} \mathbf{v}_{i}^{t}$.
+- Same per-iteration cost as SGD but only additional memory cost of $O(nd)$.
+- **Theorem 12.10 (Schmidt et al. 2017, Linear Convergence)** If $F$ is $\mu$-strongly convex and each $f_i$ is $L_i$-smooth and convex. Setting $\gamma=1 /\left(16 L_{\max }\right)$ where $L_{\max }:=\max_{i\in[n]} \left\{L_{i}\right\}$, SAG satisfies that $\mathbb{E}\left[F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)\right] \leq C \cdot\left(1-\min \left\{\frac{1}{8 n}, \frac{\mu}{16 L_{\max }}\right\}\right)^{t}$.
+- Full GD needs $O(\kappa \ln (\frac{1}{\epsilon}))$ iteration and $O(n)$ computation per-iter, so the total computation cost is $O(n\kappa \ln (\frac{1}{\epsilon}))$, where $\kappa = \overline{L_i} / \mu$.
+- SAG needs  $O((n+\kappa_{\max}) \ln (\frac{1}{\epsilon}))$ iteration and $O(1)$ computation per-iter, $O(n+\kappa) \ll O(n\kappa)$ may be true if $n,\kappa$ are large.
+
+### SAGA ($\alpha=1, Y=\mathbf{v}_{i_{t}}$, improved ver. of SAG)
+- $\mathbf{g}_{t}=\left(\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)-\mathbf{v}_{i_{t}}\right)+\frac{1}{n} \sum_{i=1}^{n} \mathbf{v}_{i}$
+- $\mathbf{x}_{t+1}=\mathbf{x}_{t}-\gamma\left[\left(\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)-\mathbf{v}_{i_{t}}^{t-1}\right)+\frac{1}{n} \sum_{i=1}^{n} \mathbf{v}_{i}^{t-1}\right]$
+- SAGA is unbiased, while SAG is biased, same $O(nd)$ memory cost as SAG, but proof much simpler.
+
+### Stochastic Variance Reduced Gradient (SVRG) ($\alpha=1, Y=\nabla f_{i_{t}}(\tilde{\mathbf{x}})$)
+- $\mathbf{g}_{t}=\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)-\nabla f_{i_{t}}(\tilde{\mathbf{x}})+\nabla F(\tilde{\mathbf{x}})$
+- The induition is that $\mathbb{E}\left[\lVert\mathbf{g}_{t}-\nabla F\left(\mathbf{x}_{t}\right)\rVert ^{2}\right] \leq \mathbb{E}\left[\lVert\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)-\nabla f_{i_{t}}(\tilde{\mathbf{x}})\rVert ^{2}\right] \leq L_{\max }^{2}\lVert\mathbf{x}_{t}-\tilde{\mathbf{x}}\rVert ^{2}$
+    - closer $\tilde{x}$ to $x_t$, smaller the variance, so update $\tilde{x}$ in outer loop.
+- **Algorithm (Two-loop structure)**
+    - **For** $s=1,2, \ldots$ **do** *(outer loop)*
+        - Set $\tilde{\mathbf{x}}=\tilde{\mathbf{x}}^{s-1}$ and compute $\nabla F(\tilde{\mathbf{x}})=\frac{1}{n} \sum_{i=1}^{n} \nabla f_{i}(\tilde{\mathbf{x}})$ ($n$ grad computation)
+        - Initialize $\mathbf{x}_{0}=\tilde{\mathbf{x}}$
+        - **For** $t=0,1, \ldots, m-1$ **do** *(inner loop)* ($2m$ grad computation)
+            - Randomly pick $i_{t} \in\{1:n\}$
+            - Update $\mathbf{x}_{t+1}=\mathbf{x}_{t}-\eta\left(\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)-\nabla f_{i_{t}}(\tilde{\mathbf{x}})+\nabla F(\tilde{\mathbf{x}})\right)$
+        - **End For**
+        - Update $\tilde{\mathbf{x}}^{s}=\frac{1}{m} \sum_{t=0}^{m-1} \mathbf{x}_{t}$
+    - **End for**
+- Total of $O(n+2m)$ component gradient evaluations at each outer epoch.
+- *Pros*: no need to store past gradients or past iterates
+- *Cons*: More parameter tuning, two gradient computation per iteration.
+- **Lemma 12.12 (Exercise 7.1)** $f_i(x)$ is convex and $L$-smooth, then $\frac{1}{n} \sum_{i=1}^{n}\lVert\nabla f_{i}(\mathbf{x})-\nabla f_{i}\left(\mathbf{x}^{\star}\right)\rVert _{2}^{2} \leq 2 L_{\max }\left(F(\mathbf{x})-F\left(\mathbf{x}^{\star}\right)\right)$
+    - **Proof** is same as Exercise 6.1.
+- **Lemma A** Denote $\mathbf{g}_{t}:=\nabla f_{i_{t}}\left(\mathbf{x}^{t}\right)-\nabla f_{i_{t}}(\tilde{\mathbf{x}})+\nabla F(\tilde{\mathbf{x}})$ then $\mathbb{E}\left[\lVert\mathbf{g}_{t}\rVert _{2}^{2}\right] \leq 4 L_{\max }\left[F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)+F(\tilde{\mathbf{x}})-F\left(\mathbf{x}^{*}\right)\right]$.
+    - **Proof**
+        - Define $h_i(x) := f_i(x) - \nabla f_i (\tilde{x})^{\top} x + \nabla F (\tilde{x})^{\top} x$, one can check that $H(x) := \mathbb{E}[h_i(x)] = F(x)$
+        - By the conclusion in Exercise 6.2, we have $\mathbb{E}[\Vert \nabla h_i(x_t)\Vert _2^2]\leq 4 L_{\max}[F(x_t) - F(x^{\star})] + 2\mathbb{E}[\Vert \nabla h_i(x^{\star})\Vert ^2_2]$
+        - By definition $\nabla h_i(x^{\star}) := (\nabla f_i(x^{\star}) - \nabla f_i(\tilde{x})) + (\nabla F(\tilde{x})- \nabla F(x^{\star}))$
+            - Therefore $\mathbb{E}[\Vert \nabla h_i(x^{\star})\Vert ^2_2] = \mathbb{E}[\Vert \nabla f_i(x^{\star}) - \nabla f_i(\tilde{x})\Vert ^2_2] + \Vert \nabla F(\tilde{x})- \nabla F(x^{\star})\Vert ^2_2 + 2\mathbb{E}[\nabla f_i(x^{\star}) - \nabla f_i(\tilde{x})]^{\top}(\nabla F(\tilde{x})- \nabla F(x^{\star}))$
+            - $\mathsf{RHS} = \mathbb{E}[\Vert \nabla f_i(x^{\star}) - \nabla f_i(\tilde{x})\Vert ^2_2] - \Vert \nabla F(\tilde{x})- \nabla F(x^{\star})\Vert ^2_2 \leq \mathbb{E}[\Vert \nabla f_i(x^{\star}) - \nabla f_i(\tilde{x})\Vert ^2_2] \leq 2L_{\max}(F(\tilde{x})- F(x^{\star}))$, by Exercise 6.1.
+        - Plug this in and we get the result.
+- **Theorem 12.11 (Johnson & Zhang, 2013, geometric convergence)** Assume $f_i(x)$ is convex and $L$-smooth and $F(\mathbf{x}):=\frac{1}{n} \sum_{i=1}^{n} f_{i}(\mathbf{x})$ is $\mu$-strongly convex. Let $\mathbf{x}_{*}=\arg \min _{\mathbf{x}} F(\mathbf{x})$. Assume $m$ is sufficiently large (and $\eta < 1/2L$), so that, $\displaystyle \rho=\frac{1}{\mu \eta(1-2 L \eta) m}+\frac{2 L \eta}{1-2 L \eta}<1$,
+    - then we have geometric convergence in expectation $\mathbb{E}\left[F\left(\tilde{\mathbf{x}}^{s}\right)-F\left(\mathbf{x}_{*}\right)\right] \leq \rho^{s}\left[F\left(\tilde{\mathbf{x}}^{0}\right)-F\left(\mathbf{x}_{*}\right)\right]$.
+    - **Proof**
+        - $\mathbb{E}\left[\lVert\mathbf{x}_{t+1}-\mathbf{x}^{*}\rVert _{2}^{2}\right]=\lVert\mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2}^{2}-2 \eta\left(\mathbf{x}_{t}-\mathbf{x}^{*}\right)^{T} \mathbb{E}\left[\mathbf{g}_{t}\right]+\eta^{2} \mathbb{E}\left[\lVert\mathbf{g}_{t}\rVert _{2}^{2}\right]$
+        - By convexity and Lemma A $\mathsf{RHS} \leq\lVert\mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2}^{2}-2 \eta(1-2 L \eta)\left(F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)\right)+4 L \eta^{2}\left[F(\mathbf{x}_0)-F\left(\mathbf{x}^{*}\right)\right]$
+        - The above is for a single step of inner loop, we sum over $t\in[0:m-1]$ and get
+        - $\mathbb{E}\left[\lVert\mathbf{x}_{m}-\mathbf{x}^{*}\rVert _{2}^{2}\right] \leq \lVert\mathbf{x}_{0}-\mathbf{x}^{*}\rVert _{2}^{2} - 2 \eta(1-2 L \eta)\sum_{t=0}^{m-1}\mathbb{E}\left[F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)\right] + 4m L \eta^{2}\left[F(\mathbf{x}_0)-F\left(\mathbf{x}^{*}\right)\right]$
+        - By convexity, we have $\sum_{t=0}^{m-1}\left(F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)\right) \geq m\left(F\left(\frac{1}{m}\sum_{t=0}^{m-1}\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)\right)= m\left(F\left(\tilde{\mathbf{x}}^{s}\right)-F\left(\mathbf{x}^{*}\right)\right)$
+        - and by the condition of $\eta < 1/2L$, we have
+            - $\mathbb{E}\left[\lVert\mathbf{x}_{m}-\mathbf{x}^{*}\rVert _{2}^{2}\right] \leq \lVert\mathbf{x}_{0}-\mathbf{x}^{*}\rVert _{2}^{2} - 2 \eta m (1-2 L \eta)\mathbb{E}\left[F\left(\tilde{\mathbf{x}}^{s}\right)-F\left(\mathbf{x}^{*}\right)\right] + 4m L \eta^{2}\left[F(\mathbf{x}_0)-F\left(\mathbf{x}^{*}\right)\right]$
+        - By definition $\mathbf{x}_0 = \tilde{\mathbf{x}}^{s-1}$, and by $\mu$-strong convexity $\lVert\mathbf{x}_{0}-\mathbf{x}^{*}\rVert _{2}^{2} \leq \frac{2}{\mu} (F(\mathbf{x}_0)-F\left(\mathbf{x}^{*}\right))$
+            - $2 \eta m (1-2 L \eta)\mathbb{E}\left[F\left(\tilde{\mathbf{x}}^{s}\right)-F\left(\mathbf{x}^{*}\right)\right] + \underbrace{\mathbb{E}\left[\lVert\mathbf{x}_{m}-\mathbf{x}^{*}\rVert _{2}^{2}\right]}_{\mathrm{omitted}}\leq \left( \frac{2}{\mu} + 4m L \eta^{2}\right)\mathbb{E}\left[F(\tilde{\mathbf{x}}^{s-1})-F\left(\mathbf{x}^{*}\right)\right]$
+        - This means $\mathbb{E}\left[F\left(\tilde{\mathbf{x}}^{s}\right)-F\left(\mathbf{x}_{*}\right)\right] \leq\left[\frac{1}{\mu \eta(1-2 L \eta) m}+\frac{2 L \eta}{1-2 L \eta}\right] \mathbb{E}\left[F\left(\tilde{\mathbf{x}}^{s-1}\right)-F\left(\mathbf{x}_{*}\right)\right]$. QED
+- **Remark 12.13** Setting $\eta L = \theta$ gives $\rho=\frac{L}{\mu \theta(1-2 \theta) m}+\frac{2 \theta}{1-2 \theta}=O\left(\frac{L}{\mu m}+\text { const. }\right)$, If further set $m=O(L / \mu)$, we get a constant $\rho$.
+    - Then the number of epoch for $\varepsilon$ optimal is $O\left(\log \left(\frac{1}{\epsilon}\right)\right)$. Total number of gradient computation required is $\mathcal{O}\left((m+n) \log \left(\frac{1}{\epsilon}\right)\right)=\mathcal{O}\left(\left(n+\frac{L}{\mu}\right) \log \left(\frac{1}{\epsilon}\right)\right)$
+- **Remark** 
+    - if use importance sampling $\mathbb{P}\left(i_{t}=i\right)=\frac{L_{i}}{\sum L_{i}}$, we get $L_{\mathrm{avg}}$ instead of $L_{\max}$.
+    - Incorporating acceleration, can improve to $O\left(\left(n+\sqrt{n \kappa_{\max }}\right) \log \frac{1}{\epsilon}\right)$.
+    - Lower complexity bound of $O\left(\left(n+\sqrt{n \kappa_{\max }}\right) \log \frac{1}{\epsilon}\right)$ is proved for strongly-convex and smooth finite-sum problems.
+
+### SPIDER/SARAH/STORM (VR for non-convex $f$)
+- If objective satisfies *average-smoothness* $\mathbb{E}_{i}\lVert\nabla f_{i}(\mathbf{x})-\nabla f_{i}(\mathbf{y})\rVert ^{2} \leq L^{2}\Vert \mathbf{x}-\mathbf{y}\Vert ^{2}$, then complexity can be reduced to $O\left(\min \left\{\sqrt{n} / \epsilon^{2}, \epsilon^{-3}\right\}\right)$ instead of $O\left(n / \epsilon^{2}\right)$.
+- **Algorithm**
+    - **Input** $T$ iteration, $Q$ epoch length, $D$ batch size 1, $D$ batch size 2, $x_0$, $alpha$, $\eta$, $\omega(x)$
+    - **For** $t\in[0:T-1]$ **do**
+        - **If** $t\equiv 0 (\mathrm{mod} Q)$ **then**
+            - compute $\mathbf{g}_{t}=\frac{1}{D} \sum_{i=1}^{D} \nabla f\left(\mathbf{x}_{t} ; \boldsymbol{\xi}_{t}^{i}\right)$
+        - **else**
+            - compute $\mathbf{g}_{t}=(1-\eta)\left(\mathbf{g}_{t-1}-\frac{1}{S} \sum_{i=1}^{S} \nabla f\left(\mathbf{x}_{t-1} ; \boldsymbol{\xi}_{t}^{i}\right)\right)+\frac{1}{S} \sum_{i=1}^{S} \nabla f\left(\mathbf{x}_{t} ; \boldsymbol{\xi}_{t}^{i}\right)$.
+        - **End if**
+        - $\mathbf{x}_{t+1}=\operatorname{argmin}_{\mathbf{x} \in X}\left\{\mathbf{g}_{t}^{\top} x+\frac{1}{\alpha} V_{\omega}\left(\mathbf{x}, \mathbf{x}_{t}\right)\right\}$
+    - **End for**
+    - **Output** $\mathbf{x}_\tau$ with $\tau$ randomly chosen from $[0:T-1]$
+- *Complexity* Total time for gradient calculation is $\mathcal{O}(T(2 S+D / Q))$.
+- Difference amoung each algorithms
+    - STORM usually is the best.
+
+
+|  Parameters  |                  SPIDER                   |                   SARAH                   |                   STORM                   |                     New 1                     |                   New 2                   |
+| :----------: | :---------------------------------------: | :---------------------------------------: | :---------------------------------------: | :-------------------------------------------: | :---------------------------------------: |
+|    $T$     | $\mathcal{O}\left(\epsilon^{-2}\right)$ | $\mathcal{O}\left(\epsilon^{-3}\right)$ | $\mathcal{O}\left(\epsilon^{-3}\right)$ | $\mathcal{O}\left(\epsilon^{-5 / 2}\right)$ | $\mathcal{O}\left(\epsilon^{-3}\right)$ |
+|   $T/Q$    | $\mathcal{O}\left(\epsilon^{-1}\right)$ | $\mathcal{O}\left(\epsilon^{-1}\right)$ |                   $1$                   |   $\mathcal{O}\left(\epsilon^{-1}\right)$   |                   $1$                   |
+|    $D$     | $\mathcal{O}\left(\epsilon^{-2}\right)$ | $\mathcal{O}\left(\epsilon^{-2}\right)$ |            $\mathcal{O}(1)$             |   $\mathcal{O}\left(\epsilon^{-2}\right)$   | $\mathcal{O}\left(\epsilon^{-1}\right)$ |
+|    $S$     | $\mathcal{O}\left(\epsilon^{-1}\right)$ |            $\mathcal{O}(1)$             |            $\mathcal{O}(1)$             | $\mathcal{O}\left(\epsilon^{-1 / 2}\right)$ |            $\mathcal{O}(1)$             |
+|  $\eta_t$  |                   $0$                   |                   $0$                   |  $\mathcal{O}\left(t^{-2 / 3}\right)$   |                     $0$                     | $\mathcal{O}\left(\epsilon^{2}\right)$  |
+| $\alpha_t$ |            $\mathcal{O}(1)$             |         $\mathcal{O}(\epsilon)$         |  $\mathcal{O}\left(t^{-1 / 3}\right)$   | $\mathcal{O}\left(\epsilon^{1 / 2}\right)$  |         $\mathcal{O}(\epsilon)$         |
+|  Complexity  | $\mathcal{O}\left(\epsilon^{-3}\right)$ | $\mathcal{O}\left(\epsilon^{-3}\right)$ | $\mathcal{O}\left(\epsilon^{-3}\right)$ |   $\mathcal{O}\left(\epsilon^{-3}\right)$   | $\mathcal{O}\left(\epsilon^{-3}\right)$ |

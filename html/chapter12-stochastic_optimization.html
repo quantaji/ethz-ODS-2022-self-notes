@@ -1,0 +1,1300 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>/* copy from https://github.com/sindresorhus/github-markdown-css/ */
+
+html,body{background-color: #342839;}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #fafedd;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body figure{margin:0;padding:0; display:table;}
+.markdown-body figure figcaption{font-size:92%; text-align:center; color:#76dae8;}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #fed765;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' fill='%23fed765' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+.markdown-body strong{
+  color: #fe6188;
+}
+.markdown-body em{
+  color: #77dbe8;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #aa9df2;
+  text-decoration: none;
+}
+.markdown-body mjx-container[jax="SVG"] > svg a{fill:#aa9df2;stroke: #aa9df2;}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 12px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 12px;
+  color: #76dae8;
+  vertical-align: middle;
+  background-color: #3a2e3f;
+  border: 1px solid #504455;
+  border-radius: 3px;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #504455;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #c9cdac;
+  border-left: .25em solid #f5f5f5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #4a3e4f;
+  color: #fed765;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+  color: #fed765;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+  color: #fed765;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+  color: #fed765;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+  color: #fed765;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #fed765;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #786c7d;
+}
+
+.markdown-body table tr {
+  background-color: #342839;
+  border-top: 1px solid #786c7d;
+}
+
+.markdown-body table th {
+  background-color: #4a3e4f;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #392d3e;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #3a2e3f;
+  color: #76dae8;
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+   font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #3a2e3f;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+  color: #f0f0f0;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+.markdown-body section.footnotes{
+    margin-top:48px;
+    border-top:solid 1px #504455;
+    padding-top:0px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .markdown-body mark{color: #111;}
+}
+
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background-color: #3a2e3f;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #48be66;
+}
+
+.token.punctuation {
+    color: #fdd664;
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #9a95e3;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #fdd664;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #$$codeBlockColor$$;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #ccddf6;
+}
+
+.token.function,
+.token.class-name {
+    color: #f28d55;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #d38e63;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em; /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 1px solid #726677;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+  .line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+  }
+
+    .line-numbers-rows > span:before {
+      content: counter(linenumber);
+      color: #726677;
+      display: block;
+      padding-right: 0.8em;
+      text-align: right;
+    }
+
+
+</style><style>.mweb-charts{background:#fff;}
+body{ box-sizing: border-box;
+    margin: 0 auto;
+    padding: 28px}
+@media print{
+    pre, code, pre code {
+     overflow: visible !important;
+     white-space: pre-wrap !important;       /* css-3 */
+     white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap !important;      /* Opera 4-6 */
+     white-space: -o-pre-wrap !important;    /* Opera 7 */
+     word-wrap: break-word !important;       /* Internet Explorer 5.5+ */
+    }
+    html,body{margin:0;padding:4px;}
+}
+
+</style><script>window.MathJax = {     tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] },     startup: {     pageReady() {       return MathJax.startup.defaultPageReady().then(function () {          window.mweb_mathjax_ready_val = 'yes';          if(window.mweb_mathjax_ready !== undefined){ mweb_mathjax_ready(); }       });     }   }};document.addEventListener('DOMContentLoaded', function(event) {    if (typeof Prism != 'undefined') {         Prism.highlightAll();     }});window.mweb_mathjax_ready_val = '';function theMWebMathJaxRenderIsReady(key){ return window.mweb_mathjax_ready_val; }</script><script>window.MathJax = { tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] } }; </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script></head><body><div id='markdown_content' class='markdown-body'><h1><a id="chapter-12-stochastic-optimization" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chapter 12 Stochastic Optimization</h1>
+<ul>
+<li><strong>Formulation</strong> \(\min _{\mathbf{x} \in \mathbb{R}^{d}} F(\mathbf{x}):=\mathbb{E}_{\boldsymbol{\xi}}[f(\mathbf{x}, \boldsymbol{\xi})]\) or special case of \(\min _{\mathbf{x} \in \mathbb{R}^{d}} F(\mathbf{x}):=\frac{1}{n} \sum_{i=1}^{n} f_{i}(\mathbf{x})\).
+<ul>
+<li>\(\boldsymbol{\xi} \in \Xi \subset \mathbb{R}^{m}\) is a random vector with distribution \(P\)</li>
+<li>usually \(P\) unknown but can be sampled through data, \(F\) and \(\nabla F\) usually <strong>hard to compute</strong> even if \(P\) given.</li>
+</ul>
+</li>
+<li><strong>Algorithm</strong>
+<ol>
+<li>\(\mathbf{x}_{t+1}=\mathbf{x}_{t}-\gamma_{t} \nabla f\left(\mathbf{x}_{t}, \boldsymbol{\xi}_{t}\right)\) where \(\boldsymbol{\xi}_{t} \stackrel{i i d}{\sim} P(\boldsymbol{\xi})\).</li>
+<li>\(\mathbf{x}_{t+1}=\mathbf{x}_{t}-\gamma_{t} \nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)\) where \(i_{t} \in [n]\) is uniformly sampled.</li>
+</ol>
+</li>
+<li>We need \(\gamma_{t} \to 0\) to achieve convergence.</li>
+<li>To reduce noise, we can use <em>mini-batch</em> \(\mathbf{x}_{t+1}=\mathbf{x}_{t}-\gamma_{t} \cdot \frac{1}{b} \sum_{j \in J,\vert J\vert =b} \nabla f\left(\mathbf{x}_{t}, \boldsymbol{\xi}_{j}\right)\) or <em>SGD with iterate averaging</em> \(\overline{\mathbf{x}}_{t}=\frac{1}{t} \sum_{\tau=1}^{t} \mathbf{x}_{\tau}\).</li>
+</ul>
+<h3><a id="convergence-for-convex-functions" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convergence for convex functions</h3>
+<ul>
+<li>SGD is a special case of <em>stochastic mirror descent</em>, \(\mathbf{x}_{t+1}=\arg \min _{\mathbf{x} \in X}\left\{V_{\omega}\left(\mathbf{x}, \mathbf{x}_{t}\right)+\left\langle\gamma_{t} G\left(\mathbf{x}_{t}, \boldsymbol{\xi}_{t}\right), \mathbf{x}\right\rangle\right\}\).
+<ul>
+<li>\(\mathbb{E}[G(\mathbf{x}, \boldsymbol{\xi})] \in \partial F(\mathbf{x})\) and we assume \(\mathbb{E}\left[\Vert G(\mathbf{x}, \boldsymbol{\xi})\Vert _{*}^{2}\right] \leq M^{2}\).</li>
+</ul>
+</li>
+<li><strong>Theorem 12.4</strong> \(F\) convex, then SMD gives \(\mathbb{E}\left[F\left(\hat{\mathbf{x}}_{T}\right)-F\left(\mathbf{x}_{*}\right)\right] \leq \frac{R^{2}+\frac{M^{2}}{2} \sum_{t=1}^{T} \gamma_{t}^{2}}{\sum_{t=1}^{T} \gamma_{t}}\), where \(R^{2}=\max _{\mathbf{x} \in X} V_{\omega}\left(\mathbf{x}, \mathbf{x}_{1}\right)\) and \(\hat{\mathbf{x}}_{T}=\frac{\sum_{t=1}^{T} \gamma_{t} \mathbf{x}_{t}}{\sum_{t=1}^{T} \gamma_{t}}\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>The descent lemma gives \(\gamma_{t}\left(f\left(\mathbf{x}_{t}, \boldsymbol{\xi}_{t}\right)-f(\mathbf{x}^{*}, \boldsymbol{\xi}_{t})\right) \leq V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{t}\right)-V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{t+1}\right)+\frac{\gamma_{t}^{2}}{2}\lVert G\left(\mathbf{x}_{t}, \boldsymbol{\xi}_{t}\right)\rVert _{a *}^{2}\)
+<ul>
+<li>In the proof of this descent lemma, no information of \(\mathbf{x}^{*}\) is used, so we can use this on \(\mathbf{x}^{*} := \arg\min_{x} F(x)\).</li>
+</ul>
+</li>
+<li>Taking expectation w.r.t. \(\boldsymbol{\xi}_t\) and condition on \(\mathbf{x}_t\) we get (\(\mathbf{x}_t\) is still stochastic.)
+<ul>
+<li>\(\gamma_{t}\left(F\left(\mathbf{x}_{t}\right)-F(\mathbf{x}^{*})\right) \leq V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{t}\right)- \mathbb{E}\left[ V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{t+1}\right) \mid \mathbf{x}_{t} \right]+\frac{\gamma_{t}^{2}}{2}M^2\)</li>
+<li><u>Or equivalently under 2-norm we can get with only convexity of \(F\)</u>,
+<ul>
+<li>\(2 \gamma_{t}\left(F\left(\mathbf{x}_{t}\right)-F(\mathbf{x}^{*})\right) \leq \Vert  \mathbf{x}^{*}- \mathbf{x}_{t}\Vert _2^2 - \mathbb{E}\left[ \Vert  \mathbf{x}^{*}- \mathbf{x}_{t+1}\Vert ^2\mid \mathbf{x}_{t} \right] +\gamma_{t}^{2} \lVert G\left(\mathbf{x}_{t}, \boldsymbol{\xi}_{t}\right)\rVert _{2}^{2}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Further taking expectation w.r.t \(\mathbf{x}_t\) and condition on \(\mathbf{x}_{t-1}\) and we get
+<ul>
+<li>\(\gamma_{t}\mathbb{E}\left[F\left(\mathbf{x}_{t}\right)-F(\mathbf{x}^{*}) \mid \mathbf{x}_{t-1} \right] \leq \mathbb{E}\left[V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{t}\right)-V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{t+1}\right) \mid \mathbf{x}_{t-1} \right] +\frac{\gamma_{t}^{2}}{2}M^2\)</li>
+<li>add w.r.t. \(t-1\) case and we get \(\gamma_{t-1}\left(F\left(\mathbf{x}_{t-1}\right)-F(\mathbf{x}^{*})\right) + \gamma_{t}\mathbb{E}\left[F\left(\mathbf{x}_{t}\right)-F(\mathbf{x}^{*}) \mid \mathbf{x}_{t-1} \right] \leq V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{t-1}\right)- \mathbb{E}\left[ V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{t+1}\right) \mid \mathbf{x}_{t} \right]+(\gamma_{t-1}^{2} + \gamma_{t}^{2})M^2/2\)</li>
+</ul>
+</li>
+<li>do this expectation and summation through \(t\in[1:T]\) and we get
+<ul>
+<li>\(\sum_{t=1}^{T} \gamma_{t}\mathbb{E}\left[F\left(\mathbf{x}_{t}\right)-F(\mathbf{x}^{*}) \mid \mathbf{x}_{1} \right] \leq V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{1}\right)- \mathbb{E}\left[ V_{\omega}\left(\mathbf{x}^{*}, \mathbf{x}_{T+1}\right) \mid \mathbf{x}_{t} \right]+\sum_{t=1}^{T} \gamma_{t}^{2} M^2/2\)</li>
+<li>then the conclusion is straightforward.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If we set \(\gamma_{t} \equiv \frac{R}{M \sqrt{T}}\), then \(\mathbb{E}\left[F\left(\hat{\mathbf{x}}_{T}\right)-F\left(\mathbf{x}^{*}\right)\right]=O\left(\frac{B R}{\sqrt{T}}\right)\), this means \(O\left(1 / \epsilon^{2}\right)\) of sample complexity.</li>
+</ul>
+</li>
+</ul>
+<h3><a id="convergence-for-strongly-convex-functions" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convergence for strongly convex functions</h3>
+<ul>
+<li>
+<p><strong>Descent Lemma</strong> assume \(f\) is \(\mu\)-strongly convex and \(\mathbb{E}\left[\Vert \nabla f(\mathbf{x}, \boldsymbol{\xi})\Vert _{2}^{2}\right] \leq B^{2}\), then  \(\mathbb{E}\left[\lVert \mathbf{x}_{t+1}-\mathbf{x}^{*}\rVert _{2}^{2}\right] \leq\left(1-2 \mu \gamma_{t}\right) \mathbb{E}\left[\lVert \mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2}^{2}\right]+\gamma_{t}^{2} B^{2}\)</p>
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(\lVert \mathbf{x}_{t+1}-\mathbf{x}_{*}\rVert _{2}^{2} \leq\lVert \mathbf{x}_{t}-\gamma_{t} \nabla f\left(\mathbf{x}_{t}, \boldsymbol{\xi}_{t}\right)-\mathbf{x}_{*}\rVert _{2}^{2} =\lVert \mathbf{x}_{t}-\mathbf{x}_{*}\rVert _{2}^{2}-2 \gamma_{t}\left\langle\nabla f\left(\mathbf{x}_{t}, \boldsymbol{\xi}_{t}\right), \mathbf{x}_{t}-\mathbf{x}_{*}\right\rangle+\gamma_{t}^{2}\lVert \nabla f\left(\mathbf{x}_{t}, \boldsymbol{\xi}_{t}\right)\rVert _{2}^{2}\)</li>
+<li>Taking expectation over \(\boldsymbol{\xi}_{t}\) and we get
+<ul>
+<li>\(\mathbb{E}\left[\lVert \mathbf{x}_{t+1}-\mathbf{x}_{*}\rVert _{2}^{2}\mid \mathbf{x}_{t}\right] \leq \lVert \mathbf{x}_{t}-\mathbf{x}_{*}\rVert _{2}^{2} - 2 \gamma_{t}\left\langle\nabla F\left(\mathbf{x}_{t}\right), \mathbf{x}_{t}-\mathbf{x}_{*}\right\rangle+\gamma_{t}^{2}B^{2}\)</li>
+</ul>
+</li>
+<li>Strong convexity of \(F\) means coercivity, \(\left\langle\nabla F\left(\mathbf{x}_{t}\right), \mathbf{x}_{t}-\mathbf{x}_{*}\right\rangle = \left\langle\nabla F\left(\mathbf{x}_{t}\right) - F\left(\mathbf{x}^{\star}\right), \mathbf{x}_{t}-\mathbf{x}_{*}\right\rangle \geq \mu\lVert \mathbf{x}_{t}-\mathbf{x}_{*}\rVert _{2}^{2}\)
+<ul>
+<li>plug this in and we get the result.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Theorem 12.3</strong> Assume \(F(x)\) is \(\mu\)-strongly convex, and \(\exists B&gt; 0\), s.t. \(\forall \mathbf{x}\in X,  \mathbb{E}\left[\Vert \nabla f(\mathbf{x}, \boldsymbol{\xi})\Vert _{2}^{2}\right] \leq B^{2}\), then SGD with \(\gamma_{t}=\gamma / t\) at iteration \(t\) where \(\gamma&gt;1 / 2 \mu\) satisfies \(\mathbb{E}\left[\lVert \mathbf{x}_{t}-\mathbf{x}_{*}\rVert _{2}^{2}\right] \leq \frac{C(\gamma)}{t}\) where \(C(\gamma)=\max \left\{\frac{\gamma^{2} B^{2}}{2 \mu \gamma-1},\lVert \mathbf{x}_{1}-\mathbf{x}_{*}\rVert _{2}^{2}\right\}\).</p>
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By decsetn lemma than take expectation over all \(t\), denote \(\varepsilon_{t} := \mathbb{E}\left[\lVert \mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2}^{2}\mid \mathbf{x}_1\right]\), we have
+<ul>
+<li>\(\varepsilon_{t+1} \leq (1 - 2\mu \gamma /t)\varepsilon _{t} + \gamma^2 B^2t^2\).</li>
+</ul>
+</li>
+<li>We use induction and assume \(\exists C(\gamma)\) s.t. \(\forall \tau \leq t\), \(\varepsilon_{\tau} \leq C(\gamma)/\tau\).</li>
+<li>To make \(\varepsilon_{t+1} \leq C(\gamma)/(t+1)\), we need (denote \(b:= 2\mu\gamma &gt; 1\) and \(a:= B^2\gamma^2\))
+<ul>
+<li>\(\epsilon_{t+1} \leq \frac{C(\gamma)}{t}\left(1 - \frac{b}{t}\right) + \frac{a}{t^2} = \frac{C(\gamma)}{t+1}\left(1+\frac{1}{t}\right)\left(1-\frac{b}{t}\right)+ \frac{a}{t^2} = \frac{C(\gamma)}{t+1} - \frac{C(\gamma)}{t(t+1)}\left(b-1+\frac{b}{t}\right)+\frac{a}{t^{2}}\)</li>
+<li>We need the residual term \(\frac{C(\gamma)}{t(t+1)}\left(b-1+\frac{b}{t}\right) - \frac{a}{t^{2}} &gt; 0\)
+<ul>
+<li>equivalently \(C(\gamma) \geq \frac{1}{b-1+\frac{b}{t}}(1 + \frac{1}{t})a = \frac{a}{b-1}\frac{1+t}{b/(b-1) + t}\).</li>
+<li>Since \(b \geq 1\), \(b/(b-1) &gt;1\), \(\frac{1+t}{b/(b-1) + t}\) increase w.r.t \(t\), so \(C(\gamma) \geq \max_{t}  \frac{1}{b-1+\frac{b}{t}}(1 + \frac{1}{t})a = \frac{a}{b-1}\frac{1+\infty}{b/(b-1) + \infty} = \frac{a}{b-1} = \frac{\gamma^{2} B^{2}}{2 \mu \gamma-1}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>To ensure indunction succeed, we also need \(C(\gamma)\geq \varepsilon_{1} = \lVert \mathbf{x}_{1}-\mathbf{x}_{*}\rVert _{2}^{2}\).</li>
+</ul>
+</li>
+<li>sample compexity is \(O(1 / \epsilon)\).</li>
+<li>If \(F\) also \(L\)-smooth, we have \(\mathbb{E}\left[F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)\right]=O\left(\frac{L \cdot C(\gamma)}{t}\right)\).</li>
+</ul>
+</li>
+<li>
+<p><strong>Example</strong> SGD over \(\min _{x} F(x):=\frac{1}{2} \mathbb{E}_{\xi \sim N(0,1)}\left[(x-\xi)^{2}\right]\) with \(\gamma_t = 1/t\) gives \(\mathbb{E}\left[\lvert x_{t+1}-x^{*}\rvert ^{2}\right]=\frac{1}{t}\), since \(t x_{t+1} = (t-1) x_{t} + \xi_t\).</p>
+</li>
+<li>
+<p><strong>Lemma (Boundedness of Stochastic Gradients, Ex5.1 5.2)</strong> \(F(x)=\mathbb{E}[f(x, \xi)]\) and \(f\) is convex and \(L\)-smooth, define \(\mathbf{x}^{*}=\operatorname{argmin}_{\mathbf{x}} F(\mathbf{x})\), then</p>
+<ul>
+<li>\(\mathbb{E}\left[\lVert\nabla f(x, \xi)-\nabla f\left(x^{*}, \xi\right)\rVert _{2}^{2}\right] \leq 2 L\left[F(x)-F\left(x^{*}\right)\right]\) and \(\mathbb{E}\left[\Vert \nabla f(x, \xi)\Vert _{2}^{2}\right] \leq 4 L\left[F(x)-F\left(x^{*}\right)\right]+2 \mathbb{E}\left[\lVert\nabla f\left(x^{*}, \xi\right)\rVert _{2}^{2}\right]\)</li>
+<li><strong>Proof</strong>
+<ul>
+<li>first
+<ul>
+<li>Define \(f_y(x) := f(x,\xi) - \nabla f(y,\xi)^{\top}(x-y)\), then \(x=y\) is the minima for \(f_y\),</li>
+<li>by Lemma B in chap3, the quadratic bound for smooth function
+<ul>
+<li>\(f(\mathbf{x}^{\star},\xi) - \nabla f(y,\xi)^{\top}(\mathbf{x}^{\star}-y) - f(y,\xi) = f_y(\mathbf{x}^{\star}) - f_y(y) \geq \frac{1}{2L} \Vert \nabla f_y(\mathbf{x}^{\star})\Vert _2^2 = \frac{1}{2L} \Vert \nabla f(\mathbf{x}^{\star})- \nabla f(\mathbf{x}_y)\Vert _2^2\).</li>
+</ul>
+</li>
+<li>Taking expectation over \(\xi\) and \(\nabla F(\mathbf{x}^{\star}) = 0\), we get
+<ul>
+<li>\(F(\mathbf{x}^{\star})- F(y) \geq  \frac{1}{2L} \mathbb{E} \Vert \nabla f(\mathbf{x}^{\star})- \nabla f(\mathbf{x}_y)\Vert _2^2\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Second
+<ul>
+<li>by \(\Vert \mathbf{a}+\mathbf{b}\Vert _{2}^{2} \leq 2\Vert \mathbf{a}\Vert _{2}^{2}+2\Vert \mathbf{b}\Vert _{2}^{2}\)
+<ul>
+<li>so \(\Vert \nabla f(x, \xi)\Vert _{2}^{2} \leq 2\lVert\nabla f(x, \xi)-\nabla f\left(x^{*}, \xi\right)\rVert _{2}^{2}+2\lVert\nabla f\left(x^{*}, \xi\right)\rVert _{2}^{2} .\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Lemma of my own (might be useful in exam)</strong> \(f\) convex and \(L\)-smooth, then \(\forall r, f(x) - f(y) \geq \nabla f_y^{\top}(x-y) - (\nabla f_x - \nabla f_y)^{\top} r - L\Vert r\Vert _2^2/ 2\)</p>
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By smoothness, \(f(x+r) \leq f(x) + \nabla f_x^{\top} r + L\Vert r\Vert _2^2/ 2\)</li>
+<li>By convexity \(f(x+r) \geq f(y) + \nabla f_y^{\top} (x+r-y)\)</li>
+<li>combine them together and we get the result.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a id="convergence-of-sgd-under-constant-stepsize" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convergence of SGD under constant stepsize</h3>
+<ul>
+<li><strong>Theorem 12.5</strong> Assume \(F\) is \(\mu\)-strongly convex and \(L\)-smooth, and also \(\mathbb{E}\left[\Vert \nabla f(\mathbf{x}, \boldsymbol{\xi})\Vert _{2}^{2}\right] \leq \sigma^{2}+c\Vert \nabla F(\mathbf{x})\Vert _{2}^{2}\), then SGD with constant step size \(\gamma_{t} \equiv \gamma \leq \frac{1}{L c}\) gives \(\mathbb{E}\left[F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}_{*}\right)\right] \leq \frac{\gamma L \sigma^{2}}{2 \mu}+(1-\gamma \mu)^{t-1}\left[F\left(\mathbf{x}_{1}\right)-F\left(\mathbf{x}_{*}\right)\right]\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By Smoothness of \(F\), we have \(F(\mathbf{x}_{t+1, \xi_{t}}) - F(\mathbf{x}_{t}) \leq - \gamma \langle \nabla F(\mathbf{x}_{t}), \nabla f(\mathbf{x}_{t}, \xi_t) \rangle + \frac{L \gamma ^2}{2} \Vert \nabla f(\mathbf{x}_{t}, \xi_{t})\Vert _2^2\)</li>
+<li>Taking expectation over \(\xi_{t}\), we get \(\mathbb{E}[F(\mathbf{x}_{t+1}) \vert  \mathbf{x}_{t}]  - F(\mathbf{x}_{t}) \leq - \gamma \Vert  \nabla F(\mathbf{x}_{t})\Vert ^2 + \frac{L \gamma ^2}{2}\left( \sigma^2 + c \Vert  \nabla F(\mathbf{x}_{t})\Vert ^2\right)\)</li>
+<li>By strong convexity we have \(\Vert \nabla F(\mathbf{x}_{t}) - \nabla F(\mathbf{x}^{\star})\Vert  \geq 2\mu (F(\mathbf{x}_{t}) - F(\mathbf{x}^{\star}))\), take half of this term into above and we get</li>
+<li>\(\mathbb{E}[F(\mathbf{x}_{t+1}) - F(\mathbf{x}^{\star}) \vert  \mathbf{x}_{t}]  \leq (1 - \gamma \mu)\left( F(\mathbf{x}_{t}) - F(\mathbf{x}^{\star})\right)  + \frac{L \gamma ^2 \sigma^2}{2} - (1 - L\gamma c)\frac{\gamma}{2} \Vert  \nabla F(\mathbf{x}_{t})\Vert ^2\)</li>
+<li>Since \(\gamma \geq 1/cL\), we get \(\mathbb{E}[F(\mathbf{x}_{t+1}) - F(\mathbf{x}^{\star}) ]  \leq (1 - \gamma \mu)\mathbb{E}[F(\mathbf{x}_{t}) - F(\mathbf{x}^{\star}) ]   + \frac{L \gamma ^2 \sigma^2}{2}\)
+<ul>
+<li>\((1- \gamma \mu)^{-T+1}\mathbb{E}[F(\mathbf{x}_{t+1}) - F(\mathbf{x}^{\star}) ]\leq \mathbb{E}[F(\mathbf{x}_{t}) - F(\mathbf{x}^{\star}) ]  +\sum_{t=1}^{T-1}(1- \gamma \mu)^{-t} \frac{L \gamma ^2 \sigma^2}{2}\), else is easy.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If we start from \(\Vert \mathbf{x}_{t} - \mathbf{x}^{\star}\Vert _2^2\) we can also get similar conclusion on it.</li>
+<li>This means constant stepsize converges linearly to some neighborhood of the optimal solution.</li>
+<li>If variance is bounded \(\mathbb{E}[\Vert  \nabla f(\mathbf{x}, \boldsymbol{\xi})-\nabla F(\mathbf{x}) \Vert _{2}^{2}] \leq \sigma^{2}\), then the condition natually holds with \(c=1\).</li>
+<li>When \(\mathbb{E}\left[\Vert \nabla f(\mathbf{x}, \boldsymbol{\xi})\Vert _{2}^{2}\right] \leq c\Vert \nabla F(\mathbf{x})\Vert _{2}^{2}\), the case is called <em>strong growth condition</em> with constant \(c\). SGD then converge to global optimal.
+<ul>
+<li>When \(F(\mathbf{x})=\frac{1}{n} \sum_{i=1}^{n} f_{i}(\mathbf{x})\), strong growth means <em>imterpolation</em>, \(\nabla f_{i}\left(\mathbf{x}^{*}\right)=0, \forall i\).</li>
+<li>Example: linear regression or over-parametrized neural network in the realizable case.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma (PL -&gt; strong growth)</strong> If \(f\) is \(L\)-smooth and \(F\) is \(\mu\)-PL, then we have strong growth condition (I cannot prove assuming \(F\) is smooth).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By Lemma B in chp3 \(f(\mathbf{x},\xi) - f(\mathbf{x}^{\star},\xi)\geq  \frac{1}{2L} \Vert \nabla f(\mathbf{x},\xi)\Vert _2^2 + \mathrm{Linear\;Term}\), taking expectation over \(\xi\)
+<ul>
+<li>\(\mathbb{E} \Vert \nabla f(\mathbf{x},\xi)\Vert _2^2 \leq 2L (F(\mathbf{x}) - F(\mathbf{x}^{\star} ))\), then by PL of \(F\), \(F(\mathbf{x}) - F(\mathbf{x}^{\star}) \leq \frac{1}{2\mu} \Vert \nabla F(\mathbf{x})\Vert _2^2\) we get strong growth condition with \(c=L/\mu\).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Definition (Weak Growth)</strong> \(F=\mathbb{E} f\) is \(L\)-smooth and have a minima \(\mathbf{x}^{\star}\), stochastic gradient satisfies the weak growth condition with constant \(c\) if \(\mathbb{E}\left[\Vert \nabla f(\mathbf{x}, \boldsymbol{\xi})\Vert _{2}^{2}\right] \leq 2 c L\left[F(\mathbf{x})-F\left(\mathbf{x}_{*}\right)\right]\).</li>
+<li><strong>Lemma (Ex 75.1)</strong> If \(F\) convex, strong growth -&gt; weak growth.
+<ul>
+<li><strong>Proof</strong> By smoothness \(\Vert \nabla F(\mathbf{x})\Vert _{2}^{2} \leq 2L [F(\mathbf{x}) - F(\mathbf{x}^{\star})]\) (<em>PS: I don't see why assume convex</em>)</li>
+</ul>
+</li>
+<li><strong>Lemma (Ex 75.2)</strong> If \(F\) \(\mu\)-strong convex, weak growth -&gt; strong growth.
+<ul>
+<li><strong>Proof</strong> By strong convexity \(\Vert \nabla F(\mathbf{x})\Vert _{2}^{2} \geq 2\mu [F(\mathbf{x}) - F(\mathbf{x}^{\star})]\)</li>
+</ul>
+</li>
+</ul>
+<h3><a id="convergence-for-nonconvex-functions-handout-11" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convergence for nonconvex functions (handout 11)</h3>
+<ul>
+<li><strong>Theroem 12.8</strong> If \(\mathbf{dom}(F) = X = \mathbb{R}^{n}\), \(F\) is \(L\)-smooth and \(\mathbb{E}\left[\Vert \nabla f(\mathbf{x}, \boldsymbol{\xi})-\nabla F(\mathbf{x})\Vert _{2}^{2}\right] \leq \sigma^{2}\), then stepsize of \(\gamma_t = \min \left\{\frac{1}{L}, \frac{\gamma}{\sigma \sqrt{T}}\right\}\) gives \(\mathbb{E}\left[\lVert \nabla F\left(\hat{\mathbf{x}}_{T}\right)\rVert ^{2}\right] \leq \frac{\sigma}{\sqrt{T}}\left(\frac{2\left(F\left(\mathbf{x}_{1}\right)-F\left(\mathbf{x}_{*}\right)\right)}{\gamma}+L \gamma\right)\), where \(\hat{\mathbf{x}}_{T}\) is selected uniformly at random from \(\left\{\mathbf{x}_{1}, \ldots, \mathbf{x}_{T}\right\}\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>similar to privous proof, \(\mathbb{E}[F(\mathbf{x}_{t+1}) \vert  \mathbf{x}_{t}]  - F(\mathbf{x}_{t}) \leq - \gamma \Vert  \nabla F(\mathbf{x}_{t})\Vert ^2 + \frac{L \gamma ^2}{2} \mathbb{E} \Vert \nabla f(\mathbf{x}_{t}, \xi_t)\Vert _2^2\).</li>
+<li>By our assumption, we have \(\mathbb{E}\left[F\left(\mathbf{x}_{t+1}\right)-F\left(\mathbf{x}_{t}\right)\right] \leq-\frac{\gamma_{t}}{2} \mathbb{E}\lVert \nabla F\left(\mathbf{x}_{t}\right)\rVert ^{2}+\frac{L \sigma^{2} \gamma_{t}^{2}}{2}\), sum over \(t\in[1:T]\) and we get the result.</li>
+</ul>
+</li>
+<li>This means in non-convex setting, finding \(\epsilon\)-stationary point \(\mathbb{E}[\Vert \nabla F(\overline{\mathbf{x}})\Vert ] \leq \epsilon\) requirse at most \(O\left(1 / \epsilon^{4}\right)\) iteration/data point.</li>
+</ul>
+</li>
+</ul>
+<h3><a id="lower-bound" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lower Bound</h3>
+<ul>
+<li>Sample complexity of \(O\left(1 / \epsilon^{2}\right)\) and \(O(1 / \epsilon)\) for convex / strongly convex cannot be improved.</li>
+<li><strong>Definition (Stochastic Oracle)</strong> Given input \(\mathbf{x}\), stochastic oracle returns \(G(\mathbf{x}, \boldsymbol{\xi})\) such that \(\mathbb{E}[G(\mathbf{x}, \boldsymbol{\xi})] \in \partial F(\mathbf{x})\) and \(\mathbb{E}\left[\Vert G(\mathbf{x}, \boldsymbol{\xi})\Vert _{p}^{2}\right] \leq M^{2}\), \(M &gt; 0\) and \(p\in[1,\infty]\).</li>
+<li><strong>Theorem (Agarwal et al., 2012)</strong> Let \(X=B_{\infty}(r)\) be a \(\ell_\infty\) ball in \(\mathbb{R}^{d}\).
+<ol>
+<li>\(\exists c_{0}&gt;0\), convex function \( f\) with \(\vert f(x)-f(y)\vert &lt;M\Vert x-y\Vert _{\infty}\), for any algorithm making \(T\) stochastic oracles with \(1\leq p \leq 2\),
+<ul>
+<li>\(\mathbb{E}\left[f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{*}\right)\right] \geq \min \left\{c_{0} M r \sqrt{\frac{d}{T}}, \frac{M r}{144}\right\}\)</li>
+</ul>
+</li>
+<li>\(\exists c_{1}, c_{2}&gt;0\), \(\mu\)-strongly convex function \(f\), for any algorithm making \(T\) stochastic oracles with \(p=1\),
+<ul>
+<li>\(\mathbb{E}\left[f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{*}\right)\right] \geq \min \left\{c_{1} \frac{M^{2}}{\mu^{2} T}, c_{2} M r \sqrt{\frac{d}{T}}, \frac{M^{2}}{1152 \mu^{2} d}, \frac{M r}{144}\right\}\).</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2><a id="adaptive-stochastic-gradient-methods" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adaptive Stochastic Gradient Methods</h2>
+<ul>
+<li>
+<p><strong>Generic Adaptive Scheme</strong></p>
+<ul>
+<li>\(\mathbf{g}_{t}=\nabla f\left(\mathbf{x}_{t}, \boldsymbol{\xi}_{t}\right)\)</li>
+<li>\(\mathbf{m}_{t}=\phi_{t}\left(\mathbf{g}_{1}, \ldots, \mathbf{g}_{t}\right)\)</li>
+<li>\(V_{t}=\psi_{t}\left(\mathbf{g}_{1}, \ldots, \mathbf{g}_{t}\right)\)</li>
+<li>\(\hat{\mathbf{x}}_{t}=\mathbf{x}_{t}-\alpha_{t} V_{t}^{-1 / 2} \mathbf{m}_{t}\)</li>
+<li>\(\mathbf{x}_{t+1}=\underset{\mathbf{x} \in X}{\operatorname{argmin}}\left\{\left(\mathbf{x}-\hat{\mathbf{x}}_{t}\right)^{T} V_{t}^{1 / 2}\left(\mathbf{x}-\hat{\mathbf{x}}_{t}\right)\right\}\)</li>
+</ul>
+</li>
+<li>
+<p><strong>SGD</strong> \(\phi_{t}\left(\mathbf{g}_{1}, \ldots, \mathbf{g}_{t}\right)=\mathbf{g}_{t}, \quad \psi_{t}\left(\mathbf{g}_{1}, \ldots, \mathbf{g}_{t}\right)=\mathbb{I}\)</p>
+</li>
+<li>
+<p><strong>AdaGrad</strong> \(\phi_{t}\left(\mathbf{g}_{1}, \ldots, \mathbf{g}_{t}\right)=\mathbf{g}_{t}, \quad \psi_{t}\left(\mathbf{g}_{1}, \ldots, \mathbf{g}_{t}\right)={\operatorname{diag}\left(\sum_{\tau=1}^{t} \mathbf{g}_{\tau}^{2}\right)}/{t}\)</p>
+<ul>
+<li>can be viewed as Mirror descent with Bregman Divergence of \(\omega_{t}(\mathbf{x})=\frac{1}{2} \mathbf{x}_{t} H_{t} \mathbf{x}\), where \(H_{t}=\epsilon \mathbf{I}+\left[\sum_{t=1}^{t} \mathbf{g}_{t} \mathbf{g}_{t}^{T}\right]^{\frac{1}{2}}\).</li>
+</ul>
+</li>
+<li>
+<p><strong>RMSProp</strong> \(\phi_{t}\left(\mathbf{g}_{1}, \ldots, \mathbf{g}_{t}\right)=\mathbf{g}_{t}, \quad \psi_{t}\left(\mathbf{g}_{1}, \ldots, \mathbf{g}_{t}\right)=\left(1-\beta_{2}\right) \operatorname{diag}\left(\sum^{t} \beta_{2}^{t-\tau} \mathbf{g}_{\tau}^{2}\right)\)</p>
+<ul>
+<li>momentum on gradient norm term to slow down the decay of learning rate.</li>
+</ul>
+</li>
+<li>
+<p><strong>Adam</strong> \(\phi_{t}\left(\mathbf{g}_{1}, \ldots, \mathbf{g}_{t}\right)=\left(1-\beta_{1}\right) \sum_{\tau=1}^{t} \beta_{1}^{t-\tau} \mathbf{g}_{\tau}, \quad \psi_{t}\left(\mathbf{g}_{1}, \ldots, \mathbf{g}_{t}\right)=\left(1-\beta_{2}\right) \operatorname{diag}\left(\sum^{t} \beta_{2}^{t-\tau} \mathbf{g}_{\tau}^{2}\right)\),</p>
+<ul>
+<li>equivalently \(\mathbf{m}_{t}=\beta_{1} \mathbf{m}_{t-1}+\left(1-\beta_{1}\right) \mathbf{g}_{t}, V_{t}=\beta_{2} V_{t-1}+\left(1-\beta_{2}\right) \operatorname{diag}\left(\mathbf{g}_{t}^{2}\right)\).</li>
+<li>momentum on both gradient and gradient norm term.</li>
+</ul>
+</li>
+<li>
+<p>Adaptive Methods</p>
+<ul>
+<li>Less sensitive to parameter tuning and adapt to sparse gradients.</li>
+<li>Out perform SGD for NLP tasks, training GANs, deep RL, etc., but are less effective in CV tasks.</li>
+<li>Tend to overfit and generalize worse than their non-adaptive counterparts.</li>
+<li>Often display faster initial progress on the training set, but their performance quickly plateaus on the testing set.</li>
+</ul>
+</li>
+<li>
+<p>What we know in theory</p>
+<ul>
+<li>SGD with momentum has no acceleration even for some convex quadratic functions.</li>
+<li>For convex problems, Adagrad does converge, but RMSProp and Adam may not when \(\beta_{1}&lt;\sqrt{\beta_{2}}\).</li>
+</ul>
+</li>
+<li>
+<p>Example of non-convergence of Adam</p>
+<ul>
+<li>\(X=[-1,1], \;f(x, \xi)=\left\{\begin{array}{ll}C x, &amp; \text { if } \xi=1 \\-x, &amp; \text { if } \xi=0\end{array},\; P(\xi=1)=p=\frac{1+\delta}{C+1}\right.\)</li>
+<li>\(F(x)=\mathbb{E}[f(x, \xi)]=\delta x\) and \(x^{*}=-1\).</li>
+<li>update rule gives \(x_{t+1}=x_{t}-\gamma_{0} \Delta_{t}\) with \(\Delta_{t}=\frac{\alpha m_{t}+(1-\alpha) g_{t}}{\sqrt{\beta v_{t}+(1-\beta) g_{t}^{2}}}\)</li>
+<li>For \(C\) large enough, one can show that \(\mathbb{E}\left[\Delta_{t}\right] \leq 0\).</li>
+</ul>
+</li>
+<li>
+<p>A fix: <em>AMSGrad</em>, can prove convergence for many convex case.</p>
+<ul>
+<li>changes: \(v_{t}=\beta_{2} v_{t-1}+\left(1-\beta_{2}\right) g_{t}^{2}, \hat{v}_{t}=\max \left(\hat{v}_{t-1}, v_{t}\right)\) and \(\hat{V}_{t}=\operatorname{diag}\left(\hat{v}_{t}\right)\).</li>
+<li>Idea: if \(g_t \ll m_t\) then \(v_t &lt; v_{t+1}\), this might increase step size.</li>
+</ul>
+</li>
+</ul>
+<h2><a id="variance-reduce-methods" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variance reduce methods</h2>
+<ul>
+<li><strong>Idea</strong> \(\mathbb{E}\left[F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)\right] \leq \frac{\gamma L \sigma^{2}}{2 \mu}+(1-\mu \gamma)^{t-1}\left(F\left(\mathbf{x}_{1}\right)-F\left(\mathbf{x}^{*}\right)\right)\), if \(\sigma^2\) can be reduced -&gt; better upper bound.</li>
+<li><strong>Mini-Batching</strong> \(\mathbf{x}_{t+1}=\mathbf{x}_{t}-\gamma_{t}\frac{1}{b} \sum_{i=1}^{b} \nabla f\left(\mathbf{x}_{t}, \boldsymbol{\xi}_{t, i}\right)\), \(\sigma^2 \leftarrow \sigma^2/b\) but at cost of computation. sample complexity remains the same.</li>
+<li><strong>Importance sampling</strong> since \(\xi\sim P\), we can change to another distri \(Q\) by \(G\left(\mathbf{x}_{t}, \boldsymbol{\xi}_{t}\right) \Longrightarrow G\left(\mathbf{x}_{t}, \boldsymbol{\eta}_{t}\right) \frac{P\left(\boldsymbol{\eta}_{t}\right)}{Q\left(\boldsymbol{\eta}_{t}\right)}\), and variance may be smaller.</li>
+<li><strong>Momentum</strong> \(\mathbf{x}_{t+1}=\mathbf{x}_{t}-\gamma_{t} \hat{\mathbf{m}}_{t}\) where \(\hat{\mathbf{m}}_{t}=c \cdot \sum_{\tau=1}^{t} \alpha^{t-\tau} \nabla f_{i_{\tau}}\left(\mathbf{x}_{\tau}\right)\)</li>
+<li><strong>Key Idea of Modern Variance Reduction</strong>
+<ul>
+<li>we want to estimate \(\theta=\mathbb{E}[X]\), but estimator is \(\hat{\Theta}:=X-Y\), where \(\mathbb{E}[Y]=0\).</li>
+<li>\(\mathbb{V}[X-Y] &lt; \mathbb{V}[X]\) if \(\mathrm{Cov}(X,Y) &gt; 0\)</li>
+</ul>
+</li>
+<li><strong>Point Estimator</strong> \(\hat{\Theta}_{\alpha}=\alpha(X-Y)+\mathbb{E}[Y]\), \(\mathbb{E}\left[\hat{\Theta}_{\alpha}\right]=\alpha \mathbb{E}[X]+(1-\alpha) \mathbb{E}[Y]\) and \(\mathbb{V}\left[\hat{\Theta}_{\alpha}\right]=\alpha^{2}(\mathbb{V}[X]+\mathbb{V}[Y]-2 \operatorname{Cov}[X, Y])\).
+<ul>
+<li>\(\alpha = 0 \to 1\), highly bias and no variance \(\to\) unbiased but larges variance.</li>
+<li>If \(\operatorname{Cov}[X, Y]\) is sufficiently large, then \(\operatorname{Var}\left[\hat{\Theta}_{\alpha}\right]&lt;\operatorname{Var}[X]\)</li>
+<li><em>Idea</em> \(\mathbf{g}_{t}:=\alpha\left(\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)-Y\right)+\mathbb{E}[Y]\) s.t. \(\mathbb{E}\left[\lVert\mathbf{g}_{t}-\nabla F\left(\mathbf{x}_{t}\right)\rVert ^{2}\right] \rightarrow 0\), as \(t \rightarrow \infty\).</li>
+</ul>
+</li>
+<li><strong>Choice 1</strong> \(Y=\nabla f_{i_{t}}\left(\mathbf{x}^{\star}\right)\), \(\mathbb{E}[Y]=0\), unrealistic but concptually useful.</li>
+<li><strong>Choice 2</strong> \(Y=\nabla f_{i_{t}}\left(\overline{\mathbf{x}}_{i_{t}}\right)\), where \(\overline{\mathbf{x}}_{i_{t}}\) is the last point for with we evaluated \(\nabla f_{i}\left(\overline{\mathbf{x}}_{i}\right)\). \(\mathbb{E}[Y]=\frac{1}{n} \sum_{i=1}^{n} \nabla f_{i}\left(\overline{\mathbf{x}}_{i}\right)\), but requires storage of \(\left\{\overline{\mathbf{x}}_{i}\right\}_{i=1}^{n}\) or \(\left\{\nabla f_{i}\left(\overline{\mathbf{x}}_{i}\right)\right\}_{i=1}^{n}\)</li>
+<li><strong>Choice 3</strong> \(Y=\nabla f_{i_{t}}(\tilde{\mathbf{x}})\), where \(\tilde{\mathbf{x}}\) is some fixed reference point. \(\mathbb{E}[Y]=\frac{1}{n} \sum_{i=1}^{n} \nabla f_{i}(\tilde{\mathbf{x}})\), and requires computing full gradient.</li>
+</ul>
+<h2><a id="stochastic-variance-reduced-algorithms" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stochastic Variance-Reduced Algorithms</h2>
+<h3><a id="stochastic-average-gradient-sag-alpha-frac-1-n-y-mathbf-v-i-t" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stochastic Average Gradient (SAG) (\(\alpha=\frac{1}{n}, Y=\mathbf{v}_{i_{t}}\))</h3>
+<ul>
+<li>\(\mathbf{g}_{t}=\frac{1}{n}\left(\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)-\mathbf{v}_{i_{t}}\right)+\frac{1}{n} \sum_{i=1}^{n} \mathbf{v}_{i}\) where \(\mathbf{v}_{i}\) is the past gradient \(\mathbf{v}_{i}^{t}= \begin{cases}\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right), &amp; \text { if } i=i_{t} \\ \mathbf{v}_{i}^{t-1}, &amp; \text { if } i \neq i_{t}\end{cases}\).</li>
+<li>Equivalently \(\mathbf{g}_{t}=\mathbf{g}_{t-1}-\frac{1}{n} \mathbf{v}_{i_{t}}^{t-1}+\frac{1}{n} \nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)\), or the update rule \(\mathbf{x}_{t+1}=\mathbf{x}_{t}-\frac{\gamma}{n} \sum_{i=1}^{n} \mathbf{v}_{i}^{t}\).</li>
+<li>Same per-iteration cost as SGD but only additional memory cost of \(O(nd)\).</li>
+<li><strong>Theorem 12.10 (Schmidt et al. 2017, Linear Convergence)</strong> If \(F\) is \(\mu\)-strongly convex and each \(f_i\) is \(L_i\)-smooth and convex. Setting \(\gamma=1 /\left(16 L_{\max }\right)\) where \(L_{\max }:=\max_{i\in[n]} \left\{L_{i}\right\}\), SAG satisfies that \(\mathbb{E}\left[F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)\right] \leq C \cdot\left(1-\min \left\{\frac{1}{8 n}, \frac{\mu}{16 L_{\max }}\right\}\right)^{t}\).</li>
+<li>Full GD needs \(O(\kappa \ln (\frac{1}{\epsilon}))\) iteration and \(O(n)\) computation per-iter, so the total computation cost is \(O(n\kappa \ln (\frac{1}{\epsilon}))\), where \(\kappa = \overline{L_i} / \mu\).</li>
+<li>SAG needs  \(O((n+\kappa_{\max}) \ln (\frac{1}{\epsilon}))\) iteration and \(O(1)\) computation per-iter, \(O(n+\kappa) \ll O(n\kappa)\) may be true if \(n,\kappa\) are large.</li>
+</ul>
+<h3><a id="saga-alpha-1-y-mathbf-v-i-t-improved-ver-of-sag" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>SAGA (\(\alpha=1, Y=\mathbf{v}_{i_{t}}\), improved ver. of SAG)</h3>
+<ul>
+<li>\(\mathbf{g}_{t}=\left(\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)-\mathbf{v}_{i_{t}}\right)+\frac{1}{n} \sum_{i=1}^{n} \mathbf{v}_{i}\)</li>
+<li>\(\mathbf{x}_{t+1}=\mathbf{x}_{t}-\gamma\left[\left(\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)-\mathbf{v}_{i_{t}}^{t-1}\right)+\frac{1}{n} \sum_{i=1}^{n} \mathbf{v}_{i}^{t-1}\right]\)</li>
+<li>SAGA is unbiased, while SAG is biased, same \(O(nd)\) memory cost as SAG, but proof much simpler.</li>
+</ul>
+<h3><a id="stochastic-variance-reduced-gradient-svrg-alpha-1-y-nabla-f-i-t-tilde-mathbf-x" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stochastic Variance Reduced Gradient (SVRG) (\(\alpha=1, Y=\nabla f_{i_{t}}(\tilde{\mathbf{x}})\))</h3>
+<ul>
+<li>\(\mathbf{g}_{t}=\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)-\nabla f_{i_{t}}(\tilde{\mathbf{x}})+\nabla F(\tilde{\mathbf{x}})\)</li>
+<li>The induition is that \(\mathbb{E}\left[\lVert\mathbf{g}_{t}-\nabla F\left(\mathbf{x}_{t}\right)\rVert ^{2}\right] \leq \mathbb{E}\left[\lVert\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)-\nabla f_{i_{t}}(\tilde{\mathbf{x}})\rVert ^{2}\right] \leq L_{\max }^{2}\lVert\mathbf{x}_{t}-\tilde{\mathbf{x}}\rVert ^{2}\)
+<ul>
+<li>closer \(\tilde{x}\) to \(x_t\), smaller the variance, so update \(\tilde{x}\) in outer loop.</li>
+</ul>
+</li>
+<li><strong>Algorithm (Two-loop structure)</strong>
+<ul>
+<li><strong>For</strong> \(s=1,2, \ldots\) <strong>do</strong> <em>(outer loop)</em>
+<ul>
+<li>Set \(\tilde{\mathbf{x}}=\tilde{\mathbf{x}}^{s-1}\) and compute \(\nabla F(\tilde{\mathbf{x}})=\frac{1}{n} \sum_{i=1}^{n} \nabla f_{i}(\tilde{\mathbf{x}})\) (\(n\) grad computation)</li>
+<li>Initialize \(\mathbf{x}_{0}=\tilde{\mathbf{x}}\)</li>
+<li><strong>For</strong> \(t=0,1, \ldots, m-1\) <strong>do</strong> <em>(inner loop)</em> (\(2m\) grad computation)
+<ul>
+<li>Randomly pick \(i_{t} \in\{1:n\}\)</li>
+<li>Update \(\mathbf{x}_{t+1}=\mathbf{x}_{t}-\eta\left(\nabla f_{i_{t}}\left(\mathbf{x}_{t}\right)-\nabla f_{i_{t}}(\tilde{\mathbf{x}})+\nabla F(\tilde{\mathbf{x}})\right)\)</li>
+</ul>
+</li>
+<li><strong>End For</strong></li>
+<li>Update \(\tilde{\mathbf{x}}^{s}=\frac{1}{m} \sum_{t=0}^{m-1} \mathbf{x}_{t}\)</li>
+</ul>
+</li>
+<li><strong>End for</strong></li>
+</ul>
+</li>
+<li>Total of \(O(n+2m)\) component gradient evaluations at each outer epoch.</li>
+<li><em>Pros</em>: no need to store past gradients or past iterates</li>
+<li><em>Cons</em>: More parameter tuning, two gradient computation per iteration.</li>
+<li><strong>Lemma 12.12 (Exercise 7.1)</strong> \(f_i(x)\) is convex and \(L\)-smooth, then \(\frac{1}{n} \sum_{i=1}^{n}\lVert\nabla f_{i}(\mathbf{x})-\nabla f_{i}\left(\mathbf{x}^{\star}\right)\rVert _{2}^{2} \leq 2 L_{\max }\left(F(\mathbf{x})-F\left(\mathbf{x}^{\star}\right)\right)\)
+<ul>
+<li><strong>Proof</strong> is same as Exercise 6.1.</li>
+</ul>
+</li>
+<li><strong>Lemma A</strong> Denote \(\mathbf{g}_{t}:=\nabla f_{i_{t}}\left(\mathbf{x}^{t}\right)-\nabla f_{i_{t}}(\tilde{\mathbf{x}})+\nabla F(\tilde{\mathbf{x}})\) then \(\mathbb{E}\left[\lVert\mathbf{g}_{t}\rVert _{2}^{2}\right] \leq 4 L_{\max }\left[F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)+F(\tilde{\mathbf{x}})-F\left(\mathbf{x}^{*}\right)\right]\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Define \(h_i(x) := f_i(x) - \nabla f_i (\tilde{x})^{\top} x + \nabla F (\tilde{x})^{\top} x\), one can check that \(H(x) := \mathbb{E}[h_i(x)] = F(x)\)</li>
+<li>By the conclusion in Exercise 6.2, we have \(\mathbb{E}[\Vert \nabla h_i(x_t)\Vert _2^2]\leq 4 L_{\max}[F(x_t) - F(x^{\star})] + 2\mathbb{E}[\Vert \nabla h_i(x^{\star})\Vert ^2_2]\)</li>
+<li>By definition \(\nabla h_i(x^{\star}) := (\nabla f_i(x^{\star}) - \nabla f_i(\tilde{x})) + (\nabla F(\tilde{x})- \nabla F(x^{\star}))\)
+<ul>
+<li>Therefore \(\mathbb{E}[\Vert \nabla h_i(x^{\star})\Vert ^2_2] = \mathbb{E}[\Vert \nabla f_i(x^{\star}) - \nabla f_i(\tilde{x})\Vert ^2_2] + \Vert \nabla F(\tilde{x})- \nabla F(x^{\star})\Vert ^2_2 + 2\mathbb{E}[\nabla f_i(x^{\star}) - \nabla f_i(\tilde{x})]^{\top}(\nabla F(\tilde{x})- \nabla F(x^{\star}))\)</li>
+<li>\(\mathsf{RHS} = \mathbb{E}[\Vert \nabla f_i(x^{\star}) - \nabla f_i(\tilde{x})\Vert ^2_2] - \Vert \nabla F(\tilde{x})- \nabla F(x^{\star})\Vert ^2_2 \leq \mathbb{E}[\Vert \nabla f_i(x^{\star}) - \nabla f_i(\tilde{x})\Vert ^2_2] \leq 2L_{\max}(F(\tilde{x})- F(x^{\star}))\), by Exercise 6.1.</li>
+</ul>
+</li>
+<li>Plug this in and we get the result.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Theorem 12.11 (Johnson &amp; Zhang, 2013, geometric convergence)</strong> Assume \(f_i(x)\) is convex and \(L\)-smooth and \(F(\mathbf{x}):=\frac{1}{n} \sum_{i=1}^{n} f_{i}(\mathbf{x})\) is \(\mu\)-strongly convex. Let \(\mathbf{x}_{*}=\arg \min _{\mathbf{x}} F(\mathbf{x})\). Assume \(m\) is sufficiently large (and \(\eta &lt; 1/2L\)), so that, \(\displaystyle \rho=\frac{1}{\mu \eta(1-2 L \eta) m}+\frac{2 L \eta}{1-2 L \eta}&lt;1\),
+<ul>
+<li>then we have geometric convergence in expectation \(\mathbb{E}\left[F\left(\tilde{\mathbf{x}}^{s}\right)-F\left(\mathbf{x}_{*}\right)\right] \leq \rho^{s}\left[F\left(\tilde{\mathbf{x}}^{0}\right)-F\left(\mathbf{x}_{*}\right)\right]\).</li>
+<li><strong>Proof</strong>
+<ul>
+<li>\(\mathbb{E}\left[\lVert\mathbf{x}_{t+1}-\mathbf{x}^{*}\rVert _{2}^{2}\right]=\lVert\mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2}^{2}-2 \eta\left(\mathbf{x}_{t}-\mathbf{x}^{*}\right)^{T} \mathbb{E}\left[\mathbf{g}_{t}\right]+\eta^{2} \mathbb{E}\left[\lVert\mathbf{g}_{t}\rVert _{2}^{2}\right]\)</li>
+<li>By convexity and Lemma A \(\mathsf{RHS} \leq\lVert\mathbf{x}_{t}-\mathbf{x}^{*}\rVert _{2}^{2}-2 \eta(1-2 L \eta)\left(F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)\right)+4 L \eta^{2}\left[F(\mathbf{x}_0)-F\left(\mathbf{x}^{*}\right)\right]\)</li>
+<li>The above is for a single step of inner loop, we sum over \(t\in[0:m-1]\) and get</li>
+<li>\(\mathbb{E}\left[\lVert\mathbf{x}_{m}-\mathbf{x}^{*}\rVert _{2}^{2}\right] \leq \lVert\mathbf{x}_{0}-\mathbf{x}^{*}\rVert _{2}^{2} - 2 \eta(1-2 L \eta)\sum_{t=0}^{m-1}\mathbb{E}\left[F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)\right] + 4m L \eta^{2}\left[F(\mathbf{x}_0)-F\left(\mathbf{x}^{*}\right)\right]\)</li>
+<li>By convexity, we have \(\sum_{t=0}^{m-1}\left(F\left(\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)\right) \geq m\left(F\left(\frac{1}{m}\sum_{t=0}^{m-1}\mathbf{x}_{t}\right)-F\left(\mathbf{x}^{*}\right)\right)= m\left(F\left(\tilde{\mathbf{x}}^{s}\right)-F\left(\mathbf{x}^{*}\right)\right)\)</li>
+<li>and by the condition of \(\eta &lt; 1/2L\), we have
+<ul>
+<li>\(\mathbb{E}\left[\lVert\mathbf{x}_{m}-\mathbf{x}^{*}\rVert _{2}^{2}\right] \leq \lVert\mathbf{x}_{0}-\mathbf{x}^{*}\rVert _{2}^{2} - 2 \eta m (1-2 L \eta)\mathbb{E}\left[F\left(\tilde{\mathbf{x}}^{s}\right)-F\left(\mathbf{x}^{*}\right)\right] + 4m L \eta^{2}\left[F(\mathbf{x}_0)-F\left(\mathbf{x}^{*}\right)\right]\)</li>
+</ul>
+</li>
+<li>By definition \(\mathbf{x}_0 = \tilde{\mathbf{x}}^{s-1}\), and by \(\mu\)-strong convexity \(\lVert\mathbf{x}_{0}-\mathbf{x}^{*}\rVert _{2}^{2} \leq \frac{2}{\mu} (F(\mathbf{x}_0)-F\left(\mathbf{x}^{*}\right))\)
+<ul>
+<li>\(2 \eta m (1-2 L \eta)\mathbb{E}\left[F\left(\tilde{\mathbf{x}}^{s}\right)-F\left(\mathbf{x}^{*}\right)\right] + \underbrace{\mathbb{E}\left[\lVert\mathbf{x}_{m}-\mathbf{x}^{*}\rVert _{2}^{2}\right]}_{\mathrm{omitted}}\leq \left( \frac{2}{\mu} + 4m L \eta^{2}\right)\mathbb{E}\left[F(\tilde{\mathbf{x}}^{s-1})-F\left(\mathbf{x}^{*}\right)\right]\)</li>
+</ul>
+</li>
+<li>This means \(\mathbb{E}\left[F\left(\tilde{\mathbf{x}}^{s}\right)-F\left(\mathbf{x}_{*}\right)\right] \leq\left[\frac{1}{\mu \eta(1-2 L \eta) m}+\frac{2 L \eta}{1-2 L \eta}\right] \mathbb{E}\left[F\left(\tilde{\mathbf{x}}^{s-1}\right)-F\left(\mathbf{x}_{*}\right)\right]\). QED</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Remark 12.13</strong> Setting \(\eta L = \theta\) gives \(\rho=\frac{L}{\mu \theta(1-2 \theta) m}+\frac{2 \theta}{1-2 \theta}=O\left(\frac{L}{\mu m}+\text { const. }\right)\), If further set \(m=O(L / \mu)\), we get a constant \(\rho\).
+<ul>
+<li>Then the number of epoch for \(\varepsilon\) optimal is \(O\left(\log \left(\frac{1}{\epsilon}\right)\right)\). Total number of gradient computation required is \(\mathcal{O}\left((m+n) \log \left(\frac{1}{\epsilon}\right)\right)=\mathcal{O}\left(\left(n+\frac{L}{\mu}\right) \log \left(\frac{1}{\epsilon}\right)\right)\)</li>
+</ul>
+</li>
+<li><strong>Remark</strong>
+<ul>
+<li>if use importance sampling \(\mathbb{P}\left(i_{t}=i\right)=\frac{L_{i}}{\sum L_{i}}\), we get \(L_{\mathrm{avg}}\) instead of \(L_{\max}\).</li>
+<li>Incorporating acceleration, can improve to \(O\left(\left(n+\sqrt{n \kappa_{\max }}\right) \log \frac{1}{\epsilon}\right)\).</li>
+<li>Lower complexity bound of \(O\left(\left(n+\sqrt{n \kappa_{\max }}\right) \log \frac{1}{\epsilon}\right)\) is proved for strongly-convex and smooth finite-sum problems.</li>
+</ul>
+</li>
+</ul>
+<h3><a id="spidersarahstorm-vr-for-non-convex-f" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>SPIDER/SARAH/STORM (VR for non-convex \(f\))</h3>
+<ul>
+<li>If objective satisfies <em>average-smoothness</em> \(\mathbb{E}_{i}\lVert\nabla f_{i}(\mathbf{x})-\nabla f_{i}(\mathbf{y})\rVert ^{2} \leq L^{2}\Vert \mathbf{x}-\mathbf{y}\Vert ^{2}\), then complexity can be reduced to \(O\left(\min \left\{\sqrt{n} / \epsilon^{2}, \epsilon^{-3}\right\}\right)\) instead of \(O\left(n / \epsilon^{2}\right)\).</li>
+<li><strong>Algorithm</strong>
+<ul>
+<li><strong>Input</strong> \(T\) iteration, \(Q\) epoch length, \(D\) batch size 1, \(D\) batch size 2, \(x_0\), \(alpha\), \(\eta\), \(\omega(x)\)</li>
+<li><strong>For</strong> \(t\in[0:T-1]\) <strong>do</strong>
+<ul>
+<li><strong>If</strong> \(t\equiv 0 (\mathrm{mod} Q)\) <strong>then</strong>
+<ul>
+<li>compute \(\mathbf{g}_{t}=\frac{1}{D} \sum_{i=1}^{D} \nabla f\left(\mathbf{x}_{t} ; \boldsymbol{\xi}_{t}^{i}\right)\)</li>
+</ul>
+</li>
+<li><strong>else</strong>
+<ul>
+<li>compute \(\mathbf{g}_{t}=(1-\eta)\left(\mathbf{g}_{t-1}-\frac{1}{S} \sum_{i=1}^{S} \nabla f\left(\mathbf{x}_{t-1} ; \boldsymbol{\xi}_{t}^{i}\right)\right)+\frac{1}{S} \sum_{i=1}^{S} \nabla f\left(\mathbf{x}_{t} ; \boldsymbol{\xi}_{t}^{i}\right)\).</li>
+</ul>
+</li>
+<li><strong>End if</strong></li>
+<li>\(\mathbf{x}_{t+1}=\operatorname{argmin}_{\mathbf{x} \in X}\left\{\mathbf{g}_{t}^{\top} x+\frac{1}{\alpha} V_{\omega}\left(\mathbf{x}, \mathbf{x}_{t}\right)\right\}\)</li>
+</ul>
+</li>
+<li><strong>End for</strong></li>
+<li><strong>Output</strong> \(\mathbf{x}_\tau\) with \(\tau\) randomly chosen from \([0:T-1]\)</li>
+</ul>
+</li>
+<li><em>Complexity</em> Total time for gradient calculation is \(\mathcal{O}(T(2 S+D / Q))\).</li>
+<li>Difference amoung each algorithms
+<ul>
+<li>STORM usually is the best.</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center">Parameters</th>
+<th style="text-align: center">SPIDER</th>
+<th style="text-align: center">SARAH</th>
+<th style="text-align: center">STORM</th>
+<th style="text-align: center">New 1</th>
+<th style="text-align: center">New 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center">\(T\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-2}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-3}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-3}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-5 / 2}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-3}\right)\)</td>
+</tr>
+<tr>
+<td style="text-align: center">\(T/Q\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-1}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-1}\right)\)</td>
+<td style="text-align: center">\(1\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-1}\right)\)</td>
+<td style="text-align: center">\(1\)</td>
+</tr>
+<tr>
+<td style="text-align: center">\(D\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-2}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-2}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}(1)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-2}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-1}\right)\)</td>
+</tr>
+<tr>
+<td style="text-align: center">\(S\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-1}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}(1)\)</td>
+<td style="text-align: center">\(\mathcal{O}(1)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-1 / 2}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}(1)\)</td>
+</tr>
+<tr>
+<td style="text-align: center">\(\eta_t\)</td>
+<td style="text-align: center">\(0\)</td>
+<td style="text-align: center">\(0\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(t^{-2 / 3}\right)\)</td>
+<td style="text-align: center">\(0\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{2}\right)\)</td>
+</tr>
+<tr>
+<td style="text-align: center">\(\alpha_t\)</td>
+<td style="text-align: center">\(\mathcal{O}(1)\)</td>
+<td style="text-align: center">\(\mathcal{O}(\epsilon)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(t^{-1 / 3}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{1 / 2}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}(\epsilon)\)</td>
+</tr>
+<tr>
+<td style="text-align: center">Complexity</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-3}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-3}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-3}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-3}\right)\)</td>
+<td style="text-align: center">\(\mathcal{O}\left(\epsilon^{-3}\right)\)</td>
+</tr>
+</tbody>
+</table>
+</div></body></html>

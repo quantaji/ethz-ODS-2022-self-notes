@@ -1,0 +1,906 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>/* copy from https://github.com/sindresorhus/github-markdown-css/ */
+
+html,body{background-color: #342839;}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #fafedd;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body figure{margin:0;padding:0; display:table;}
+.markdown-body figure figcaption{font-size:92%; text-align:center; color:#76dae8;}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #fed765;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' fill='%23fed765' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+.markdown-body strong{
+  color: #fe6188;
+}
+.markdown-body em{
+  color: #77dbe8;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #aa9df2;
+  text-decoration: none;
+}
+.markdown-body mjx-container[jax="SVG"] > svg a{fill:#aa9df2;stroke: #aa9df2;}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 12px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 12px;
+  color: #76dae8;
+  vertical-align: middle;
+  background-color: #3a2e3f;
+  border: 1px solid #504455;
+  border-radius: 3px;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #504455;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #c9cdac;
+  border-left: .25em solid #f5f5f5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #4a3e4f;
+  color: #fed765;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+  color: #fed765;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+  color: #fed765;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+  color: #fed765;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+  color: #fed765;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #fed765;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #786c7d;
+}
+
+.markdown-body table tr {
+  background-color: #342839;
+  border-top: 1px solid #786c7d;
+}
+
+.markdown-body table th {
+  background-color: #4a3e4f;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #392d3e;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #3a2e3f;
+  color: #76dae8;
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+   font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #3a2e3f;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+  color: #f0f0f0;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+.markdown-body section.footnotes{
+    margin-top:48px;
+    border-top:solid 1px #504455;
+    padding-top:0px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .markdown-body mark{color: #111;}
+}
+
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background-color: #3a2e3f;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #48be66;
+}
+
+.token.punctuation {
+    color: #fdd664;
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #9a95e3;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #fdd664;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #$$codeBlockColor$$;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #ccddf6;
+}
+
+.token.function,
+.token.class-name {
+    color: #f28d55;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #d38e63;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em; /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 1px solid #726677;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+  .line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+  }
+
+    .line-numbers-rows > span:before {
+      content: counter(linenumber);
+      color: #726677;
+      display: block;
+      padding-right: 0.8em;
+      text-align: right;
+    }
+
+
+</style><style>.mweb-charts{background:#fff;}
+body{ box-sizing: border-box;
+    margin: 0 auto;
+    padding: 28px}
+@media print{
+    pre, code, pre code {
+     overflow: visible !important;
+     white-space: pre-wrap !important;       /* css-3 */
+     white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap !important;      /* Opera 4-6 */
+     white-space: -o-pre-wrap !important;    /* Opera 7 */
+     word-wrap: break-word !important;       /* Internet Explorer 5.5+ */
+    }
+    html,body{margin:0;padding:4px;}
+}
+
+</style><script>window.MathJax = {     tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] },     startup: {     pageReady() {       return MathJax.startup.defaultPageReady().then(function () {          window.mweb_mathjax_ready_val = 'yes';          if(window.mweb_mathjax_ready !== undefined){ mweb_mathjax_ready(); }       });     }   }};document.addEventListener('DOMContentLoaded', function(event) {    if (typeof Prism != 'undefined') {         Prism.highlightAll();     }});window.mweb_mathjax_ready_val = '';function theMWebMathJaxRenderIsReady(key){ return window.mweb_mathjax_ready_val; }</script><script>window.MathJax = { tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] } }; </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script></head><body><div id='markdown_content' class='markdown-body'><h1><a id="chapter-8-the-frank-wolfe-algorithm" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chapter 8 The Frank-Wolfe Algorithm</h1>
+<ul>
+<li><strong>Definition (LMO)</strong> <em>linear minimization oracle</em> \(\operatorname{LMO}_{X}(\mathbf{g}):=\underset{\mathbf{z} \in X}{\operatorname{argmin}} \mathbf{g}^{\top} \mathbf{z}\).
+<ul>
+<li>This exists when \(X\) is bounded and closed.</li>
+</ul>
+</li>
+<li><strong>Algo</strong> \(\mathbf{s}:=\mathrm{LMO}_{X}\left(\nabla f\left(\mathbf{x}_{t}\right)\right)\) and \(\mathbf{x}_{t+1}:=\left(1-\gamma_{t}\right) \mathbf{x}_{t}+\gamma_{t} \mathbf{s}\) and \(\gamma_{t} \in[0,1]\).
+<ul>
+<li>Reduce non-linear to linear problem.</li>
+</ul>
+</li>
+<li><strong>Properties</strong>
+<ul>
+<li>If \(X\) convex, then iterates are <em>always feasible</em>, \(\mathbf{x}_{0}, \mathbf{x}_{1}, \ldots, \mathbf{x}_{t} \in X\).</li>
+<li><em>Projection-free</em> solving a linear program instead of quadratic program</li>
+<li><em>sparse representation</em> \(\mathbf{x}_t\) is always a convex combination of initial iterate and minimizers used so far.</li>
+</ul>
+</li>
+</ul>
+<h2><a id="cases-when-lmo-is-simple-to-compute" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cases when LMO is simple to compute</h2>
+<ul>
+<li>FW algo is useful when \(X\) can be described as a convex hull of a finite or other nise set of <em>atom</em> points \(\mathcal{A}\), \(X:= \operatorname{conv}(\mathcal{A})\).
+<ul>
+<li>\(\mathbf{s}=\sum_{i=1}^{n} \lambda_{i} \mathbf{a}_{i}\), where \(\sum_{i=1}^{n} \lambda_{i}=1\) and all non-negative.</li>
+<li>Then if \(\mathbf{s}\) minimize \(\mathbf{g}^{\top} \mathbf{z}\), then there is also an atomic minimizer.</li>
+<li>\(\mathcal{A} = X\) is the trivial case, we are interested in <em>extreme points</em> where \(\mathbf{x} \notin \operatorname{conv}(X \backslash\{\mathbf{x}\})\).</li>
+</ul>
+</li>
+</ul>
+<h3><a id="lasso-with-ell-1-ball" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>LASSO with \(\ell_1\)-ball</h3>
+<ul>
+<li>Problem: \(\min _{\mathbf{x} \in \mathbb{R}^{d}}\Vert A \mathbf{x}-\mathbf{b}\Vert ^{2}\) s.t. \(\Vert \mathbf{x}\Vert _{1} \leq 1\), we see that \(X=\operatorname{conv}\left(\left\{\pm \mathbf{e}_{1}, \ldots, \pm \mathbf{e}_{d}\right\}\right)\).
+<ul>
+<li>It is easy to show \(\mathrm{LMO}_{X}(\mathbf{g}) = -\operatorname{sgn}\left(g_{i}\right) \mathbf{e}_{i} \text { with } i:=\underset{i \in[d]}{\operatorname{argmax}}\vert g_{i}\vert\).</li>
+</ul>
+</li>
+</ul>
+<h3><a id="semidefinite-programming-and-the-spectahedron" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Semidefinite Programming and the Spectahedron</h3>
+<ul>
+<li>Problem: \(\arg\min_{Z} G \bullet Z\) s.t. \(\operatorname{Tr}(Z)=1\) and \(Z \succeq 0\), where \(G\) semetric, and \(\bullet\) stands for scalor product.
+<ul>
+<li>Feasible region \(X\) is called <em>Spectahedron</em></li>
+</ul>
+</li>
+<li>Since every semetric matrix can be decomposed into \(C^{\top}C = \sum_{i\in[d]}z_{i}z_{i}^{\top}\), natually the atom is \(\mathbf{Z} \mathbf{Z}^{\top}\) where \(\mathbf{z} \in \mathbb{R}^{d},\Vert \mathbf{z}\Vert =1\).</li>
+<li><strong>Lemma 8.1</strong> Let \(\lambda_1\) be the smallest eigenvalue of \(G\), and let \(\mathbf{s}_1\) be a corresponding eigenvector of unit length. Then we can choose \(\mathrm{LMO}_{X}(G)=\mathbf{s}_{1} \mathbf{s}_{1}^{\top}\).
+<ul>
+<li><strong>Proof</strong> \(\min _{\operatorname{Tr}(Z)=1, Z \succeq 0} G \bullet Z=\min _{\Vert \mathbf{z}\Vert =1} G \bullet \mathbf{z z}^{\top}=\min _{\Vert \mathbf{z}\Vert =1} \mathbf{z}^{\top} G \mathbf{z}=\lambda_{1}\)</li>
+</ul>
+</li>
+</ul>
+<h3><a id="matrix-completion-exercise-54" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matrix completion (Exercise 54)</h3>
+<ul>
+<li>Problem: \(\min _{Y \in X \subseteq \mathbb{R}^{n \times m}} \sum_{(i, j) \in \Omega}\left(Z_{i j}-Y_{i j}\right)^{2}\) where \(X:=\operatorname{conv}(\mathcal{A})\) with \(\mathcal{A}:=\left\{\mathbf{u} \mathbf{v}^{\top} \mid \mathbf{u} \in \mathbb{R}^{n},\Vert \mathbf{u}\Vert _{2}=1 , \mathbf{v} \in \mathbb{R}^{m},\Vert \mathbf{v}\Vert _{2}=1\right\}\)</li>
+<li>F-W step: \(\partial_{Y_{ij}} = Y_{ij}-Z_{ij}\), \(\mathrm{LMO}_X = \arg\min_{X} \sum_{ij} (Y_{ij}-Z_{ij})(\mathbf{uv}^{\top})_{i,j} = \mathbf{u}^{\top} (Y-Z) \mathbf{v}\)
+<ul>
+<li>consider the SVD of \(Y-Z\), \(Y-Z = U\Sigma V^{\top}\), where \(\Sigma\in\mathbb{R}^{n\times m}\) is diagnal.</li>
+<li>Then \(U^{\top}u\) and \(V^{\top} v\) also norm-\(1\). This gives solution of \(k:= \arg \max_{i\in[\min\{n,m\}]} \sigma(\Sigma)_i\), and \(u=U\mathbf{e}_{k}, v=-V\mathbf{e}_{k}\)</li>
+<li>\(\mathbf{uv}^{\top} = - U\mathbf{E}_{k k}V^{\top}\)</li>
+</ul>
+</li>
+<li>PS: Matrix completion has been removed from this course, so I don't know the normal procedure for projection...</li>
+</ul>
+<h2><a id="duality-gap-a-certificate-for-optimization-quality" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Duality gap, A certificate for optimization quality</h2>
+<ul>
+<li><strong>Definition (Duality gap)</strong> Given \(\mathbf{x}\in X\) the <em>duality gap(Hearn gap)</em> is \(g(\mathbf{x}):=\nabla f(\mathbf{x})^{\top}(\mathbf{x}-\mathbf{s})\) where \(\mathbf{s}:=\mathrm{LMO}_{X}(\nabla f(\mathbf{x}))\).</li>
+<li><strong>Lemma 8.2</strong> Suppose there is a minimizer for F-W algo,\(\mathbf{x}^{\star}\), \(f\)-convex. Let \(\mathbf{x}\in X\). Then \(g(\mathbf{x}) \geq f(\mathbf{x})-f\left(\mathbf{x}^{\star}\right)\).
+<ul>
+<li><strong>Proof</strong> \(g(\mathbf{x}) =\nabla f(\mathbf{x})^{\top}(\mathbf{x}-\mathbf{s}) \geq \nabla f(\mathbf{x})^{\top}\left(\mathbf{x}-\mathbf{x}^{\star}\right)  \geq f(\mathbf{x})-f\left(\mathbf{x}^{\star}\right) \geq 0\)</li>
+<li>\(g(\mathbf{x}^{\star}) = 0\) since \(\nabla f\left(\mathbf{x}^{\star}\right)^{\top}\left(\mathbf{x}-\mathbf{x}^{\star}\right) \geq 0\), \(\forall \mathbf{x} \in X\) and this means \(g(\mathbf{x}^{\star}) \leq 0\).</li>
+<li>Note that \(g(\mathbf{x})\leq \Vert \nabla f(\mathbf{x})\Vert _{a*} \Vert \mathbf{x}-\mathbf{s}\Vert _{a}\).</li>
+</ul>
+</li>
+</ul>
+<h2><a id="convegence-in-mathcal-o-1-varepsilon-steps" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convegence in \(\mathcal{O}(1 / \varepsilon)\) Steps</h2>
+<ul>
+<li>Interestingly, step size can be set to be unrelated to smooth constant.</li>
+</ul>
+<h3><a id="case-for-gamma-t-2-t-2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Case for \(\gamma_{t}=2 /(t+2)\)</h3>
+<ul>
+<li><strong>Lemma 8.4 (Descent Lemma)</strong> For a step \(\operatorname{step} \mathbf{x}_{t+1}:=\mathbf{x}_{t}+\gamma_{t}\left(\mathbf{s}-\mathbf{x}_{t}\right)\) with \(\gamma_{t} \in[0,1]\), we have \(f\left(\mathbf{x}_{t+1}\right) \leq f\left(\mathbf{x}_{t}\right)-\gamma_{t} g\left(\mathbf{x}_{t}\right)+\gamma_{t}^{2} \frac{L}{2}\lVert\mathbf{s}-\mathbf{x}_{t}\rVert ^{2}\), where \(\mathbf{s}=\mathrm{LMO}_{X}\left(\nabla f\left(\mathbf{x}_{t}\right)\right)\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Smoothness \(f\left(\mathbf{x}_{t+1}\right) \leq f\left(\mathbf{x}_{t}\right) + \gamma_{t} \nabla f\left(\mathbf{x}_{t}\right)^{\top}\left(\mathbf{s}-\mathbf{x}_{t}\right) + \frac{L}{2}\gamma_{t}^2 \Vert \mathbf{s}-\mathbf{x}_{t}\Vert _{a}^2 = f\left(\mathbf{x}_{t}\right) - \gamma_{t} g(\mathbf{x}_{t}) + \frac{L}{2}\gamma_{t}^2 \Vert \mathbf{s}-\mathbf{x}_{t}\Vert _{a}^2\).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Theorem 8.3</strong> If \(f\) convex and \(L\)-smooth, \(X\) convex and bounded. With any start \(\mathbf{x}_0\in X\) and stepsize \(\gamma_{t}=2 /(t+2)\) F-W algo gives \(f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq \frac{2 L \operatorname{diam}(X)^{2}}{T+1}\) where \(\operatorname{diam}(X):=\max _{\mathbf{x}, \mathbf{y} \in X}\Vert \mathbf{x}-\mathbf{y}\Vert\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By certificate property, \(g\left(\mathbf{x}_{t}\right) \geq f\left(\mathbf{x}_{t}\right) - f\left(\mathbf{x}^{\star}\right)\), so \(\Delta f\left(\mathbf{x}_{t+1}\right) \leq (1-\gamma_t) \Delta f\left(\mathbf{x}_{t}\right) + \gamma_{t}^{2} C\), where \(C:= \frac{L}{2}\lVert\mathbf{s}-\mathbf{x}_{t}\rVert ^{2}\).</li>
+<li>We assme \(\Delta f\left(\mathbf{x}_{t}\right) \leq \frac{4C}{t+1}\), this is true for \(t=0\), since by smoothness \(f\left(\mathbf{x}_{0}\right) \leq f\left(\mathbf{x}^{\star}\right) + \frac{L}{2}\Vert \mathbf{x}^{\star}-\mathbf{x}_{0}\Vert _a^2\).</li>
+<li>By spritis of induction, we assmue this holds for \(t\) and smaller, then for \(t+1\) we have \(\Delta f\left(\mathbf{x}_{t+1}\right) \leq (1-\frac{2}{t+2}) \frac{4C}{t+1} + \frac{4}{(t+2)^2} C = \frac{4C}{t+2}\frac{t(t+2) + (t+1)}{(t+2)(t+1)} = \frac{4C}{t+2}\frac{t^2 + 3t + 1}{t^2 + 3t+2} \leq \frac{4C}{t+2}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a id="other-step-size" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other step size</h3>
+<ul>
+<li><em>Line search</em> \(\gamma_{t}:=\underset{\gamma \in[0,1]}{\operatorname{argmin}} f\left((1-\gamma) \mathbf{x}_{t}+\gamma \mathbf{s}\right)\). This can be guranteed to be faster than previous step size.</li>
+<li><em>Gap-based</em> \(\gamma_{t}:=\min \left(\frac{g\left(\mathbf{x}_{t}\right)}{L\lVert\mathbf{s}-\mathbf{x}_{t}\rVert ^{2}}, 1\right)\), this is the quadratic function minimizer for \(\gamma_t\in[0, 1]\), so definitely, it is better than \(2/(t+2)\)
+<ul>
+<li>\(h\left(\mathbf{x}_{t+1}\right) \leq \begin{cases}h\left(\mathbf{x}_{t}\right)\left(1-\frac{\gamma_{t}}{2}\right), &amp; \gamma_{t}&lt;1 \\ h\left(\mathbf{x}_{t}\right), &amp; \gamma_{t}=1\end{cases}\). (This can be proved easily)</li>
+</ul>
+</li>
+</ul>
+<h3><a id="affine-invariance" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Affine invariance</h3>
+<ul>
+<li>The upper bound seems to depends on the coordinate and changes under affine transform, but in reality, the algorithm objective \(\nabla f^{\prime}\left(\mathbf{x}^{\prime}\right)^{\top} \mathbf{z}^{\prime}\) is unchanged under affine transform.</li>
+<li>This contradiction can be solved by defining a new <em>curvature constant</em> \(C_{(f, X)}:=\sup _{\substack{\mathbf{x}, \mathbf{s} \in X, \gamma \in(0,1] \\ \mathbf{y}=(1-\gamma) \mathbf{x}+\gamma \mathbf{s}}} \frac{1}{\gamma^{2}}\left(f(\mathbf{y})-f(\mathbf{x})-\nabla f(\mathbf{x})^{\top}(\mathbf{y}-\mathbf{x})\right)\) which is affine invariant. (PS: this is similar to Bregman div)
+<ul>
+<li>By this definition, we have \(f\left(\mathbf{x}_{t+1}\right) \leq f\left(\mathbf{x}_{t}\right)-\nabla f\left(\mathbf{x}_{t}\right)^{\top} \gamma_{t}\left(\mathbf{x}_{t}-\mathbf{s}\right)+\gamma_{t}^{2} C_{(f, X)}\)</li>
+</ul>
+</li>
+<li><strong>Theorem 8.5</strong> (<em>proof is similar</em>) \(f\left(\mathbf{x}_{T}\right)-f\left(\mathbf{x}^{\star}\right) \leq \frac{4 C_{(f, X)}}{T+1}\).
+<ul>
+<li>no smoothness assumed.</li>
+</ul>
+</li>
+<li><strong>Lemma 8.6 (Exercise 52)</strong> Let \(f\) convex and \(L\)-smooth, then \(C_{(f,X)}\) is a tighter constant, \(C_{(f, X)} \leq \frac{L}{2} \operatorname{diam}(X)^{2}\).
+<ul>
+<li><strong>Proof</strong> \(f(\mathbf{x} + \gamma(\mathbf{s}-\mathbf{x})) \leq f(\mathbf{x}) + \gamma \nabla f(\mathbf{x})^{\top}(\mathbf{s}-\mathbf{x}) + \frac{\gamma^2L}{2} \Vert \mathbf{s}-\mathbf{x}\Vert _{a}^2\)</li>
+</ul>
+</li>
+<li>All of the stepsize holds the following inequality \(f\left(\mathbf{x}_{t+1}\right) \leq f\left(\mathbf{x}_{t}\right)-\nabla f\left(\mathbf{x}_{t}\right)^{\top} \mu_{t}\left(\mathbf{x}_{t}-\mathbf{s}\right)+\mu_{t}^{2} C_{(f, X)}\) where \(\mu_{t} := 2/(t+2)\)</li>
+</ul>
+<h3><a id="convergence-of-duality-gap" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convergence of duality gap</h3>
+<ul>
+<li><strong>Theorem 8.7</strong> \(f\) convex and \(L\)-smooth, then choosing any of stepsize in \(2/(t+2)\), line search or gap-based stepsize, F-W algo gives duality gap minimum such that \(\exists t\in[1:T]\) s.t. \(g\left(\mathbf{x}_{t}\right) \leq \frac{27 / 2 \cdot C_{(f, X)}}{T+1}\).
+<ul>
+<li><strong>Proof</strong> See <a href="https://os.zhdk.cloud.switch.ch/tind-tmp-epfl/868923b6-e0a1-44c1-81de-1007d0b72fb4?response-content-disposition=attachment%3B%20filename%2A%3DUTF-8%27%27jaggi13-supp.pdf&amp;response-content-type=application%2Fpdf&amp;AWSAccessKeyId=ded3589a13b4450889b2f728d54861a6&amp;Expires=1660427390&amp;Signature=nqJz3xkkHQYhywJhz6SuhIbbbj4%3D">Revisiting Frank-Wolfe: Projection-Free Sparse Convex Optimization</a> Appendix B for detail.</li>
+<li>Looser Proof:
+<ul>
+<li>By descent lemma \(\mu_{t}g(x_t) \leq f\left(\mathbf{x}_{t}\right) - f\left(\mathbf{x}_{t+1}\right)  + \mu_{t}^2 C_{(f, X)}\)</li>
+<li>sum over \(t\in[\lfloor T/2 \rfloor:T]\), by the fact of \(2(\ln (t+2)-\ln (t+3))\leq \mu_t = \frac{2}{t+2} \leq (\ln (t+1)-\ln (t+2))\)
+<ul>
+<li>\(\sum_{t=\lfloor T/2 \rfloor}^{T}\mu_t \geq 2\ln\frac{T+2}{\lfloor T/2 \rfloor +3}\)</li>
+</ul>
+</li>
+<li>And the fact of \(\mu_t^2 \leq \frac{4}{(t+2)(t+1)} = \frac{4}{t+1} - \frac{4}{t+2}\), so that \(\sum_{t=\lfloor T/2 \rfloor}^{T}\mu_t^2 \leq \frac{4}{T+1} - \frac{4}{\lfloor T/2 \rfloor+2}\)</li>
+<li>Also \(f\left(\mathbf{x}_{\lfloor T/2 \rfloor}\right) - f\left(\mathbf{x}_{T}\right) \leq f\left(\mathbf{x}_{\lfloor T/2 \rfloor}\right) - f\left(\mathbf{x}^{\star}\right) \leq 4C_{(f,X)}/ (\lfloor T/2 \rfloor+1)\)</li>
+<li>we have \(\min_{t\in[\lfloor T/2 \rfloor, T]} g(x_t) \leq \ldots \leq \frac{2C_{(f,X)}}{\ln\frac{T+2}{\lfloor T/2 \rfloor +3}}\left( \frac{1}{\lfloor T/2 \rfloor+1} + \frac{1}{T+1} - \frac{1}{\lfloor T/2 \rfloor+2}\right) = \frac{2C_{(f,X)}}{T+1} \dfrac{1 + \frac{T+1}{(\lfloor T/2 \rfloor+1)(\lfloor T/2 \rfloor+2)}}{\ln\frac{T+2}{\lfloor T/2 \rfloor +3}}\)</li>
+<li>We get a similar conclusion, but loser, the constant is about, when \(T&gt;3\), coefficient \(\leq 15\).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></body></html>

@@ -1297,4 +1297,90 @@ body{ box-sizing: border-box;
 </tr>
 </tbody>
 </table>
+<h2><a id="stochastic-path-integrated-dierential-estimator-spider-algorithm-ex-11" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stochastic Path Integrated Dierential Estimator (SPIDER) Algorithm (Ex 11)</h2>
+<ul>
+<li><strong>Assumption</strong>
+<ol>
+<li>\(\min _{x\in\mathbb{R}^d} F(x) = \mathbb{E}[f(x;\xi)]\), \(F\) <em>not</em> necessarily convex.</li>
+<li>\(\mathbb{E}\left[\Vert \nabla f(x; \xi)-\nabla F(x)\Vert ^{2}\right] \leq \sigma^{2}\),</li>
+<li>\(\mathbb{E}\left[\Vert \nabla f(x; \xi)-\nabla f(y; \xi)\Vert ^{2}\right] \leq \mathrm{L}^{2}\Vert x-y\Vert ^{2}\)
+<ul>
+<li>This implies smoothness of \(F\), since \(\mathbb{E}\left[\Vert \nabla f(x; \xi)-\nabla f(y; \xi)\Vert ^{2}\right]\geq \Vert \mathbb{E}\left[\nabla f(x; \xi)-\nabla f(y; \xi)\right]\Vert ^{2}\)</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Define \(\nabla_{B} F(\mathbf{x}) :=\frac{1}{\vert B\vert } \sum_{b \in B} \nabla f(x; \mathbf{b})\)</li>
+<li><strong>Algorithm</strong>
+<ul>
+<li><strong>Input</strong> \(T\) iterations, \(L\) smoothness, \(\sigma^2\), \(\epsilon\) and starting point \(x_0\)</li>
+<li>let \(S_1 \leftarrow 2\sigma^2 / \epsilon^2\), \(S_2 \leftarrow 2\sigma / \epsilon\), \(q\leftarrow \sigma/\epsilon\) are all integers.</li>
+<li><strong>For</strong> \(t\in[0:T-1]\) <strong>do</strong>
+<ul>
+<li><strong>If</strong> \(t\; \mathrm{mod} \; q \equiv 0\) <strong>then</strong>
+<ul>
+<li>Draw \(S_1\) samples to be \(B_t\) and let \(v_t \leftarrow \nabla F_{B_t} (x_t)\)</li>
+</ul>
+</li>
+<li><strong>else</strong>
+<ul>
+<li>Draw \(S_2\) samples to be \(B_t\) and let \(v_t \leftarrow \nabla F_{B_t} (x_t) - \nabla F_{B_t} (x_{t-1}) + v_{t-1}\)</li>
+</ul>
+</li>
+<li><strong>End If</strong></li>
+<li>\(\eta_t \leftarrow \min\{ \epsilon / (L\Vert v_{t}\Vert ), 1/(2L)\}\)</li>
+<li>\(x_{t+1} \leftarrow x_{t} - \eta_{t} v_{t}\)</li>
+</ul>
+</li>
+<li><strong>End For</strong></li>
+<li><strong>Return</strong> a uniformly random iterate form \(0:T-1\).</li>
+</ul>
+</li>
+<li><strong>Lemma B</strong> \(F\left(x_{t+1}\right) \leq F\left(x_{t}\right)-\frac{\epsilon\lVert v_{t}\rVert }{4 L}+\frac{\epsilon^{2}}{2 L}+\frac{\eta_{t}}{2}\lVert v_{t}-\nabla F\left(x_{t}\right)\rVert ^{2}\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By smoothness, \(F(x_{t+1}) - F(x_{t}) \leq  - \eta_t \nabla F(x_{t})^{\top}v_{t} + \frac{L}{2}\eta_{t}^2 \Vert v_{t}\Vert ^2 =\frac{\eta_t}{2}\Vert v_t - \nabla F(x_t)\Vert ^2+ \frac{\eta_t \Vert v_t\Vert ^2}{2}(L\eta_t - 1)  - \frac{\eta_t}{2} \Vert \nabla F(x_t)\Vert ^2\)</li>
+<li>If \(\eta = \epsilon / (L\Vert v_{t}\Vert ) \leq 1/(2L)\), \(\frac{\eta_t \Vert v_t\Vert ^2}{2}(L\eta_t - 1)  = \frac{\epsilon ^2}{2L} - \frac{\epsilon \Vert v_t\Vert }{2L} \leq \frac{\epsilon ^2}{2L} - \frac{\epsilon \Vert v_t\Vert }{4L}\), disgard term \(\Vert \nabla F(x_t)\Vert ^2\) we get the equation.</li>
+<li>If \(\eta = 1/(2L) \leq \epsilon / (L\Vert v_{t}\Vert )\), \(\frac{\eta_t \Vert v_t\Vert ^2}{2}(L\eta_t - 1) = \frac{\epsilon \Vert v_t\Vert }{2L}(\frac{\epsilon}{\Vert v_t\Vert } - 1) = - \frac{\Vert v_t\Vert ^2}{2L}\),
+<ul>
+<li>and by fact of \(\frac{\epsilon}{\Vert v_t\Vert }\geq 1/2\), quadratic function \(-\frac{\epsilon\lVert v_{t}\rVert }{4 L}+\frac{\epsilon^{2}}{2 L} = \frac{\Vert v_t\Vert ^2}{2L}(\frac{\epsilon}{\Vert v_t\Vert } - 1/2)\frac{\epsilon}{\Vert v_t\Vert }\) is always positive,</li>
+</ul>
+</li>
+<li>disguard both \(\Vert \nabla F(x_t)\Vert ^2\) and \(\frac{\eta_t \Vert v_t\Vert ^2}{2}(L\eta_t - 1)\) and add \(\frac{\epsilon\lVert v_{t}\rVert }{4 L}+\frac{\epsilon^{2}}{2 L}\) this term, we get the inequality.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma C</strong> define \(k=\lfloor t / q\rfloor \cdot q\) as the last step 1 before \(t\), \(\mathbb{E}\left[\lVert v_{\mathrm{t}}-\nabla f\left(x_t)\right)\rVert ^{2}\mid k \right] \leq \epsilon^{2}\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By definition, for \(\tau\in[k+1:t]\), \(\Vert v_{\tau} - \nabla F(x_t)\Vert ^2 = \Vert \nabla F_{B_\tau} (x_\tau)-  \nabla F(x_{\tau}) + v_{\tau-1}- \nabla F_{B_\tau} (x_{\tau-1}) \Vert ^2\) \(=\lVert \left(\nabla F_{B_\tau}(x_\tau)- \nabla F_{B_\tau} (x_{\tau-1})\right) + \left(\nabla F(x_{\tau-1}) - \nabla F(x_{\tau})\right) + \left(v_{\tau-1} - \nabla F(x_{\tau-1})\right)\rVert^2\)</li>
+<li>Expand this 3-term quadratic form and take expecation over sampling and condition on \(\tau\), we have \(\mathsf{RHS} = \mathbb{E}\left[\lVert \nabla F_{B_\tau}(x_\tau)- \nabla F_{B_\tau} (x_{\tau-1}) \rVert ^2\right] + \lVert \nabla F(x_{\tau-1}) - \nabla F(x_{\tau}) \rVert ^2 + \lVert v_{\tau-1} - \nabla F(x_{\tau-1})\rVert ^2\)  \(+2\mathbb{E}\left[\langle  \nabla F_{B_\tau}(x_\tau)- \nabla F_{B_\tau} (x_{\tau-1}) ,  \nabla F(x_{\tau-1}) - \nabla F(x_{\tau}) \rangle \right] + 2\langle\mathbb{E}\left[ \nabla F_{B_\tau}(x_\tau)- \nabla F_{B_\tau} (x_{\tau-1})  \right]. v_{\tau-1} - \nabla F(x_{\tau-1})\rangle\) \(+ 2\langle \nabla F(x_{\tau-1})- \nabla F (x_{\tau}), v_{\tau-1} - \nabla F(x_{\tau-1})\rangle\)</li>
+<li>The fourth term is twice the negative of the second term, the fifth and sixth term cancel out, so \(\mathsf{RHS} =  \lVert v_{\tau-1} - \nabla F(x_{\tau-1})\rVert ^2 + \mathbb{E}\left[\lVert \nabla F_{B_\tau}(x_\tau)- \nabla F_{B_\tau} (x_{\tau-1}) \rVert ^2\right] - \lVert \nabla F(x_{\tau-1}) - \nabla F(x_{\tau}) \rVert ^2\)</li>
+<li>By assumption iii, \(\mathbb{E}\left[\lVert \nabla F_{B_\tau}(x_\tau)- \nabla F_{B_\tau} (x_{\tau-1}) \rVert ^2\right]\leq \frac{L^2}{\vert B_{\tau}\vert}\Vert x_{\tau} - x_{\tau-1}\Vert ^2\) and ommit the third term, we get \(\Vert v_{\tau} - \nabla F(x_t)\Vert ^2 -  \lVert v_{\tau-1} - \nabla F(x_{\tau-1})\rVert ^2 \leq \frac{L^2}{\vert B_{\tau}\vert}\Vert x_{\tau} - x_{\tau-1}\Vert ^2 = \frac{L\eta_{\tau-1}^2}{\vert B_{\tau}\vert}\Vert v_{\tau-1}\Vert ^2 \leq \frac{\epsilon^2}{\vert B_{\tau}\vert}\)</li>
+<li>Sum and take expectation over \(\tau\in[k+1:t]\) we get \(\mathbb{E}\left[\Vert v_{\tau} - \nabla F(x_t)\Vert ^2  \vert  x_{k}, v_{k}\right] \leq \lVert v_{k} - \nabla F(x_{k})\rVert ^2\) \(+ \frac{(t-k-1)\epsilon^2}{\vert B_{\tau}\vert}\)</li>
+<li>By definition \((t-k-1) \leq q = \sigma/\epsilon\), and \(\vert B_{\tau}\vert=S_2 = 2\sigma/\epsilon\), then the second term \(\frac{(t-k-1)\epsilon^2}{\vert B_{\tau}\vert} \leq \frac{\epsilon ^2}{2}\)</li>
+<li>Taking expectation over sampling for the first term, by assumption ii, we get \(\mathbb{E}\left[  \lVert v_{k} - \nabla F(x_{k})\rVert ^2 \right] = \mathbb{E}\left[\lVert \nabla F_{B_{k}}(x_{k}) - \nabla F(x_{k})\rVert ^2 \right] \leq \frac{1}{\vert B_{k}\vert }\sigma^2 = \frac{\sigma^2}{S_1} = \frac{\epsilon^2}{2}\), sum two term together and we get to the proof.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma D</strong> \(\mathbb{E}\left[\lVert \nabla F\left(x_{t}\right)\rVert \right] \leq \mathbb{E}\left[\lVert v_{t}\rVert \right]+\epsilon\)
+<ul>
+<li><strong>Proof</strong> \(\mathbb{E}[\Vert \nabla F\left(x_{t}\right)\Vert  - \Vert v_{t}\Vert ]^2 \leq \mathbb{E}[\Vert \nabla F\left(x_{t}\right) - v_{t}\Vert ]^2 \leq \mathbb{E}[\Vert \nabla F\left(x_{t}\right) - v_{t}\Vert ^2] \leq \epsilon^2\).</li>
+</ul>
+</li>
+<li><strong>Lemma E</strong> If \(F(x_0) - F^{\star} \leq \delta\), then for \(T \geq 4L \delta/\epsilon^2 + 1\), the output is a \(5\epsilon\)-approximate first order stationary point, \(\mathbb{E}[\Vert  \nabla f(\tilde{x})] \Vert  \leq 5 \epsilon\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Sum descent lemma A, for \(t=[0:T-1]\), we get \(0 \leq \delta - \sum_{t=0}^{T-1} \frac{\epsilon (\epsilon - \mathbb{E}[\Vert \nabla f(x_t)\Vert ])}{4L} + \frac{\epsilon^2 T}{2L} + \sum_{t=0}^{T-1} \frac{\eta_t \epsilon^2}{2}\)</li>
+<li>So \(\frac{1}{T}\sum_{t=0}^{T-1} \mathbb{E}[\Vert \nabla f(x_t)\Vert ] \leq \epsilon + \frac{4L \delta}{T \epsilon} + 2\epsilon + \frac{2L\epsilon}{T}\sum_{t=0}^{T-1} \eta_t\) since \(\eta_t\leq 1/2L\), we have \(\frac{1}{T}\sum_{t=0}^{T-1} \mathbb{E}[\Vert \nabla f(x_t)\Vert ] \leq 4\epsilon + \frac{4L \delta}{T \epsilon}\), by fact of \(T \geq 4L \delta/\epsilon^2 + 1\), \(\frac{4L \delta}{T \epsilon} \leq \epsilon\), then we get the proof.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div></body></html>

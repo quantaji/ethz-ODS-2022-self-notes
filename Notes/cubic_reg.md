@@ -37,7 +37,7 @@
             - Then we have the derivatives of $v(r)$, 
                 - (i) $v(r) = -  \frac{1}{2}\sum_{i=1}^{d} \frac{(\mathbf{q}_i^{\top} \mathbf{g})^2}{M r/2 + \lambda_i} - \frac{M}{12} r^3$, 
                 - (ii) $v'(r) = \frac{M}{2} \frac{1}{2}\sum_{i=1}^{d} \frac{(\mathbf{q}_i^{\top} \mathbf{g})^2}{(M r/2 + \lambda_i)^2} - \frac{M}{4} r^2 =  \frac{M}{2} \frac{1}{2} \mathbf{g}^{\top} \left( H + \frac{Mr}{2} I_d\right)^{-2} \mathbf{g} - \frac{M}{4} r^2= \frac{M}{4} \left[ \Vert  \left( H + \frac{Mr}{2} I_d\right)^{-1} \mathbf{g}\Vert ^2  - r^2 \right]$ $= \frac{M}{4} (\Vert h(r)\Vert ^2 - r^2)$
-                - (iii) $v''(r) = - \frac{M^2}{8} \sum_{i=1}^{d} \frac{(\mathbf{q}_i^{\top} \mathbf{g})^2}{(M r/2 + \lambda_i)^3} - \frac{M}{2} r $
+                - (iii) $v''(r) = - \frac{M^2}{8} \sum_{i=1}^{d} \frac{(\mathbf{q}_i^{\top} \mathbf{g})^2}{(M r/2 + \lambda_i)^3} - \frac{M}{2} r$
             - By definition $H+\frac{Mr}{2} I_d \succ 0$, so that $M r / 2+\lambda_{i}>0$, and since $\Vert \mathbf{g}\Vert \neq 0$ (otherwise trivial), this means $v''(r)< 0$, strictly concave, local maximual is global.
             - The optimial condition holds when $\lVert h\left(r^{*}\right)\rVert =r^{*}$, when this happens $u(h(r^*)) - v(r^*)  =  u(h(r^*)) - \sup_{r} v(r) = \frac{M}{12} (\Vert  h(r^*) \Vert  - r^*)^2(r^*+ 2 \Vert  h(r^*) \Vert  ) = 0$. QED
     - **Remark** $v(r)$ is a convex program (while $u(\mathbf{h})$ is not), and can be solved by GD.

@@ -1,0 +1,902 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>/* copy from https://github.com/sindresorhus/github-markdown-css/ */
+
+html,body{background-color: #342839;}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #fafedd;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body figure{margin:0;padding:0; display:table;}
+.markdown-body figure figcaption{font-size:92%; text-align:center; color:#76dae8;}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #fed765;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' fill='%23fed765' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+.markdown-body strong{
+  color: #fe6188;
+}
+.markdown-body em{
+  color: #77dbe8;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #aa9df2;
+  text-decoration: none;
+}
+.markdown-body mjx-container[jax="SVG"] > svg a{fill:#aa9df2;stroke: #aa9df2;}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 12px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 12px;
+  color: #76dae8;
+  vertical-align: middle;
+  background-color: #3a2e3f;
+  border: 1px solid #504455;
+  border-radius: 3px;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #504455;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #c9cdac;
+  border-left: .25em solid #f5f5f5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #4a3e4f;
+  color: #fed765;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+  color: #fed765;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+  color: #fed765;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+  color: #fed765;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+  color: #fed765;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #fed765;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #786c7d;
+}
+
+.markdown-body table tr {
+  background-color: #342839;
+  border-top: 1px solid #786c7d;
+}
+
+.markdown-body table th {
+  background-color: #4a3e4f;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #392d3e;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #3a2e3f;
+  color: #76dae8;
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+   font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #3a2e3f;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+  color: #f0f0f0;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+.markdown-body section.footnotes{
+    margin-top:48px;
+    border-top:solid 1px #504455;
+    padding-top:0px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .markdown-body mark{color: #111;}
+}
+
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background-color: #3a2e3f;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #48be66;
+}
+
+.token.punctuation {
+    color: #fdd664;
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #9a95e3;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #fdd664;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #$$codeBlockColor$$;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #ccddf6;
+}
+
+.token.function,
+.token.class-name {
+    color: #f28d55;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #d38e63;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em; /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 1px solid #726677;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+  .line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+  }
+
+    .line-numbers-rows > span:before {
+      content: counter(linenumber);
+      color: #726677;
+      display: block;
+      padding-right: 0.8em;
+      text-align: right;
+    }
+
+
+</style><style>.mweb-charts{background:#fff;}
+body{ box-sizing: border-box;
+    margin: 0 auto;
+    padding: 28px}
+@media print{
+    pre, code, pre code {
+     overflow: visible !important;
+     white-space: pre-wrap !important;       /* css-3 */
+     white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap !important;      /* Opera 4-6 */
+     white-space: -o-pre-wrap !important;    /* Opera 7 */
+     word-wrap: break-word !important;       /* Internet Explorer 5.5+ */
+    }
+    html,body{margin:0;padding:4px;}
+}
+
+</style><script>window.MathJax = {     tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] },     startup: {     pageReady() {       return MathJax.startup.defaultPageReady().then(function () {          window.mweb_mathjax_ready_val = 'yes';          if(window.mweb_mathjax_ready !== undefined){ mweb_mathjax_ready(); }       });     }   }};document.addEventListener('DOMContentLoaded', function(event) {    if (typeof Prism != 'undefined') {         Prism.highlightAll();     }});window.mweb_mathjax_ready_val = '';function theMWebMathJaxRenderIsReady(key){ return window.mweb_mathjax_ready_val; }</script><script>window.MathJax = { tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] } }; </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script></head><body><div id='markdown_content' class='markdown-body'><h1><a id="chapter-11-quasi-newton-methods" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chapter 11 Quasi-Newton Methods</h1>
+<ul>
+<li><strong>Motivation</strong> It takes \(\mathcal{O}\left(d^{3}\right)\) to calculate \(\nabla^2 f(x)^{-1}\) or solve for   \(\nabla^{2} f\left(\mathbf{x}_{t}\right) \Delta \mathbf{x}=-\nabla f\left(\mathbf{x}_{t}\right)\).</li>
+</ul>
+<h2><a id="the-secant-method" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>The secant method</h2>
+<ul>
+<li><strong>Motivation</strong> \(\frac{f\left(x_{t}\right)-f\left(x_{t-1}\right)}{x_{t}-x_{t-1}} \approx f^{\prime}\left(x_{t}\right)\), so \(x_{t+1}:=x_{t}-\frac{f\left(x_{t}\right)}{f^{\prime}\left(x_{t}\right)} \approx x_{t+1}:=x_{t}-f^{\prime}\left(x_{t}\right) \frac{x_{t}-x_{t-1}}{f^{\prime}\left(x_{t}\right)-f^{\prime}\left(x_{t-1}\right)}\)</li>
+<li>In optimization regime, we want to find a similar matrix s.t. \(\nabla f\left(\mathbf{x}_{t}\right)-\nabla f\left(\mathbf{x}_{t-1}\right)=H_{t}\left(\mathbf{x}_{t}-\mathbf{x}_{t-1}\right)\) and so \(\mathbf{x}_{t+1}=\mathbf{x}_{t}-H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right)\).
+<ul>
+<li>This is called <em>secant condition</em></li>
+</ul>
+</li>
+</ul>
+<h2><a id="quasi-newton-methods" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quasi-Newton methods</h2>
+<ul>
+<li><strong>Definition</strong> If \(H_t\) symmetric, and follows secant condition, the update method is <em>quasi-newton</em>.</li>
+<li><strong>Lemma Exercise 71</strong> \(f\in C^2\) and \(\nabla^2 f \neq 0\), then Newton's method is a Quasi-Newton method iff \(f(\mathbf{x})=\frac{1}{2} \mathbf{x}^{\top} M \mathbf{x}-\mathbf{q}^{\top} \mathbf{x}+c\) with \(M\) invertable symmetric.
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Newtwon is quasi \(\Leftrightarrow\) \(\nabla f(y) - \nabla f(x) = \nabla^2 f(y)(y-x), \forall x,y\), take derivative w.r.t \(x\), we get \(\nabla^2 f(x) = \nabla^2 f(y), \forall x,y\) and this means \(f\) is a quadratic funciton, its invertable since every secant condition there is a solution. The other direciton is straightforward.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="greenstadt-s-approach" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Greenstadt's Approach</h2>
+<ul>
+<li>We already have \(H^{-1}_{t-1}, x_{t-1}, x_{t}\), we need \(H^{-1}_{t}\), idea is \(H_{t}^{-1}=H_{t-1}^{-1}+E_{t}\), and we want to minimized the general change \(\lVert A E A^{\top}\rVert _{F}^{2}\).</li>
+<li>Denote \(H:=H_{t-1}^{-1}\), \(H^{\prime} :=H_{t}^{-1}\), \(E :=E_{t}\), \(\boldsymbol{\sigma}:=\mathbf{x}_{t}-\mathbf{x}_{t-1}\), \(\mathbf{y} =\nabla f\left(\mathbf{x}_{t}\right)-\nabla f\left(\mathbf{x}_{t-1}\right)\), and \(\mathbf{r} =\boldsymbol{\sigma}-H \mathbf{y}\),
+<ul>
+<li>then the update formula is \(H^{\prime}=H+E\), such that \(H^{\prime} \mathbf{y}=\boldsymbol{\sigma}\) or equivalently \(E \mathbf{y}=\mathbf{r}\),</li>
+<li>so the overall minimization is \(\operatorname{minimize} \quad \frac{1}{2}\lVert A E A^{\top}\rVert _{F}^{2}\), \(\text { subject to } E \mathbf{y}=\mathbf{r}\) and \(E^{\top}-E=0\).</li>
+</ul>
+</li>
+</ul>
+<h3><a id="solving-with-lagrange-multiplier" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solving with Lagrange multiplier</h3>
+<ul>
+<li><strong>Fact 11.2</strong> If \(f(E):=\frac{1}{2}\Vert A E B\Vert _{F}^{2}\), then \(\nabla f(E)=A^{\top} A E B B^{\top}\) if define \(\nabla f(E)=\left(\frac{\partial f(E)}{\partial E_{i j}}\right)\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By this def, we have \(\nabla_{E} \mathrm{Tr}(AE) \nabla_{E} = \mathrm{Tr}(E^{\top}A^{\top}) = A^{\top}\), so \(f(E):=\frac{1}{2}\Vert A E B\Vert _{F}^{2} = \frac{1}{2}\mathrm{Tr}(B^{\top}E^{\top}A^{\top}AEB)\), then \(\nabla f(E) = \nabla_E \frac{1}{2}\mathrm{Tr}(E^{\top}A^{\top}AE_0 BB^{\top}) + \nabla_E \frac{1}{2}\mathrm{Tr}( BB^{\top}E_0^{\top}A^{\top}AE) = A^{\top}AE BB^{\top}/2 + (BB^{\top}E^{\top}A^{\top}A)^{\top}/2\) \(= A^{\top}AE BB^{\top}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Denote \(\boldsymbol{\lambda}\in\mathbb{R}^{d}\) as the multiplier for \(d\) constrains of \(E \mathbf{y}=\mathbf{r}\), and \(\Gamma\in\mathbb{R}^{d\times d}\) as the multiplier for \(d\times d\) constraints of \(E^{\top}-E=0\).</li>
+<li>For each equation of \(\partial_{E_{ij}} f = \boldsymbol{\lambda}^{\top}f_1 + \mathrm{Tr}(\Gamma f_2)\), \(\lambda\) part yields a term of \(\lambda_i y_i\) and \(\Gamma\) yields a term of \(\Gamma_{j i}-\Gamma_{i j}\)</li>
+<li><strong>Lemma 11.3</strong> The above equation gives the optimial condtional of \(W E^{\star} W=\boldsymbol{\lambda} \mathbf{y}^{\top}+\Gamma^{\top}-\Gamma\), where \(W:=A^{\top} A\) is symmetric and posi definite.</li>
+</ul>
+<h3><a id="solving-greenstadt-family" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solving Greenstadt family</h3>
+<ul>
+<li>The minimization has now turn into three linear equation (i) \(E \mathbf{y}=\mathbf{r}\), (ii) \(E^{\top}-E=0\) and (iii) \(W E W =\boldsymbol{\lambda y}^{\top}+\Gamma^{\top}-\Gamma\)</li>
+<li>To eliminate \(\Gamma\), by plug (iii) into (ii) we get \(M\left(\boldsymbol{\lambda} \mathbf{y}^{\top}-\mathbf{y} \boldsymbol{\lambda}^{\top}+2 \Gamma^{\top}-2 \Gamma\right) M=0\), where \(M=W^{-1}\), so \(\Gamma^{\top}-\Gamma=\frac{1}{2}\left(\mathbf{y} \boldsymbol{\lambda}^{\top}-\boldsymbol{\lambda} \mathbf{y}^{\top}\right)\)
+<ul>
+<li>then \(E = \frac{1}{2} M\left(\boldsymbol{\lambda} \mathbf{y}^{\top}+\mathbf{y} \boldsymbol{\lambda}^{\top}\right) M\)</li>
+</ul>
+</li>
+<li>Then to eliminate \(\boldsymbol{\lambda}\), we plug in the secant condition (i) we get \(\boldsymbol{\lambda}=\frac{1}{\mathbf{y}^{\top} M \mathbf{y}}\left(2 M^{-1} \mathbf{r}-\mathbf{y} \boldsymbol{\lambda}^{\top} M \mathbf{y}\right)\)
+<ul>
+<li>multiply with \(\mathbf{y}^{\top} M\), we get \(z=\boldsymbol{\lambda}^{\top} M \mathbf{y}=\frac{\mathbf{y}^{\top} \mathbf{r}}{\mathbf{y}^{\top} M \mathbf{y}}\), so \(\boldsymbol{\lambda}=\frac{1}{\mathbf{y}^{\top} M \mathbf{y}}\left(2 M^{-1} \mathbf{r}-\frac{\left(\mathbf{y}^{\top} \mathbf{r}\right)}{\mathbf{y}^{\top} M \mathbf{y}} \mathbf{y}\right)\)</li>
+</ul>
+</li>
+<li>Plug this into \(E\), we get \(E=\frac{1}{2} M\left(\boldsymbol{\lambda} \mathbf{y}^{\top}+\mathbf{y} \boldsymbol{\lambda}^{\top}\right) M=\frac{1}{\mathbf{y}^{\top} M \mathbf{y}}\left(\mathbf{r y}^{\top} M+M \mathbf{y r}^{\top}-\frac{\left(\mathbf{y}^{\top} \mathbf{r}\right)}{\mathbf{y}^{\top} M \mathbf{y}} M \mathbf{y} \mathbf{y}^{\top} M\right)\), by definition \(\mathbf{r} =\boldsymbol{\sigma}-H \mathbf{y}\), we get
+<ul>
+<li>\(E^{\star}=\frac{1}{\mathbf{y}^{\top} M \mathbf{y}}\left(\boldsymbol{\sigma} \mathbf{y}^{\top} M+M \mathbf{y} \boldsymbol{\sigma}^{\top}-H \mathbf{y} \mathbf{y}^{\top} M-M \mathbf{y} \mathbf{y}^{\top} H -\frac{1}{\mathbf{y}^{\top} M \mathbf{y}}\left(\mathbf{y}^{\top} \boldsymbol{\sigma}-\mathbf{y}^{\top} H \mathbf{y}\right) M \mathbf{y} \mathbf{y}^{\top} M\right)\)</li>
+</ul>
+</li>
+</ul>
+<h3><a id="bfgs-broyden-fletcher-goldfarb-and-shanno" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>BFGS (Broyden, Fletcher, Goldfarb and Shanno)</h3>
+<ul>
+<li><strong>Definition</strong> BFGS is when \(M=H' = H_{t}^{-1}\), \(M \mathbf{y}=H^{\prime} \mathbf{y}=\boldsymbol{\sigma}\), even we don't know \(H'\), but it never appears in the solution, so \(E^{\star}=\frac{1}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\left(-H \mathbf{y} \boldsymbol{\sigma}^{\top}-\boldsymbol{\sigma} \mathbf{y}^{\top} H+\left(1+\frac{\mathbf{y}^{\top} H \mathbf{y}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\right) \boldsymbol{\sigma} \boldsymbol{\sigma}^{\top}\right)\), where \(H=H_{t-1}^{-1}, \boldsymbol{\sigma}=\mathbf{x}_{t}-\mathbf{x}_{t-1}, \mathbf{y}=\nabla f\left(\mathbf{x}_{t}\right)-\nabla f\left(\mathbf{x}_{t-1}\right)\).
+<ul>
+<li>Iteration cost is \(O(d^2)\)</li>
+</ul>
+</li>
+<li><strong>Lemma Exercise 74.1</strong> If \(f\) convex, \(\mathbf{y}^{\top} \sigma&gt;0\), unless \(\mathbf{x}_{t}=\mathbf{x}_{t-1}\) or \(f\left(\lambda \mathbf{x}_{t}+(1-\lambda) \mathbf{x}_{t-1}\right)=\lambda f\left(\mathbf{x}_{t}\right)+(1-\lambda) f\left(\mathbf{x}_{t-1}\right)\) for all \(\lambda \in(0,1)\).
+<ul>
+<li><strong>Proof</strong> By property of convexity \(\mathbf{y}^{\top} \sigma = (\nabla f\left(\mathbf{x}_{t}\right)-\nabla f\left(\mathbf{x}_{t-1}\right))^{\top}(\mathbf{x}_{t}-\mathbf{x}_{t-1}) \geq 0\)</li>
+</ul>
+</li>
+<li><strong>Observation 11.6</strong> \(H^{\prime}=\left(I-\frac{\boldsymbol{\sigma} \mathbf{y}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\right) H\left(I-\frac{\mathbf{y} \boldsymbol{\sigma}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\right)+\frac{\boldsymbol{\sigma} \boldsymbol{\sigma}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(E^{\star} + H= H + \frac{1}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\left(-H \mathbf{y} \boldsymbol{\sigma}^{\top}-\boldsymbol{\sigma} \mathbf{y}^{\top} H+\left(1+\frac{\mathbf{y}^{\top} H \mathbf{y}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\right) \boldsymbol{\sigma} \boldsymbol{\sigma}^{\top}\right)\) \(=\frac{\boldsymbol{\sigma} \boldsymbol{\sigma}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}} + H(I-\frac{\mathbf{y}\boldsymbol{\sigma}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}) - \boldsymbol{\sigma} \mathbf{y}^{\top} H+ \frac{\boldsymbol{\sigma}\mathbf{y}^{\top} H \mathbf{y}\boldsymbol{\sigma}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}=\)QED</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma Exercise 74.2</strong> If \(H \succeq 0\) and \(\mathbf{y}^{\top} \sigma&gt;0\), then also \(H^{\prime}\) is positive definite.
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Since \(C := \left(I-\frac{\mathbf{y} \boldsymbol{\sigma}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\right) = \left(I-\frac{\boldsymbol{\sigma} \mathbf{y}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\right)^{\top}\), so \(H' = C^{\top} H C + \frac{\boldsymbol{\sigma} \boldsymbol{\sigma}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\), \( C^{\top} H C\) is semi positive definite and so is \(\frac{\boldsymbol{\sigma} \boldsymbol{\sigma}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\).</li>
+<li>When \(z\perp \boldsymbol{\sigma}^{\top}\), we have \(Cz = z \neq 0\), so the two quadratic form will not be zero at the same time, this means positive definiteness.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Remark</strong> Usually Newton or Quasi-Newton are performed with <em>scaled steps</em> \(\mathbf{x}_{t+1}=\mathbf{x}_{t}-\alpha_{t} H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right)\), either line search or backtracking line search (when \(\alpha_t = 1\) is not good enough, do \(\alpha_t/2\)).</li>
+</ul>
+<h3><a id="l-bfgs-limited-memory-version" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>L-BFGS (limited memory version)</h3>
+<ul>
+<li><strong>Idea</strong> Only use information from the previous \(m\) iterations, for some small value of \(m\).</li>
+<li><strong>Lemma 11.7</strong> If an oracle can compute \(\mathbf{s}=H \mathbf{g}\) for any vertor \(\mathbf{g}\), then \(\mathbf{s}^{\prime}=H^{\prime} \mathbf{g}^{\prime}\) can be computed with one oracle call of \(\mathbf{s}=H \mathbf{g}\), and \(O(d)\) arithmetic operation, assuming \(\sigma,\mathbf{y}\) known.
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(H^{\prime} \mathbf{g}^{\prime}=\underbrace{\underbrace{\left(I-\frac{\boldsymbol{\sigma} \mathbf{y}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\right) \underbrace{H \underbrace{\left(I-\frac{\mathbf{y}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\right) \mathbf{g}^{\prime}}_{\mathbf{g}}}_{\mathbf{s}}}_{\mathbf{w}}+\underbrace{\frac{\boldsymbol{\sigma} \boldsymbol{\sigma}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}} \mathbf{g}^{\prime}}_{\mathbf{h}}}_{\mathbf{z}}\)</li>
+<li>\(\mathbf{g,h,s,w,z}\) all are compuated in \(O(d)\).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The idea is that we need \(H_{t}^{-1}\nabla f_t\), and we can borrow from \(H_{t-1}^{-1}\nabla f_t\), etc, and recurse back to \(t=0\), This gives the BFGS-step:</li>
+<li><strong>Algorithm (BFGS-STEP)</strong>
+<ul>
+<li><strong>Input</strong> \((k,\mathbf{g})\)</li>
+<li><strong>If</strong> \(k=0\) <strong>then return</strong> \(H_{0}^{-1} \mathbf{g}^{\prime}\)</li>
+<li><strong>Else</strong>
+<ul>
+<li>Set \(\mathbf{h}=\boldsymbol{\sigma} \frac{\boldsymbol{\sigma}_{k}^{\top} \mathbf{g}^{\prime}}{\mathbf{y}_{k}^{\top} \boldsymbol{\sigma}_{k}}\), and \(\mathbf{g}=\mathbf{g}^{\prime}-\mathbf{y} \frac{\boldsymbol{\sigma}_{k}^{\top} \mathbf{g}^{\prime}}{\mathbf{y}_{k}^{\top} \boldsymbol{\sigma}_{k}}\)</li>
+<li>\(\mathbf{s}=\text { BFGS-STEP }(k-1, \mathbf{g})\) (<em>recursive call</em>)</li>
+<li>\(\mathbf{w}=\mathbf{s}-\boldsymbol{\sigma}_{k} \frac{\mathbf{y}_{k}^{\top} \mathbf{s}}{\mathbf{y}_{k}^{\top} \boldsymbol{\sigma}_{k}}\)</li>
+<li>\(\mathbf{z}=\mathbf{w}+\mathbf{h}\)</li>
+<li><strong>return</strong> \(z\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Remark</strong> If \(H_0\) can be computed in \(O(d)\) the total runtime is \(O(t d)\), this is acceptable when \(t\leq d\). It's natual to think of a cut-off version</li>
+<li><strong>Algorithm (L-BFGS-STEP)</strong>
+<ul>
+<li><strong>Input</strong> \((k,l,\mathbf{g})\)</li>
+<li><strong>If</strong> \(l=0\) <strong>then return</strong> \(H_{0}^{-1} \mathbf{g}^{\prime}\)</li>
+<li><strong>Else</strong>
+<ul>
+<li>Set \(\mathbf{h}=\boldsymbol{\sigma} \frac{\boldsymbol{\sigma}_{k}^{\top} \mathbf{g}^{\prime}}{\mathbf{y}_{k}^{\top} \boldsymbol{\sigma}_{k}}\), and \(\mathbf{g}=\mathbf{g}^{\prime}-\mathbf{y} \frac{\boldsymbol{\sigma}_{k}^{\top} \mathbf{g}^{\prime}}{\mathbf{y}_{k}^{\top} \boldsymbol{\sigma}_{k}}\)</li>
+<li>\(\mathbf{s}=\text { L-BFGS-STEP }(k-1, l-1, \mathbf{g})\) (<em>recursive call</em>)</li>
+<li>\(\mathbf{w}=\mathbf{s}-\boldsymbol{\sigma}_{k} \frac{\mathbf{y}_{k}^{\top} \mathbf{s}}{\mathbf{y}_{k}^{\top} \boldsymbol{\sigma}_{k}}\)</li>
+<li>\(\mathbf{z}=\mathbf{w}+\mathbf{h}\)</li>
+<li><strong>return</strong> \(z\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></body></html>

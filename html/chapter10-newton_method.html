@@ -1,0 +1,971 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>/* copy from https://github.com/sindresorhus/github-markdown-css/ */
+
+html,body{background-color: #342839;}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #fafedd;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body figure{margin:0;padding:0; display:table;}
+.markdown-body figure figcaption{font-size:92%; text-align:center; color:#76dae8;}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #fed765;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' fill='%23fed765' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+.markdown-body strong{
+  color: #fe6188;
+}
+.markdown-body em{
+  color: #77dbe8;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #aa9df2;
+  text-decoration: none;
+}
+.markdown-body mjx-container[jax="SVG"] > svg a{fill:#aa9df2;stroke: #aa9df2;}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 12px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 12px;
+  color: #76dae8;
+  vertical-align: middle;
+  background-color: #3a2e3f;
+  border: 1px solid #504455;
+  border-radius: 3px;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #504455;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #c9cdac;
+  border-left: .25em solid #f5f5f5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #4a3e4f;
+  color: #fed765;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+  color: #fed765;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+  color: #fed765;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+  color: #fed765;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+  color: #fed765;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #fed765;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #786c7d;
+}
+
+.markdown-body table tr {
+  background-color: #342839;
+  border-top: 1px solid #786c7d;
+}
+
+.markdown-body table th {
+  background-color: #4a3e4f;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #392d3e;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #3a2e3f;
+  color: #76dae8;
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+   font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #3a2e3f;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+  color: #f0f0f0;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+.markdown-body section.footnotes{
+    margin-top:48px;
+    border-top:solid 1px #504455;
+    padding-top:0px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .markdown-body mark{color: #111;}
+}
+
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background-color: #3a2e3f;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #48be66;
+}
+
+.token.punctuation {
+    color: #fdd664;
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #9a95e3;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #fdd664;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #$$codeBlockColor$$;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #ccddf6;
+}
+
+.token.function,
+.token.class-name {
+    color: #f28d55;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #d38e63;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em; /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 1px solid #726677;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+  .line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+  }
+
+    .line-numbers-rows > span:before {
+      content: counter(linenumber);
+      color: #726677;
+      display: block;
+      padding-right: 0.8em;
+      text-align: right;
+    }
+
+
+</style><style>.mweb-charts{background:#fff;}
+body{ box-sizing: border-box;
+    margin: 0 auto;
+    padding: 28px}
+@media print{
+    pre, code, pre code {
+     overflow: visible !important;
+     white-space: pre-wrap !important;       /* css-3 */
+     white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap !important;      /* Opera 4-6 */
+     white-space: -o-pre-wrap !important;    /* Opera 7 */
+     word-wrap: break-word !important;       /* Internet Explorer 5.5+ */
+    }
+    html,body{margin:0;padding:4px;}
+}
+
+</style><script>window.MathJax = {     tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] },     startup: {     pageReady() {       return MathJax.startup.defaultPageReady().then(function () {          window.mweb_mathjax_ready_val = 'yes';          if(window.mweb_mathjax_ready !== undefined){ mweb_mathjax_ready(); }       });     }   }};document.addEventListener('DOMContentLoaded', function(event) {    if (typeof Prism != 'undefined') {         Prism.highlightAll();     }});window.mweb_mathjax_ready_val = '';function theMWebMathJaxRenderIsReady(key){ return window.mweb_mathjax_ready_val; }</script><script>window.MathJax = { tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] } }; </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script></head><body><div id='markdown_content' class='markdown-body'><h1><a id="chapter-10-newton-s-method" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chapter 10 Newton's Method</h1>
+<ul>
+<li><strong>Algorithm</strong> \(\mathbf{x}_{t+1}:=\mathbf{x}_{t}-\nabla^{2} f\left(\mathbf{x}_{t}\right)^{-1} \nabla f\left(\mathbf{x}_{t}\right)\), a more general form will be arbitary \(H\), \(\mathbf{x}_{t+1}=\mathbf{x}_{t}-H\left(\mathbf{x}_{t}\right) \nabla f\left(\mathbf{x}_{t}\right)\).</li>
+<li><strong>Lemma 10.1</strong> A nondegenerate quadratic function \(f(\mathbf{x})=\frac{1}{2} \mathbf{x}^{\top} M \mathbf{x}-\mathbf{q}^{\top} \mathbf{x}+c\), with \(M\) invertible and semmetric matrix, then Newton's method gives optimal solution of \(\nabla f(\mathbf{x}^{\star})=\mathbf{0}\) in one step \(\mathbf{x}_{1} = \mathbf{x}^{\star}\).
+<ul>
+<li><strong>Proof</strong> \(\mathbf{x}_{0}-\nabla^{2} f\left(\mathbf{x}_{0}\right)^{-1} \nabla f\left(\mathbf{x}_{0}\right)=\mathbf{x}_{0}-M^{-1}\left(M \mathbf{x}_{0}-\mathbf{q}\right)=M^{-1} \mathbf{q}=\mathbf{x}^{\star}\)</li>
+</ul>
+</li>
+<li><strong>Lemma 10.2</strong> Newton's method is Affine invariant. <strong>Proof</strong> is straightforward.</li>
+<li><strong>Lemma 10.3</strong> If \(\nabla^{2} f\left(\mathbf{x}_{t}\right) \succ 0\), then \(\mathbf{x}_{t+1}=\underset{\mathbf{x} \in \mathbb{R}^{d}}{\operatorname{argmin}} f\left(\mathbf{x}_{t}\right)+\nabla f\left(\mathbf{x}_{t}\right)^{\top}\left(\mathbf{x}-\mathbf{x}_{t}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{x}_{t}\right)^{\top} \nabla^{2} f\left(\mathbf{x}_{t}\right)\left(\mathbf{x}-\mathbf{x}_{t}\right)\).</li>
+</ul>
+<h2><a id="super-linear-quadratic-local-convergence-mathcal-o-log-log-1-varepsilon" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Super Linear (quadratic) Local Convergence (\(\mathcal{O}(\log \log (1 / \varepsilon)\))</h2>
+<ul>
+<li><strong>Theorem 10.4</strong> \(f\in C^2\) with critical point \(\mathbf{x}^{\star}\). Assume \(\exists U(\mathbf{x}^{\star}) \subseteq \mathrm{dom}(f)\) s.t. (i) <em>bounded hessian</em> \(\lVert \nabla^{2} f(\mathbf{x})^{-1}\rVert  \leq \frac{1}{\mu}, \quad \forall \mathbf{x} \in X\) (ii) <em>Lipschitz continuous Hessian</em> \(\lVert \nabla^{2} f(\mathbf{x})-\nabla^{2} f(\mathbf{y})\rVert  \leq B\Vert \mathbf{x}-\mathbf{y}\Vert  \quad \forall \mathbf{x}, \mathbf{y} \in X\), then \(\lVert \mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert  \leq \frac{B}{2 \mu}\lVert \mathbf{x}_{t}-\mathbf{x}^{\star}\rVert ^{2}\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(\mathbf{x}^{\prime}-\mathbf{x}^{\star}=\mathbf{x}-\mathbf{x}^{\star}+H(\mathbf{x})^{-1} \int_{0}^{1} H\left(\mathbf{x}+t\left(\mathbf{x}^{\star}-\mathbf{x}\right)\right)\left(\mathbf{x}^{\star}-\mathbf{x}\right) \mathrm{d} t\)</li>
+<li>also \(\mathbf{x}-\mathbf{x}^{\star}=H(\mathbf{x})^{-1} H(\mathbf{x})\left(\mathbf{x}-\mathbf{x}^{\star}\right)=H(\mathbf{x})^{-1} \int_{0}^{1}-H(\mathbf{x})\left(\mathbf{x}^{\star}-\mathbf{x}\right) \mathrm{d} t\), we subtract the above to the first equation, and get</li>
+<li>\(\mathbf{x}^{\prime}-\mathbf{x}^{\star} = H(\mathbf{x})^{-1} \int_{0}^{1} \left( H\left(\mathbf{x}+t\left(\mathbf{x}^{\star}-\mathbf{x}\right)\right)  -   H(\mathbf{x})\right)\left(\mathbf{x}^{\star}-\mathbf{x}\right) \mathrm{d} t\)</li>
+<li>Then by some inequality w.r.t. norm operation, \(\Vert \mathbf{x}^{\prime}-\mathbf{x}^{\star}\Vert \leq \Vert H(\mathbf{x})^{-1}\Vert \cdot \Vert \int_{0}^{1} \left( H\left(\mathbf{x}+t\left(\mathbf{x}^{\star}-\mathbf{x}\right)\right)  -   H(\mathbf{x})\right)\left(\mathbf{x}^{\star}-\mathbf{x}\right) \mathrm{d} t\Vert\) \(\leq \Vert H(\mathbf{x})^{-1}\Vert \cdot \int_{0}^{1} \Vert \left( H\left(\mathbf{x}+t\left(\mathbf{x}^{\star}-\mathbf{x}\right)\right)  -   H(\mathbf{x})\right)\left(\mathbf{x}^{\star}-\mathbf{x}\right) \Vert  \mathrm{d} t \) \(\leq \Vert \left(\mathbf{x}^{\star}-\mathbf{x}\right) \Vert  \cdot \Vert H(\mathbf{x})^{-1}\Vert \cdot \int_{0}^{1} \Vert \left( H\left(\mathbf{x}+t\left(\mathbf{x}^{\star}-\mathbf{x}\right)\right)  -   H(\mathbf{x})\right)\Vert \mathrm{d} t = \frac{B}{2\mu} \Vert \left(\mathbf{x}^{\star}-\mathbf{x}\right) \Vert ^2\)</li>
+</ul>
+</li>
+<li>(<em>My own strange derivation, not successful</em>) By Lipschitz, using Lemma B, taking \(y=x_{t+1}\) and \(x=x_{t}\), we get \(\Vert \nabla f(x_{t+1})\Vert ^{-1} \leq \frac{B}{2\mu^2} \Vert \nabla f(x_{t})\Vert ^2\), this gives a similar relation w.r.t. t, but not on \(\Vert x_{t} - x^{\star}\Vert\).</li>
+</ul>
+</li>
+<li><strong>Corollary 10.5 (Exercise 64)</strong> If starting points satisfies \(\lVert \mathbf{x}_{0}-\mathbf{x}^{\star}\rVert  \leq \frac{\mu}{B}\), then \(\lVert \mathbf{x}_{T}-\mathbf{x}^{\star}\rVert  \leq \frac{\mu}{B}\left(\frac{1}{2}\right)^{2^{T}-1}\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(\log \lVert \mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert  \leq \log\frac{B}{2 \mu} + 2\log\lVert \mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert\) or \(\log \lVert \mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert  +  \log\frac{B}{2 \mu} \leq 2(\log\lVert \mathbf{x}_{t}-\mathbf{x}^{\star}\rVert  + \log\frac{B}{2 \mu})\)</li>
+<li>When the starting condition holds, \(\log\lVert \mathbf{x}_{0}-\mathbf{x}^{\star}\rVert  +  \log\frac{B}{2 \mu}\leq -\log 2 \leq 0\), so every \(t\), \(\log \lVert \mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert  +  \log\frac{B}{2 \mu}\leq 0\),</li>
+<li>so \(\log \lVert \mathbf{x}_{T}-\mathbf{x}^{\star}\rVert  +  \log\frac{B}{2 \mu} \leq - 2^{T}\log 2\), \(\lVert \mathbf{x}_{T}-\mathbf{x}^{\star}\rVert  \leq \frac{2\mu}{B} (\frac{1}{2})^{2^T} = \frac{\mu}{B} (\frac{1}{2})^{2^T-1}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma 10.6 (Exercise 65)</strong> If starting point satisfies \(\lVert \mathbf{x}_{0}-\mathbf{x}^{\star}\rVert  \leq \frac{\mu}{B}\), then \(\frac{\lVert \nabla^{2} f\left(\mathbf{x}_{t}\right)-\nabla^{2} f\left(\mathbf{x}^{\star}\right)\rVert }{\lVert \nabla^{2} f\left(\mathbf{x}^{\star}\right)\rVert } \leq\left(\frac{1}{2}\right)^{2^{t}-1}\).
+<ul>
+<li><strong>Proof</strong> just use the two assumption.</li>
+</ul>
+</li>
+</ul>
+<h2><a id="global-analysis-for-strongly-convex-smooth-objectives" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Global analysis for strongly-convex smooth objectives</h2>
+<ul>
+<li><strong>Lemma A</strong> If \(f\) has \(L_2\)-Lipschitz Hessian w.r.t. some norm, then \(\vert f(\mathbf{y}) - f\left(\mathbf{x}\right)-\nabla f\left(\mathbf{x}\right)^{\top}\left(\mathbf{y}-\mathbf{x}\right)-\frac{1}{2}\left(\mathbf{y}-\mathbf{x}\right)^{\top} \nabla^{2} f\left(\mathbf{x}\right)\left(\mathbf{y}-\mathbf{x}\right)\vert \leq \frac{L_{2}}{6}\lVert \mathbf{y}-\mathbf{x}\rVert _{a}^{3}\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(L_2\)-Lipschitz Hessian means \(\Vert H(\mathbf{y})-H(\mathbf{y})\Vert _{a,a*}\leq\Vert \mathrm{y}-\mathrm{x}\Vert _{a,a*}\), where matrix norm is \(\Vert A\Vert _{a,a*}=\sup _{x \neq 0} \frac{\Vert A x\Vert _{a*}}{\Vert x\Vert _{a}}\), and \(\Vert \cdot\Vert _{a*}\) is the dual norm.</li>
+<li>Define \(g(t\in[0,1]):=f(\mathbf{x} + t(\mathbf{y-x}))\), and \(\mathbf{z}_t:=\mathbf{x} + t(\mathbf{y-x})\), \(g'(t)=\nabla f(z)^{\top}(\mathbf{y-x})\), \(g''(t):= (\mathbf{y-x})^{\top}H(\mathbf{z}_{t})(\mathbf{y-x})\)</li>
+<li>Then \(\vert g''(t) - g''(0)\vert = \vert(\mathbf{y-x})^{\top}(H(\mathbf{z}_{t}) - H(\mathbf{x}))(\mathbf{y-x}) \vert \leq \Vert (H(\mathbf{z}_{t}) - H(\mathbf{x}))(\mathbf{y-x})\Vert _{a*}\Vert \mathbf{y-x}\Vert _{a}\)</li>
+<li>\(\mathsf{RHS}\leq \Vert H(\mathbf{z}_{t}) - H(\mathbf{x})\Vert _{a, a*}\Vert \mathbf{y-x}\Vert _{a}^2\), by Lipschitz \(\leq  L_2 t \Vert \mathbf{y-x}\Vert _{a}^3\).</li>
+<li>Then \(g'(t) - g'(0) = \int_{0}^{t} g''(t) d\tau \leq \int_{0}^{t} g''(0) +  \tau \Vert \mathbf{y-x}\Vert _{a}^3 d\tau =g''(0) t + \frac{L_2}{2} \Vert \mathbf{y-x}\Vert _{a}^3t^2\),
+<ul>
+<li>also \(g'(t) - g'(0) \geq \int_{0}^{t} g''(0) -  \tau \Vert \mathbf{y-x}\Vert _{a}^3 d\tau =g''(0) t - \frac{L_2}{2} \Vert \mathbf{y-x}\Vert _{a}^3t^2\)</li>
+</ul>
+</li>
+<li>Then \(g(t)-g(0) = \int_{0}^{t} g'(\tau) d\tau \leq  \int_{0}^{t} g'(0) + g''(0) \tau + \frac{L_2}{2} \Vert \mathbf{y-x}\Vert _{a}^3 \tau^2 d\tau = g'(0) t + \frac{1}{2}g''(0)t^2 + \frac{L_2}{6} \Vert \mathbf{y-x}\Vert _{a}^3 t^3\)
+<ul>
+<li>\(g(t)-g(0) \geq  \int_{0}^{t} g'(0) + g''(0) \tau - \frac{L_2}{2} \Vert \mathbf{y-x}\Vert _{a}^3 \tau^2 d\tau = g'(0) t + \frac{1}{2}g''(0)t^2 -\frac{L_2}{6} \Vert \mathbf{y-x}\Vert _{a}^3 t^3\)</li>
+</ul>
+</li>
+<li>Setting \(t=1\), and we get \(\vert f(\mathbf{x}) - f\left(\mathbf{x}_{t}\right)-\nabla f\left(\mathbf{x}_{t}\right)^{\top}\left(\mathbf{x}-\mathbf{x}_{t}\right)-\frac{1}{2}\left(\mathbf{x}-\mathbf{x}_{t}\right)^{\top} \nabla^{2} f\left(\mathbf{x}_{t}\right)\left(\mathbf{x}-\mathbf{x}_{t}\right)\vert \leq \frac{L_{2}}{6}\lVert \mathbf{x}-\mathbf{x}_{t}\rVert _{a}^{3}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma B</strong> If \(f\) has \(L_2\)-Lipschitz Hessian w.r.t. some norm, then \(\Vert \nabla f(\mathbf{y}) - \nabla f\left(\mathbf{x}\right)- \nabla^{2} f\left(\mathbf{x}\right)\left(\mathbf{y}-\mathbf{x}\right)\Vert _{a*} \leq \frac{L_{2}}{2}\lVert \mathbf{y}-\mathbf{x}\rVert _{a}^{2}\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>Similar to Lemma A, but define \(\mathbf{k}(t):= \nabla f(\mathbf{x}+t(\mathbf{y-x}))\), then \(\partial_t \mathbf{k}=\nabla^{2} f_t \left(\mathbf{y}-\mathbf{x}\right)\),</li>
+<li>So we have \(\Vert \partial_t\mathbf{k}(t) - \partial_t\mathbf{k}(0)\Vert _{a*} \leq L_2 t\Vert \mathbf{y}-\mathbf{x}\Vert _{a}^2\).</li>
+<li>By triangular ineq, \(\Vert \int \Vert _{a*}\leq \int \Vert \Vert _{a*}\), so we get similar result.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma C</strong> Assume \(f\) \(\mu\)-convex and has \(L\)-Lipschitz continuous gradient, then Newton's method \(\mathbf{x}_{t+1}:=\mathbf{x}_{t}-\gamma \nabla^{2} f\left(\mathbf{x}_{t}\right)^{-1} \nabla f\left(\mathbf{x}_{t}\right)\) enjoys global linear convergence \(f\left(\mathbf{x}_{t}\right)-f^{*} \leq\left(1-\frac{\mu^{2}}{L^{2}}\right)^{t}\left(f\left(\mathbf{x}_{0}\right)-f^{*}\right)\) given \(\gamma = \frac{\mu}{L}\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By smoothness \(f\left(\mathbf{x}_{t+1}\right)-f\left(\mathbf{x}_{t}\right) \leq\left\langle-\gamma H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right), \nabla f\left(\mathbf{x}_{t}\right)\right\rangle+\frac{L \gamma^{2}}{2}\lVert H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right)\rVert ^{2}\),</li>
+<li>By strong convexity and smoothness \(\frac{1}{L} \leq\lVert H_{t}^{-1}\rVert  \leq \frac{1}{\mu}\), and by the fact of \(H_{t}\) beging symmetric and so is its inverse, \(\lVert H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right)\rVert ^{2} = (H_{t}^{-1/2} \nabla f\left(\mathbf{x}_{t}\right))^{\top}H_{t}^{-1}  (H_{t}^{-1/2} \nabla f\left(\mathbf{x}_{t}\right)) \leq (H_{t}^{-1/2} \nabla f\left(\mathbf{x}_{t}\right))^{\top} \frac{1}{\mu} (H_{t}^{-1/2} \nabla f\left(\mathbf{x}_{t}\right))\) \( = \langle H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right), \nabla f\left(\mathbf{x}_{t}\right)\rangle / \mu\),</li>
+<li>Then \(\mathsf{RHS} \leq \left(-\gamma+\frac{L \gamma^{2}}{2 \mu}\right)\left\langle H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right), \nabla f\left(\mathbf{x}_{t}\right)\right\rangle\), when \(\gamma = \frac{\mu}{L}\) this term is minimized, and this term is \(\mathsf{RHS} = -\frac{\mu}{2 L}\left\langle H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right), \nabla f\left(\mathbf{x}_{t}\right)\right\rangle\)</li>
+<li>Again, by spectual lower bound of \(H_{t}^{-1}\), \(\left\langle H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right), \nabla f\left(\mathbf{x}_{t}\right)\right\rangle \geq \frac{1}{L}\lVert \nabla f\left(\mathbf{x}_{t}\right)\rVert ^{2}\), so \(\mathsf{RHS} \leq -\frac{\mu}{2 L} \cdot \frac{1}{L}\lVert \nabla f\left(\mathbf{x}_{t}\right)\rVert ^{2}\)</li>
+<li>Due to strong convexity, \(f(z)-f\left(x^{\star}\right) \leq \frac{1}{2 \mu}\Vert \nabla f(z)\Vert _{\ast}^{2}\), so \(f\left(\mathbf{x}_{t+1}\right)-f\left(\mathbf{x}_{t}\right) \leq-\frac{\mu^{2}}{L^{2}}\left(f\left(\mathbf{x}_{t}\right)-f^{*}\right)\)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="methods-to-overcoming-the-local-nature-of-newton-method" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods to overcoming the local nature of Newton method</h2>
+<ul>
+<li><em>Newton method with line-search</em> select \(\gamma_t\) s.t. \(f\left(\mathbf{x}_{t+1}\right)&lt;f\left(\mathbf{x}_{t}\right)\) with sufficient decrease, \(\mathbf{x}_{t+1}=\mathbf{x}_{t}-\gamma_{t} \nabla^{2} f\left(\mathbf{x}_{t}\right)^{-1} \nabla f\left(\mathbf{x}_{t}\right)\).</li>
+<li><em>Dampled Newton method</em> \(\mathbf{x}_{t+1}=\mathbf{x}_{t}-\frac{1}{1+\lambda_{f}\left(\mathbf{x}_{t}\right)} \nabla^{2} f\left(\mathbf{x}_{t}\right)^{-1} \nabla f\left(\mathbf{x}_{t}\right)\) where \(\lambda_{f}(\mathbf{x})=\lVert \left[\nabla^{2} f(\mathbf{x})\right]^{-1 / 2} \nabla f(\mathbf{x})\rVert\),
+<ul>
+<li>we can show that \(\lambda_{f}(\mathbf{x})/2 = f(x) - \min_{y}\{f(x) + \nabla f(x)^{\top}(y-x)+ \frac{1}{2}(y-x)^{\top}\nabla^2f(x)(y-x)\}\) is approximately twice the decrease of value using normal Newton's method.</li>
+<li>If previous step have a lot decrease in \(f\), which is appproximated by \(\lambda\), then we compensate in the next iteration to have less.</li>
+<li>This is guaranteed to converge.</li>
+</ul>
+</li>
+<li><em>Regularization approach</em> regularize the Hessian and adjust \(\gamma_t\), \(\mathbf{x}_{t+1}=\mathbf{x}_{t}-\left[\gamma_{t} I+\nabla^{2} f\left(\mathbf{x}_{t}\right)\right]^{-1} \nabla f\left(\mathbf{x}_{t}\right)\).
+<ul>
+<li>When \(\gamma\) is large, this is approximately GD.</li>
+</ul>
+</li>
+<li><em>Trust-region approach</em> \(\mathbf{x}_{t+1}=\underset{\mathbf{x}}{\operatorname{argmin}} f\left(\mathbf{x}_{t}\right)+\nabla f\left(\mathbf{x}_{t}\right)^{\top}\left(\mathbf{x}-\mathbf{x}_{t}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{x}_{t}\right)^{\top} \nabla^{2} f\left(\mathbf{x}_{t}\right)\left(\mathbf{x}-\mathbf{x}_{t}\right)\), s.t. \(\text { s.t. }\lVert \mathbf{x}-\mathbf{x}_{t}\rVert  \leq \Delta_{k}\), not to move too far away. similar to regularization approach.</li>
+</ul>
+<h2><a id="cubic-regularization-nesterov-polyak-2006" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cubic Regularization (Nesterov &amp; Polyak, 2006)</h2>
+<ul>
+<li>
+<p><strong>motivation</strong> GD can be viewed as iteratively minimizing the quadratic upper bound function \(f(\mathbf{y}) \leq f\left(\mathbf{x}\right)+\nabla f\left(\mathbf{x}\right)^{\top}\left(\mathbf{y}-\mathbf{x}\right)+\frac{L_{1}}{2}\lVert \mathbf{y}-\mathbf{x}\rVert ^{2}\).</p>
+</li>
+<li>
+<p><strong>ALgorithm</strong> (<em>Subproblem</em>) \(\mathbf{x}_{t+1} \in \underset{\mathbf{x}}{\operatorname{argmin}} \hat{f}\left(\mathbf{x}, \mathbf{x}_{t}\right)\), where \(\hat{f}\left(\mathbf{x}, \mathbf{x}_{t}\right):=f\left(\mathbf{x}_{t}\right)+\nabla f\left(\mathbf{x}_{t}\right)^{\top}\left(\mathbf{x}-\mathbf{x}_{t}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{x}_{t}\right)^{\top} \nabla^{2} f\left(\mathbf{x}_{t}\right)\left(\mathbf{x}-\mathbf{x}_{t}\right)+\frac{M}{6}\lVert \mathbf{x}-\mathbf{x}_{t}\rVert _{2}^{3}\)</p>
+</li>
+<li>
+<p>Subproblem can be reduced to a convex problem, and can also be solved directly by GD to global optimal.</p>
+</li>
+<li>
+<p>No invertion of Hessian is needed.</p>
+</li>
+<li>
+<p><strong>Lemma D (Graded assignment 4.2)</strong> Given two problem \(u(\mathbf{h})=\mathbf{g}^{\top} \mathbf{h}+\frac{1}{2} \mathbf{h}^{\top} H \mathbf{h}+\frac{\mathrm{M}}{6}\Vert \mathbf{h}\Vert ^{3}\) and \(v({r})=-\frac{1}{2} \mathbf{g}^{\top}\left(H+\frac{Mr}{2} I_{d}\right)^{-1} \mathrm{g} - \frac{M}{12} r^{3}\),          where \(\mathcal{D} = \{r \geq 0 \mid H + \frac{Mr}{2} I_d \succ 0 \} \), then \(\inf_{\mathbf{h} \in \mathbb{R}^{d}} u(\mathbf{h})=\sup _{r \in \mathcal{D}} v(r)\)</p>
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>First we prove \(\inf_{\mathbf{h}} u(\mathbf{h}) \geqslant \sup_{r} v(r)\)
+<ul>
+<li>First by adding and subtracting the same term \(\frac{1}{2}  \mathbf{h}^{\top} (\frac{1}{2} M r I_d) \mathbf{h}\), we have
+<ul>
+<li>\(u(\mathbf{h}) =\mathbf{g}^{\top} \mathbf{h}+\frac{1}{2} \mathbf{h}^{\top} H \mathbf{h} + \frac{1}{2}  \mathbf{h}^{\top} (\frac{1}{2} M r I_d) \mathbf{h} - \frac{1}{2}  \mathbf{h}^{\top} (\frac{1}{2} M r I_d) \mathbf{h} +\frac{\mathrm{M}}{6}\Vert \mathbf{h}\Vert ^{3}\) \(= \underline{\mathbf{g}^{\top} \mathbf{h}+\frac{1}{2} \mathbf{h}^{\top} \left( H + \frac{1}{2} M r I_d \right) \mathbf{h}} + \frac{\mathrm{M}}{6}\Vert \mathbf{h}\Vert ^{3} - \frac{M r}{4} \Vert \mathbf{h} \Vert ^2\)</li>
+</ul>
+</li>
+<li>Now we write the underlined quadratic form into canonical form, \(\mathbf{g}^{\top} \mathbf{h}+\frac{1}{2} \mathbf{h}^{\top} \left( H + \frac{1}{2} M r I_d \right) \mathbf{h} =  \frac{1}{2} (\mathbf{h} - h(r))^{\top} \left( H + \frac{1}{2} M r I_d \right)  (\mathbf{h} - h(r)) -\frac{1}{2} \mathbf{g}^{\top}\left(H + \frac{M r}{2}I_d\right)^{-1} \mathbf{g}\), where \(h(r)=-\left(H+\frac{M r}{2} I_{d}\right)^{-1} g\)</li>
+<li>Plug this in and we get \(u(\mathbf{h}) =  \frac{1}{2} (\mathbf{h} - h(r))^{\top} \left( H + \frac{1}{2} M r I_d \right)  (\mathbf{h} - h(r))  + \underbrace{ \left[-\frac{1}{2} \mathbf{g}^{\top}\left(H + \frac{M r}{2}I_d\right)^{-1} \mathbf{g} - \frac{M}{12} r^{3} \right] }_{v(r)} + \frac{\mathrm{M}}{6}\Vert \mathbf{h}\Vert ^{3} - \frac{M r}{4} \Vert \mathbf{h} \Vert ^2 + \frac{M}{12} r^{3}\) \(=v(r) +  \frac{1}{2} (\mathbf{h} - h(r))^{\top} \left( H + \frac{1}{2} M r I_d \right)  (\mathbf{h} - h(r)) + \frac{M}{12} (\Vert \mathbf{h} \Vert  - r)^2(r + 2 \Vert \mathbf{h} \Vert  )\)</li>
+<li>By definition, the last two term are both non-negative, so we prove \(\inf_{\mathbf{h}} u(\mathbf{h}) \geqslant \sup_{r} v(r)\).</li>
+</ul>
+</li>
+<li>Then we prove when \(\mathbf{h}=h(r)\), equality holds.
+<ul>
+<li>In this circumstance, the second term is zero, so \(u(h(r)) - v(r) = \frac{M}{12} (\Vert  h(r) \Vert  - r)^2(r + 2 \Vert  h(r) \Vert  )\)</li>
+<li>Then we consider the analytical expression of \(v(r)\), we expend w.r.t eigen values of \(H\),  \(H = Q\mathrm{diag}\{\lambda_i\}_{i=1}^{d}Q^{\top} \), where \(Q = [\mathbf{q}_{1}, \ldots, \mathbf{q}_{d}]\) is an orthonormal matrix. Then \(\frac{1}{2} \mathbf{g}^{\top}\left(\mathrm{H}+\frac{Mr }{2} I_d \right)^{-1} \mathbf{g} =  \frac{1}{2}  \mathbf{g}^{\top}Q \mathrm{diag} \left\{ \frac{1}{Mr/2 + \lambda_i} \right\}_{i=1}^{d} Q^{\top}\mathbf{g} = \frac{1}{2}\sum_{i=1}^{d} \frac{(\mathbf{q}_i^{\top} \mathbf{g})^2}{Mr/2 + \lambda_i}.\)</li>
+<li>Then we have the derivatives of \(v(r)\),
+<ul>
+<li>(i) \(v(r) = -  \frac{1}{2}\sum_{i=1}^{d} \frac{(\mathbf{q}_i^{\top} \mathbf{g})^2}{M r/2 + \lambda_i} - \frac{M}{12} r^3\),</li>
+<li>(ii) \(v'(r) = \frac{M}{2} \frac{1}{2}\sum_{i=1}^{d} \frac{(\mathbf{q}_i^{\top} \mathbf{g})^2}{(M r/2 + \lambda_i)^2} - \frac{M}{4} r^2 =  \frac{M}{2} \frac{1}{2} \mathbf{g}^{\top} \left( H + \frac{Mr}{2} I_d\right)^{-2} \mathbf{g} - \frac{M}{4} r^2= \frac{M}{4} \left[ \Vert  \left( H + \frac{Mr}{2} I_d\right)^{-1} \mathbf{g}\Vert ^2  - r^2 \right]\) \(= \frac{M}{4} (\Vert h(r)\Vert ^2 - r^2)\)</li>
+<li>(iii) \(v''(r) = - \frac{M^2}{8} \sum_{i=1}^{d} \frac{(\mathbf{q}_i^{\top} \mathbf{g})^2}{(M r/2 + \lambda_i)^3} - \frac{M}{2} r\)</li>
+</ul>
+</li>
+<li>By definition \(H+\frac{Mr}{2} I_d \succ 0\), so that \(M r / 2+\lambda_{i}&gt;0\), and since \(\Vert \mathbf{g}\Vert \neq 0\) (otherwise trivial), this means \(v''(r)&lt; 0\), strictly concave, local maximual is global.</li>
+<li>The optimial condition holds when \(\lVert h\left(r^{*}\right)\rVert =r^{*}\), when this happens \(u(h(r^*)) - v(r^*)  =  u(h(r^*)) - \sup_{r} v(r) = \frac{M}{12} (\Vert  h(r^*) \Vert  - r^*)^2(r^*+ 2 \Vert  h(r^*) \Vert  ) = 0\). QED</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Remark</strong> \(v(r)\) is a convex program (while \(u(\mathbf{h})\) is not), and can be solved by GD.</li>
+</ul>
+</li>
+<li>
+<p><strong>Key Facts 1</strong> Second order \(\nabla^{2} f\left(\mathbf{x}_{t}\right)+\frac{M}{2}\lVert \mathbf{x}_{t}-\mathbf{x}_{t+1}\rVert  \cdot I \succeq 0\).</p>
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(\mathbf{x}_{t+1} - \mathbf{x}_{t} = \mathbf{h} = h(r^{\star})\) and \(\Vert \mathbf{x}_{t+1} - \mathbf{x}_{t}\Vert _{2} = \Vert h(r^{\star})\Vert _2 = r^{\star}\), so \(\nabla^{2} f\left(\mathbf{x}_{t}\right)+\frac{M}{2}\lVert \mathbf{x}_{t}-\mathbf{x}_{t+1}\rVert  = H + \frac{Mr^{\star}}{2}I \succeq 0\) by definition of domain \(\mathcal{D}\).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Key Facts 2</strong> First order \(\lVert \nabla f\left(\mathbf{x}_{t+1}\right)\rVert  \leq \frac{L_{2}+M}{2}\lVert \mathbf{x}_{t}-\mathbf{x}_{t+1}\rVert ^{2}\).</p>
+<ul>
+<li><strong>Proof 2</strong>
+<ul>
+<li>By the first order optimality condition we have \(\nabla f(\mathbf{x}_{t}) + \nabla ^2 f(\mathbf{x}_{t})(\mathbf{x}_{t+1} - \mathbf{x}_{t}) + \frac{M}{2}\Vert \mathbf{x}_{t+1} - \mathbf{x}_{t}\Vert _2 \cdot(\mathbf{x}_{t+1} - \mathbf{x}_{t}) = 0\)</li>
+<li>By Lemma B, \(\Vert \nabla f(\mathbf{x}_{t+1}) - (f(\mathbf{x}_{t}) + \nabla ^2 f(\mathbf{x}_{t})(\mathbf{x}_{t+1} - \mathbf{x}_{t}))\Vert _{2} \leq \frac{L_2}{2}\Vert \mathbf{x}_{t+1} - \mathbf{x}_{t}\Vert _2^2\),</li>
+<li>By triangle inequality, we prove the result, \(\Vert \nabla f(\mathbf{x}_{t+1})\Vert _{2} \leq \Vert \nabla f(\mathbf{x}_{t+1}) - (f(\mathbf{x}_{t}) + \nabla ^2 f(\mathbf{x}_{t})(\mathbf{x}_{t+1} - \mathbf{x}_{t}))\Vert _{2} + \Vert f(\mathbf{x}_{t}) + \nabla ^2 f(\mathbf{x}_{t})(\mathbf{x}_{t+1} - \mathbf{x}_{t})\Vert _{2}\).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Key Facts 3</strong> Zero order \(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}_{t+1}\right) \geq \frac{M}{12}\lVert \mathbf{x}_{t}-\mathbf{x}_{t+1}\rVert ^{3}\) if \(M\geq L_2\)</p>
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By \(L_2\)-Lipschitz, \(f(x) - (f\left(\mathbf{x}_{t}\right)+\nabla f\left(\mathbf{x}_{t}\right)^{\top}\left(\mathbf{x}-\mathbf{x}_{t}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{x}_{t}\right)^{\top} \nabla^{2} f\left(\mathbf{x}_{t}\right)\left(\mathbf{x}-\mathbf{x}_{t}\right)) \leq  \frac{L_2}{6}\lVert \mathbf{x}-\mathbf{x}_{t}\rVert _{2}^{3}\)</li>
+<li>so taking \(\mathbf{x=x}_{t+1}\), we have
+<ul>
+<li>\(f(\mathbf{x}_{t}) - f(\mathbf{x}_{t+1}) \geq -\frac{L_2}{6} r^3 - \mathbf{g}^{\top} \mathbf{h} - \frac{1}{2} \mathbf{h}^{\top} H \mathbf{h} = \frac{M - L_2}{6} r^3 - u(\mathbf{h}) = \frac{M - L_2}{6} r^3 - v(r)\)</li>
+</ul>
+</li>
+<li>Since \(M &gt; L_2\), we have \(f(\mathbf{x}_{t}) - f(\mathbf{x}_{t+1}) \geq - v(r) = \frac{1}{2} \mathbf{g}^{\top}\left(H+\frac{Mr}{2} I_{d}\right)^{-1} \mathrm{g} + \frac{M}{12} r^{3} \geq \frac{M}{12} r^{3}\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Implication 1</strong> If \(\mathbf{x}^{\star}\) is limiting point, then \(\nabla f\left(\mathbf{x}^{*}\right)=0, \nabla^{2} f\left(\mathbf{x}^{*}\right) \succeq 0\), since \(r=0\), by Fact 1, \(\nabla^{2} f\left(\mathbf{x}^{\star}\right) \succeq 0\), by Fact 2, \(\lVert \nabla f\left(\mathbf{x}^{\star}\right)\rVert  =0\).</p>
+</li>
+<li>
+<p><strong>Implication 2</strong> Convergence rate of \(\min _{1 \leq i \leq t}\lVert \nabla f\left(\mathbf{x}_{i}\right)\rVert =O\left(\frac{1}{t^{2 / 3}}\right)\), since \(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}_{t+1}\right) \geq \frac{M}{12}\lVert \mathbf{x}_{t}-\mathbf{x}_{t+1}\rVert ^{3} \geq C \cdot \Vert \nabla f(\mathbf{x}_{t+1})\Vert _2^{3/2}\)</p>
+<ul>
+<li>then do sumation, \(f\left(\mathbf{x}_{1}\right)-f\left(\mathbf{x}^{\star}\right) \geq C\sum_{i=1}^{t} \Vert \nabla f(\mathbf{x}_{i})\Vert _2^{3/2} \geq C\cdot t \left[ \min_i \Vert \nabla f(\mathbf{x}_{i})\Vert _2 \right]^{3/2}\)</li>
+</ul>
+</li>
+<li>
+<p><strong>Implication 3</strong> If \(f\) convex, \(f\left(\mathbf{x}_{t}\right)-f^{*}=O\left(\frac{1}{t^{2}}\right)\).</p>
+<ul>
+<li>\(f(\mathbf{x}_{t}) - f^{\star} \leq \Vert \nabla f(\mathbf{x}_{t})\Vert \cdot \Vert \mathbf{x}_{t} - \mathbf{x}^{\star}\Vert  \leq \Vert \nabla f(\mathbf{x}_{t})\Vert \cdot \Vert \mathbf{x}_{0} - \mathbf{x}^{\star}\Vert\) (<em>unproved)</em>, then \(f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}_{t+1}\right) \geq C \cdot \Vert \nabla f(\mathbf{x}_{t+1})\Vert _2^{3/2} \geq C' (\Delta f_{t+1})^{3/2}\). This gives \(\Delta_{t} -\Delta_{t+1} \geq C \Delta_{t+1}^{3/2}\).</li>
+<li>This means\(\frac{1}{\sqrt{\Delta_{t+1}}} - \frac{1}{\sqrt{\Delta_{t}}} \geq C \frac{\Delta_{t}}{\sqrt{\Delta_{t+1}}(\sqrt{\Delta_t} + \sqrt{\Delta_{t+1}})} = \frac{C}{\sqrt{\frac{\Delta_{t+1}}{\Delta_{t}}}(1+\sqrt{\frac{\Delta_{t+1}}{\Delta_{t}}})}\)</li>
+<li>Since \(0\leq \sqrt{\frac{\Delta_{t+1}}{\Delta_{t}}} \leq 1\), \(\sqrt{\frac{\Delta_{t+1}}{\Delta_{t}}}(1+\sqrt{\frac{\Delta_{t+1}}{\Delta_{t}}}) \leq 2\), so \(\frac{1}{\sqrt{\Delta_{t+1}}} - \frac{1}{\sqrt{\Delta_{t}}} \geq C/2\) and \(\frac{1}{\sqrt{\Delta_{t}}} - \frac{1}{\sqrt{\Delta_{0}}} \geq C t/2\)</li>
+<li>\(\Delta_{t} = O(1/t^2)\)</li>
+</ul>
+</li>
+</ul>
+</div></body></html>

@@ -1,9 +1,30 @@
+# Chapter 10 Newton's Method
+- **Algorithm** $\mathbf{x}_{t+1}:=\mathbf{x}_{t}-\nabla^{2} f\left(\mathbf{x}_{t}\right)^{-1} \nabla f\left(\mathbf{x}_{t}\right)$, a more general form will be arbitary $H$, $\mathbf{x}_{t+1}=\mathbf{x}_{t}-H\left(\mathbf{x}_{t}\right) \nabla f\left(\mathbf{x}_{t}\right)$.
+- **Lemma 10.1** A nondegenerate quadratic function $f(\mathbf{x})=\frac{1}{2} \mathbf{x}^{\top} M \mathbf{x}-\mathbf{q}^{\top} \mathbf{x}+c$, with $M$ invertible and semmetric matrix, then Newton's method gives optimal solution of $\nabla f(\mathbf{x}^{\star})=\mathbf{0}$ in one step $\mathbf{x}_{1} = \mathbf{x}^{\star}$.
+    - **Proof** $\mathbf{x}_{0}-\nabla^{2} f\left(\mathbf{x}_{0}\right)^{-1} \nabla f\left(\mathbf{x}_{0}\right)=\mathbf{x}_{0}-M^{-1}\left(M \mathbf{x}_{0}-\mathbf{q}\right)=M^{-1} \mathbf{q}=\mathbf{x}^{\star}$
+- **Lemma 10.2** Newton's method is Affine invariant. **Proof** is straightforward.
+- **Lemma 10.3** If $\nabla^{2} f\left(\mathbf{x}_{t}\right) \succ 0$, then $\mathbf{x}_{t+1}=\underset{\mathbf{x} \in \mathbb{R}^{d}}{\operatorname{argmin}} f\left(\mathbf{x}_{t}\right)+\nabla f\left(\mathbf{x}_{t}\right)^{\top}\left(\mathbf{x}-\mathbf{x}_{t}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{x}_{t}\right)^{\top} \nabla^{2} f\left(\mathbf{x}_{t}\right)\left(\mathbf{x}-\mathbf{x}_{t}\right)$.
+
+
+
+
+## Super Linear (quadratic) Local Convergence ($\mathcal{O}(\log \log (1 / \varepsilon)$)
+- **Theorem 10.4** $f\in C^2$ with critical point $\mathbf{x}^{\star}$. Assume $\exists U(\mathbf{x}^{\star}) \subseteq \mathrm{dom}(f)$ s.t. (i) *bounded hessian* $\lVert \nabla^{2} f(\mathbf{x})^{-1}\rVert  \leq \frac{1}{\mu}, \quad \forall \mathbf{x} \in X$ (ii) *Lipschitz continuous Hessian* $\lVert \nabla^{2} f(\mathbf{x})-\nabla^{2} f(\mathbf{y})\rVert  \leq B\Vert \mathbf{x}-\mathbf{y}\Vert  \quad \forall \mathbf{x}, \mathbf{y} \in X$, then $\lVert \mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert  \leq \frac{B}{2 \mu}\lVert \mathbf{x}_{t}-\mathbf{x}^{\star}\rVert ^{2}$.
+    - **Proof**
+        - $\mathbf{x}^{\prime}-\mathbf{x}^{\star}=\mathbf{x}-\mathbf{x}^{\star}+H(\mathbf{x})^{-1} \int_{0}^{1} H\left(\mathbf{x}+t\left(\mathbf{x}^{\star}-\mathbf{x}\right)\right)\left(\mathbf{x}^{\star}-\mathbf{x}\right) \mathrm{d} t$
+        - also $\mathbf{x}-\mathbf{x}^{\star}=H(\mathbf{x})^{-1} H(\mathbf{x})\left(\mathbf{x}-\mathbf{x}^{\star}\right)=H(\mathbf{x})^{-1} \int_{0}^{1}-H(\mathbf{x})\left(\mathbf{x}^{\star}-\mathbf{x}\right) \mathrm{d} t$, we subtract the above to the first equation, and get 
+        - $\mathbf{x}^{\prime}-\mathbf{x}^{\star} = H(\mathbf{x})^{-1} \int_{0}^{1} \left( H\left(\mathbf{x}+t\left(\mathbf{x}^{\star}-\mathbf{x}\right)\right)  -   H(\mathbf{x})\right)\left(\mathbf{x}^{\star}-\mathbf{x}\right) \mathrm{d} t$
+        - Then by some inequality w.r.t. norm operation, $\Vert \mathbf{x}^{\prime}-\mathbf{x}^{\star}\Vert \leq \Vert H(\mathbf{x})^{-1}\Vert \cdot \Vert \int_{0}^{1} \left( H\left(\mathbf{x}+t\left(\mathbf{x}^{\star}-\mathbf{x}\right)\right)  -   H(\mathbf{x})\right)\left(\mathbf{x}^{\star}-\mathbf{x}\right) \mathrm{d} t\Vert$ $\leq \Vert H(\mathbf{x})^{-1}\Vert \cdot \int_{0}^{1} \Vert \left( H\left(\mathbf{x}+t\left(\mathbf{x}^{\star}-\mathbf{x}\right)\right)  -   H(\mathbf{x})\right)\left(\mathbf{x}^{\star}-\mathbf{x}\right) \Vert  \mathrm{d} t $ $\leq \Vert \left(\mathbf{x}^{\star}-\mathbf{x}\right) \Vert  \cdot \Vert H(\mathbf{x})^{-1}\Vert \cdot \int_{0}^{1} \Vert \left( H\left(\mathbf{x}+t\left(\mathbf{x}^{\star}-\mathbf{x}\right)\right)  -   H(\mathbf{x})\right)\Vert \mathrm{d} t = \frac{B}{2\mu} \Vert \left(\mathbf{x}^{\star}-\mathbf{x}\right) \Vert ^2$
+    - (*My own strange derivation, not successful*) By Lipschitz, using Lemma B, taking $y=x_{t+1}$ and $x=x_{t}$, we get $\Vert \nabla f(x_{t+1})\Vert ^{-1} \leq \frac{B}{2\mu^2} \Vert \nabla f(x_{t})\Vert ^2$, this gives a similar relation w.r.t. t, but not on $\Vert x_{t} - x^{\star}\Vert$.
+- **Corollary 10.5 (Exercise 64)** If starting points satisfies $\lVert \mathbf{x}_{0}-\mathbf{x}^{\star}\rVert  \leq \frac{\mu}{B}$, then $\lVert \mathbf{x}_{T}-\mathbf{x}^{\star}\rVert  \leq \frac{\mu}{B}\left(\frac{1}{2}\right)^{2^{T}-1}$
+    - **Proof**
+        - $\log \lVert \mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert  \leq \log\frac{B}{2 \mu} + 2\log\lVert \mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert$ or $\log \lVert \mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert  +  \log\frac{B}{2 \mu} \leq 2(\log\lVert \mathbf{x}_{t}-\mathbf{x}^{\star}\rVert  + \log\frac{B}{2 \mu})$
+        - When the starting condition holds, $\log\lVert \mathbf{x}_{0}-\mathbf{x}^{\star}\rVert  +  \log\frac{B}{2 \mu}\leq -\log 2 \leq 0$, so every $t$, $\log \lVert \mathbf{x}_{t+1}-\mathbf{x}^{\star}\rVert  +  \log\frac{B}{2 \mu}\leq 0$,
+        - so $\log \lVert \mathbf{x}_{T}-\mathbf{x}^{\star}\rVert  +  \log\frac{B}{2 \mu} \leq - 2^{T}\log 2$, $\lVert \mathbf{x}_{T}-\mathbf{x}^{\star}\rVert  \leq \frac{2\mu}{B} (\frac{1}{2})^{2^T} = \frac{\mu}{B} (\frac{1}{2})^{2^T-1}$
+- **Lemma 10.6 (Exercise 65)** If starting point satisfies $\lVert \mathbf{x}_{0}-\mathbf{x}^{\star}\rVert  \leq \frac{\mu}{B}$, then $\frac{\lVert \nabla^{2} f\left(\mathbf{x}_{t}\right)-\nabla^{2} f\left(\mathbf{x}^{\star}\right)\rVert }{\lVert \nabla^{2} f\left(\mathbf{x}^{\star}\right)\rVert } \leq\left(\frac{1}{2}\right)^{2^{t}-1}$.
+    - **Proof** just use the two assumption.
+
 ## Global analysis for strongly-convex smooth objectives
-
-## Overcoming the local nature of Newton method
-
-## Cubic Regularization (Nesterov & Polyak, 2006)
-- **motivation** GD can be viewed as iteratively minimizing the quadratic upper bound function $f(\mathbf{y}) \leq f\left(\mathbf{x}\right)+\nabla f\left(\mathbf{x}\right)^{\top}\left(\mathbf{y}-\mathbf{x}\right)+\frac{L_{1}}{2}\lVert \mathbf{y}-\mathbf{x}\rVert ^{2}$.
 - **Lemma A** If $f$ has $L_2$-Lipschitz Hessian w.r.t. some norm, then $\vert f(\mathbf{y}) - f\left(\mathbf{x}\right)-\nabla f\left(\mathbf{x}\right)^{\top}\left(\mathbf{y}-\mathbf{x}\right)-\frac{1}{2}\left(\mathbf{y}-\mathbf{x}\right)^{\top} \nabla^{2} f\left(\mathbf{x}\right)\left(\mathbf{y}-\mathbf{x}\right)\vert \leq \frac{L_{2}}{6}\lVert \mathbf{y}-\mathbf{x}\rVert _{a}^{3}$
     - **Proof**
         - $L_2$-Lipschitz Hessian means $\Vert H(\mathbf{y})-H(\mathbf{y})\Vert _{a,a*}\leq\Vert \mathrm{y}-\mathrm{x}\Vert _{a,a*}$, where matrix norm is $\Vert A\Vert _{a,a*}=\sup _{x \neq 0} \frac{\Vert A x\Vert _{a*}}{\Vert x\Vert _{a}}$, and $\Vert \cdot\Vert _{a*}$ is the dual norm.
@@ -20,10 +41,32 @@
         - Similar to Lemma A, but define $\mathbf{k}(t):= \nabla f(\mathbf{x}+t(\mathbf{y-x}))$, then $\partial_t \mathbf{k}=\nabla^{2} f_t \left(\mathbf{y}-\mathbf{x}\right)$,
         - So we have $\Vert \partial_t\mathbf{k}(t) - \partial_t\mathbf{k}(0)\Vert _{a*} \leq L_2 t\Vert \mathbf{y}-\mathbf{x}\Vert _{a}^2$.
         - By triangular ineq, $\Vert \int \Vert _{a*}\leq \int \Vert \Vert _{a*}$, so we get similar result.
+- **Lemma C** Assume $f$ $\mu$-convex and has $L$-Lipschitz continuous gradient, then Newton's method $\mathbf{x}_{t+1}:=\mathbf{x}_{t}-\gamma \nabla^{2} f\left(\mathbf{x}_{t}\right)^{-1} \nabla f\left(\mathbf{x}_{t}\right)$ enjoys global linear convergence $f\left(\mathbf{x}_{t}\right)-f^{*} \leq\left(1-\frac{\mu^{2}}{L^{2}}\right)^{t}\left(f\left(\mathbf{x}_{0}\right)-f^{*}\right)$ given $\gamma = \frac{\mu}{L}$.
+    - **Proof**
+        - By smoothness $f\left(\mathbf{x}_{t+1}\right)-f\left(\mathbf{x}_{t}\right) \leq\left\langle-\gamma H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right), \nabla f\left(\mathbf{x}_{t}\right)\right\rangle+\frac{L \gamma^{2}}{2}\lVert H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right)\rVert ^{2}$,
+        - By strong convexity and smoothness $\frac{1}{L} \leq\lVert H_{t}^{-1}\rVert  \leq \frac{1}{\mu}$, and by the fact of $H_{t}$ beging symmetric and so is its inverse, $\lVert H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right)\rVert ^{2} = (H_{t}^{-1/2} \nabla f\left(\mathbf{x}_{t}\right))^{\top}H_{t}^{-1}  (H_{t}^{-1/2} \nabla f\left(\mathbf{x}_{t}\right)) \leq (H_{t}^{-1/2} \nabla f\left(\mathbf{x}_{t}\right))^{\top} \frac{1}{\mu} (H_{t}^{-1/2} \nabla f\left(\mathbf{x}_{t}\right))$ $ = \langle H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right), \nabla f\left(\mathbf{x}_{t}\right)\rangle / \mu$,
+        - Then $\mathsf{RHS} \leq \left(-\gamma+\frac{L \gamma^{2}}{2 \mu}\right)\left\langle H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right), \nabla f\left(\mathbf{x}_{t}\right)\right\rangle$, when $\gamma = \frac{\mu}{L}$ this term is minimized, and this term is $\mathsf{RHS} = -\frac{\mu}{2 L}\left\langle H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right), \nabla f\left(\mathbf{x}_{t}\right)\right\rangle$
+        - Again, by spectual lower bound of $H_{t}^{-1}$, $\left\langle H_{t}^{-1} \nabla f\left(\mathbf{x}_{t}\right), \nabla f\left(\mathbf{x}_{t}\right)\right\rangle \geq \frac{1}{L}\lVert \nabla f\left(\mathbf{x}_{t}\right)\rVert ^{2}$, so $\mathsf{RHS} \leq -\frac{\mu}{2 L} \cdot \frac{1}{L}\lVert \nabla f\left(\mathbf{x}_{t}\right)\rVert ^{2}$
+        - Due to strong convexity, $f(z)-f\left(x^{\star}\right) \leq \frac{1}{2 \mu}\Vert \nabla f(z)\Vert _{\ast}^{2}$, so $f\left(\mathbf{x}_{t+1}\right)-f\left(\mathbf{x}_{t}\right) \leq-\frac{\mu^{2}}{L^{2}}\left(f\left(\mathbf{x}_{t}\right)-f^{*}\right)$
+
+## Methods to overcoming the local nature of Newton method
+- *Newton method with line-search* select $\gamma_t$ s.t. $f\left(\mathbf{x}_{t+1}\right)<f\left(\mathbf{x}_{t}\right)$ with sufficient decrease, $\mathbf{x}_{t+1}=\mathbf{x}_{t}-\gamma_{t} \nabla^{2} f\left(\mathbf{x}_{t}\right)^{-1} \nabla f\left(\mathbf{x}_{t}\right)$.
+- *Dampled Newton method* $\mathbf{x}_{t+1}=\mathbf{x}_{t}-\frac{1}{1+\lambda_{f}\left(\mathbf{x}_{t}\right)} \nabla^{2} f\left(\mathbf{x}_{t}\right)^{-1} \nabla f\left(\mathbf{x}_{t}\right)$ where $\lambda_{f}(\mathbf{x})=\lVert \left[\nabla^{2} f(\mathbf{x})\right]^{-1 / 2} \nabla f(\mathbf{x})\rVert$, 
+    - we can show that $\lambda_{f}(\mathbf{x})/2 = f(x) - \min_{y}\{f(x) + \nabla f(x)^{\top}(y-x)+ \frac{1}{2}(y-x)^{\top}\nabla^2f(x)(y-x)\}$ is approximately twice the decrease of value using normal Newton's method. 
+    - If previous step have a lot decrease in $f$, which is appproximated by $\lambda$, then we compensate in the next iteration to have less.
+    - This is guaranteed to converge.
+- *Regularization approach* regularize the Hessian and adjust $\gamma_t$, $\mathbf{x}_{t+1}=\mathbf{x}_{t}-\left[\gamma_{t} I+\nabla^{2} f\left(\mathbf{x}_{t}\right)\right]^{-1} \nabla f\left(\mathbf{x}_{t}\right)$.
+    - When $\gamma$ is large, this is approximately GD.
+- *Trust-region approach* $\mathbf{x}_{t+1}=\underset{\mathbf{x}}{\operatorname{argmin}} f\left(\mathbf{x}_{t}\right)+\nabla f\left(\mathbf{x}_{t}\right)^{\top}\left(\mathbf{x}-\mathbf{x}_{t}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{x}_{t}\right)^{\top} \nabla^{2} f\left(\mathbf{x}_{t}\right)\left(\mathbf{x}-\mathbf{x}_{t}\right)$, s.t. $\text { s.t. }\lVert \mathbf{x}-\mathbf{x}_{t}\rVert  \leq \Delta_{k}$, not to move too far away. similar to regularization approach.
+
+
+
+## Cubic Regularization (Nesterov & Polyak, 2006)
+- **motivation** GD can be viewed as iteratively minimizing the quadratic upper bound function $f(\mathbf{y}) \leq f\left(\mathbf{x}\right)+\nabla f\left(\mathbf{x}\right)^{\top}\left(\mathbf{y}-\mathbf{x}\right)+\frac{L_{1}}{2}\lVert \mathbf{y}-\mathbf{x}\rVert ^{2}$.
 - **ALgorithm** (*Subproblem*) $\mathbf{x}_{t+1} \in \underset{\mathbf{x}}{\operatorname{argmin}} \hat{f}\left(\mathbf{x}, \mathbf{x}_{t}\right)$, where $\hat{f}\left(\mathbf{x}, \mathbf{x}_{t}\right):=f\left(\mathbf{x}_{t}\right)+\nabla f\left(\mathbf{x}_{t}\right)^{\top}\left(\mathbf{x}-\mathbf{x}_{t}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{x}_{t}\right)^{\top} \nabla^{2} f\left(\mathbf{x}_{t}\right)\left(\mathbf{x}-\mathbf{x}_{t}\right)+\frac{M}{6}\lVert \mathbf{x}-\mathbf{x}_{t}\rVert _{2}^{3}$
 - Subproblem can be reduced to a convex problem, and can also be solved directly by GD to global optimal.
 - No invertion of Hessian is needed.
-- **Lemma C (Graded assignment 4.2)** Given two problem $u(\mathbf{h})=\mathbf{g}^{\top} \mathbf{h}+\frac{1}{2} \mathbf{h}^{\top} H \mathbf{h}+\frac{\mathrm{M}}{6}\Vert \mathbf{h}\Vert ^{3}$ and $v({r})=-\frac{1}{2} \mathbf{g}^{\top}\left(H+\frac{Mr}{2} I_{d}\right)^{-1} \mathrm{~g}-\frac{M}{12} r^{3}$ where $\mathcal{D}=\left\{r \geqslant 0 \mid H+\frac{Mr}{2} I_d \succ 0\right\}$, then $\inf _{\mathbf{h} \in \mathbb{R}^{d}} u(\mathbf{h})=\sup _{r \in \mathcal{D}} v(r)$
+- **Lemma D (Graded assignment 4.2)** Given two problem $u(\mathbf{h})=\mathbf{g}^{\top} \mathbf{h}+\frac{1}{2} \mathbf{h}^{\top} H \mathbf{h}+\frac{\mathrm{M}}{6}\Vert \mathbf{h}\Vert ^{3}$ and $v({r})=-\frac{1}{2} \mathbf{g}^{\top}\left(H+\frac{Mr}{2} I_{d}\right)^{-1} \mathrm{g} - \frac{M}{12} r^{3}$,          where $\mathcal{D} = \{r \geq 0 \mid H + \frac{Mr}{2} I_d \succ 0 \} $, then $\inf_{\mathbf{h} \in \mathbb{R}^{d}} u(\mathbf{h})=\sup _{r \in \mathcal{D}} v(r)$
     - **Proof**
         - First we prove $\inf_{\mathbf{h}} u(\mathbf{h}) \geqslant \sup_{r} v(r)$
             - First by adding and subtracting the same term $\frac{1}{2}  \mathbf{h}^{\top} (\frac{1}{2} M r I_d) \mathbf{h}$, we have
@@ -55,7 +98,7 @@
         - By $L_2$-Lipschitz, $f(x) - (f\left(\mathbf{x}_{t}\right)+\nabla f\left(\mathbf{x}_{t}\right)^{\top}\left(\mathbf{x}-\mathbf{x}_{t}\right)+\frac{1}{2}\left(\mathbf{x}-\mathbf{x}_{t}\right)^{\top} \nabla^{2} f\left(\mathbf{x}_{t}\right)\left(\mathbf{x}-\mathbf{x}_{t}\right)) \leq  \frac{L_2}{6}\lVert \mathbf{x}-\mathbf{x}_{t}\rVert _{2}^{3}$
         - so taking $\mathbf{x=x}_{t+1}$, we have 
             - $f(\mathbf{x}_{t}) - f(\mathbf{x}_{t+1}) \geq -\frac{L_2}{6} r^3 - \mathbf{g}^{\top} \mathbf{h} - \frac{1}{2} \mathbf{h}^{\top} H \mathbf{h} = \frac{M - L_2}{6} r^3 - u(\mathbf{h}) = \frac{M - L_2}{6} r^3 - v(r)$
-        - Since $M > L_2$, we have $f(\mathbf{x}_{t}) - f(\mathbf{x}_{t+1}) \geq - v(r) = \frac{1}{2} \mathbf{g}^{\top}\left(H+\frac{Mr}{2} I_{d}\right)^{-1} \mathrm{~g} + \frac{M}{12} r^{3} \geq \frac{M}{12} r^{3}$
+        - Since $M > L_2$, we have $f(\mathbf{x}_{t}) - f(\mathbf{x}_{t+1}) \geq - v(r) = \frac{1}{2} \mathbf{g}^{\top}\left(H+\frac{Mr}{2} I_{d}\right)^{-1} \mathrm{g} + \frac{M}{12} r^{3} \geq \frac{M}{12} r^{3}$
 - **Implication 1** If $\mathbf{x}^{\star}$ is limiting point, then $\nabla f\left(\mathbf{x}^{*}\right)=0, \nabla^{2} f\left(\mathbf{x}^{*}\right) \succeq 0$, since $r=0$, by Fact 1, $\nabla^{2} f\left(\mathbf{x}^{\star}\right) \succeq 0$, by Fact 2, $\lVert \nabla f\left(\mathbf{x}^{\star}\right)\rVert  =0$.
 - **Implication 2** Convergence rate of $\min _{1 \leq i \leq t}\lVert \nabla f\left(\mathbf{x}_{i}\right)\rVert =O\left(\frac{1}{t^{2 / 3}}\right)$, since $f\left(\mathbf{x}_{t}\right)-f\left(\mathbf{x}_{t+1}\right) \geq \frac{M}{12}\lVert \mathbf{x}_{t}-\mathbf{x}_{t+1}\rVert ^{3} \geq C \cdot \Vert \nabla f(\mathbf{x}_{t+1})\Vert _2^{3/2}$
     - then do sumation, $f\left(\mathbf{x}_{1}\right)-f\left(\mathbf{x}^{\star}\right) \geq C\sum_{i=1}^{t} \Vert \nabla f(\mathbf{x}_{i})\Vert _2^{3/2} \geq C\cdot t \left[ \min_i \Vert \nabla f(\mathbf{x}_{i})\Vert _2 \right]^{3/2}$

@@ -1,0 +1,1043 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>/* copy from https://github.com/sindresorhus/github-markdown-css/ */
+
+html,body{background-color: #342839;}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #fafedd;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body figure{margin:0;padding:0; display:table;}
+.markdown-body figure figcaption{font-size:92%; text-align:center; color:#76dae8;}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #fed765;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' fill='%23fed765' d='M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+.markdown-body strong{
+  color: #fe6188;
+}
+.markdown-body em{
+  color: #77dbe8;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #aa9df2;
+  text-decoration: none;
+}
+.markdown-body mjx-container[jax="SVG"] > svg a{fill:#aa9df2;stroke: #aa9df2;}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 12px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 12px;
+  color: #76dae8;
+  vertical-align: middle;
+  background-color: #3a2e3f;
+  border: 1px solid #504455;
+  border-radius: 3px;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #504455;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #c9cdac;
+  border-left: .25em solid #f5f5f5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #4a3e4f;
+  color: #fed765;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+  color: #fed765;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+  color: #fed765;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+  color: #fed765;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+  color: #fed765;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #fed765;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #786c7d;
+}
+
+.markdown-body table tr {
+  background-color: #342839;
+  border-top: 1px solid #786c7d;
+}
+
+.markdown-body table th {
+  background-color: #4a3e4f;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #392d3e;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #3a2e3f;
+  color: #76dae8;
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+   font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #3a2e3f;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+  color: #f0f0f0;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+.markdown-body section.footnotes{
+    margin-top:48px;
+    border-top:solid 1px #504455;
+    padding-top:0px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .markdown-body mark{color: #111;}
+}
+
+/* PrismJS 1.23.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background-color: #3a2e3f;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #48be66;
+}
+
+.token.punctuation {
+    color: #fdd664;
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #9a95e3;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #fdd664;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #$$codeBlockColor$$;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #ccddf6;
+}
+
+.token.function,
+.token.class-name {
+    color: #f28d55;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #d38e63;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em; /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 1px solid #726677;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+  .line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+  }
+
+    .line-numbers-rows > span:before {
+      content: counter(linenumber);
+      color: #726677;
+      display: block;
+      padding-right: 0.8em;
+      text-align: right;
+    }
+
+
+</style><style>.mweb-charts{background:#fff;}
+body{ box-sizing: border-box;
+    margin: 0 auto;
+    padding: 28px}
+@media print{
+    pre, code, pre code {
+     overflow: visible !important;
+     white-space: pre-wrap !important;       /* css-3 */
+     white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap !important;      /* Opera 4-6 */
+     white-space: -o-pre-wrap !important;    /* Opera 7 */
+     word-wrap: break-word !important;       /* Internet Explorer 5.5+ */
+    }
+    html,body{margin:0;padding:4px;}
+}
+
+</style><script>window.MathJax = {     tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] },     startup: {     pageReady() {       return MathJax.startup.defaultPageReady().then(function () {          window.mweb_mathjax_ready_val = 'yes';          if(window.mweb_mathjax_ready !== undefined){ mweb_mathjax_ready(); }       });     }   }};document.addEventListener('DOMContentLoaded', function(event) {    if (typeof Prism != 'undefined') {         Prism.highlightAll();     }});window.mweb_mathjax_ready_val = '';function theMWebMathJaxRenderIsReady(key){ return window.mweb_mathjax_ready_val; }</script><script>window.MathJax = { tex: { tags: 'all', inlineMath: [ ['$','$'], ['\\(','\\)'] ] } }; </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script></head><body><div id='markdown_content' class='markdown-body'><h1><a id="chapter-13-minimax" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chapter 13 minimax</h1>
+<ul>
+<li><strong>Fomulation</strong> \(\min _{\mathbf{x} \in \mathcal{X}} \max _{\mathbf{y} \in \mathcal{Y}} \phi(\mathbf{x}, \mathbf{y})\)</li>
+<li><strong>Motivation</strong>
+<ul>
+<li><em>Zero sum games</em> \(\min _{\mathbf{x} \in \Delta(I)} \max _{\mathbf{y} \in \Delta(J)} \mathbf{x}^{T} \mathbf{A} \mathbf{y}\), \(I,J\) finite set of strategies of player 1 and 2, \(\mathbf{A}\) is payoff for player 1, \(-\mathbf{A}\) for player 2, \(\Delta(I)=\left\{\mathbf{x} \in \mathbb{R}^{\vert I\vert }: \mathbf{x}_{i} \geq 0, i \in I, \sum_{i \in I} \mathbf{x}_{i}=1\right\}\).</li>
+<li><em>Nonsmooth optimization</em> Original problem \(\min _{\mathbf{x} \in \mathbb{R}^{d}} f(\mathbf{x})+g(\mathbf{A} \mathbf{x})\), plug in \(g(\mathbf{A x})=\max _{\mathbf{y} \in \mathbb{R}^{p}}\langle\mathbf{A x}, \mathbf{y}\rangle-g^{*}(\mathbf{y})\), we reformulate as \(\min _{\mathbf{x} \in \mathbb{R}^{d}} \max _{\mathbf{y} \in \mathbb{R}^{p}} f(\mathbf{x})+\langle\mathbf{A} \mathbf{x}, \mathbf{y}\rangle-g^{*}(\mathbf{y})\).</li>
+<li><em>GANs</em> \(\min _{\mathbf{x} \in \mathcal{X}} \max _{\mathbf{y} \in \mathcal{Y}} \mathbb{E}_{\xi \sim p_{\text {data }}}\left[\log D_{\mathbf{y}}(\xi)\right]+\mathbb{E}_{\zeta \sim p_{\zeta}}\left[\log \left(1-D_{\mathbf{y}}\left(G_{\mathbf{x}}(\zeta)\right)\right)\right]\).</li>
+<li><em>Adversarial Robustness</em> \(\min _{\mathbf{x}} \max _{P \in \mathcal{P}} \mathbb{E}_{\boldsymbol{\xi} \sim P}[\ell(\mathbf{x}, \boldsymbol{\xi})]\)</li>
+</ul>
+</li>
+</ul>
+<h2><a id="saddle-points-and-global-minimax-points" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Saddle Points and Global Minimax Points</h2>
+<ul>
+<li><strong>Definition of saddle point</strong> \(\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)\) is a <em>saddle point</em> if \(\forall \mathbf{x} \in \mathcal{X}, \mathbf{y} \in \mathcal{Y}, \phi\left(\mathbf{x}^{*}, \mathbf{y}\right) \leq \phi\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right) \leq \phi\left(\mathbf{x}, \mathbf{y}^{*}\right)\).
+<ul>
+<li>corresponds to <em>Nash equilibrium</em>, simulaneous game, no player has the incentive to make unilateral change at NE.</li>
+</ul>
+</li>
+<li><strong>Definition of global minimax point</strong> \(\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)\) is a <em>global minimax point</em> if \(\forall \mathbf{x} \in \mathcal{X}, \mathbf{y} \in \mathcal{Y},\phi\left(\mathbf{x}^{*}, \mathbf{y}\right) \leq \phi\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right) \leq \max _{\mathbf{y}^{\prime} \in \mathcal{Y}} \phi\left(\mathbf{x}, \mathbf{y}^{\prime}\right)\).
+<ul>
+<li>Corresponds to <em>Stackelberg equilibrium</em>, sequential game, best responds to the best response.</li>
+</ul>
+</li>
+</ul>
+<h3><a id="primal-and-dual-problems" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Primal and Dual Problems</h3>
+<ul>
+<li><strong>Primal</strong> \(\min _{\mathbf{x} \in \mathcal{X}} \max _{\mathbf{y} \in \mathcal{Y}} \phi(\mathbf{x}, \mathbf{y}):=\min _{\mathbf{x} \in \mathcal{X}} \overline{\phi}(\mathbf{x})\)</li>
+<li><strong>Dual</strong> \(\max _{\mathbf{y} \in \mathcal{Y}} \min _{\mathbf{x} \in \mathcal{X}} \phi(\mathbf{x}, \mathbf{y}):=\max _{\mathbf{y} \in \mathcal{Y}} \underline{\phi}(\mathbf{y})\)</li>
+<li><strong>Lemma A</strong> \(\max _{\mathbf{y} \in \mathcal{Y}} \min _{\mathbf{x} \in \mathcal{X}} \phi(\mathbf{x}, \mathbf{y}) \leq \min _{\mathbf{x} \in \mathcal{X}} \max _{\mathbf{y} \in \mathcal{Y}} \phi(\mathbf{x}, \mathbf{y})\)
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>\(\forall x,y, \min_{x} \phi(x,y) \leq \phi(x,y)\) taking maximum \(\forall x, \max_{y} \min_{x} \phi(x,y) \leq \max_{y} \phi(x,y)\), so is its minimum \(\min_{x}\max_{y} \phi(x,y)\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Lemma B</strong> \(\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)\) is a saddle point if and only if \(\max _{\mathbf{y} \in \mathcal{Y}} \min _{\mathbf{x} \in \mathcal{X}} \phi(\mathbf{x}, \mathbf{y})=\min _{\mathbf{x} \in \mathcal{X}} \max _{\mathbf{y} \in \mathcal{Y}} \phi(\mathbf{x}, \mathbf{y})\), and \(\mathbf{x}^{*} \in \operatorname{argmin}_{\mathbf{x} \in \mathcal{X}} \bar{\phi}(\mathbf{x})\), \(\mathbf{y}^{*} \in \operatorname{argmax}_{\mathbf{y} \in \mathcal{Y}} \underline{\phi}(\mathbf{y})\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>(-&gt;)
+<ul>
+<li>Saddle point \(\Leftrightarrow \min _{\mathbf{x} \in \mathcal{X}} \phi\left(\mathbf{x}, \mathbf{y}^{*}\right) \geq \phi\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right) \geq \max _{\mathbf{y} \in \mathcal{Y}} \phi\left(\mathbf{x}^{*}, \mathbf{y}\right)\)</li>
+<li>Then by definition \(\max _{\mathbf{y}\in \mathcal{Y}} \min _{\mathbf{x} \in \mathcal{X}} \phi\left(\mathbf{x}, \mathbf{y}\right)  \geq \min _{\mathbf{x} \in \mathcal{X}} \phi\left(\mathbf{x}, \mathbf{y}^{*}\right) \geq \phi\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right) \geq \max _{\mathbf{y} \in \mathcal{Y}} \phi\left(\mathbf{x}^{*}, \mathbf{y}\right) \geq \min _{\mathbf{x} \in \mathcal{X}} \max _{\mathbf{y} \in \mathcal{Y}} \phi\left(\mathbf{x}, \mathbf{y}\right)\)</li>
+<li>By lemma A, we know left is no bigger than right, so every \(\geq\) is \(=\).</li>
+<li>This also means \(\mathbf{y}^{*} \in \operatorname{argmax}_{\mathbf{y} \in \mathcal{Y}} \underline{\phi}(\mathbf{y})\)</li>
+</ul>
+</li>
+<li>(&lt;-)
+<ul>
+<li>If we have \(\max _{\mathbf{y} \in \mathcal{Y}} \min _{\mathbf{x} \in \mathcal{X}} \phi(\mathbf{x}, \mathbf{y})=\min _{\mathbf{x} \in \mathcal{X}} \max _{\mathbf{y} \in \mathcal{Y}} \phi(\mathbf{x}, \mathbf{y})\), and define \(\mathbf{x}^{*} \in \operatorname{argmin}_{\mathbf{x} \in \mathcal{X}} \bar{\phi}(\mathbf{x})\) and  \(\mathbf{y}^{*} \in \operatorname{argmax}_{\mathbf{y} \in \mathcal{Y}} \underline{\phi}(\mathbf{y})\), this means \(\overline{\phi}(\mathbf{x}^{*}) = \underline{\phi}(\mathbf{y}^{*})\)</li>
+<li>by the fact of \(\underline{\phi}(\mathbf{y}^{*}) \leq \phi(\mathbf{x}^{*}, \mathbf{y}^{*}) \leq \overline{\phi}(\mathbf{x}^{*})\), we know every \(\leq\) is \(=\).</li>
+<li>Since \(\forall \mathbf{x,y}, \phi(\mathbf{x}^{*}, \mathbf{y}) \leq \overline{\phi}(\mathbf{x}^{*})\) and \(\phi(\mathbf{x}, \mathbf{y}^{*}) \geq \underline{\phi}(\mathbf{y}^{*})\), we prove that \(\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)\) is saddle point.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Example of Saddle Point not exists</strong> \(\phi(x, y)=(x-y)^{2}, \mathcal{X}=[0,1], \mathcal{Y}=[0,1]\)
+<ul>
+<li>\(\bar{\phi}(x)=\max \left\{x^{2},(x-1)^{2}\right\}, \min _{x \in \mathcal{X}} \max _{y \in \mathcal{Y}} \phi(x, y)=\frac{1}{4}\), while \(\underline{\phi}(y)=0, \max _{y \in \mathcal{Y}} \min _{x \in \mathcal{X}} \phi(x, y)=0\).</li>
+</ul>
+</li>
+</ul>
+<h2><a id="minimal-point-for-convex-concave-min-max-function" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Minimal point for Convex-Concave min-max function</h2>
+<ul>
+<li><strong>Definition 13.2 (Convex-concave function)</strong> A function \(\phi(\mathbf{x}, \mathbf{y}): \mathcal{X} \times \mathcal{Y} \rightarrow \mathbb{R}\) is <em>convex-concave</em> if
+<ul>
+<li>\(\phi(\mathbf{x}, \mathbf{y})\) is convex in \(\mathbf{x} \in \mathcal{X}\) for every fixed \(\mathbf{y} \in \mathcal{Y}\).</li>
+<li>\(\phi(\mathbf{x}, \mathbf{y})\) is concave in \(\mathbf{y} \in \mathcal{Y}\) for every fixed \(\mathbf{x} \in \mathcal{X}\).</li>
+</ul>
+</li>
+<li><strong>Definition 13.3 (Strongly-convex-concave function)</strong> \(\phi(\mathbf{x}, \mathbf{y}): \mathcal{X} \times \mathcal{Y} \rightarrow \mathbb{R}\) is <em>strongly-convex-strongly-concave</em> if \(\exists \mu_1, \mu_2\) s.t.
+<ul>
+<li>\(\phi(\mathbf{x}, \mathbf{y})\) is \(\mu_1\)-strongly convex in \(\mathbf{x} \in \mathcal{X}\) for every fixed \(\mathbf{y} \in \mathcal{Y}\).</li>
+<li>\(\phi(\mathbf{x}, \mathbf{y})\) is \(\mu_2\)-strongly concave in \(\mathbf{y} \in \mathcal{Y}\) for every fixed \(\mathbf{x} \in \mathcal{X}\).</li>
+</ul>
+</li>
+<li><strong>Theorem 13.4 (Minimax Theorem)</strong> If \(\mathcal{X}\) and \(\mathcal{Y}\) are closed convex sets and one of them is bounded, and \(\phi(\mathbf{x}, \mathbf{y})\) is a continuous convex-concave function, then there exists a saddle point on \(\mathcal{X} \times \mathcal{Y}\) and \(\max _{\mathbf{y} \in \mathcal{Y}} \min _{\mathbf{x} \in \mathcal{X}} \phi(\mathbf{x}, \mathbf{y})=\min _{\mathbf{x} \in \mathcal{X}} \max _{\mathbf{y} \in \mathcal{Y}} \phi(\mathbf{x}, \mathbf{y})\).
+<ul>
+<li><strong>Remark</strong>
+<ul>
+<li>First proven by John von Neumann in 1928, can also be proved by on-line learning algorithm.</li>
+<li>can be extended to lower-semicontinuous and quasi-convex function.</li>
+<li>If  \(\phi(\mathbf{x}, \mathbf{y})\) is strongly-convex-strongly-concave, then we can remove the compactness, and saddle point is unique.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a id="accuracy-measure-of-minimax-duality-gap" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Accuracy Measure of Minimax: Duality Gap</h2>
+<ul>
+<li><strong>Definition of Duality Gap</strong> \(\mathsf{duality\;gap}:=\max _{\mathbf{y} \in \mathcal{Y}} \phi(\hat{\mathbf{x}}, \mathbf{y})-\min _{\mathbf{x} \in \mathcal{X}} \phi(\mathbf{x}, \hat{\mathbf{y}}) = \overline{\phi}(\hat{\mathbf{x}}) - \underline{\phi}(\hat{\mathbf{y}})\)
+<ul>
+<li>If saddle point exists, \(\mathrm{DG}(\hat{\mathbf{x}}, \hat{\mathbf{y}})\geq 0\), since \(\overline{\phi}(\hat{\mathbf{x}}) - \underline{\phi}(\hat{\mathbf{y}}) = (\overline{\phi}(\hat{\mathbf{x}}) - \min_{x} \overline{\phi}({\mathbf{x}})) + (\max \underline{\phi}({\mathbf{y}}) - \underline{\phi}(\hat{\mathbf{y}})) \geq 0\)</li>
+</ul>
+</li>
+<li>Iteratively update may not be successfull.
+<ul>
+<li><strong>Example</strong> \(\min_{x\in[-1,1]} \max_{y\in[-1,1]} xy\), \(x_0=1, y_0 = 1, x_1=-1, y_1 = -1,\ldots\).</li>
+</ul>
+</li>
+</ul>
+<h3><a id="gradient-descent-ascent-gda" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gradient Descent Ascent (GDA)</h3>
+<ul>
+<li><strong>Algorithm</strong> \(\mathbf{x}_{t+1}=\Pi_{\mathcal{X}}\left(\mathbf{x}_{t}-\gamma \nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)\right)\), \(\mathbf{y}_{t+1}=\Pi_{\mathcal{Y}}\left(\mathbf{y}_{t}+\gamma \nabla_{\mathbf{y}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)\right)\).</li>
+<li><strong>Not converging example</strong> \(\min_{x} \max_{y} xy\), \(x_{t+1} = x_{t} - \gamma y_{t}\), \(y_{t+1} = x_{t} + \gamma x_{t}\), \((x_{t+1}^2 + y_{t+1}^2) = (1+\gamma^2)(x_{t}^2 + y_{t}^2)\), saddle point \((0,0)\).</li>
+</ul>
+<h3><a id="strongly-convex-strongly-concave-sc-sc-setting" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Strongly-Convex-Strongly-Concave (SC-SC) Setting</h3>
+<ul>
+<li><strong>Assumption</strong> \(\mu\)-strongly convex in \(\mathbf{x}\) and \(\mu\)-strongly concave in \(\mathbf{y}\), gradient \(\nabla_{\mathbf{x}}f\) and \(\nabla_{\mathbf{y}}f\), \(L\)-Lipschitz smooth in \((\mathbf{x},\mathbf{y})\) separately.
+<ul>
+<li>Then saddle point is unique.</li>
+</ul>
+</li>
+<li><strong>Theorem 13.5</strong> In SC-SC setting, GDA with stepsize \(\eta&lt;\frac{\mu}{2 L^{2}}\) converges linearly, \(\lVert \mathbf{x}_{t+1}-\mathbf{x}^{*}\rVert ^{2}+\lVert \mathbf{y}_{t+1}-\mathbf{y}^{*}\rVert ^{2} \leq\left(1+4 \eta^{2} L^{2}-2 \eta \mu\right)\left(\lVert \mathbf{x}_{t}-\mathbf{x}^{*}\rVert ^{2}+\lVert \mathbf{y}_{t}-\mathbf{y}^{*}\rVert ^{2}\right)\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>By SC-SC, \(\left(\nabla_{\mathbf{x}} f(\mathbf{x}, \mathbf{y})-\nabla_{\mathbf{x}} f\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)\right)^{\top}\left(\mathbf{x}-\mathbf{x}^{*}\right)+\left(\nabla_{\mathbf{y}} f\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)-\nabla_{\mathbf{y}} f(\boldsymbol{x}, \boldsymbol{y})\right)^{\top}\left(\mathbf{y}-\mathbf{y}^{*}\right)\geq \mu\lVert \mathbf{x}-\mathbf{x}^{*}\rVert ^{2}+\mu\lVert \mathbf{y}-\mathbf{y}^{*}\rVert ^{2}\)</li>
+<li>By Lipschitz \(\lVert \nabla_{\mathbf{x}} f(\mathbf{x}, \mathbf{y})-\nabla_{\mathbf{x}} f\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)\rVert ^{2} \leq 2 L\lVert \mathbf{x}-\mathbf{x}^{*}\rVert ^{2}+2 L\lVert \mathbf{y}-\mathbf{y}^{*}\rVert ^{2}\) and \(\lVert \nabla_{\mathbf{y}} f(\mathbf{x}, \mathbf{y})-\nabla_{\mathbf{y}} f\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)\rVert ^{2} \leq 2 L\lVert \mathbf{x}-\mathbf{x}^{*}\rVert ^{2}+2 L\lVert \mathbf{y}-\mathbf{y}^{*}\rVert ^{2}\)</li>
+<li>Then \(\lVert \mathbf{x}_{t+1}-\mathbf{x}^{*}\rVert ^{2}+\lVert \mathbf{y}_{t+1}-\mathbf{y}^{*}\rVert ^{2} = \) \(\lVert \Pi_{X}\left(\mathbf{x}_{t}-\eta \nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)\right)-\Pi_{X}\left(\mathbf{x}^{*}-\eta \nabla_{\mathbf{x}} \phi\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)\right)\rVert ^{2}+\lVert \Pi_{Y}\left(\mathbf{y}_{t}+\eta \nabla_{\mathbf{y}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)\right)-\Pi_{Y}\left(\mathbf{y}^{*}+\eta \nabla_{\mathbf{y}} \phi\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)\right)\rVert ^{2}\) \(\leq \lVert \mathbf{x}_{t}-\eta \nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)-\mathbf{x}^{*}+\eta \nabla_{\mathbf{x}} \phi\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)\rVert ^{2} + \Vert  \mathbf{y}_{t}+\eta \nabla_{\mathbf{y}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)-\mathbf{y}^{*}-\eta \nabla_{\mathbf{y}} \phi\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)\Vert\) \(= \lVert \mathbf{x}_{t}-\mathbf{x}^{*}\rVert ^{2}+\eta^{2}\lVert \nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)-\nabla_{\mathbf{y}} \phi\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)\rVert ^{2}-2 \eta\left(\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)-\nabla_{\mathbf{y}} \phi\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)\right)^{\top}\left(\mathbf{x}_{t}-\mathbf{x}^{*}\right)+\) \(\lVert \mathbf{y}_{t}-\mathbf{y}^{*}\rVert ^{2}+\eta^{2}\lVert \nabla_{\mathbf{y}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)-\nabla_{\mathbf{y}} \phi\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)\rVert ^{2}-2 \eta\left(\nabla_{\mathbf{y}} \phi\left(\mathbf{x}^{*}, \mathbf{y}^{*}\right)-\nabla_{\mathbf{y}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)\right)^{\top}\left(\mathbf{y}_{t}-\mathbf{y}^{*}\right)\)</li>
+<li>Plug in the two inequality, we get the proof.</li>
+</ul>
+</li>
+<li>Setting \(\eta=\frac{\mu}{4 L^{2}}\), then \(\lVert \mathbf{x}_{T}-\mathbf{x}^{*}\rVert ^{2}+\lVert \mathbf{y}_{T}-\mathbf{y}^{*}\rVert ^{2} \leq\left(1-4 \mu^{2} / L^{2}\right)^{T}\left(\lVert \mathbf{x}_{0}-\mathbf{x}^{*}\rVert ^{2}+\lVert \mathbf{y}_{0}-\mathbf{y}^{*}\rVert ^{2}\right)\), complexity of \(\mathcal{O}\left(\kappa^{2} \log \frac{1}{\epsilon}\right)\).</li>
+</ul>
+</li>
+</ul>
+<h3><a id="extragradient-method-in-convex-concave-setting" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extragradient Method in Convex-Concave Setting</h3>
+<ul>
+<li><strong>Algorithm</strong>
+<ul>
+<li>\(\mathbf{x}_{t+\frac{1}{2}}=\Pi_{\mathcal{X}}\left(\mathbf{x}_{t}-\eta \nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)\right)\), \(\mathbf{y}_{t+\frac{1}{2}}=\Pi_{\mathcal{Y}}\left(\mathbf{y}_{t}+\eta \nabla_{\mathbf{y}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)\right)\),</li>
+<li>\(\mathbf{x}_{t+1}=\Pi_{\mathcal{X}}\left(\mathbf{x}_{t}-\eta \nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)\right)\), \(\mathbf{y}_{t+1}=\Pi_{\mathcal{Y}}\left(\mathbf{y}_{t}+\eta \nabla_{\mathbf{y}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)\right)\)</li>
+</ul>
+</li>
+<li><strong>Example</strong> \(\min_x \max_y xy\) gives \(x_{t+1} = x_{t} - \eta(y_{t}+\eta x_{t}), y_{t+1} = y_{t} + \eta(x_{t} - \eta y_{t})\),
+<ul>
+<li>then \(\Vert x_{t+1}\Vert ^2 + \Vert y_{t+1}\Vert ^2 = (1-\eta^2 + \eta^4)(\Vert x_{t}\Vert ^2 + \Vert y_{t}\Vert ^2)\)</li>
+</ul>
+</li>
+<li><strong>Theorem 13.6</strong> Assume \(\phi\) is convex-concave, \(L\)-Lipschitz smooth, \(\mathcal{X}\) has diameter \(D_{\mathcal{X}}\) and \(\mathcal{Y}\) has diameter \(D_{\mathcal{Y}}\), then ExtraGradient with stepsize \(\eta &lt; 1/2L\) satisfies \(\max _{\mathbf{y} \in \mathcal{Y}} \phi\left(\frac{1}{T} \sum_{t=1}^{T} \mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}\right)-\min _{\mathbf{x} \in \mathcal{X}} \phi\left(\mathbf{x}, \frac{1}{T} \sum_{t=1}^{T} \mathbf{y}_{t+\frac{1}{2}}\right) \leq \frac{D_{\mathcal{X}}^{2}+D_{\mathcal{Y}}^{2}}{2 \eta T}\).
+<ul>
+<li><strong>Proof</strong>
+<ul>
+<li>For complexity, we denote the unprojected point with \(\widetilde{\mathbf{x}}_{a}\), then \({\mathbf{x}}_{a} = \Pi_{\mathcal{X}}(\widetilde{\mathbf{x}}_{a})\).</li>
+<li>We deal with \(\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)^{\top}\left(\mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}\right)\) for arbitary \(\mathbf{x}\), by fact of \(\mathbf{x}_{t+\frac{1}{2}}-\mathbf{x} = (\mathbf{x}_{t+1}-\mathbf{x}) + (\mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t+1})\), we also need \(\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)\) as reference point, then
+<ul>
+<li>\(\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)^{\top}\left(\mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}\right)=\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)^{\top}\left(\mathbf{x}_{t+1}-\mathbf{x}\right)+\) \(\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)^{\top}\left(\mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t+1}\right)+\) \(\left(\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)-\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)\right)^{\top}\left(\mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t+1}\right)\)</li>
+</ul>
+</li>
+<li>We can bound each term,
+<ul>
+<li>\(\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)^{\top}\left(\mathbf{x}_{t+1}-\mathbf{x}\right)=\frac{1}{\eta}\left(\mathbf{x}_{t}-\widetilde{\mathbf{x}}_{t+1}\right)^{\top}\left(\mathbf{x}_{t+1}-\mathbf{x}\right)\) \(\leq \frac{1}{\eta}\left(\mathbf{x}_{t}-\mathbf{x}_{t+1}\right)^{\top}\left(\mathbf{x}_{t+1}-\mathbf{x}\right)\) \(=\frac{1}{2 \eta}\left[\lVert \mathbf{x}-\mathbf{x}_{t}\rVert ^{2}-\lVert \mathbf{x}-\mathbf{x}_{t+1}\rVert ^{2}-\lVert \mathbf{x}_{t}-\mathbf{x}_{t+1}\rVert ^{2}\right]\) by projection Fact 4.1</li>
+<li>\(\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)^{\top}\left(\mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t+1}\right)=\frac{1}{\eta}\left(\mathbf{x}_{t}-\widetilde{\mathbf{x}}_{t+\frac{1}{2}}\right)^{\top}\left(\mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t+1}\right)\) \(\leq \frac{1}{\eta}\left(\mathbf{x}_{t}-\mathbf{x}_{t+\frac{1}{2}}\right)^{\top}\left(\mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t+1}\right)\) \(=\frac{1}{2 \eta}\left[\lVert \mathbf{x}_{t+1}-\mathbf{x}_{t}\rVert ^{2}-\lVert \mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t+1}\rVert ^{2}-\lVert \mathbf{x}_{t}-\mathbf{x}_{t+\frac{1}{2}}\rVert ^{2}\right]\) by same reason,</li>
+<li>\(\left(\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)-\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)\right)^{\top}\left(\mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t+1}\right)\) \(\leq\lVert \nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)-\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t}, \mathbf{y}_{t}\right)\rVert \lVert \mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t+1}\rVert\) \(\leq L\left[\lVert \mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t}\rVert +\lVert \mathbf{y}_{t+\frac{1}{2}}-\mathbf{y}_{t}\rVert \right]\lVert \mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t+1}\rVert\) \(\leq \frac{L}{2}\lVert \mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t}\rVert ^{2}+\frac{L}{2}\lVert \mathbf{y}_{t+\frac{1}{2}}-\mathbf{y}_{t}\rVert ^{2}+L\lVert \mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t+1}\rVert ^{2}\) by smoothness and Young's equality</li>
+</ul>
+</li>
+<li>Add them togethoer and we get \(\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)^{\top}\left(\mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}\right)\) \(\leq \frac{2}{\eta}\left[\lVert \mathbf{x}_{t}-\mathbf{x}\rVert ^{2}-\lVert \mathbf{x}-\mathbf{x}_{t+1}\rVert ^{2}\right]+\left(L-\frac{1}{2 \eta}\right)\lVert \mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t+1}\rVert ^{2}+\) \(\left(\frac{L}{2}-\frac{1}{2 \eta}\right)\lVert \mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t}\rVert ^{2}+\frac{L}{2}\lVert \mathbf{y}_{t+\frac{1}{2}}-\mathbf{y}_{t}\rVert ^{2}\)</li>
+<li>Similarly \(-\nabla_{\mathbf{y}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)^{\top}\left(\mathbf{y}_{t+\frac{1}{2}}-\mathbf{y}\right)\) \(\leq \frac{2}{\eta}\left[\lVert \mathbf{y}_{t}-\mathbf{y}\rVert ^{2}-\lVert \mathbf{y}-\mathbf{y}_{t+1}\rVert ^{2}\right]+\left(L-\frac{1}{2 \eta}\right)\lVert \mathbf{y}_{t+\frac{1}{2}}-\mathbf{y}_{t+1}\rVert ^{2}+\) \(\left(\frac{L}{2}-\frac{1}{2 \eta}\right)\lVert \mathbf{y}_{t+\frac{1}{2}}-\mathbf{y}_{t}\rVert ^{2}+\frac{L}{2}\lVert \mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t}\rVert ^{2}\)</li>
+<li>Then \(\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)^{\top}\left(\mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}\right)-\nabla_{\mathbf{y}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)^{\top}\left(\mathbf{y}_{t+\frac{1}{2}}-\mathbf{y}\right)\) \(\leq \frac{2}{\eta}\left[\lVert \mathbf{x}_{t}-\mathbf{x}\rVert ^{2}-\lVert \mathbf{x}-\mathbf{x}_{t+1}\rVert ^{2}\right] +\) \(\frac{2}{\eta}\left[\lVert \mathbf{y}_{t}-\mathbf{y}\rVert ^{2}-\lVert \mathbf{y}-\mathbf{y}_{t+1}\rVert ^{2}\right] +\) \(\left(L-\frac{1}{2 \eta}\right)\left[\lVert \mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t+1}\rVert ^{2} + \lVert \mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}_{t}\rVert ^{2} + \lVert \mathbf{y}_{t+\frac{L}{2}}-\mathbf{y}_{t+1}\rVert ^{2} + \lVert \mathbf{y}_{t+\frac{1}{2}}-\mathbf{y}_{t}\rVert ^{2}\right]\)
+<ul>
+<li>choosing \(L \leq 1/2\eta\) we can ommit all \((L- 1/2\eta)\) term, and only leave the \(a_{t} - a_{t+1}\) like term.</li>
+</ul>
+</li>
+<li>We then use the convex concave condition, so that \(\phi\left(\frac{1}{T} \sum_{t=1}^{T} \mathbf{x}_{t}, \mathbf{y}\right)-\phi\left(\mathbf{x}, \frac{1}{T} \sum_{t=1}^{T} \mathbf{y}_{t}\right) \leq \frac{1}{T} \sum_{t=1}^{T} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}\right)-\phi\left(\mathbf{x}, \mathbf{y}_{t+\frac{1}{2}}\right)\) \(\leq \frac{1}{T} \sum_{t=1}^{T}-\nabla_{\mathbf{y}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)^{\top}\left(\mathbf{y}_{t+\frac{1}{2}}-\mathbf{y}\right)+\nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)^{\top}\left(\mathbf{x}_{t+\frac{1}{2}}-\mathbf{x}\right)\)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Remark</strong>
+<ul>
+<li>\(\mathcal{O}(\frac{1}{T})\) convergence rate for average iterates at <em>mid-point</em>, this rate is optimal with no further assumption [Ouyang and Xu, 2021].</li>
+<li>Can be extend to Bregman divergence, Mirror Prox.</li>
+<li>Best-iterate and last-iterate convergence rate of \(\mathcal{O}(\frac{1}{\sqrt{T}})\) for primal-dual gap [Yang et al., 2022]. This is the lower bound by EG [Golowich et al., 2020].</li>
+</ul>
+</li>
+<li><strong>Theorem 12.7 (Mokhtari et al., 2020)</strong> In SC-SC setting, EG with stepsize \(\eta = 1/8L\) converges linearly, \(\lVert \mathbf{x}_{t+1}-\mathbf{x}^{*}\rVert ^{2}+\lVert \mathbf{y}_{t+1}-\mathbf{y}^{*}\rVert ^{2} \leq\left(1-\frac{\mu}{4 L}\right)\left\{\lVert \mathbf{x}_{t}-\mathbf{x}^{*}\rVert ^{2}+\lVert \mathbf{y}_{t}-\mathbf{y}^{*}\rVert ^{2}\right\}\)
+<ul>
+<li><strong>Remark</strong> This \(O\left(\kappa \log \frac{1}{\epsilon}\right)\) complexity is optimal for SC-SC setting [Zhang et al., 2021]</li>
+</ul>
+</li>
+</ul>
+<h3><a id="optimistic-gda-ogda-past-eg-popov-1980" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optimistic GDA (OGDA, Past EG [Popov, 1980])</h3>
+<ul>
+<li><strong>Algorithm</strong>
+<ul>
+<li>\(\mathbf{x}_{t+\frac{1}{2}}=\Pi_{\mathcal{X}}\left(\mathbf{x}_{t}-\eta \nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t-\frac{1}{2}}, \mathbf{y}_{t-\frac{1}{2}}\right)\right)\), \(\mathbf{y}_{t+\frac{1}{2}}=\Pi_{\mathcal{Y}}\left(\mathbf{y}_{t}+\eta \nabla_{\mathbf{y}} \phi\left(\mathbf{x}_{t-\frac{1}{2}}, \mathbf{y}_{t-\frac{1}{2}}\right)\right)\)</li>
+<li>\(\mathbf{x}_{t+1}=\Pi_{\mathcal{X}}\left(\mathbf{x}_{t}-\eta \nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)\right)\), \(\mathbf{y}_{t+1}=\Pi_{\mathcal{Y}}\left(\mathbf{y}_{t}+\eta \nabla_{\mathbf{y}} \phi\left(\mathbf{x}_{t+\frac{1}{2}}, \mathbf{y}_{t+\frac{1}{2}}\right)\right)\)</li>
+</ul>
+</li>
+<li>If we ignore projection, equivalently we have \(\omega_{t+\frac{1}{2}} = \omega_{t} - \eta F(\omega_{t-\frac{1}{2}}) =\) \(\omega_{t-\frac{1}{2}} + (\omega_{t} - \omega_{t-1}) + (\omega_{t-1} - \omega_{t-\frac{1}{2}})- \eta F(\omega_{t-\frac{1}{2}})\) \(= \omega_{t-\frac{1}{2}} - 2 \eta F(\omega_{t-\frac{1}{2}}) + \eta F(\omega_{t-\frac{3}{2}})\)
+<ul>
+<li>reformulate as \(\omega_{t+1}  = \omega_{t}- 2 \eta F(\omega_{t}) + \eta F(\omega_{t-1}) = \omega_{t} - \eta \left( F(\omega_{t}) - (F(\omega_{t-1}) - F(\omega_{t})) \right)\), negative momentum</li>
+</ul>
+</li>
+<li>Query gradient only once each iteration, comparing with extra-gradient</li>
+<li>similar convergence guarantees as EG for SC-SC and C-C setting.</li>
+</ul>
+<h3><a id="proximal-point-algorithm-ppa" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Proximal Point Algorithm (PPA)</h3>
+<ul>
+<li>\(\left(\mathbf{x}_{t+1}, \mathbf{y}_{t+1}\right) \leftarrow \underset{\mathbf{x} \in \mathcal{X}}{\operatorname{argmin}} \underset{\mathbf{y} \in \mathcal{Y}}{\operatorname{argmax}}\left\{\phi(\mathbf{x}, \mathbf{y})+\frac{1}{2 \eta}\lVert \mathbf{x}-\mathbf{x}_{t}\rVert ^{2}-\frac{1}{2 \eta}\lVert \mathbf{y}-\mathbf{y}_{t}\rVert ^{2}\right\}\)</li>
+<li>The problem of \(\phi=x^{\top}y\) gives \(x_{t+1} = \frac{x_{t} - \eta y_{t}}{1+\eta^2}, y_{t+1} = \frac{y_{t} + \eta x_{t}}{1+\eta^2}\), \(\Vert x_{t+1}\Vert ^2 + \Vert y_{t+1}\Vert ^2 = \frac{1}{1+\eta^2}(\Vert x_{t}\Vert ^2 + \Vert y_{t}\Vert ^2)\), converge.</li>
+<li>PPA has been shown to converge with \(\mathcal{O}(1 / T)\) rate in convex-concave case.</li>
+<li>Implicit update of PPA \(\mathbf{x}_{t+1}=\Pi_{\mathcal{X}}\left(\mathbf{x}_{t}-\eta \nabla_{\mathbf{x}} \phi\left(\mathbf{x}_{t+1}, \mathbf{y}_{t+1}\right)\right)\), \(\mathbf{y}_{t+1}=\Pi_{\mathcal{Y}}\left(\mathbf{y}_{t}+\eta \nabla_{\mathbf{y}} \phi\left(\mathbf{x}_{t+1}, \mathbf{y}_{t+1}\right)\right)\)
+<ul>
+<li>EG and OGDA can be viewed as approximate PPA with arror \(\mathbf{z}_{t+1}=\Pi_{\mathcal{Z}}\left(\mathbf{z}_{t}-\eta F\left(\mathbf{z}_{t+1}\right)+\epsilon_{t}\right)\)</li>
+<li>EG: \(\epsilon_{t}=\eta\left[F\left(\mathbf{z}_{t+1}\right)-F\left(\mathbf{z}_{t+\frac{1}{2}}\right)\right]\), OGDA: \(\epsilon_{t}=\eta\left[\left(F\left(\mathbf{z}_{t+1}\right)-F\left(\mathbf{z}_{t}\right)\right)-\left(F\left(\mathbf{z}_{t}\right)-F\left(\mathbf{z}_{t-1}\right)\right)\right]\).</li>
+</ul>
+</li>
+</ul>
+<h2><a id="concave-games" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Concave Games</h2>
+<ul>
+<li><strong>Definition</strong>
+<ul>
+<li>Finite number of players, \(i \in \mathcal{N}=\{1, \cdots, N\}\),</li>
+<li>action profile \(\mathbf{x}=\left(\mathbf{x}_{i}, \mathbf{x}_{-i}\right)=\left(\mathbf{x}_{1}, \cdots, \mathbf{x}_{N}\right) \in \mathcal{X}=\prod_{i} \mathcal{X}_{i}\), where \(\mathcal{X}_{i}\)  is a compact convex subset  \(\mathbb{R}^{d_{i}}\) and \(\mathbf{x}_{i} \in \mathcal{X}_{i}\) is the action of player \(i\),</li>
+<li>Payoff (or utility) function \(u_{i}: \mathcal{X} \rightarrow \mathbb{R}\), (which player \(i\) want to maximize)</li>
+</ul>
+</li>
+<li><strong>Assumption</strong> \(u_{i}\left(\mathbf{x}_{i}, \mathbf{x}-i\right)\) is concave in \(\mathbf{x}_{i}\)</li>
+<li><strong>Definition of Nash equilibrium</strong> The action profile \(x^{*} \in \mathcal{X}\)that is resilient to unilateral derivations, which means \(u_{i}\left(\mathbf{x}_{i}^{*}, \mathbf{x}_{-i}^{*}\right) \geq u_{i}\left(\mathbf{x}_{i}, \mathbf{x}_{-i}^{*}\right), \forall \mathbf{x}_{i} \in \mathcal{X}_{i}, i \in \mathcal{N}\).</li>
+<li><strong>Existence theorem [Debreu, 1952]</strong> every concave game admits a Nash equilibrium.</li>
+<li><strong>First-order characterization</strong> \(\left\langle\nabla_{i} u_{i}\left(\mathbf{x}_{i}^{*}, \mathbf{x}_{-i}^{*}\right), \mathbf{x}_{i}-\mathbf{x}_{i}^{*}\right\rangle \leq 0, \; \forall \mathbf{x}_{i} \in \mathcal{X}_{i}\)</li>
+</ul>
+<h2><a id="variational-inequalites" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variational Inequalites</h2>
+<ul>
+<li><strong>Definition</strong> Let \(\mathcal{Z} \subset \mathbb{R}^{d}\) be a nonempty subset and consider a mapping \(F: \mathcal{Z} \rightarrow \mathbb{R}^{d}\), then <em>variational inequality problem (VI)</em> is to find \(\mathbf{z}^{*} \in \mathcal{Z}\) such that \(\left\langle F\left(\mathbf{z}^{*}\right), \mathbf{z}-\mathbf{z}^{*}\right\rangle \geq 0, \; \forall \mathbf{z} \in \mathcal{Z}\).
+<ul>
+<li>This is not just optimization problem, \(F\) can be any vector field.</li>
+</ul>
+</li>
+<li><strong>Existence [Stampacchia, 1966]</strong>  If \(\mathcal{Z}\) is a nonempty convex compact subset of \(\mathbb{R}^{d}\) and \(F: \mathcal{Z} \rightarrow \mathbb{R}^{d}\) is continuous, then there exists a solution \(z^{*}\) to (VI).
+<ul>
+<li><strong>Note</strong> compactness can be replaced by a <em>coercivitiy condition</em> and the result can be generalized toa set valued mapping \(F\).</li>
+</ul>
+</li>
+</ul>
+<h3><a id="vi-with-monotone-operator" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>VI with monotone operator</h3>
+<ul>
+<li><strong>Definition</strong> \(F: \mathcal{Z} \rightarrow \mathbb{R}^{d}\) is
+<ul>
+<li><em>monotone</em> if \(\langle F(\mathbf{u})-F(\mathbf{v}), \mathbf{u}-\mathbf{v}\rangle \geq 0, \; \forall \mathbf{u}, \mathbf{v} \in \mathcal{Z}\),</li>
+<li><em>\(\mu\)-strongly-monotone</em> if \(\langle F(\mathbf{u})-F(\mathbf{v}), \mathbf{u}-\mathbf{v}\rangle \geq \mu\Vert \mathbf{u}-\mathbf{v}\Vert ^{2}, \; \forall \mathbf{u}, \mathbf{v} \in \mathcal{Z}\)</li>
+</ul>
+</li>
+<li><strong>Definition</strong>
+<ul>
+<li>The <em>(strong) solution (of Stampacchia VI)</em> is to find \(\mathbf{z}^{*} \in \mathcal{Z}\) s.t. \(\left\langle F\left(\mathbf{z}^{*}\right), \mathbf{z}-\mathbf{z}^{*}\right\rangle \geq 0 \forall \mathbf{z} \in \mathcal{Z}\)</li>
+<li>The <em>Weak solution (of Minty VI)</em> is to find \(\mathbf{z}^{*} \in \mathcal{Z}\) s.t. \(\left\langle F(\mathbf{z}), \mathbf{z}-\mathbf{z}^{*}\right\rangle \geq 0 \forall \mathbf{z} \in \mathcal{Z}\).</li>
+</ul>
+</li>
+<li>If \(F\) monotone, then strong solution is also a weak solution since
+<ul>
+<li>\(\left\langle F(\mathbf{z}) - F(\mathbf{z}^{*}), \mathbf{z}-\mathbf{z}^{*}\right\rangle \geq 0\), then \(\left\langle F(\mathbf{z}), \mathbf{z}-\mathbf{z}^{*}\right\rangle = \left\langle F\left(\mathbf{z}^{*}\right), \mathbf{z}-\mathbf{z}^{*}\right\rangle + \left\langle F(\mathbf{z}) - F(\mathbf{z}^{*}), \mathbf{z}-\mathbf{z}^{*}\right\rangle \geq 0\)</li>
+</ul>
+</li>
+<li>If \(F\) continuous, then a weak solution is also a strong solution, let \(\mathbf{z} = \mathbf{z}^{*} + \lambda \mathbf{d}\), if there is a open ball inside \(\mathcal{~}\), then this is provable.</li>
+<li>We use \(\epsilon_{\mathrm{VI}}(\hat{\mathbf{z}}):=\max _{\mathbf{z} \in \mathcal{Z}}\left\langle F(\mathbf{z}), \hat{\mathbf{z}}-\mathbf{z}\right\rangle\) to measure the inaccuracy of a solution \(\hat{\mathbf{z}}\).</li>
+<li>VI is a generality over a wide range of problems
+<ul>
+<li><em>Convex minimization</em> \(F=\nabla f\), with \(f\) convex</li>
+<li><em>Min-Max</em> \(F=\left(\nabla_{\mathbf{x}} \phi,-\nabla_{\mathbf{y}} \phi\right)\), solution exists only when saddle point exists.</li>
+<li><em>Concave or monotone games</em> \(F(\mathbf{z})=\left(-\nabla_{i} u_{i}\left(\mathbf{z}_{i}, \mathbf{z}_{-i}\right)\right)_{i \in \mathcal{N}}\)</li>
+</ul>
+</li>
+<li>Some possible assumptions
+<ul>
+<li>\(\mathcal{Z}\) is a closed convex subset of \(\mathbb{R}^d\)</li>
+<li>Solution of VI exists</li>
+<li>Mapping \(F\) is monotone</li>
+<li>\(F\) also Lipschitz continuous, \(\Vert F(\mathbf{u})-F(\mathbf{v})\Vert  \leq L\Vert \mathbf{u}-\mathbf{v}\Vert , \quad \forall \mathbf{u}, \mathbf{v} \in \mathcal{Z}\).</li>
+</ul>
+</li>
+<li><strong>Extragradient Algorithm</strong> first \(\tilde{\mathbf{z}}_{t+1}=\Pi_{\mathcal{Z}}\left(\mathbf{z}_{t}-\eta_{t} F\left(\mathbf{z}_{t}\right)\right)\), then \(\mathbf{z}_{t+1}=\Pi_{\mathcal{Z}}\left(\mathbf{z}_{t}-\eta_{t} F\left(\tilde{\mathbf{z}}_{t+1}\right)\right)\).</li>
+<li><strong>Theorem 13.8 (Nemirovski, 2004)</strong> If \(F\) nibitibe and \(L\)-Lipschitz, and other previous assumption hold, then setting \(\eta_{t}=\eta=\frac{1}{\sqrt{2} L}\) and EG gives \(\max _{\mathbf{z} \in \mathcal{Z}}\left\langle F(\mathbf{z}), \frac{1}{T} \sum_{t=1}^{T} \tilde{\mathbf{z}}_{t}-\mathbf{z}\right\rangle \leq \frac{\sqrt{2} L D_{\mathcal{Z}}^{2}}{T}\), where \(D_{\mathcal{Z}}=\max _{\mathbf{z}, \mathbf{z}^{\prime}}\lVert \mathbf{z}-\mathbf{z}^{\prime}\rVert _{2}\) is the 2-norm diameter of \(\mathcal{Z}\).</li>
+<li><strong>Algorithm for VI</strong>
+<ul>
+<li><em>GDA</em> \(\mathbf{z}_{t+1}=\mathbf{z}_{t}-\eta_{t} F\left(\mathbf{z}_{t}\right)\)</li>
+<li><em>PPA</em> \(\mathbf{Z}_{t+1}=\mathbf{Z}_{t}-\eta_{t} F\left(\mathbf{Z}_{t+1}\right)\)</li>
+<li><em>OGDA</em> \(\mathbf{z}_{t+1}=\mathbf{z}_{t}-\eta_{t}\left(2 F\left(\mathbf{z}_{t}\right)-F\left(\mathbf{z}_{t-1}\right)\right)\)</li>
+<li><em>Reflected Gradient</em> \(\mathbf{z}_{t+1}=\mathbf{z}_{t}-\eta_{t} F\left(2 \mathbf{z}_{t}-\mathbf{z}_{t-1}\right)\)</li>
+<li><em>Halpern iteration</em> \(\mathbf{z}_{t+1}=\lambda_{k} \mathbf{z}_{0}+\left(1-\lambda_{k}\right)\left(\mathbf{z}_{t}-\eta_{t} F\left(\mathbf{z}_{t}\right)\right)\), use \(\mathbf{z}_0\) as arching, this gives last iterate convergence.</li>
+</ul>
+</li>
+</ul>
+</div></body></html>

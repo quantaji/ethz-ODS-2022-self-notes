@@ -829,7 +829,17 @@ body{ box-sizing: border-box;
 </li>
 <li><strong>Lemma Exercise 74.1</strong> If \(f\) convex, \(\mathbf{y}^{\top} \sigma&gt;0\), unless \(\mathbf{x}_{t}=\mathbf{x}_{t-1}\) or \(f\left(\lambda \mathbf{x}_{t}+(1-\lambda) \mathbf{x}_{t-1}\right)=\lambda f\left(\mathbf{x}_{t}\right)+(1-\lambda) f\left(\mathbf{x}_{t-1}\right)\) for all \(\lambda \in(0,1)\).
 <ul>
-<li><strong>Proof</strong> By property of convexity \(\mathbf{y}^{\top} \sigma = (\nabla f\left(\mathbf{x}_{t}\right)-\nabla f\left(\mathbf{x}_{t-1}\right))^{\top}(\mathbf{x}_{t}-\mathbf{x}_{t-1}) \geq 0\)</li>
+<li><strong>Proof</strong>
+<ul>
+<li>By property of convexity \(\mathbf{y}^{\top} \sigma = (\nabla f\left(\mathbf{x}_{t}\right)-\nabla f\left(\mathbf{x}_{t-1}\right))^{\top}(\mathbf{x}_{t}-\mathbf{x}_{t-1}) \geq 0\)</li>
+<li>If \((\nabla f\left(\mathbf{x}_{t}\right)-\nabla f\left(\mathbf{x}_{t-1}\right))^{\top}(\mathbf{x}_{t}-\mathbf{x}_{t-1})=0\) while \(\exists \lambda\) s.t. \(f\left(\lambda \mathbf{x}_{t}+(1-\lambda) \mathbf{x}_{t-1}\right) &lt; \lambda f\left(\mathbf{x}_{t}\right)+(1-\lambda) f\left(\mathbf{x}_{t-1}\right)\),
+<ul>
+<li>then by convexity \(f\left(\lambda \mathbf{x}_{t}+(1-\lambda) \mathbf{x}_{t-1}\right) \geq f(\mathbf{x}_{t-1}) + \lambda \nabla f(\mathbf{x}_{t-1})^{\top}(\mathbf{x}_{t} - \mathbf{x}_{t-1})\) this means \(f(\mathbf{x}_{t}) - f(\mathbf{x}_{t-1}) &gt; \nabla f(\mathbf{x}_{t-1})^{\top}(\mathbf{x}_{t} - \mathbf{x}_{t-1})\), similarly \(f(\mathbf{x}_{t-1}) - f(\mathbf{x}_{t}) &gt; \nabla f(\mathbf{x}_{t})^{\top}(\mathbf{x}_{t-1} - \mathbf{x}_{t})\)</li>
+<li>add them together, we get \((\nabla f\left(\mathbf{x}_{t}\right)-\nabla f\left(\mathbf{x}_{t-1}\right))^{\top}(\mathbf{x}_{t}-\mathbf{x}_{t-1})&gt;0\) contradiction.</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><strong>Observation 11.6</strong> \(H^{\prime}=\left(I-\frac{\boldsymbol{\sigma} \mathbf{y}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\right) H\left(I-\frac{\mathbf{y} \boldsymbol{\sigma}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\right)+\frac{\boldsymbol{\sigma} \boldsymbol{\sigma}^{\top}}{\mathbf{y}^{\top} \boldsymbol{\sigma}}\)
